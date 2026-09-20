@@ -1,0 +1,17 @@
+# OS metadata & temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+
+# Strict quarantine: ensure no code or build artifacts leak into the showcase repository
+node_modules/
+dist/
+dist-electron/
+build/
+*.exe
+*.msi
+*.appx
+*.env
+*.env.local
