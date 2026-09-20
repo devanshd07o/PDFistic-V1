@@ -6,7 +6,8 @@
 
   <img src="assets/logo.png" alt="PDFistic Icon" width="84" height="84" style="border-radius: 20px;" />
 
-  # PDFistic
+   # PDFistic
+## <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare">DOWNLOAD</a> 
 
   ### The Privacy-First, Agentic Document Intelligence Platform & Desktop PDF Workspace
 
