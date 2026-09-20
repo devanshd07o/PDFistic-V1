@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/banner.webp" alt="PDFistic Banner" width="100%" style="border-radius: 12px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);" />
+  <img src="assets/store_listing_card.png" alt="PDFistic Microsoft Store Listing" width="100%" style="border-radius: 12px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);" />
 
   <br/><br/>
 
@@ -11,7 +11,7 @@
   ### The Privacy-First, Agentic Document Intelligence Platform & Desktop PDF Workspace
 
   <p align="center">
-    <a href="https://github.com/devanshd07o/PDFistic-V1"><img src="https://img.shields.io/badge/Status-Private_Beta_·_Coming_Soon-6366f1?style=for-the-badge&labelColor=0f172a" alt="Status" /></a>
+    <a href="https://github.com/devanshd07o/PDFistic-V1"><img src="https://img.shields.io/badge/Status-Published_on_Microsoft_Store-0078d4?style=for-the-badge&logo=windows&logoColor=white" alt="Microsoft Store" /></a>
     <a href="#privacy--security-philosophy"><img src="https://img.shields.io/badge/Privacy-Zero_Cloud_Leak-10b981?style=for-the-badge&labelColor=0f172a" alt="Privacy" /></a>
     <a href="#signature-feature-spotlight"><img src="https://img.shields.io/badge/Protocol-MCP_Embedded_Server-f59e0b?style=for-the-badge&labelColor=0f172a" alt="MCP" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3b82f6?style=for-the-badge&labelColor=0f172a" alt="License" /></a>
@@ -27,6 +27,7 @@
     <a href="#deep-dive-engine--architecture">Architecture</a> •
     <a href="#signature-feature-spotlight">Signature Features</a> •
     <a href="#privacy--security-philosophy">Privacy & Security</a> •
+    <a href="#developer--store-verification">Store Verification</a> •
     <a href="#release-timeline--roadmap">Roadmap</a>
   </p>
 
@@ -37,8 +38,8 @@
 <br/>
 
 <div align="center">
-  <img src="assets/hero-mockup.webp" alt="PDFistic Workspace UI" width="92%" style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);" />
-  <p><em>Obsidian-clean, high-density desktop workspace designed for deep document interaction.</em></p>
+  <img src="assets/screenshot_workspace.png" alt="PDFistic Workspace UI" width="94%" style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);" />
+  <p><em>Official Microsoft Store Showcase: Multi-file workspace with on-device recent documents and smart reading assistant.</em></p>
 </div>
 
 <br/>
@@ -127,7 +128,8 @@ flowchart TD
 ## Signature Feature Spotlight
 
 <div align="center">
-  <img src="assets/screenshot-1.webp" alt="PDFistic AI Panel & Features" width="92%" style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);" />
+  <img src="assets/screenshot_chat.png" alt="PDFistic Conversational AI & Summaries" width="94%" style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);" />
+  <p><em>Real Document Intelligence: Active page summaries, LaTeX formulas, quiz generation, and glossary extraction.</em></p>
 </div>
 
 <br/>
@@ -143,12 +145,6 @@ Rather than returning flat markdown walls, PDFistic's AI assistant dispatches st
 - **Dynamic HTML/CSS/JS Previews:** Complex user flows, animated explanations, and interactive UI mockups render inside isolated `iframe srcdoc` sandboxes using dynamic `ResizeObserver` height tracking.
 - **Native Data & Geospatial Blocks:** Apache ECharts render interactive financial/scientific charts, React-Leaflet displays interactive maps from coordinates, and Mermaid.js compiles live system flowcharts.
 - **KaTeX & Chemical Notation:** Fully compliant LaTeX math equations and chemical formulas with `mhchem` support.
-
-<div align="center">
-  <img src="assets/screenshot-2.webp" alt="PDFistic Reading & Annotation Experience" width="92%" style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);" />
-</div>
-
-<br/>
 
 ### 3. Acrobat-Grade Document Workspace
 - **Multi-Tab Engine:** Complete document state serialization caching zoom, active pages, scroll offsets, pen strokes, and AI dialogues.
@@ -171,6 +167,22 @@ PDFistic is engineered under a strict **Zero-Trust, Local-First** paradigm:
 
 ---
 
+## Developer & Store Verification
+
+PDFistic is verified and officially published on the Microsoft Store for Windows 10 & 11:
+
+<div align="center">
+  <img src="assets/store_developer_info.png" alt="Microsoft Store Developer Verification" width="88%" style="border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08);" />
+</div>
+
+- **Developer:** Devansh Dubey
+- **Publisher:** PDFistic © 2026 PDFistic
+- **Category:** Productivity (Uses AI Features)
+- **Official Release Date:** June 17, 2026
+- **Distribution Package:** Windows MSIX / AppX
+
+---
+
 ## Release Timeline & Roadmap
 
 - [x] **v1.0 Core Engine:** PDF.js canvas virtualizer, Electron architecture, and native toolbar.
@@ -187,5 +199,5 @@ PDFistic is engineered under a strict **Zero-Trust, Local-First** paradigm:
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
 
 <div align="center">
-  <sub>Crafted with precision by <a href="https://github.com/devanshd07o">Devansh</a> & the PDFistic Engineering Community.</sub>
+  <sub>Crafted with precision by <a href="https://github.com/devanshd07o">Devansh Dubey</a> & the PDFistic Community.</sub>
 </div>
