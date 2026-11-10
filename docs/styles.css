@@ -770,6 +770,7 @@ body.nav-menu-open .nav-container:hover {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 998;
+  touch-action: none;
   opacity: 0;
   visibility: hidden;
   transition: opacity 200ms ease, visibility 200ms ease;
@@ -5976,8 +5977,16 @@ aside.toc-sidebar {
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  color: #FCA5A5;
+  color: #D8C9AE;
   min-height: 20px;
+}
+
+.contact-form-status[data-tone="success"] {
+  color: #86EFAC;
+}
+
+.contact-form-status[data-tone="error"] {
+  color: #FCA5A5;
 }
 
 .galaxy-contact-form label {
@@ -6095,15 +6104,24 @@ aside.toc-sidebar {
   margin-top: 4px;
 }
 
-.galaxy-contact-form .galaxy-submit {
-  min-height: 48px;
-  padding: 13px 28px;
+.contact-card .galaxy-contact-form .galaxy-submit {
+  min-height: 46px;
+  padding: 11px 26px;
   border-radius: 9999px;
-  gap: 12px;
+  gap: 10px;
 }
+.galaxy-contact-form .galaxy-submit[disabled] {
+  opacity: 0.68;
+  cursor: wait;
+}
+.galaxy-contact-form .galaxy-alt-btn,
 .galaxy-contact-form .galaxy-copy-email {
-  min-height: 48px;
-  padding: 12px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 46px;
+  padding: 11px 18px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.06);
   color: #FAF7F2;
@@ -6114,16 +6132,19 @@ aside.toc-sidebar {
   cursor: pointer;
   transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
+.galaxy-contact-form .galaxy-alt-btn:hover,
 .galaxy-contact-form .galaxy-copy-email:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(248, 113, 113, 0.55);
   transform: translateY(-1px);
 }
-.galaxy-contact-form .galaxy-submit .submit-arrow {
+.galaxy-contact-form .galaxy-submit .submit-arrow,
+.galaxy-contact-form .galaxy-alt-btn .submit-arrow {
   display: inline-block;
   transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.galaxy-contact-form .galaxy-submit:hover .submit-arrow {
+.galaxy-contact-form .galaxy-submit:hover .submit-arrow,
+.galaxy-contact-form .galaxy-alt-btn:hover .submit-arrow {
   transform: translate(2px, -2px);
 }
 .contact-grid > .contact-card:not(.contact-form-card) { min-width: 0; }
@@ -6183,6 +6204,7 @@ aside.toc-sidebar {
   .galaxy-contact-form label { margin-top: 4px; }
   .galaxy-contact-form .contact-form-actions { grid-column: auto; flex-direction: column; align-items: stretch; }
   .galaxy-contact-form .galaxy-submit,
+  .galaxy-contact-form .galaxy-alt-btn,
   .galaxy-contact-form .galaxy-copy-email { width: 100%; justify-content: center; }
   .contact-message-field { grid-column: auto; }
   .publisher-meta-list { grid-template-columns: minmax(0, 1fr); }
@@ -6589,9 +6611,15 @@ footer.footer::after {
 
 /* ==================== COMPREHENSIVE RESPONSIVE DESIGN ==================== */
 
-/* Body locking when mobile navigation menu is open */
-body.nav-menu-open {
+/* Root viewport scroll lock when mobile navigation menu is open.
+   Avoid overflow:hidden on body because it breaks position:sticky on header.site-header. */
+html.nav-menu-open {
   overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body.nav-menu-open header.site-header {
+  z-index: 1002;
 }
 
 /* Tablet & Mobile Breakpoint (<= 992px) */
@@ -6602,7 +6630,7 @@ body.nav-menu-open {
 
   .nav-links {
     position: fixed;
-    top: 78px;
+    top: var(--mobile-drawer-top, 82px);
     left: 16px;
     right: 16px;
     background: var(--bg-cream-card);
@@ -6613,14 +6641,15 @@ body.nav-menu-open {
     flex-direction: column;
     align-items: stretch;
     gap: 4px;
-    z-index: 1001;
+    z-index: 1003;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 200ms ease, transform 200ms ease, visibility 0s 200ms;
     pointer-events: none;
-    max-height: calc(100vh - 96px);
+    max-height: calc(100vh - var(--mobile-drawer-top, 82px) - 16px);
     overflow-y: auto;
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
 

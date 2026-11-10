@@ -8,6 +8,7 @@
 
   <p>
     <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare"><img src="https://img.shields.io/badge/Microsoft_Store-Download_Free-990302?style=for-the-badge&logo=windows&logoColor=white" alt="Download on Microsoft Store" /></a>
+    <a href="https://devanshd07o.github.io/PDFistic-V1/"><img src="https://img.shields.io/badge/Website-Live_Preview-1c1f24?style=for-the-badge" alt="Live Website" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-1c1f24?style=for-the-badge" alt="Apache 2.0 License" /></a>
   </p>
 
@@ -95,7 +96,7 @@ PDFistic is a lightweight, offline-first PDF and EPUB reader for **Windows 10 an
 
 ## Contact & Links
 
-- **Website:** [Home](docs/index.html) &middot; [Privacy Policy](docs/privacy.html) &middot; [Terms of Service](docs/terms.html) &middot; [Support & FAQ](docs/support.html) &middot; [Contact](docs/contact.html)
+- **Website:** [Home](https://devanshd07o.github.io/PDFistic-V1/) &middot; [Privacy Policy](https://devanshd07o.github.io/PDFistic-V1/privacy.html) &middot; [Terms of Service](https://devanshd07o.github.io/PDFistic-V1/terms.html) &middot; [Support & FAQ](https://devanshd07o.github.io/PDFistic-V1/support.html) &middot; [Contact](https://devanshd07o.github.io/PDFistic-V1/contact.html)
 - **Email:** devanshd07o@gmail.com
 - **Bug Reports:** [GitHub Issues](https://github.com/devanshd07o/PDFistic-V1/issues)
 - **LinkedIn:** [Devansh Dubey](https://www.linkedin.com/in/devansh-dubey-aa802b305/)

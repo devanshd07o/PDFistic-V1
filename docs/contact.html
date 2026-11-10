@@ -6,8 +6,8 @@
   <title>Contact Information - PDFistic</title>
   <meta name="description" content="Official developer and customer support contact channels for PDFistic desktop application.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261110k">
+  <script src="script.js?v=20261110i" defer></script>
   <script src="venom-button.js" defer></script>
 </head>
 <body>
@@ -107,8 +107,8 @@
           <section class="uiverse-card uiverse-card--subtle contact-card contact-form-card" aria-labelledby="contact-form-title">
             <div class="uiverse-card-info contact-form-inner">
               <h2 id="contact-form-title">Send a message</h2>
-              <p>Draft your message below to open your email app addressed to the developer, or copy the address directly.</p>
-              <form class="galaxy-contact-form" action="mailto:devanshd07o@gmail.com" method="post" enctype="text/plain">
+              <p>Send directly to the developer's inbox below (default), or open your draft in Gmail or Outlook / Mail app.</p>
+              <form class="galaxy-contact-form" action="https://formsubmit.co/devanshd07o@gmail.com" method="post">
                 <div class="contact-field">
                   <label for="contact-name">Your name</label>
                   <div class="uiverse-input-box">
@@ -154,11 +154,19 @@
                 </div>
                 <div class="contact-form-actions">
                   <button class="btn btn-cream-primary galaxy-submit" type="submit">
-                    <span>Continue to email</span>
+                    <span>Send message</span>
+                    <span class="submit-arrow" aria-hidden="true">→</span>
+                  </button>
+                  <button class="galaxy-alt-btn js-send-gmail" type="button">
+                    <span>Open in Gmail</span>
+                    <span class="submit-arrow" aria-hidden="true">↗</span>
+                  </button>
+                  <button class="galaxy-alt-btn js-send-mailto" type="button">
+                    <span>Outlook / Mail app</span>
                     <span class="submit-arrow" aria-hidden="true">↗</span>
                   </button>
                   <button class="galaxy-copy-email js-copy-email" type="button" data-email="devanshd07o@gmail.com">
-                    Copy email address
+                    Copy email
                   </button>
                 </div>
                 <div class="contact-form-status" role="status" aria-live="polite"></div>

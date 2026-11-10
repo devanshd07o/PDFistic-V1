@@ -1,0 +1,978 @@
+/* Shared stylesheet for Privacy Policy, Terms of Service, and Support & FAQ. */
+
+html:has(body.page-document) {
+  background-color: var(--bg-cream-page);
+}
+
+body.page-document {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+/* From Uiverse.io by kennyotsu (Patterns/kennyotsu_short-warthog-33.html) */
+/* Adapted to dark dots on page cream outside the sheet with top/bottom mask fade. */
+body.page-document::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 14%,
+    rgba(0, 0, 0, 1) 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 14%,
+    rgba(0, 0, 0, 1) 86%,
+    transparent 100%
+  );
+}
+
+/* Scoped inside .doc-page so navbar and dark footer variables never shift. */
+body.page-document .doc-page {
+  --bg: var(--bg-cream-page);
+  --surface: #FFFFFF;
+  --text: var(--text-primary);
+  --muted: var(--charcoal-base);
+  --border: var(--sand-border);
+  --red: var(--accent-crimson);
+  --doc-red-muted: #9E2A2B;
+  --doc-body-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --doc-marker: linear-gradient(90deg, rgba(253, 224, 71, 0.56) 0%, rgba(253, 224, 71, 0.4) 100%);
+  --doc-nav-offset: 104px;
+  display: block;
+  padding: 40px 24px 96px;
+}
+
+/* Disable landing-page kinetic animations inside document pages. */
+body.page-document .doc-title,
+body.page-document .doc-subline,
+body.page-document .doc-version-meta {
+  animation: none;
+}
+
+body.page-document .doc-section h2::after {
+  content: none;
+  display: none;
+}
+
+/* Header inside page flow */
+body.page-document .doc-header {
+  max-width: 1080px;
+  margin: 0 auto 40px;
+  padding: 0;
+  border-bottom: none;
+}
+
+body.page-document .doc-eyebrow {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--doc-red-muted);
+  margin: 0 0 12px;
+}
+
+body.page-document .doc-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+body.page-document .doc-subline {
+  font-family: var(--font-ui);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 66ch;
+  margin: 0 0 12px;
+  text-wrap: pretty;
+}
+
+body.page-document .doc-version-meta {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+/* Two-column layout: sticky TOC + printed sheet. Keep static so section.offsetTop stays relative to body for scrollspy. */
+body.page-document .doc-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+body.page-document .doc-toc {
+  position: sticky;
+  top: var(--doc-nav-offset);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+body.page-document .doc-toc-panel {
+  display: block;
+}
+
+body.page-document .doc-toc-title {
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 12px;
+  padding: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+body.page-document .doc-toc-title::-webkit-details-marker {
+  display: none;
+}
+
+body.page-document .doc-toc nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: none;
+  counter-reset: doc-toc;
+}
+
+body.page-document .doc-toc nav a {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-height: 44px;
+  margin-left: 0;
+  padding: 12px 0 12px 24px;
+  border-left: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--muted);
+  text-decoration: none;
+  transition: none;
+}
+
+body.page-document .doc-toc nav a::before {
+  counter-increment: doc-toc;
+  content: counter(doc-toc);
+  flex: 0 0 16px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--doc-red-muted);
+}
+
+body.page-document .doc-toc nav a:hover {
+  color: var(--text);
+  background: transparent;
+}
+
+/* Active item: bold ink plus exact Features bookmark ribbon at left (no background tint or left border). */
+body.page-document .doc-toc nav a.active {
+  color: var(--text);
+  font-weight: 700;
+  background: transparent;
+  border-left: none;
+}
+
+body.page-document .doc-toc nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 10px;
+  height: 16px;
+  background: var(--red);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+}
+
+body.page-document .doc-toc-note {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* From Uiverse.io by biswacpcode (Buttons/biswacpcode_curvy-crab-71.html) */
+/* Adapted 200ms sliding crimson underline for "Ask me." and "Next" links. */
+body.page-document .doc-link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body.page-document .doc-link-underline .doc-link-label {
+  position: relative;
+  display: inline-block;
+}
+
+body.page-document .doc-link-underline .doc-link-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--red);
+  transition: width 200ms ease;
+}
+
+body.page-document .doc-link-underline:hover,
+body.page-document .doc-link-underline:focus-visible {
+  color: var(--red);
+}
+
+body.page-document .doc-link-underline:hover .doc-link-label::before,
+body.page-document .doc-link-underline:focus-visible .doc-link-label::before {
+  width: 100%;
+}
+
+/* Printed sheet panel */
+body.page-document .doc-sheet {
+  max-width: none;
+  width: 100%;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 64px;
+  box-shadow: 0 2px 16px rgba(22, 24, 26, 0.04);
+  counter-reset: doc-section;
+}
+
+/* "In short" summary block with 1px left rule */
+body.page-document .doc-in-short {
+  margin: 0 0 40px;
+  padding: 8px 0 8px 24px;
+  border-left: 1px solid var(--border);
+}
+
+body.page-document .doc-in-short-label {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+body.page-document .doc-in-short p {
+  font-family: var(--doc-body-font);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 66ch;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Three plain items separated by 1px vertical hairlines */
+body.page-document .doc-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 40px 0 64px;
+}
+
+body.page-document .doc-pillar {
+  padding: 24px;
+  min-width: 0;
+}
+
+body.page-document .doc-pillar:first-child {
+  padding-left: 0;
+}
+
+body.page-document .doc-pillar:last-child {
+  padding-right: 0;
+}
+
+body.page-document .doc-pillar + .doc-pillar {
+  border-left: 1px solid var(--border);
+}
+
+body.page-document .doc-pillar h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+body.page-document .doc-pillar p {
+  font-family: var(--doc-body-font);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Sections & H2 headings with left-margin CSS counters */
+body.page-document .doc-section {
+  counter-increment: doc-section;
+  scroll-margin-top: var(--doc-nav-offset);
+  margin: 64px 0 0;
+  padding: 0;
+  border-bottom: none;
+}
+
+body.page-document .doc-in-short + .doc-section,
+body.page-document .doc-sheet > .doc-section:first-child {
+  margin-top: 40px;
+}
+
+body.page-document .doc-pillars + .doc-section {
+  margin-top: 0;
+}
+
+body.page-document .doc-section h2 {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 16px;
+  max-width: 34ch;
+  text-wrap: balance;
+}
+
+body.page-document .doc-section h2::before {
+  content: counter(doc-section);
+  position: absolute;
+  right: calc(100% + 16px);
+  bottom: 0.25em;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--doc-red-muted);
+}
+
+/* Copy link button + tooltip on H2 hover (desktop only) */
+/* Button pattern: Buttons/Galahhad_kind-cheetah-52.html; Tooltip: Tooltips/Cksunandh_afraid-snail-51.html */
+body.page-document .doc-anchor-btn {
+  position: absolute;
+  right: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0;
+}
+
+body.page-document .doc-section h2:hover::before,
+body.page-document .doc-section h2:focus-within::before {
+  opacity: 0;
+}
+
+body.page-document .doc-section h2:hover .doc-anchor-btn,
+body.page-document .doc-section h2:focus-within .doc-anchor-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.page-document .doc-anchor-btn:hover,
+body.page-document .doc-anchor-btn:focus-visible {
+  color: var(--red);
+  outline: none;
+}
+
+body.page-document .doc-anchor-btn:focus-visible {
+  outline: 1px solid var(--red);
+}
+
+/* From Uiverse.io by Cksunandh (Tooltips/Cksunandh_afraid-snail-51.html) */
+body.page-document .doc-anchor-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--charcoal-dark);
+  color: var(--text-dark-primary);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  transition: opacity 180ms ease;
+}
+
+body.page-document .doc-anchor-tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--charcoal-dark);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+body.page-document .doc-anchor-btn:hover .doc-anchor-tooltip,
+body.page-document .doc-anchor-btn:focus-visible .doc-anchor-tooltip {
+  opacity: 1;
+}
+
+/* Editorial serif body typography (18px, 1.7, max 66ch) */
+body.page-document .doc-section p,
+body.page-document .doc-section li,
+body.page-document .doc-section dd {
+  font-family: var(--doc-body-font);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 66ch;
+  color: var(--text);
+}
+
+body.page-document .doc-section p {
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+
+body.page-document .doc-section p:last-child {
+  margin-bottom: 0;
+}
+
+body.page-document .doc-section ul,
+body.page-document .doc-section ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+body.page-document .doc-section li {
+  margin-bottom: 12px;
+}
+
+body.page-document .doc-section li:last-child {
+  margin-bottom: 0;
+}
+
+body.page-document .doc-section strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+body.page-document .doc-section a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+body.page-document .doc-section code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: rgba(22, 24, 26, 0.06);
+  border: 1px solid rgba(22, 24, 26, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Reused yellow highlighter mark from Features bento (.bento-marker) */
+body.page-document .doc-sheet mark {
+  color: var(--text);
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: var(--doc-marker);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Simple hairline two-column & shortcuts tables (horizontally scrollable on mobile) */
+body.page-document .doc-table-wrap,
+body.page-document .spec-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+
+body.page-document .doc-table,
+body.page-document .spec-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  text-align: left;
+  background: transparent;
+}
+
+body.page-document .doc-table th,
+body.page-document .spec-table th {
+  padding: 12px 16px 12px 0;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+body.page-document .doc-table td,
+body.page-document .spec-table td {
+  padding: 16px 16px 16px 0;
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--doc-body-font);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text);
+  vertical-align: top;
+}
+
+body.page-document .doc-table th:last-child,
+body.page-document .doc-table td:last-child,
+body.page-document .spec-table th:last-child,
+body.page-document .spec-table td:last-child {
+  padding-right: 0;
+}
+
+body.page-document .doc-table tr:last-child td,
+body.page-document .spec-table tr:last-child td {
+  border-bottom: none;
+}
+
+body.page-document .spec-table tbody tr:hover {
+  background-color: transparent;
+}
+
+body.page-document .doc-table-note {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Support steps list (replaces dark card boxes) */
+body.page-document .doc-steps {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+  counter-reset: doc-step;
+}
+
+body.page-document .doc-steps li {
+  counter-increment: doc-step;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+  max-width: 66ch;
+}
+
+body.page-document .doc-steps li::before {
+  content: counter(doc-step, decimal-leading-zero);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--doc-red-muted);
+  padding-top: 4px;
+}
+
+body.page-document .doc-step-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+body.page-document .doc-steps li p {
+  margin: 0;
+}
+
+/* Support screenshots on printed sheet */
+body.page-document .doc-screenshot-frame {
+  margin: 24px 0 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  background: var(--bg);
+}
+
+body.page-document .doc-screenshot-caption {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  text-align: left;
+  margin: 0 0 16px;
+}
+
+/* Native <details><summary> FAQ items (zero cards, 1px hairline, CSS +/- mark) */
+body.page-document .doc-faq-list {
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+body.page-document details.faq-item {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+}
+
+body.page-document details.faq-item.is-open {
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+body.page-document details.faq-item summary.faq-question {
+  list-style: none;
+  width: 100%;
+  min-height: 48px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+}
+
+body.page-document details.faq-item summary.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+body.page-document details.faq-item summary.faq-question::after {
+  content: "+";
+  flex: 0 0 24px;
+  text-align: right;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--doc-red-muted);
+}
+
+body.page-document details.faq-item[open] summary.faq-question::after {
+  content: "-";
+}
+
+body.page-document details.faq-item summary.faq-question:hover,
+body.page-document details.faq-item summary.faq-question:focus-visible {
+  color: var(--red);
+}
+
+body.page-document details.faq-item .faq-answer {
+  display: block;
+  opacity: 1;
+  overflow: visible;
+  padding: 0 0 24px;
+  font-family: var(--doc-body-font);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 66ch;
+  color: var(--text);
+}
+
+/* End-of-page "Next" row separated by top hairline */
+body.page-document .doc-next {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.page-document .doc-next-label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+body.page-document .doc-next-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+body.page-document .doc-next-links .doc-link-underline {
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 16px;
+}
+
+/* Restrained bottom toast chip for copied anchor links (1.2s, opacity + transform only) */
+body.page-document .doc-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate3d(-50%, 12px, 0);
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--charcoal-dark);
+  color: var(--text-dark-primary);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 24px rgba(22, 24, 26, 0.2);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 950;
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+
+body.page-document .doc-toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(-50%, 0, 0);
+}
+
+/* Under 1024px: collapse TOC to single "On this page" <details> above sheet; section numbers inline */
+/* Explicitly reset legacy @media (max-width: 900px) pill-strip/sticky rules from styles.css */
+@media (max-width: 1024px) {
+  body.page-document .doc-header {
+    padding: 0;
+  }
+
+  body.page-document .doc-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 0;
+  }
+
+  body.page-document .doc-toc {
+    position: static;
+    top: auto;
+    z-index: auto;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+    gap: 12px;
+  }
+
+  body.page-document .doc-toc-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0 16px;
+  }
+
+  body.page-document .doc-toc-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    margin: 0;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  body.page-document .doc-toc-title::after {
+    content: "+";
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--doc-red-muted);
+  }
+
+  body.page-document .doc-toc-panel[open] .doc-toc-title::after {
+    content: "-";
+  }
+
+  body.page-document .doc-toc nav {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 0;
+    padding: 0 0 12px;
+    border-top: 1px solid var(--border);
+    border-left: none;
+  }
+
+  body.page-document .doc-toc nav a {
+    border: none;
+    border-radius: 0;
+    padding: 12px 0 12px 24px;
+    margin-left: 0;
+    white-space: normal;
+    background: transparent;
+    font-size: 14px;
+    min-height: 44px;
+    transition: none;
+  }
+
+  body.page-document .doc-toc nav a.active {
+    background: transparent;
+    border-color: transparent;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  body.page-document .doc-toc-note {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  body.page-document .doc-section {
+    scroll-margin-top: var(--doc-nav-offset);
+    margin: 64px 0 0;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  body.page-document .doc-section h2::before {
+    position: static;
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: baseline;
+  }
+
+  body.page-document .doc-section h2:hover::before,
+  body.page-document .doc-section h2:focus-within::before {
+    opacity: 1;
+  }
+
+  body.page-document .doc-anchor-btn {
+    display: none;
+  }
+}
+
+/* Under 768px: 24px sheet padding, stack the 3-item hairline strip, tighter nav scroll offset */
+@media (max-width: 768px) {
+  body.page-document .doc-page {
+    --doc-nav-offset: 96px;
+    padding: 24px 16px 64px;
+  }
+
+  body.page-document .doc-header {
+    margin-bottom: 24px;
+  }
+
+  body.page-document .doc-sheet {
+    padding: 24px;
+  }
+
+  body.page-document .doc-pillars {
+    grid-template-columns: minmax(0, 1fr);
+    margin: 24px 0 40px;
+  }
+
+  body.page-document .doc-pillar {
+    padding: 16px 0;
+  }
+
+  body.page-document .doc-pillar + .doc-pillar {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  body.page-document .doc-section {
+    margin-top: 40px;
+  }
+
+  body.page-document .doc-section h2 {
+    font-size: 24px;
+  }
+
+  body.page-document .doc-in-short {
+    padding-left: 16px;
+    margin-bottom: 24px;
+  }
+
+  body.page-document .doc-next {
+    margin-top: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-document .doc-link-underline .doc-link-label::before,
+  body.page-document .doc-anchor-tooltip,
+  body.page-document .doc-toast {
+    transition: none;
+  }
+}

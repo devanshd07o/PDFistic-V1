@@ -13,12 +13,21 @@
     const primaryNav = document.getElementById('primaryNav');
     const backdrop = document.getElementById('navBackdrop');
 
+    function syncMobileDrawerTop() {
+      var siteHeader = document.querySelector('header.site-header');
+      if (!siteHeader) return;
+      var headerBottom = Math.ceil(siteHeader.getBoundingClientRect().bottom);
+      document.documentElement.style.setProperty('--mobile-drawer-top', Math.max(68, headerBottom + 8) + 'px');
+    }
+
     function openMenu() {
       if (!toggleBtn || !primaryNav) return;
+      syncMobileDrawerTop();
       toggleBtn.classList.add('is-active');
       toggleBtn.setAttribute('aria-expanded', 'true');
       primaryNav.classList.add('is-open');
       if (backdrop) backdrop.classList.add('is-visible');
+      document.documentElement.classList.add('nav-menu-open');
       document.body.classList.add('nav-menu-open');
     }
 
@@ -28,6 +37,7 @@
       toggleBtn.setAttribute('aria-expanded', 'false');
       primaryNav.classList.remove('is-open');
       if (backdrop) backdrop.classList.remove('is-visible');
+      document.documentElement.classList.remove('nav-menu-open');
       document.body.classList.remove('nav-menu-open');
     }
 
@@ -959,53 +969,195 @@
 
     initKineticTypographySuite();
 
-    // 10. Clean Contact Form Email Composer & Live Typing Counter
+    // 10. Clean Contact Form (Direct Auto-Send + Gmail + Outlook/Mailto + Copy)
     function initContactForm() {
       var form = document.querySelector('.galaxy-contact-form');
       if (!form) return;
 
+      var TARGET_EMAIL = 'devanshd07o@gmail.com';
+      var DIRECT_ENDPOINT = 'https://formsubmit.co/ajax/' + TARGET_EMAIL;
+
       var msgInput = document.getElementById('contact-message');
       var countEl = document.getElementById('contactCharCount');
+      var updateCount = function () {
+        if (!msgInput || !countEl) return;
+        var len = msgInput.value.length;
+        countEl.textContent = len + (len === 1 ? ' char' : ' chars');
+      };
       if (msgInput && countEl) {
-        var updateCount = function () {
-          var len = msgInput.value.length;
-          countEl.textContent = len + (len === 1 ? ' char' : ' chars');
-        };
         msgInput.addEventListener('input', updateCount);
         updateCount();
       }
 
       var statusEl = form.querySelector('.contact-form-status');
+      var setStatus = function (text, tone) {
+        if (!statusEl) return;
+        statusEl.textContent = text || '';
+        if (tone) {
+          statusEl.setAttribute('data-tone', tone);
+        } else {
+          statusEl.removeAttribute('data-tone');
+        }
+      };
+
+      var sanitizeLine = function (val) {
+        return String(val || '').replace(/[\r\n]+/g, ' ').trim();
+      };
+
+      var readDraft = function () {
+        return {
+          name: sanitizeLine((document.getElementById('contact-name') || {}).value),
+          email: sanitizeLine((document.getElementById('contact-email') || {}).value),
+          subject: sanitizeLine((document.getElementById('contact-subject') || {}).value),
+          message: String((msgInput || {}).value || '').trim()
+        };
+      };
+
+      var buildMailBody = function (draft) {
+        var meta = [];
+        if (draft.name) meta.push('Name: ' + draft.name);
+        if (draft.email) meta.push('Reply Email: ' + draft.email);
+        if (meta.length && draft.message) return meta.join('\n') + '\n\n' + draft.message;
+        return meta.join('\n') || draft.message;
+      };
+
+      var buildGmailUrl = function (draft) {
+        var subject = draft.subject || 'PDFistic Inquiry';
+        var body = buildMailBody(draft);
+        return 'https://mail.google.com/mail/?view=cm&fs=1&to=' +
+          encodeURIComponent(TARGET_EMAIL) +
+          '&su=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(body);
+      };
+
+      var buildMailtoUrl = function (draft) {
+        var subject = draft.subject || 'PDFistic Inquiry';
+        var body = buildMailBody(draft);
+        return 'mailto:' + TARGET_EMAIL +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(body);
+      };
+
+      var submitBtn = form.querySelector('.galaxy-submit');
+      var submitLabel = submitBtn ? submitBtn.querySelector('span') : null;
+      var origSubmitText = submitLabel ? submitLabel.textContent : 'Send message';
+      var isSubmitting = false;
+
+      var resetSubmitState = function () {
+        isSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+        }
+        if (submitLabel) {
+          submitLabel.textContent = origSubmitText;
+        }
+      };
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (isSubmitting) return;
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
-        var name = (document.getElementById('contact-name') || {}).value || '';
-        var email = (document.getElementById('contact-email') || {}).value || '';
-        var subject = (document.getElementById('contact-subject') || {}).value || 'PDFistic Inquiry';
-        var message = (msgInput || {}).value || '';
 
-        var bodyText = 'Name: ' + name.trim() + '\nReply Email: ' + email.trim() + '\n\n' + message.trim();
-        var mailtoUrl = 'mailto:devanshd07o@gmail.com?subject=' + encodeURIComponent(subject.trim()) + '&body=' + encodeURIComponent(bodyText);
-
-        if (statusEl) {
-          statusEl.textContent = 'Opening your email app with your message ready to send.';
+        if (window.location.protocol === 'file:') {
+          setStatus('Direct send works on the live HTTPS site. Use Open in Gmail or Outlook / Mail app below for local preview.', 'info');
+          return;
         }
-        window.location.href = mailtoUrl;
+
+        if (typeof fetch !== 'function') {
+          setStatus('Direct send is unavailable in this browser. Use Open in Gmail or Outlook / Mail app below.', 'error');
+          return;
+        }
+
+        var draft = readDraft();
+        isSubmitting = true;
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.setAttribute('aria-busy', 'true');
+        }
+        if (submitLabel) {
+          submitLabel.textContent = 'Sending...';
+        }
+        setStatus('Sending directly to ' + TARGET_EMAIL + '...', 'info');
+
+        var controller = typeof AbortController === 'function' ? new AbortController() : null;
+        var timeoutId = setTimeout(function () {
+          if (controller) controller.abort();
+        }, 12000);
+
+        fetch(DIRECT_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          signal: controller ? controller.signal : undefined,
+          body: JSON.stringify({
+            name: draft.name,
+            email: draft.email,
+            _replyto: draft.email,
+            subject: draft.subject,
+            _subject: '[PDFistic Contact] ' + draft.subject,
+            message: draft.message,
+            _captcha: 'false',
+            _template: 'table'
+          })
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            if (!res.ok || (data && data.success !== true && data.success !== 'true')) {
+              var serverMsg = data && typeof data.message === 'string' ? data.message : '';
+              if (/activat|confirm|verify/i.test(serverMsg)) {
+                setStatus('First-time form activation link sent to ' + TARGET_EMAIL + '. You can also use Open in Gmail or Outlook / Mail app below.', 'info');
+              } else {
+                setStatus('Direct send could not complete right now. Use Open in Gmail or Outlook / Mail app below.', 'error');
+              }
+              return;
+            }
+            setStatus('Message sent directly to ' + TARGET_EMAIL + '. Expect a reply as soon as possible.', 'success');
+            form.reset();
+            updateCount();
+          });
+        }).catch(function () {
+          setStatus('Network timeout or blocked request. Use Open in Gmail or Outlook / Mail app below.', 'error');
+        }).then(function () {
+          clearTimeout(timeoutId);
+          resetSubmitState();
+        });
       });
+
+      var gmailBtn = form.querySelector('.js-send-gmail');
+      if (gmailBtn) {
+        gmailBtn.addEventListener('click', function () {
+          var url = buildGmailUrl(readDraft());
+          var win = window.open(url, '_blank', 'noopener,noreferrer');
+          if (win === null) {
+            setStatus('Popup blocked. Allow popups or copy ' + TARGET_EMAIL + '.', 'info');
+          } else {
+            setStatus('Opening Gmail compose in a new tab with your draft.', 'info');
+          }
+        });
+      }
+
+      var mailtoBtn = form.querySelector('.js-send-mailto');
+      if (mailtoBtn) {
+        mailtoBtn.addEventListener('click', function () {
+          var url = buildMailtoUrl(readDraft());
+          setStatus('Opening Outlook / your default mail app with your draft.', 'info');
+          window.location.href = url;
+        });
+      }
 
       var copyEmailBtns = form.closest('.section-container') ? form.closest('.section-container').querySelectorAll('.js-copy-email') : document.querySelectorAll('.js-copy-email');
       copyEmailBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var emailAddr = btn.getAttribute('data-email') || 'devanshd07o@gmail.com';
+          var emailAddr = btn.getAttribute('data-email') || TARGET_EMAIL;
           var notifyCopied = function () {
             var origText = btn.textContent;
             btn.textContent = 'Copied email';
-            if (statusEl) {
-              statusEl.textContent = 'Email copied (' + emailAddr + '). Paste it in any mail app.';
-            }
+            setStatus('Email copied (' + emailAddr + '). Paste it in any mail app.', 'success');
             setTimeout(function () {
               btn.textContent = origText;
             }, 1800);
@@ -1023,9 +1175,7 @@
               document.execCommand('copy');
               notifyCopied();
             } catch (copyErr) {
-              if (statusEl) {
-                statusEl.textContent = 'Copy manually: ' + emailAddr;
-              }
+              setStatus('Copy manually: ' + emailAddr, 'info');
             } finally {
               document.body.removeChild(ta);
             }
