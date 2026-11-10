@@ -1,0 +1,346 @@
+%PDF-1.4
+%PDF1
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R] /Count 8 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 3719 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.090 0.190 0.450 rg 0 618 595 224 re f
+1 1 1 rg
+BT /F2 10 Tf 48 790 Td (DESIGN ENGINEERING HANDBOOK) Tj ET
+BT /F2 27 Tf 48 746 Td (Modern UI & Grid Systems) Tj ET
+0.94 0.95 0.97 rg
+BT /F1 12 Tf 48 706 Td (Modular 8px spacing, crisp optical balance, semantic) Tj ET
+BT /F1 12 Tf 48 688 Td (typography, WCAG contrast floors, and tactile desktop UI) Tj ET
+BT /F1 12 Tf 48 670 Td (craftsmanship.) Tj ET
+1 1 1 rg 0.85 w 48 648 m 547 648 l S
+BT /F2 9.5 Tf 48 632 Td (Interface Engineering Studio  |  8-PAGE COMPLETE DEMO GUIDE) Tj ET
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 576 Td (1. Modular 4px / 8px Spatial Rhythm) Tj ET
+0.96 0.97 0.99 rg 48 442 499 108 re f
+0.82 0.85 0.90 RG 0.8 w 48 442 499 108 re S
+0.090 0.190 0.450 rg
+64 466 102 64 re f
+1 1 1 rg BT /F2 8.5 Tf 74 504 Td (Sidebar / Nav) Tj ET
+0.95 0.95 0.95 rg BT /F1 7.5 Tf 74 488 Td (8px grid unit) Tj ET
+0.87 0.90 0.95 rg
+184 466 102 64 re f
+0.090 0.110 0.140 rg BT /F2 8.5 Tf 194 504 Td (Content Col 2) Tj ET
+0.360 0.400 0.460 rg BT /F1 7.5 Tf 194 488 Td (8px grid unit) Tj ET
+0.87 0.90 0.95 rg
+304 466 102 64 re f
+0.090 0.110 0.140 rg BT /F2 8.5 Tf 314 504 Td (Reading Canvas) Tj ET
+0.360 0.400 0.460 rg BT /F1 7.5 Tf 314 488 Td (8px grid unit) Tj ET
+0.87 0.90 0.95 rg
+424 466 102 64 re f
+0.090 0.110 0.140 rg BT /F2 8.5 Tf 434 504 Td (Inspector) Tj ET
+0.360 0.400 0.460 rg BT /F1 7.5 Tf 434 488 Td (8px grid unit) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 424 Td (Predictable Proportional Harmony) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 407 Td (Arbitrary pixel gaps \(11px next to 19px next to 23px\) leave interfaces) Tj ET
+BT /F1 10.5 Tf 48 391.8 Td (feeling subtly unsettled even before users know why. Anchoring margins, card) Tj ET
+BT /F1 10.5 Tf 48 376.6 Td (padding, row heights, and icon gutters strictly to multiples of 4px and 8px) Tj ET
+BT /F1 10.5 Tf 48 361.40000000000003 Td (imposes immediate structural calm.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 338.20000000000005 Td (Optical Padding vs. Geometric Centering) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 321.20000000000005 Td (Pill buttons often need 1.6x horizontal padding compared to vertical padding) Tj ET
+BT /F1 10.5 Tf 48 306.00000000000006 Td (\(e.g., 8px vertical x 14px horizontal\) so horizontal typography breathes) Tj ET
+BT /F1 10.5 Tf 48 290.80000000000007 Td (evenly inside curved borders.) Tj ET
+0.940 0.960 0.990 rg 48 165.60000000000008 499 102 re f
+0.090 0.190 0.450 rg 48 165.60000000000008 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 249.60000000000008 Td (CORE SPACING SCALE TOKENS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 230.60000000000008 Td (1. 4px \(xs\): Tight icon-to-label gaps inside toolbars and compact chips) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 211.60000000000008 Td (2. 8px \(sm\): Intra-card spacing and compact form field separation) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 192.60000000000008 Td (3. 16px \(md\): Standard card padding and multi-column desktop gutters) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 173.60000000000008 Td (4. 24px-32px \(lg/xl\): Section separation between distinct workflow zones) Tj ET
+0.95 0.96 0.98 rg 48 101.60000000000008 499 50 re f
+0.78 0.82 0.88 RG 0.8 w 48 101.60000000000008 499 50 re S
+0.090 0.110 0.140 rg BT /F2 9.5 Tf 60 133.60000000000008 Td (Observe the bottom dock and cards in this demo: every gap derives) Tj ET
+0.090 0.110 0.140 rg BT /F2 9.5 Tf 60 119.60000000000008 Td (cleanly from the 4px/8px structural rhythm.) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 1 of 8) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2450 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 2 | HIERARCHY & SCALE) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (2. Typography Measure & Visual Hierarchy) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Readable Line Length Limits) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Lines stretching past 85 characters force eyes to hunt backwards across wide) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (monitors; lines narrower than 35 characters chop sentences into jarring) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (staccato bursts. Holding prose between 55 and 72 characters maintains) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (effortless reading flow.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Unitless Line-Heights & Tabular Numerals) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (Use tight display line-heights \(1.12 to 1.25\) on bold headlines so) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (multi-line titles read as cohesive units, and generous unitless 1.5-1.6) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (ratios on running copy. Always enable font-variant-numeric: tabular-nums on) Tj ET
+BT /F1 10.5 Tf 48 579.5999999999997 Td (page counters and metrics so digits never jitter left-right when counting.) Tj ET
+0.940 0.960 0.990 rg 48 454.39999999999964 499 102 re f
+0.090 0.190 0.450 rg 48 454.39999999999964 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 538.3999999999996 Td (TYPOGRAPHIC DISCIPLINE CHECKS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 519.3999999999996 Td (1. Display Headings: Tight tracking \(-0.02em\), line-height 1.15, bold balance) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 500.39999999999964 Td (2. Body Copy: 14px-18px legible scale, line-height 1.55, 55-72ch width cap) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 481.39999999999964 Td (3. Page Counters / Telemetry: Mandatory tabular-nums to freeze pill widths) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 462.39999999999964 Td (4. Mobile Input Fields: Minimum 16px input size avoids iOS auto-zoom focus traps) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 2 of 8) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 2340 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 3 | SURFACE & DEPTH) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (3. Calculated Depth & Crisp Hairline Borders) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Replaced Muddy Drop Shadows) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Heavy dark drop shadows applied uniformly over pastel cards muddy page) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (clarity. Modern desktop UI pairs subtle low-opacity elevation shadows with) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (1px translucent hairline borders \(rgba white highlights on top edge; subtle) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (charcoal alpha on borders\) to carve physical thickness.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Three Surface Tiers) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (Structure canvas layers cleanly: Level 0 recessed chrome / backdrop, Level 1) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (primary workspace / document card, Level 2 elevated floating island docks) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (and popovers. Never stack four heavy shadows on top of each other.) Tj ET
+0.940 0.960 0.990 rg 48 469.5999999999997 499 102 re f
+0.090 0.190 0.450 rg 48 469.5999999999997 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 553.5999999999997 Td (SURFACE SEPARATION LAYERS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 534.5999999999997 Td (1. Canvas Backdrop: Quiet desaturated dot-grid or translucent mist paper) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 515.5999999999997 Td (2. Card / Sheet: Solid matte paper surface with 1px subtle border stroke) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.5999999999997 Td (3. Floating Toolbar / Dock: Translucent frosted glass with top-edge specular gleam) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.5999999999997 Td (4. Modal Scrim: Gentle dim backdrop separating focused actions from background state) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 3 of 8) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2362 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 4 | CONTRAST & COLOR) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (4. Semantic Tokens & WCAG AA Contrast) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Designing Both Light & Obsidian Dark Equally) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Never derive dark theme merely by inverting hex values mechanically. Dark) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (studio themes demand lower saturation accents and warm desaturated slate) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (text \(#E8EAF0 on #141720\) to avoid halation glow on OLED and IPS monitors.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 657.3999999999999 Td (Strict Contrast Minimums) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 640.3999999999999 Td (Normal body typography and interactive control labels must hit >= 4.5:1) Tj ET
+BT /F1 10.5 Tf 48 625.1999999999998 Td (luminance contrast against their resolved background \(3.0:1 for bold >=19px) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (display headings\). Reserved chromatic brand reds and sapphire blues signal) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (primary calls-to-action cleanly without shouting across secondary controls.) Tj ET
+0.940 0.960 0.990 rg 48 469.5999999999997 499 102 re f
+0.090 0.190 0.450 rg 48 469.5999999999997 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 553.5999999999997 Td (ACCESSIBLE CONTRAST RULES) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 534.5999999999997 Td (1. Body text contrast ratio >= 4.5:1 in Light, Warm Paper, and Obsidian Dark) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 515.5999999999997 Td (2. Touch & click hit boxes >= 44px even when visual icons sit at compact 26px) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.5999999999997 Td (3. Never encode state solely by color  -  pair active pills with contrast & borders) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.5999999999997 Td (4. Avoid glowing neon text on warm parchment surfaces) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 4 of 8) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2460 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 5 | ERGONOMIC CONTROLS) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (5. Desktop Chrome & Floating Toolbar Design) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Keep the Reader Canvas Sovereign) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (In document applications, chrome exists strictly to serve reading  -  never to) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (compete with it. Grouping window identity cleanly on row 1, multi-document) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (tabs on row 2, and tool clusters inside a slender centered bottom dock) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (leaves maximum viewport area open for book spreads.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Padding-Box Precision Hit Areas) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (A visual toolbar icon can stay slim and delicate \(26px visual button\) while) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (preserving >= 44px ergonomic hit area by expanding transparent clickable) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (padding clipped by background-clip: padding-box. Users enjoy crisp density) Tj ET
+BT /F1 10.5 Tf 48 579.5999999999997 Td (without accidental misclicks.) Tj ET
+0.940 0.960 0.990 rg 48 454.39999999999964 499 102 re f
+0.090 0.190 0.450 rg 48 454.39999999999964 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 538.3999999999996 Td (ERGONOMIC WORKSPACE PATTERNS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 519.3999999999996 Td (1. Group Navigation, Zoom, Annotations, Search, and Actions with subtle hairline dividers) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 500.39999999999964 Td (2. Use scrollable single-row islands instead of multi-row wrapping toolbars on laptops) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 481.39999999999964 Td (3. Keep Zernexa floating triggers unobtrusive in bottom-right corners) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 462.39999999999964 Td (4. Support seamless Left/Right keyboard stepping alongside mouse drag & touch) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 5 of 8) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 2431 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 6 | RESPONSIVE FRAMES) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (6. Aspect-Locked Frames Across Viewports) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Why Consistent Ratios Feel Purposeful) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Maintaining an intentional aspect lock  -  such as a crisp 15:9 desktop) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (showcase container across desktops, tablets, and mobile expansion  - ) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (guarantees every visual screenshot and reader spread holds clean balanced) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (composition instead of squishing vertically on narrow screens.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Portrait Mobile Ergonomics) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (When small phones lack horizontal room for facing double spreads, pairing a) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (clean compact thumbnail switcher on portrait view with smooth automatic) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (rotation into landscape mode preserves genuine two-page book ergonomics in) Tj ET
+BT /F1 10.5 Tf 48 579.5999999999997 Td (the user's hand.) Tj ET
+0.940 0.960 0.990 rg 48 454.39999999999964 499 102 re f
+0.090 0.190 0.450 rg 48 454.39999999999964 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 538.3999999999996 Td (CROSS-DEVICE TESTING MATRIX) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 519.3999999999996 Td (1. 320px & 375px Portrait Mobile: Compact 4-book showcase + landscape expand) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 500.39999999999964 Td (2. 768px Tablet: Clean responsive spacing with zero clipped navigation pills) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 481.39999999999964 Td (3. 1280px & 1366px Laptop: Fits comfortably inside 100% browser zoom above the fold) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 462.39999999999964 Td (4. 1440px+ Desktop: Full 960px showcase + crisp sidebars & dual-page spreads) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 6 of 8) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2286 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 7 | MOTION DISCIPLINE) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (7. Motion That Guides Without Jitter) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Compositor-Safe Transitions Only) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Animating layout properties like height, margin, or padding triggers) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (expensive browser reflows and visible flicker. Confine interface transitions) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (strictly to GPU transform and opacity curves over crisp 160-240ms durations.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 657.3999999999999 Td (Contain & Stabilize Animated Canvases) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 640.3999999999999 Td (Interactive page-turn engines rotate intermediate sheets past resting) Tj ET
+BT /F1 10.5 Tf 48 625.1999999999998 Td (boundaries mid-flip. Containing overflow strictly on the immediate stage) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (element prevents phantom scrollbars from snapping toolbars sideways during) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (page turns.) Tj ET
+0.940 0.960 0.990 rg 48 469.5999999999997 499 102 re f
+0.090 0.190 0.450 rg 48 469.5999999999997 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 553.5999999999997 Td (ZERO-JITTER ANIMATION RULES) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 534.5999999999997 Td (1. Lock stage overflow: hidden during 3D page flip animations) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 515.5999999999997 Td (2. Never recreate surrounding toolbars or destroy sibling DOM nodes mid-flip) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.5999999999997 Td (3. Respect prefers-reduced-motion: reduce for motion-sensitive users globally) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.5999999999997 Td (4. Anchor dock positions with fixed geometry and tabular page badges) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 7 of 8) Tj ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 2271 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (MODERN UI & GRID SYSTEMS) Tj ET
+0.090 0.190 0.450 rg BT /F2 8.5 Tf 462 800 Td (SEC 8 | DESIGN AUDIT) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (8. Pre-Ship UI Craft Verification) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 728 Td (Verify Pixels, Not Assumptions) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Great software separates intention from assumption by rendering every) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (breakpoint in a real browser, checking contrast math, inspecting horizontal) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (overflow at 320px through 1440px, and stepping manually through every) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (interactive gesture.) Tj ET
+0.090 0.190 0.450 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Cohesion Across Every Sub-Surface) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (From empty zero-scroll home shelves to modals, tooltips, and AI assistants,) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (matching corners, font weights, and border opacities create quiet trust  - ) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (the hallmark of tools people enjoy opening daily.) Tj ET
+0.940 0.960 0.990 rg 48 469.5999999999997 499 102 re f
+0.090 0.190 0.450 rg 48 469.5999999999997 4 102 re f
+0.090 0.190 0.450 rg BT /F2 9.5 Tf 62 553.5999999999997 Td (SHIP-READY DESIGN CHECKLIST) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 534.5999999999997 Td (1. Zero horizontal page overflow across all mobile, tablet, and desktop widths) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 515.5999999999997 Td (2. Zero unreadable low-contrast labels across all light, paper, and dark modes) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.5999999999997 Td (3. Zero jitter during 3D book page turns, tab switches, or dock hovers) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.5999999999997 Td (4. Every primary interactive action gives instant visual confirmation) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Modern UI & Grid Systems) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 8 of 8) Tj ET
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 19 0 R >>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000169 00000 n 
+0000000239 00000 n 
+0000000314 00000 n 
+0000004085 00000 n 
+0000004221 00000 n 
+0000006723 00000 n 
+0000006859 00000 n 
+0000009251 00000 n 
+0000009388 00000 n 
+0000011803 00000 n 
+0000011941 00000 n 
+0000014454 00000 n 
+0000014592 00000 n 
+0000017076 00000 n 
+0000017214 00000 n 
+0000019553 00000 n 
+0000019691 00000 n 
+0000022015 00000 n 
+trailer
+<< /Size 21 /Root 1 0 R >>
+startxref
+22153
+%%EOF

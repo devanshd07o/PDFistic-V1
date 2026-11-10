@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Third-Party Open Source Licenses - PDFistic</title>
+  <meta name="description" content="Third-party open-source component attribution and licenses for PDFistic.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="venom-button.js" defer></script>
+</head>
+<body>
+
+  <!-- Shared Squircle Clip Path -->
+  <svg width="0" height="0" style="position: absolute; pointer-events: none;" aria-hidden="true">
+    <defs>
+      <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Floating Docked Navigation Header (Wispr Flow Style) -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link">
+        <img src="icon.png" alt="PDFistic Logo" class="brand-logo">
+        <span class="brand-title">PDFistic</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="primaryNav">
+          <li><a href="index.html#features">Features<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="privacy.html">Privacy<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="terms.html">Terms<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="support.html">Support &amp; FAQ<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="contact.html">Contact<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-group">
+        <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer" class="nav-github-btn btn-17" title="View Source on GitHub">
+          <span class="text-container">
+            <span class="text">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </span>
+          </span>
+        </a>
+        <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare" class="nav-win-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/>
+          </svg>
+          <span>Get on Windows</span>
+        </a>
+        <button class="nav-toggle-btn" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <!-- Editorial Hero Section (Dark Contrast Architecture) -->
+  <main>
+    <section class="editorial-hero">
+      <div class="doc-eyebrow"><span class="doc-eyebrow-dot" aria-hidden="true"></span><span>Open Source Attribution</span></div>
+      <h1 class="editorial-title">
+        Third-Party Open Source Notices
+      </h1>
+
+      <p class="editorial-subtitle">
+        Attributions, copyright notices, and license compliance documentation for third-party open-source libraries used in PDFistic.
+      </p>
+
+      <div class="editorial-meta-row">
+        <div class="editorial-meta-item">Open Source Compliance</div>
+        <div class="editorial-meta-sep">&bull;</div>
+        <div class="editorial-meta-item">Apache 2.0 / MIT / BSD Licenses</div>
+        <div class="editorial-meta-sep">&bull;</div>
+        <div class="editorial-meta-item">Fully Attributed</div>
+      </div>
+    </section>
+
+    <!-- Transition into Bright Warm Ivory / Cream Sheet (Wispr Flow Aesthetic) -->
+    <div class="editorial-sheet">
+      <div class="section-container" style="max-width: 960px;">
+
+        <div class="uiverse-card uiverse-card--subtle plain-english-card" style="margin-top: 0; margin-bottom: 32px;">
+          <div class="uiverse-card-info plain-english-inner">
+            <div class="plain-english-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Open Source Foundations</span>
+            </div>
+            <p>
+              PDFistic is made possible thanks to world-class open-source projects. In accordance with their license terms, copyright notices and attribution statements are detailed below.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin: 28px 0 36px;">
+          <article class="uiverse-card feature-card">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">1. PDF.js</h3>
+                <span class="license-badge license-apache">Apache 2.0</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Copyright:</strong> Mozilla Foundation and individual contributors.<br>
+                Client-side PDF document decoding, font parsing, and rendering pipeline.
+              </p>
+            </div>
+          </article>
+
+          <article class="uiverse-card feature-card">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">2. Chromium &amp; Electron</h3>
+                <span class="license-badge license-bsd">BSD 3-Clause / MIT</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Copyright:</strong> The Chromium Authors &amp; OpenJS Foundation.<br>
+                Sandboxed desktop runtime, GPU acceleration, and OS window management.
+              </p>
+            </div>
+          </article>
+
+          <article class="uiverse-card feature-card">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">3. pdf-lib</h3>
+                <span class="license-badge license-mit">MIT License</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Copyright:</strong> Andrew Dillon and contributors.<br>
+                High-performance client-side PDF page manipulation, split/merge, and signature stamping.
+              </p>
+            </div>
+          </article>
+
+          <article class="uiverse-card feature-card">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">4. Tesseract.js</h3>
+                <span class="license-badge license-apache">Apache 2.0</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Copyright:</strong> Jerome Wu and contributors.<br>
+                In-memory WebAssembly Optical Character Recognition for scanned pages.
+              </p>
+            </div>
+          </article>
+
+          <article class="uiverse-card feature-card">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">5. KaTeX</h3>
+                <span class="license-badge license-mit">MIT License</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Copyright:</strong> Khan Academy and individual contributors.<br>
+                Typographic mathematical rendering for academic notes and copilot output.
+              </p>
+            </div>
+          </article>
+
+          <article class="uiverse-card feature-card">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">6. React</h3>
+                <span class="license-badge license-mit">MIT License</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Copyright:</strong> Meta Platforms, Inc. and affiliates.<br>
+                Powers declarative user interface components and state machine management.
+              </p>
+            </div>
+          </article>
+
+          <article class="uiverse-card feature-card" style="grid-column: 1 / -1;">
+            <div class="uiverse-card-info feature-card-inner" style="gap: 10px; padding: 24px;">
+              <div class="license-card-head">
+                <h3 class="feature-title" style="font-size: 17px;">7. UI elements from Uiverse.io (MIT)</h3>
+                <span class="license-badge license-mit">MIT License</span>
+              </div>
+              <p class="feature-desc" style="font-size: 13.5px;">
+                <strong>Authors:</strong> Cksunandh (Tooltips/Cksunandh_afraid-snail-51.html &amp; loaders/Cksunandh_young-dragonfly-81.html), biswacpcode (Buttons/biswacpcode_curvy-crab-71.html), kennyotsu (Patterns/kennyotsu_short-warthog-33.html), Galahhad (Buttons/Galahhad_kind-cheetah-52.html), vinodjangid07 (Buttons/vinodjangid07_curly-panda-17.html), Yaya12085 (Radio-buttons/Yaya12085_rude-mouse-79.html), kyle1dev (Tooltips/kyle1dev_quiet-cougar-91.html), mRcOol7, itskrish01, ArturCodeCraft, Admin12121, adamgiebl, and andrew-manzyk.<br>
+                Adapted plain CSS patterns, buttons, tooltips, toggles, and card treatments used across the website interface.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <section class="uiverse-card uiverse-card--subtle license-summary-card">
+          <div class="uiverse-card-info license-summary-inner">
+            <h3>Apache License Version 2.0 Summary</h3>
+            <p>
+              Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at:
+            </p>
+            <p>
+              <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer" class="license-summary-url">
+                https://www.apache.org/licenses/LICENSE-2.0
+              </a>
+            </p>
+            <p style="margin-bottom: 16px;">
+              Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://github.com/devanshd07o/PDFistic-V1/blob/main/public/THIRD_PARTY_LICENSES.txt" target="_blank" rel="noopener noreferrer" class="btn btn-cream-secondary">
+                View Full Third-Party Notice File
+              </a>
+              <a href="terms.html" class="btn btn-cream-secondary">
+                Read Terms of Service
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Official Footer -->
+  <footer class="footer site-footer">
+    <div class="footer-container">
+      <div class="footer-col-brand">
+        <div class="footer-brand-head">
+          <img src="icon.png" alt="PDFistic" class="footer-brand-logo">
+          <span class="footer-brand-name">PDFistic</span>
+        </div>
+        <p>
+          A PDF and EPUB reader for Windows 10 and 11. Your files stay on your PC.
+        </p>
+        <div class="squircle-dock-wrap">
+          <div class="squircle-dock-backdrop"></div>
+          <div class="squircle-dock-items">
+            <div class="squircle-dock-item"><a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-gh" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.46-1.334-5.46-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a><span class="footer-tooltip" aria-hidden="true">GitHub</span></div>
+            <div class="squircle-dock-item"><a href="https://www.linkedin.com/in/devansh-dubey-aa802b305/" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-li" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a><span class="footer-tooltip" aria-hidden="true">LinkedIn</span></div>
+            <div class="squircle-dock-item"><a href="https://github.com/devanshd07o/CLAUZEY-V1" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-cz" aria-label="Similar apps ~ Clauzey"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M7.2 3.8a4.8 4.8 0 0 0 9.6 0"></path><path d="M20.2 7.2a4.8 4.8 0 0 0 0 9.6"></path><path d="M16.8 20.2a4.8 4.8 0 0 0-9.6 0"></path><path d="M3.8 16.8a4.8 4.8 0 0 0 0-9.6"></path></svg></a><span class="footer-tooltip" aria-hidden="true">Similar apps ~ Clauzey</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#features"><span class="footer-link-label">Features</span></a></li>
+          <li><a href="index.html#tour"><span class="footer-link-label">Tour</span></a></li>
+          <li><a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare"><span class="footer-link-label">Microsoft Store</span></a></li>
+          <li><a href="https://github.com/devanshd07o/PDFistic-V1"><span class="footer-link-label">GitHub</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html"><span class="footer-link-label">Privacy Policy</span></a></li>
+          <li><a href="terms.html"><span class="footer-link-label">Terms of Service</span></a></li>
+          <li><a href="licenses.html" class="footer-link-active"><span class="footer-link-label">Open Source Notices</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="support.html"><span class="footer-link-label">Help Center &amp; FAQ</span></a></li>
+          <li><a href="contact.html"><span class="footer-link-label">Contact</span></a></li>
+          <li><a href="https://github.com/devanshd07o/PDFistic-V1/issues"><span class="footer-link-label">Report an Issue</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 PDFistic &middot; Developed by Devansh Dubey. Published under Apache 2.0 license.</div>
+      <div class="footer-bottom-right">
+        <div>Designed for Windows 10 &amp; 11 &bull; Available on Microsoft Store</div>
+        <button type="button" class="to-top" aria-label="Back to top">
+          <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path></svg>
+          <span class="footer-tooltip" aria-hidden="true">Back to top</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PDFistic - Read books and PDFs beautifully. Page-flip, annotations, and AI built in.</title>
+   <meta name="description" content="PDFistic - Read books and PDFs beautifully. Page-flip, annotations, and AI built in. Your files stay on your PC.">
+   <meta property="og:title" content="PDFistic - Read books and PDFs beautifully">
+   <meta property="og:description" content="Page-flip, annotations, and AI built in. Your files stay on your PC.">
+   <meta property="og:type" content="website">
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+   <link rel="stylesheet" href="styles.css?v=20261110j">
+   <script src="gsap.min.js"></script>
+   <script src="ScrollTrigger.min.js"></script>
+   <script src="vendor/page-flip/page-flip.browser.js?v=20261110d" defer></script>
+   <script src="vendor/pdfjs/pdf.classic.min.js?v=20261110d" defer></script>
+   <script src="vendor/pdfjs/pdf.worker.classic.min.js?v=20261110d" defer></script>
+   <script src="script.js?v=20261110h" defer></script>
+   <script src="zernexa-rag.js?v=20261110d" defer></script>
+   <script src="demo.js?v=20261110d" defer></script>
+   <script src="venom-button.js?v=20261110d" defer></script>
+</head>
+<body>
+
+  <!-- Shared Squircle Clip Path -->
+  <svg width="0" height="0" style="position: absolute; pointer-events: none;" aria-hidden="true">
+    <defs>
+      <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Floating Navigation Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link">
+        <img src="icon.png" alt="PDFistic Logo" class="brand-logo">
+        <span class="brand-title">PDFistic</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="primaryNav">
+          <li><a href="#features">Features<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="privacy.html">Privacy<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="terms.html">Terms<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="support.html">Support &amp; FAQ<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="contact.html">Contact<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-group">
+        <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer" class="nav-github-btn btn-17" title="View Source on GitHub">
+          <span class="text-container">
+            <span class="text">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </span>
+          </span>
+        </a>
+        <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare" class="nav-win-btn">
+           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+             <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/>
+           </svg>
+           <span>Get on Windows</span>
+         </a>
+         <button class="nav-toggle-btn" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+           <span class="hamburger-bar"></span>
+           <span class="hamburger-bar"></span>
+           <span class="hamburger-bar"></span>
+         </button>
+       </div>
+     </div>
+   </header>
+   <div class="nav-backdrop" id="navBackdrop"></div>
+ 
+   <!-- Hero Section (Dark Contrast Architecture) -->
+   <main>
+     <section class="hero hero-section">
+       <div class="hero-pattern" aria-hidden="true"></div>
+       <h1 class="hero-title" aria-label="Every book. Every PDF. One beautiful place to read.">
+         <span class="direction-hover" data-title="Every book.">
+           <span class="dh-track">
+             <span class="dh-item dh-accent">Every book.</span>
+             <span class="dh-item dh-base">Every book.</span>
+             <span class="dh-item dh-accent">Every book.</span>
+           </span>
+         </span> <span class="direction-hover" data-title="Every PDF.">
+           <span class="dh-track">
+             <span class="dh-item dh-accent">Every PDF.</span>
+             <span class="dh-item dh-base">Every PDF.</span>
+             <span class="dh-item dh-accent">Every PDF.</span>
+           </span>
+         </span>
+         <br class="hero-break">
+         <span class="direction-hover" data-title="One beautiful place to read.">
+           <span class="dh-track">
+             <span class="dh-item dh-accent">One beautiful place to read.</span>
+             <span class="dh-item dh-base">One beautiful place to read.</span>
+             <span class="dh-item dh-accent">One beautiful place to read.</span>
+           </span>
+         </span>
+       </h1>
+ 
+       <p class="hero-subtitle">
+         Flip pages like real paper, highlight and annotate, and ask AI about anything you're reading.
+       </p>
+ 
+       <div class="hero-actions">
+         <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare" class="btn btn-primary">
+           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+             <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/>
+           </svg>
+           Download Free on Microsoft Store
+         </a>
+         <a href="#heroShot" class="menu__button hero-shimmer-btn" id="heroSeeInActionBtn">
+           <span class="hero-shimmer-bg" aria-hidden="true"></span>
+           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+             <polygon points="6 3 20 12 6 21 6 3"/>
+           </svg>
+           <span class="menu__button-text">See it in action</span>
+         </a>
+       </div>
+
+       <p class="hero-privacy-note">
+         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+           <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+         </svg>
+         <span>Your files stay on your PC.</span>
+       </p>
+
+      <!-- Originkit TextPath Sine-Wave Marquee -->
+      <div class="hero-textpath-container" id="heroTextPath"></div>
+
+       <div class="hero-shot" id="heroShot">
+         <div class="hero-shot-inner">
+           <!-- Pure Seamless 15:9 Live PDFistic Application Frame -->
+           <div class="card hero-shot-card hero-showcase-frame">
+             <span class="hero-border-beam" aria-hidden="true"></span>
+             <span class="hero-shine-rim" aria-hidden="true"></span>
+
+             <div class="hero-screen-well">
+               <div class="pdf-demo-app" id="pdfDemoApp" data-demo-theme="light"></div>
+             </div>
+           </div>
+           <!-- Positioned overlay outside demo DOM: Uiverse.io Tooltips by kyle1dev -->
+           <div class="hero-callouts" id="heroCallouts" aria-hidden="true">
+             <div class="callout callout--drop">
+               <span class="callout-dot" aria-hidden="true"></span>
+               <span>Drag &amp; drop PDF or EPUB</span>
+             </div>
+             <div class="callout callout--filter">
+               <span class="callout-dot" aria-hidden="true"></span>
+               <span>Pinned &amp; recent</span>
+             </div>
+             <div class="callout callout--ai">
+               <span class="callout-dot" aria-hidden="true"></span>
+               <span>Ask AI anytime</span>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+ 
+     <!-- Transition to Bright Warm Ivory / Cream Sheet (Wispr Flow Aesthetic) -->
+     <div class="editorial-sheet">
+ 
+       <!-- Features Intro & Editorial Reading Bento -->
+        <section class="section-container" id="features">
+          <div class="section-header">
+            <span class="section-label">FEATURES</span>
+            <h2 class="section-title" style="margin-top: 8px;">
+              Made for textbooks, storybooks and study notes.
+            </h2>
+            <p class="section-intro">
+              Open a PDF or EPUB, flip through it, mark it up, and ask AI when you're stuck. Your files stay on your PC.
+            </p>
+          </div>
+
+          <div class="reading-bento">
+            <!-- Panel 1: Book Spread & Themes -->
+            <article class="uiverse-card bento-panel bento-panel--wide bento-panel--paper">
+              <div class="uiverse-card-info bento-panel-inner">
+                <div class="bento-copy">
+                  <span class="bento-kicker">READING</span>
+                  <h3 class="bento-heading">Read like real paper, day or night</h3>
+                  <p class="bento-text">
+                    Two pages side by side like an open book, or plain scroll if you prefer. Big textbooks stay smooth. Pick Day, Paper or Night.
+                  </p>
+                </div>
+                <div class="bento-book-spread" aria-hidden="true">
+                  <div class="bento-book-page">
+                    <span class="bento-page-chapter">Chapter 04</span>
+                    <p class="bento-page-excerpt">
+                      Two pages side by side, like an open book.
+                    </p>
+                    <div class="bento-theme-swatches">
+                      <span class="bento-swatch"><span class="bento-swatch-dot" style="background: #FFFFFF;"></span>Day</span>
+                      <span class="bento-swatch"><span class="bento-swatch-dot" style="background: #EFE4CE;"></span>Paper</span>
+                      <span class="bento-swatch"><span class="bento-swatch-dot" style="background: #1B1E24;"></span>Night</span>
+                    </div>
+                  </div>
+                  <div class="bento-book-page bento-book-page--right">
+                    <span class="bento-book-ribbon"></span>
+                    <span class="bento-page-chapter">Page 118</span>
+                    <p class="bento-page-excerpt">
+                      Bookmarked. Reopen the book and you're back on this page.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 2: Dark Contrast Local Privacy -->
+            <article class="uiverse-card bento-panel bento-panel--narrow bento-panel--ink">
+              <div class="uiverse-card-info bento-panel-inner">
+                <div class="bento-copy">
+                  <span class="bento-kicker">PRIVACY</span>
+                  <h3 class="bento-heading">Your files stay on your PC</h3>
+                  <p class="bento-text">
+                    No sign-up, no ads, no cloud uploads. Your books, notes and signatures are saved on your computer and nowhere else.
+                  </p>
+                </div>
+                <div class="bento-privacy-meter">
+                  <div class="bento-privacy-row">
+                    <span>Account</span>
+                    <span class="bento-privacy-state">Not needed</span>
+                  </div>
+                  <div class="bento-privacy-row">
+                    <span>Reading offline</span>
+                    <span class="bento-privacy-state">Yes</span>
+                  </div>
+                  <div class="bento-privacy-row">
+                    <span>Where your files stay</span>
+                    <span class="bento-privacy-state">Only on PC</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 3: Highlight, Write & Copy Scanned Text -->
+            <article class="uiverse-card bento-panel bento-panel--narrow bento-panel--sand">
+              <div class="uiverse-card-info bento-panel-inner">
+                <div class="bento-copy">
+                  <span class="bento-kicker">STUDY &amp; SIGN</span>
+                  <h3 class="bento-heading">Highlight, sketch, and copy from scans</h3>
+                  <p class="bento-text">
+                    Highlight lines, write notes with a pen, sign forms, and search or copy text from scanned pages.
+                  </p>
+                </div>
+                <div class="bento-highlight-sheet" aria-hidden="true">
+                  <p class="bento-highlight-line">
+                    Plants use sunlight to <span class="bento-marker">turn water and air into food</span> inside their green leaves.
+                  </p>
+                  <div class="bento-margin-note">Saved note: Important for Friday quiz</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 4: Friendly AI Reading Assistant -->
+            <article class="uiverse-card bento-panel bento-panel--wide bento-panel--paper">
+              <div class="uiverse-card-info bento-panel-inner">
+                <div class="bento-copy">
+                  <span class="bento-kicker">ASK AI</span>
+                  <h3 class="bento-heading">Stuck on a paragraph? Ask AI.</h3>
+                  <p class="bento-text">
+                    Highlight the paragraph, ask for a short summary or a simpler explanation, and read the answer next to your page.
+                  </p>
+                </div>
+                <div class="bento-ai-preview" aria-hidden="true">
+                  <div class="bento-ai-prompt">Explain this paragraph in simple words</div>
+                  <div class="bento-ai-reply">
+                    <strong>Simple version:</strong> Warm air is lighter than cool air, so it rises. Cooler air rushes in underneath, and that movement is wind.
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+ 
+       <!-- Interactive Sticky Card Showcase -->
+       <section class="skiper17-container" id="tour">
+         <div class="skiper17-header">
+           <span class="section-label">TOUR</span>
+           <h2 class="section-title">See what it does in 5 steps.</h2>
+           <div class="skiper17-scroll-indicator">
+             <div class="skiper17-step-readout" aria-live="polite">
+               <span id="tourStepCounter">01 / 05</span>
+               <span class="step-dots" id="tourStepDots" aria-hidden="true">
+                 <span class="step-dot is-active"></span>
+                 <span class="step-dot"></span>
+                 <span class="step-dot"></span>
+                 <span class="step-dot"></span>
+                 <span class="step-dot"></span>
+               </span>
+             </div>
+             <span class="skiper17-scroll-text">Scroll to move through the features.</span>
+             <div class="skiper17-scroll-line" aria-hidden="true"></div>
+           </div>
+         </div>
+ 
+         <div class="sticky-cards-stage">
+           <div class="sticky-cards-frame">
+                        <div class="skiper17-cards-list">
+              <!-- Card 0: Offline Library & PDF Tools -->
+              <div class="skiper17-card-item active" data-index="0">
+                <div class="showcase-window">
+                  <img src="assets/screenshots/home_library.png?v=2" alt="Home Library Shelf with Recent Books and PDF Tools Hub in PDFistic" class="showcase-img" loading="eager">
+                  <div class="showcase-caption">
+                    <h3 class="showcase-title">Offline library and PDF tools</h3>
+                    <p class="showcase-desc">Keep your PDFs and EPUBs in one searchable shelf with multi-tab reading, pinned books, and local PDF tools on your PC.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 1: Side-by-Side Comparison -->
+              <div class="skiper17-card-item" data-index="1">
+                <div class="showcase-window">
+                  <img src="assets/screenshots/split_view.png?v=2" alt="Side-by-Side Dual Document Split View in PDFistic" class="showcase-img" loading="eager">
+                  <div class="showcase-caption">
+                    <h3 class="showcase-title">Side-by-side document comparison</h3>
+                    <p class="showcase-desc">Open two PDFs next to each other in split view so you can compare chapters, references, and notes.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: AI Assistant with Clickable Citations -->
+              <div class="skiper17-card-item" data-index="2">
+                <div class="showcase-window">
+                  <img src="assets/screenshots/ai_copilot.png?v=2" alt="Docked Zernexa AI Assistant with Clickable Page Citations in PDFistic" class="showcase-img" loading="eager">
+                  <div class="showcase-caption">
+                    <h3 class="showcase-title">Ask AI with clickable citations</h3>
+                    <p class="showcase-desc">Ask Zernexa AI by typing or voice next to your book, summarize chapters, and jump straight to cited pages.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Appearance & Custom Typography -->
+              <div class="skiper17-card-item" data-index="3">
+                <div class="showcase-window">
+                  <img src="assets/screenshots/settings_suite.png?v=2" alt="Appearance, Themes, and Typography Settings in PDFistic" class="showcase-img" loading="eager">
+                  <div class="showcase-caption">
+                    <h3 class="showcase-title">Themes and reading typography</h3>
+                    <p class="showcase-desc">Switch between Light, Dark, and Custom themes, pick your interface and reader fonts, and scale the layout to fit your eyes.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: Dual-Page Book View -->
+              <div class="skiper17-card-item" data-index="4">
+                <div class="showcase-window">
+                  <img src="assets/screenshots/book_flip.png?v=2" alt="Dual-Page Book View in PDFistic" class="showcase-img" loading="eager">
+                  <div class="showcase-caption">
+                    <h3 class="showcase-title">Dual-page book view</h3>
+                    <p class="showcase-desc">Read with two-page spreads, page turns, and controls made for long reading sessions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Outer per-step callout overlay (Tooltips/kyle1dev_quiet-cougar-91.html) -->
+            <div class="tour-callouts" id="tourCallouts" aria-hidden="true">
+              <div class="callout callout--step-1 is-active-callout" data-tour-step="1">
+                <span class="callout-dot" aria-hidden="true"></span>
+                <span>Local library &amp; PDF tools</span>
+              </div>
+              <div class="callout callout--step-2" data-tour-step="2">
+                <span class="callout-dot" aria-hidden="true"></span>
+                <span>Dual-pane split view</span>
+              </div>
+              <div class="callout callout--step-3" data-tour-step="3">
+                <span class="callout-dot" aria-hidden="true"></span>
+                <span>Docked AI copilot</span>
+              </div>
+              <div class="callout callout--step-4" data-tour-step="4">
+                <span class="callout-dot" aria-hidden="true"></span>
+                <span>Theme &amp; font settings</span>
+              </div>
+              <div class="callout callout--step-5" data-tour-step="5">
+                <span class="callout-dot" aria-hidden="true"></span>
+                <span>Two-page book spread</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+         <!-- Microsoft Store Download CTA Banner -->
+        <div class="bottom-cta-banner">
+          <div class="bottom-cta-inner">
+            <span class="bottom-cta-eyebrow">DOWNLOAD</span>
+            <h2>Open your next book in PDFistic.</h2>
+            <p>
+              Free, no ads, no account. Works on Windows 10 and 11.
+            </p>
+            <div class="bottom-cta-actions">
+              <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare" class="btn btn-cream-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/>
+                </svg>
+                <span>Download Free on Microsoft Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+     </div>
+   </main>
+
+  <!-- Official Footer -->
+  <footer class="footer site-footer">
+    <div class="footer-container">
+      <div class="footer-col-brand">
+        <div class="footer-brand-head">
+          <img src="icon.png" alt="PDFistic" class="footer-brand-logo">
+          <span class="footer-brand-name">PDFistic</span>
+        </div>
+        <p>
+          A PDF and EPUB reader for Windows 10 and 11. Your files stay on your PC.
+        </p>
+        <div class="squircle-dock-wrap">
+          <div class="squircle-dock-backdrop"></div>
+          <div class="squircle-dock-items">
+            <div class="squircle-dock-item">
+              <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-gh" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.46-1.334-5.46-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+              </a>
+              <span class="footer-tooltip" aria-hidden="true">GitHub</span>
+            </div>
+            <div class="squircle-dock-item">
+              <a href="https://www.linkedin.com/in/devansh-dubey-aa802b305/" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-li" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+              </a>
+              <span class="footer-tooltip" aria-hidden="true">LinkedIn</span>
+            </div>
+            <div class="squircle-dock-item">
+              <a href="https://github.com/devanshd07o/CLAUZEY-V1" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-cz" aria-label="Similar apps ~ Clauzey">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+                  <path d="M7.2 3.8a4.8 4.8 0 0 0 9.6 0"></path>
+                  <path d="M20.2 7.2a4.8 4.8 0 0 0 0 9.6"></path>
+                  <path d="M16.8 20.2a4.8 4.8 0 0 0-9.6 0"></path>
+                  <path d="M3.8 16.8a4.8 4.8 0 0 0 0-9.6"></path>
+                </svg>
+              </a>
+              <span class="footer-tooltip" aria-hidden="true">Similar apps ~ Clauzey</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#features"><span class="footer-link-label">Features</span></a></li>
+          <li><a href="index.html#tour"><span class="footer-link-label">Tour</span></a></li>
+          <li><a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare"><span class="footer-link-label">Microsoft Store</span></a></li>
+          <li><a href="https://github.com/devanshd07o/PDFistic-V1"><span class="footer-link-label">GitHub</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html"><span class="footer-link-label">Privacy Policy</span></a></li>
+          <li><a href="terms.html"><span class="footer-link-label">Terms of Service</span></a></li>
+          <li><a href="licenses.html"><span class="footer-link-label">Open Source Notices</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="support.html"><span class="footer-link-label">Help Center &amp; FAQ</span></a></li>
+          <li><a href="contact.html"><span class="footer-link-label">Contact</span></a></li>
+          <li><a href="https://github.com/devanshd07o/PDFistic-V1/issues"><span class="footer-link-label">Report an Issue</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 PDFistic &middot; Developed by Devansh Dubey. Published under Apache 2.0 license.</div>
+      <div class="footer-bottom-right">
+        <div>Designed for Windows 10 &amp; 11 &bull; Available on Microsoft Store</div>
+        <button type="button" class="to-top" aria-label="Back to top">
+          <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path></svg>
+          <span class="footer-tooltip" aria-hidden="true">Back to top</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

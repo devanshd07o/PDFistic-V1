@@ -1,0 +1,388 @@
+%PDF-1.4
+%PDF1
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R] /Count 8 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 3851 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.110 0.360 0.850 rg 0 618 595 224 re f
+1 1 1 rg
+BT /F2 10 Tf 48 790 Td (CS NOTES & ALGORITHMS) Tj ET
+BT /F2 27 Tf 48 746 Td (Visual Graph Study Notes) Tj ET
+0.94 0.95 0.97 rg
+BT /F1 12 Tf 48 706 Td (BFS, DFS, shortest path algorithms, topological ordering,) Tj ET
+BT /F1 12 Tf 48 688 Td (cycle detection, and visual traversal traces across 8) Tj ET
+BT /F1 12 Tf 48 670 Td (comprehensive pages.) Tj ET
+1 1 1 rg 0.85 w 48 648 m 547 648 l S
+BT /F2 9.5 Tf 48 632 Td (Algorithm Visual Lab  |  8-PAGE COMPLETE DEMO GUIDE) Tj ET
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 576 Td (1. Graphs, Vertices & Adjacency Lists) Tj ET
+0.95 0.97 1.00 rg 48 432 499 118 re f
+0.110 0.360 0.850 RG 1.2 w 48 432 499 118 re S
+0.35 0.42 0.55 RG 1.4 w
+120 490 m 240 518 l S
+120 490 m 240 462 l S
+240 518 m 380 518 l S
+240 462 m 380 462 l S
+240 518 m 380 462 l S
+380 518 m 490 490 l S
+380 462 m 490 490 l S
+0.110 0.360 0.850 rg
+106 476 28 28 re f
+1 1 1 rg BT /F2 8.5 Tf 112 487 Td (A) Tj ET
+0.090 0.110 0.140 rg BT /F2 8 Tf 106 464 Td (A \(Start\)) Tj ET
+0.15 0.39 0.92 rg
+226 504 28 28 re f
+1 1 1 rg BT /F2 8.5 Tf 232 515 Td (B) Tj ET
+0.090 0.110 0.140 rg BT /F2 8 Tf 226 492 Td (B \(2\)) Tj ET
+0.15 0.39 0.92 rg
+226 448 28 28 re f
+1 1 1 rg BT /F2 8.5 Tf 232 459 Td (C) Tj ET
+0.090 0.110 0.140 rg BT /F2 8 Tf 226 436 Td (C \(4\)) Tj ET
+0.15 0.39 0.92 rg
+366 504 28 28 re f
+1 1 1 rg BT /F2 8.5 Tf 372 515 Td (D) Tj ET
+0.090 0.110 0.140 rg BT /F2 8 Tf 366 492 Td (D \(5\)) Tj ET
+0.15 0.39 0.92 rg
+366 448 28 28 re f
+1 1 1 rg BT /F2 8.5 Tf 372 459 Td (E) Tj ET
+0.090 0.110 0.140 rg BT /F2 8 Tf 366 436 Td (E \(3\)) Tj ET
+0.110 0.360 0.850 rg
+476 476 28 28 re f
+1 1 1 rg BT /F2 8.5 Tf 482 487 Td (F) Tj ET
+0.090 0.110 0.140 rg BT /F2 8 Tf 476 464 Td (F \(Goal\)) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 414 Td (Formal Graph Definition) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 397 Td (A graph G = \(V, E\) captures discrete entities as vertices V and pairwise) Tj ET
+BT /F1 10.5 Tf 48 381.8 Td (connections as edges E. Edges may be undirected \(symmetric roads between) Tj ET
+BT /F1 10.5 Tf 48 366.6 Td (cities\) or directed \(one-way prerequisite links between courses\), and) Tj ET
+BT /F1 10.5 Tf 48 351.40000000000003 Td (weighted with numeric costs such as latency or distance.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 328.20000000000005 Td (Choosing Storage Representation) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 311.20000000000005 Td (Most real-world networks  -  social graphs, citation webs, dependency trees  - ) Tj ET
+BT /F1 10.5 Tf 48 296.00000000000006 Td (are sparse: |E| << |V|^2. Adjacency lists store only actual outgoing) Tj ET
+BT /F1 10.5 Tf 48 280.80000000000007 Td (neighbors per vertex using O\(V + E\) memory rather than O\(V^2\) empty cells in) Tj ET
+BT /F1 10.5 Tf 48 265.6000000000001 Td (an adjacency matrix.) Tj ET
+0.940 0.960 1.000 rg 48 140.4000000000001 499 102 re f
+0.110 0.360 0.850 rg 48 140.4000000000001 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 224.4000000000001 Td (REPRESENTATION TRADE-OFFS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 205.4000000000001 Td (1. Adjacency List: O\(V + E\) space, fast neighbor iteration, ideal for BFS/DFS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 186.4000000000001 Td (2. Adjacency Matrix: O\(V^2\) space, O\(1\) edge lookup u -> v, suits dense graphs) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 167.4000000000001 Td (3. Edge List: Compact tuple stream [u, v, w], ideal for Kruskal MST sorting) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 148.4000000000001 Td (4. Degree Invariant: Sum of undirected degrees always equals 2 * |E|) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 1 of 8) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2926 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 2 | BFS TRAVERSAL) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (2. Breadth-First Search & Shortest Hops) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Wavefront Expansion by Layer) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Breadth-First Search explores outward from source s in concentric rings:) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (distance 1 neighbors first, then distance 2, never jumping to ring d + 1) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (until every node in ring d has entered a First-In First-Out \(FIFO\) queue.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 657.3999999999999 Td (Mark Visited on Enqueue, Not Pop) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 640.3999999999999 Td (A classic beginner bug is marking nodes visited only when popped from the) Tj ET
+BT /F1 10.5 Tf 48 625.1999999999998 Td (queue. If two frontier vertices connect to node x before x is popped, x gets) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (queued twice and bloats runtime. Always mark visited immediately upon) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (pushing to the queue.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 571.5999999999997 Td (Because edges have equal unit weight \(1 hop each\), the very first wave) Tj ET
+BT /F1 10.5 Tf 48 556.3999999999996 Td (reaching target t guarantees minimum hop count with total time O\(V + E\).) Tj ET
+0.940 0.960 1.000 rg 48 431.1999999999996 499 102 re f
+0.110 0.360 0.850 rg 48 431.1999999999996 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 515.1999999999996 Td (BFS INVARIANTS & APPLICATIONS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.1999999999996 Td (1. Data Structure: Strict FIFO Queue + visited boolean/parent map) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.1999999999996 Td (2. Shortest Path: Unweighted single-source minimum edge distance in O\(V + E\)) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 458.1999999999996 Td (3. Bipartite Check: Alternate 2-coloring across wave boundaries detects odd cycles) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 439.1999999999996 Td (4. Level-Order Trees: Clean level grouping without recursion stack overflow) Tj ET
+0.95 0.96 0.98 rg 48 367.1999999999996 499 50 re f
+0.78 0.82 0.88 RG 0.8 w 48 367.1999999999996 499 50 re S
+0.090 0.110 0.140 rg BT /F2 9.5 Tf 60 399.1999999999996 Td (Try asking Zernexa AI "Explain why visited is marked on enqueue" to) Tj ET
+0.090 0.110 0.140 rg BT /F2 9.5 Tf 60 385.1999999999996 Td (verify how quickly it cites this exact page.) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 2 of 8) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3038 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 3 | DFS & RECURSION) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (3. Depth-First Search & Discovery Times) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Following One Path to Its Limit) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Depth-First Search \(DFS\) commits down outgoing edges recursively \(or via an) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (explicit LIFO stack\) until reaching dead ends, then backtracks smoothly to) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (explore remaining unvisited branches. DFS naturally produces connected) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (components and full discovery/finish timestamps.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Three-Color State Tracking) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (Recording states as Unvisited \(0\), Visiting / On-Stack \(1\), and Completed) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (\(2\) reveals directed graph edge classes immediately: meeting a node in) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (Visiting \(1\) proves a genuine back-edge  -  and therefore a directed cycle.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 571.5999999999997 Td (Both recursive and iterative DFS run in O\(V + E\), though iterative stacks) Tj ET
+BT /F1 10.5 Tf 48 556.3999999999996 Td (safeguard systems languages against deep call-stack limits on 100k-node) Tj ET
+BT /F1 10.5 Tf 48 541.1999999999996 Td (chains.) Tj ET
+0.940 0.960 1.000 rg 48 415.99999999999955 499 102 re f
+0.110 0.360 0.850 rg 48 415.99999999999955 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 499.99999999999955 Td (EDGE CLASSIFICATION IN DIRECTED DFS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 480.99999999999955 Td (1. Tree Edge: Leads to an Unvisited \(0\) vertex  -  builds DFS forest) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 461.99999999999955 Td (2. Back Edge: Points to an active ancestor \(state 1\)  -  proves a cycle exists) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 442.99999999999955 Td (3. Forward Edge: Jumps ahead to an already finished descendant \(state 2\)) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 423.99999999999955 Td (4. Cross Edge: Connects across distinct finished subtrees \(state 2\)) Tj ET
+0.95 0.96 0.98 rg 48 351.99999999999955 499 50 re f
+0.78 0.82 0.88 RG 0.8 w 48 351.99999999999955 499 50 re S
+0.090 0.110 0.140 rg BT /F2 9.5 Tf 60 383.99999999999955 Td (In undirected graphs, every non-tree edge is simply a back-edge to an) Tj ET
+0.090 0.110 0.140 rg BT /F2 9.5 Tf 60 369.99999999999955 Td (ancestor \(ignoring the immediate parent pointer\).) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 3 of 8) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2693 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 4 | DAG & TOPO SORT) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (4. Topological Ordering & Kahn's Algorithm) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Resolving Dependencies Cleanly) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (A Directed Acyclic Graph \(DAG\) admits a linear ordering of vertices such) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (that every directed edge u -> v places task u strictly ahead of dependent) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (task v. Build tools, spreadsheet formulas, and compiler schedules rely) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (directly on topological orderings.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (In-Degree Peeling \(Kahn's Algorithm\)) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (Count incoming edges \(inDegree[v]\) for all vertices. Enqueue every vertex) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (with inDegree === 0, pop them one by one into the sorted schedule, decrement) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (neighbors' inDegrees, and enqueue newly zeroed vertices. If fewer than |V|) Tj ET
+BT /F1 10.5 Tf 48 579.5999999999997 Td (vertices finish, a dependency cycle blocked completion.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 556.3999999999996 Td (Alternative DFS post-order: reversing the order in which DFS completes) Tj ET
+BT /F1 10.5 Tf 48 541.1999999999996 Td (vertices yields another valid O\(V + E\) topological order.) Tj ET
+0.940 0.960 1.000 rg 48 415.99999999999955 499 102 re f
+0.110 0.360 0.850 rg 48 415.99999999999955 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 499.99999999999955 Td (CYCLE & SCHEDULING FACTS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 480.99999999999955 Td (1. A finite directed graph has a topological order IF AND ONLY IF it is a DAG) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 461.99999999999955 Td (2. Topological orderings need not be unique  -  ties allow parallel execution) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 442.99999999999955 Td (3. Longest path in a general graph is NP-hard, but O\(V + E\) DP in any DAG!) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 423.99999999999955 Td (4. Kahn queue with min-heap produces the lexicographically smallest order) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 4 of 8) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2566 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 5 | DIJKSTRA PATHS) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (5. Weighted Shortest Paths \(Dijkstra\)) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Greedy Relaxation with Min-Heap) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (When road edges carry non-negative travel times or weights w >= 0, BFS hop) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (count can pick slow routes. Dijkstra maintains tentative best distances) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (dist[v] in a binary min-priority queue, greedily locking the closest settled) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (node u and relaxing edges dist[u] + w < dist[v].) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Why Negative Weights Break Greedy Locking) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (Dijkstra assumes settling u guarantees no shorter route to u exists later. A) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (negative edge downstream could retroactively undercut a settled vertex,) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (requiring Bellman-Ford O\(VE\) relaxation rounds instead.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 571.5999999999997 Td (With binary heap priority queues and lazy deletion checks, Dijkstra finishes) Tj ET
+BT /F1 10.5 Tf 48 556.3999999999996 Td (in O\(\(V + E\) log V\) cleanly.) Tj ET
+0.940 0.960 1.000 rg 48 431.1999999999996 499 102 re f
+0.110 0.360 0.850 rg 48 431.1999999999996 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 515.1999999999996 Td (DIJKSTRA STEP-BY-STEP LOOP) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.1999999999996 Td (1. Initialize dist[start] = 0 and dist[others] = +Infinity; push \(0, start\)) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.1999999999996 Td (2. Pop pair \(d, u\): if d > dist[u], skip stale duplicate heap entry immediately) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 458.1999999999996 Td (3. For each edge \(u, v, w\): if dist[u] + w < dist[v], update dist[v] and push) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 439.1999999999996 Td (4. Reconstruct optimal route by walking parent[t] backwards to source s) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 5 of 8) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 2594 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 6 | UNION FIND & MST) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (6. Disjoint Sets \(DSU\) & Spanning Trees) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Near-Constant Connectivity Queries) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Disjoint Set Union tracks partitioned clusters under two operations: find\(x\)) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (and union\(a, b\). Pairing Path Compression \(flattening parent pointers during) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (lookup\) with Union by Rank keeps amortized cost at O\(alpha\(N\)\)  -  effectively) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (< 5 steps for any practical universe size.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Kruskal's Minimum Spanning Tree) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (To wire N campuses with minimum total fiber length, sort all edges ascending) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (by weight and iterate chronologically: if find\(u\) !== find\(v\), add the edge) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (and merge components until N - 1 tree edges connect the whole graph.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 571.5999999999997 Td (Prim's MST grows outward from one start node using a min-heap exactly like) Tj ET
+BT /F1 10.5 Tf 48 556.3999999999996 Td (Dijkstra, excelling on denser graphs.) Tj ET
+0.940 0.960 1.000 rg 48 431.1999999999996 499 102 re f
+0.110 0.360 0.850 rg 48 431.1999999999996 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 515.1999999999996 Td (CONNECTIVITY ESSENTIALS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.1999999999996 Td (1. Cycle detection in undirected incremental edges takes O\(alpha\(V\)\) per edge) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.1999999999996 Td (2. Every spanning tree of V connected vertices contains exactly V - 1 edges) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 458.1999999999996 Td (3. Cut Property: Minimum edge crossing any graph partition safely joins an MST) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 439.1999999999996 Td (4. Kruskal total time is O\(E log E\) dominated strictly by sorting edges) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 6 of 8) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2525 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 7 | DYNAMIC PROGRAMMING ON GRAPHS) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (7. All-Pairs Paths & Bellman-Ford) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Bellman-Ford & Arbitrage Cycles) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Relaxing every edge V - 1 times handles arbitrary negative weights in O\(VE\).) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (Running one extra V-th relaxation pass detects negative-weight cycles) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (instantly if any dist[v] decreases further  -  fundamental in currency) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (arbitrage and routing stability checks.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Floyd-Warshall Matrix DP) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (When graphs are compact \(|V| <= 400\) and all-pairs shortest distances are) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (queried repeatedly, iterating intermediate pivots k from 1..V computes) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (dp[i][j] = min\(dp[i][j], dp[i][k] + dp[k][j]\) in clean triple nested loops.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 571.5999999999997 Td (A* search accelerates single-pair grid pathfinding by guiding priority order) Tj ET
+BT /F1 10.5 Tf 48 556.3999999999996 Td (via f\(n\) = g\(n\) + h\(n\) admissible distance heuristics.) Tj ET
+0.940 0.960 1.000 rg 48 431.1999999999996 499 102 re f
+0.110 0.360 0.850 rg 48 431.1999999999996 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 515.1999999999996 Td (ALGORITHM SELECTION CHEAT SHEET) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 496.1999999999996 Td (1. Unweighted edges -> Standard BFS O\(V + E\)) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 477.1999999999996 Td (2. Weighted >= 0 edges -> Dijkstra + Min-Heap O\(\(V + E\) log V\)) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 458.1999999999996 Td (3. Negative weights allowed -> Bellman-Ford O\(VE\)) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 439.1999999999996 Td (4. All-pairs sparse small graph -> V x Dijkstra or Floyd-Warshall O\(V^3\)) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 7 of 8) Tj ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 2643 >>
+stream
+1.000 0.996 0.990 rg 0 0 595 842 re f
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 48 800 Td (VISUAL GRAPH STUDY NOTES) Tj ET
+0.110 0.360 0.850 rg BT /F2 8.5 Tf 462 800 Td (SEC 8 | INTERVIEW PATTERNS) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 790 m 547 790 l S
+0.090 0.110 0.140 rg BT /F2 18 Tf 48 754 Td (8. Common Exam Traps & Checklist) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 728 Td (Grid Matrices Are Implicit Graphs) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 711 Td (Word ladders, island flooding, knight moves, and matrix shortest paths) Tj ET
+BT /F1 10.5 Tf 48 695.8 Td (rarely build explicit adjacency arrays  -  compute 4-way or 8-way delta) Tj ET
+BT /F1 10.5 Tf 48 680.5999999999999 Td (offsets dynamically, stay strictly inside [0..rows-1][0..cols-1], and guard) Tj ET
+BT /F1 10.5 Tf 48 665.3999999999999 Td (visited flags carefully.) Tj ET
+0.110 0.360 0.850 rg BT /F2 11.5 Tf 48 642.1999999999998 Td (Multi-Source BFS Rotates Effortlessly) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 625.1999999999998 Td (When questions ask for nearest exit distance from ANY gate simultaneously) Tj ET
+BT /F1 10.5 Tf 48 609.9999999999998 Td (\(like rotten oranges or nearest zero cells\), seed ALL starting gates into) Tj ET
+BT /F1 10.5 Tf 48 594.7999999999997 Td (the queue at distance 0 before popping a single element.) Tj ET
+0.090 0.110 0.140 rg
+BT /F1 10.5 Tf 48 571.5999999999997 Td (Before submitting any graph traversal solution, verify disconnected islands) Tj ET
+BT /F1 10.5 Tf 48 556.3999999999996 Td (\(outer loop over every vertex 0..N-1\), self-loops, duplicate parallel edges,) Tj ET
+BT /F1 10.5 Tf 48 541.1999999999996 Td (and single-node edge cases.) Tj ET
+0.940 0.960 1.000 rg 48 415.99999999999955 499 102 re f
+0.110 0.360 0.850 rg 48 415.99999999999955 4 102 re f
+0.110 0.360 0.850 rg BT /F2 9.5 Tf 62 499.99999999999955 Td (PRE-SUBMISSION EDGE CASE AUDIT) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 480.99999999999955 Td (1. Empty graph \(N = 0, E = 0\) and single-vertex disconnected island checks) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 461.99999999999955 Td (2. Directed vs. undirected symmetry when adding adjacency entries) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 442.99999999999955 Td (3. Visited marked at enqueue time in BFS; recursion depth vs iterative stack in DFS) Tj ET
+0.090 0.110 0.140 rg BT /F1 10 Tf 62 423.99999999999955 Td (4. BigInt / 64-bit accumulator check for large summed path costs) Tj ET
+0.84 0.86 0.89 RG 0.8 w 48 54 m 547 54 l S
+0.360 0.400 0.460 rg BT /F1 8.5 Tf 48 38 Td (PDFistic Sample Library  |  Visual Graph Study Notes) Tj ET
+0.360 0.400 0.460 rg BT /F2 8.5 Tf 492 38 Td (Page 8 of 8) Tj ET
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 19 0 R >>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000169 00000 n 
+0000000239 00000 n 
+0000000314 00000 n 
+0000004217 00000 n 
+0000004353 00000 n 
+0000007331 00000 n 
+0000007467 00000 n 
+0000010557 00000 n 
+0000010694 00000 n 
+0000013440 00000 n 
+0000013578 00000 n 
+0000016197 00000 n 
+0000016335 00000 n 
+0000018982 00000 n 
+0000019120 00000 n 
+0000021698 00000 n 
+0000021836 00000 n 
+0000024532 00000 n 
+trailer
+<< /Size 21 /Root 1 0 R >>
+startxref
+24670
+%%EOF
