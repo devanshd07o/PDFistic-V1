@@ -154,11 +154,14 @@
     }
 
     // 4. Skiper 17 Sticky Pinned Card Showcase (GSAP + ScrollTrigger)
+    let tourScrollTimeline = null;
+
     function initSkiper17() {
+      const tourSection = document.getElementById('tour');
       const stage = document.querySelector('.sticky-cards-stage');
       const cardItems = document.querySelectorAll('.skiper17-card-item');
 
-      if (!stage || !cardItems.length) return;
+      if (!tourSection || !stage || !cardItems.length) return;
 
       const gsapInstance = window.gsap || (typeof gsap !== 'undefined' ? gsap : null);
       const stInstance = window.ScrollTrigger || (typeof ScrollTrigger !== 'undefined' ? ScrollTrigger : null);
@@ -177,15 +180,20 @@
       gsapInstance.set(cardItems[0], { y: '0%', scale: 1, rotation: 0, opacity: 1 });
       cardItems[0].classList.add('is-active-tour');
       for (let i = 1; i < totalCards; i++) {
-        gsapInstance.set(cardItems[i], { y: '108%', scale: 0.96, rotation: 0, opacity: 0 });
+        gsapInstance.set(cardItems[i], { y: '100%', scale: 0.96, rotation: 0, opacity: 0 });
       }
 
       const tourCounter = document.getElementById('tourStepCounter');
       const scrollTimeline = gsapInstance.timeline({
         scrollTrigger: {
-          trigger: stage,
-          start: 'center 54%',
-          end: () => `+=${window.innerHeight * (totalCards - 1) * 0.95}`,
+          trigger: tourSection,
+          start: () => (window.innerWidth <= 992 ? 'top 74px' : 'top 86px'),
+          end: () => {
+            if (window.innerWidth <= 992) {
+              return '+=' + Math.round(Math.min(window.innerHeight * 2.2, 1600));
+            }
+            return '+=' + Math.round(window.innerHeight * (totalCards - 1) * 0.85);
+          },
           pin: true,
           scrub: 1.15,
           pinSpacing: true,
@@ -200,6 +208,7 @@
           },
         },
       });
+      tourScrollTimeline = scrollTimeline;
 
       for (let i = 0; i < totalCards - 1; i++) {
         const currentCard = cardItems[i];
@@ -239,18 +248,34 @@
 
     initSkiper17();
 
-    // 4b. Passive Observer for Tour Segmented Dots, Scroll Cue & Active Step Callout
+    // 4b. Passive Observer + Mobile Interactive Step Controls for Tour
     function initTourObservers() {
       var counter = document.getElementById('tourStepCounter');
       var container = document.getElementById('tour');
       var dots = Array.from(document.querySelectorAll('#tourStepDots .step-dot'));
       var callouts = Array.from(document.querySelectorAll('#tourCallouts .callout'));
+      var mobileCalloutText = document.getElementById('tourMobileCalloutText');
+      var prevBtn = document.getElementById('tourPrevBtn');
+      var nextBtn = document.getElementById('tourNextBtn');
+      var pillBtns = Array.from(document.querySelectorAll('#tourMobilePills .tour-pill-btn'));
+      var totalSteps = callouts.length || 5;
+      var currentStep = 1;
       if (!counter || !container) return;
+
+      function goToTourStep(targetIdx) {
+        var clamped = Math.max(0, Math.min(totalSteps - 1, targetIdx));
+        var st = tourScrollTimeline && tourScrollTimeline.scrollTrigger;
+        if (!st) return;
+        var targetY = Math.round(st.start + (st.end - st.start) * (clamped / Math.max(1, totalSteps - 1)));
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: targetY, behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
 
       function syncTourUi() {
         var match = (counter.textContent || '').trim().match(/^(\d+)/);
         var step = match ? parseInt(match[1], 10) : 1;
         if (isNaN(step) || step < 1) step = 1;
+        currentStep = step;
 
         dots.forEach(function (dot, idx) {
           dot.classList.toggle('is-active', idx === step - 1);
@@ -258,8 +283,36 @@
         callouts.forEach(function (callout, idx) {
           callout.classList.toggle('is-active-callout', idx === step - 1);
         });
+        if (mobileCalloutText && callouts[step - 1]) {
+          var labelSpan = callouts[step - 1].querySelector('span:last-child');
+          if (labelSpan) mobileCalloutText.textContent = labelSpan.textContent;
+        }
+        pillBtns.forEach(function (btn, idx) {
+          var active = idx === step - 1;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        if (prevBtn) prevBtn.disabled = step <= 1;
+        if (nextBtn) nextBtn.disabled = step >= totalSteps;
         container.classList.toggle('is-past-step-1', step > 1);
       }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          goToTourStep(currentStep - 2);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          goToTourStep(currentStep);
+        });
+      }
+      pillBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var idx = parseInt(btn.getAttribute('data-tour-goto') || '0', 10);
+          goToTourStep(idx);
+        });
+      });
 
       syncTourUi();
       var mo = new MutationObserver(syncTourUi);

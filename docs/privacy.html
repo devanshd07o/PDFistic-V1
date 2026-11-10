@@ -6,9 +6,9 @@
   <title>Privacy Policy - PDFistic</title>
   <meta name="description" content="Official Privacy Policy for PDFistic. How PDFistic handles your files, optional AI features, and local settings on Windows.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="styles.css?v=20261110k">
+  <link rel="stylesheet" href="styles.css?v=20261110l">
   <link rel="stylesheet" href="css/doc.css">
-  <script src="script.js?v=20261110i" defer></script>
+  <script src="script.js?v=20261110j" defer></script>
   <script src="venom-button.js" defer></script>
 </head>
 <body class="page-document">
@@ -84,6 +84,7 @@
           <nav id="policy-toc">
             <a href="#files" class="active">What the app does with your files</a>
             <a href="#collection">What I don't collect</a>
+            <a href="#google-drive">Optional Google Sign-In &amp; Drive Sync</a>
             <a href="#ai">AI features (optional) and your API keys</a>
             <a href="#voice-input">Voice input</a>
             <a href="#storage">Where data is stored and how to delete it</a>
@@ -100,14 +101,14 @@
         <div class="doc-in-short">
           <div class="doc-in-short-label">In short</div>
           <p>
-            PDFistic runs on your Windows PC. <mark>Your documents stay on your computer</mark> unless you explicitly choose to send text to an AI service that you configured, or use optional voice input (see "Voice input" below). I do not run analytics, I do not track what you read, and I do not have a server that collects your personal data.
+            PDFistic runs locally on your Windows PC. <mark>Your documents stay on your computer by default</mark> unless you explicitly choose to connect Google Drive Sync, send text to an AI service that you configured, or use optional voice input. I do not run analytics, I do not track what you read, and I do not operate developer cloud servers that store your personal files.
           </p>
         </div>
 
         <div class="doc-pillars">
           <div class="doc-pillar">
             <h3>No analytics or ads</h3>
-            <p>No tracking SDKs, no telemetry, no account.</p>
+            <p>No tracking SDKs, no telemetry, no account required.</p>
           </div>
           <div class="doc-pillar">
             <h3>Files stay local</h3>
@@ -137,15 +138,32 @@
         <section class="doc-section" id="collection">
           <h2>What I don't collect</h2>
           <p>
-            I built PDFistic as a straightforward desktop tool. <mark>The application does not contain analytics SDKs, advertising trackers, or telemetry libraries.</mark> The only network requests it makes are the optional ones described on this page: AI requests you trigger, voice input you trigger, and update checks.
+            I built PDFistic as a local-first desktop tool. <mark>The application does not contain analytics SDKs, advertising trackers, or telemetry libraries.</mark> The only network requests it makes are user-initiated ones: optional Google Sign-In/Drive Sync, AI requests you submit, optional voice input, and update checks.
           </p>
           <ul>
-            <li><strong>Your documents:</strong> I do not receive your file names, contents, paths, reading progress, or annotations.</li>
+            <li><strong>Your documents:</strong> I do not receive your file names, contents, paths, reading progress, or annotations on any developer server.</li>
             <li><strong>Your usage habits:</strong> I do not track which buttons you click, how long you read, or when you launch the application.</li>
-            <li><strong>Personal details:</strong> You do not need to create an account, register an email address, or sign in to use PDFistic.</li>
+            <li><strong>Personal details:</strong> Creating an account is never required to read, annotate, or use local OCR in PDFistic.</li>
           </ul>
           <p>
             This website does not set tracking cookies. The website loads web fonts from Google Fonts (<code>fonts.googleapis.com</code>), which receives standard browser request headers when downloading font files.
+          </p>
+        </section>
+
+        <!-- Section 2b: Optional Google Sign-In & Drive Sync -->
+        <section class="doc-section" id="google-drive">
+          <h2>Optional Google Sign-In &amp; Drive Sync</h2>
+          <p>
+            If you choose to sign in with Google in PDFistic, the app uses OAuth 2.0 with PKCE strictly on your PC to connect directly to Google APIs:
+          </p>
+          <ul>
+            <li><strong>Profile Identity (<code>openid</code>, <code>email</code>, <code>profile</code>):</strong> Used solely inside the app to display your name, email, and avatar in your local workspace profile and Zernexa AI greeting.</li>
+            <li><strong>Private Workspace Sync (<code>drive.appdata</code>):</strong> Stores a hidden <code>pdfistic-sync-v1.json</code> file inside your personal Google Drive AppData folder containing your per-document reading progress, bookmarks, annotations, and UI preferences. No developer backend can read this file.</li>
+            <li><strong>PDFistic Library Folder (<code>drive.file</code>):</strong> Grants access strictly to PDF/EPUB files you choose to upload or open through PDFistic's <em>PDFistic Library</em> folder on Google Drive. PDFistic cannot browse or read unrelated files in your Google Drive.</li>
+            <li><strong>Never Synced to Cloud:</strong> Your local AI API keys, OAuth tokens, and local disk paths never upload to Google Drive; OAuth tokens stay encrypted locally in the Windows Credential Store (DPAPI).</li>
+          </ul>
+          <p>
+            <mark>Google API Services User Data Policy (Limited Use):</mark> PDFistic's use and transfer to any other app of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements. PDFistic never transfers, sells, or shares Google user data with third parties or ad platforms. You can revoke access anytime from the Google Account panel in PDFistic (<strong>Sign out</strong>) or in your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account Permissions</a>.
           </p>
         </section>
 
@@ -227,7 +245,7 @@
             You can remove your stored data at any time:
           </p>
           <ul>
-            <li>Inside PDFistic, open <strong>Settings &rarr; General</strong> and click <strong>Reset Workspace</strong> to clear your recent file list, saved chat messages, and local preferences.</li>
+            <li>Inside PDFistic, open <strong>Settings &rarr; Privacy &amp; Data</strong> to clear saved chat history, remove stored API keys, or wipe locally cached annotations and page progress.</li>
             <li>To delete everything manually, close the app and remove the folder at <code>%APPDATA%\PDFistic</code> in Windows File Explorer.</li>
             <li>Uninstalling PDFistic through Windows Settings removes the application files. You can delete the <code>%APPDATA%\PDFistic</code> folder afterwards to clear any remaining local settings.</li>
           </ul>

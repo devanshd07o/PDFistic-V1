@@ -9,13 +9,13 @@
    <meta property="og:description" content="Page-flip, annotations, and AI built in. Your files stay on your PC.">
    <meta property="og:type" content="website">
    <link rel="icon" type="image/x-icon" href="favicon.ico">
-   <link rel="stylesheet" href="styles.css?v=20261110k">
+   <link rel="stylesheet" href="styles.css?v=20261110l">
    <script src="gsap.min.js"></script>
    <script src="ScrollTrigger.min.js"></script>
    <script src="vendor/page-flip/page-flip.browser.js?v=20261110d" defer></script>
    <script src="vendor/pdfjs/pdf.classic.min.js?v=20261110d" defer></script>
    <script src="vendor/pdfjs/pdf.worker.classic.min.js?v=20261110d" defer></script>
-   <script src="script.js?v=20261110i" defer></script>
+   <script src="script.js?v=20261110j" defer></script>
    <script src="zernexa-rag.js?v=20261110d" defer></script>
    <script src="demo.js?v=20261110d" defer></script>
    <script src="venom-button.js?v=20261110d" defer></script>
@@ -221,21 +221,21 @@
                   <span class="bento-kicker">PRIVACY</span>
                   <h3 class="bento-heading">Your files stay on your PC</h3>
                   <p class="bento-text">
-                    No sign-up, no ads, no cloud uploads. Your books, notes and signatures are saved on your computer and nowhere else.
+                    No forced sign-up, no ads, no tracking. Your books and notes stay local by default, with optional Google Drive sync in your own account.
                   </p>
                 </div>
                 <div class="bento-privacy-meter">
                   <div class="bento-privacy-row">
-                    <span>Account</span>
-                    <span class="bento-privacy-state">Not needed</span>
+                    <span>Account required</span>
+                    <span class="bento-privacy-state">Optional</span>
                   </div>
                   <div class="bento-privacy-row">
                     <span>Reading offline</span>
                     <span class="bento-privacy-state">Yes</span>
                   </div>
                   <div class="bento-privacy-row">
-                    <span>Where your files stay</span>
-                    <span class="bento-privacy-state">Only on PC</span>
+                    <span>Default file storage</span>
+                    <span class="bento-privacy-state">Local PC</span>
                   </div>
                 </div>
               </div>
@@ -383,6 +383,30 @@
                 <span>Two-page book spread</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="tour-mobile-controls" id="tourMobileControls">
+          <div class="tour-mobile-callout" id="tourMobileCallout">
+            <span class="callout-dot" aria-hidden="true"></span>
+            <span id="tourMobileCalloutText">Local library &amp; PDF tools</span>
+          </div>
+          <div class="tour-mobile-nav-row">
+            <button type="button" class="tour-nav-btn" id="tourPrevBtn" aria-label="Previous tour step">
+              <span aria-hidden="true">←</span>
+              <span>Prev</span>
+            </button>
+            <button type="button" class="tour-nav-btn" id="tourNextBtn" aria-label="Next tour step">
+              <span>Next</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div class="tour-mobile-pills" id="tourMobilePills" role="tablist" aria-label="Feature tour steps">
+            <button type="button" class="tour-pill-btn is-active" data-tour-goto="0" role="tab" aria-selected="true">01 Library</button>
+            <button type="button" class="tour-pill-btn" data-tour-goto="1" role="tab" aria-selected="false">02 Split</button>
+            <button type="button" class="tour-pill-btn" data-tour-goto="2" role="tab" aria-selected="false">03 Ask AI</button>
+            <button type="button" class="tour-pill-btn" data-tour-goto="3" role="tab" aria-selected="false">04 Themes</button>
+            <button type="button" class="tour-pill-btn" data-tour-goto="4" role="tab" aria-selected="false">05 Book</button>
           </div>
         </div>
       </section>

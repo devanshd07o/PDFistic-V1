@@ -5136,7 +5136,7 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
 .sticky-cards-frame {
   position: relative;
   width: 100%;
-  max-width: min(980px, 94vw, calc((100dvh - 230px) * 1024 / 555));
+  max-width: min(980px, 94vw, calc((100dvh - 365px) * 1024 / 555));
   height: auto;
   margin: 0 auto;
 }
@@ -5152,9 +5152,13 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
 }
 
 .skiper17-cards-list {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.46);
 }
 
 .skiper17-card-item {
@@ -5175,7 +5179,6 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   overflow: hidden;
   background: #141618;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.46);
   display: flex;
   flex-direction: column;
 }
@@ -5236,6 +5239,140 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   .tour-callouts,
   .skiper17-scroll-line {
     display: none;
+  }
+}
+
+.tour-mobile-controls {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .skiper17-container {
+    margin-top: 20px;
+    padding: 10px 0 6px;
+  }
+
+  .skiper17-header {
+    margin-bottom: 8px;
+    padding: 0 16px;
+  }
+
+  .skiper17-scroll-indicator {
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .skiper17-scroll-text {
+    font-size: 13px;
+  }
+
+  .sticky-cards-stage {
+    padding: 8px 14px 12px;
+  }
+
+  .sticky-cards-frame {
+    max-width: min(640px, 100%);
+  }
+
+  .tour-mobile-controls {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    max-width: 560px;
+    margin: 2px auto 0;
+    padding: 0 14px;
+  }
+
+  .tour-mobile-callout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    align-self: center;
+    max-width: 100%;
+    padding: 7px 14px;
+    border-radius: 9999px;
+    background: var(--bg-cream-alt);
+    border: 1px solid var(--border-default);
+    font-family: var(--font-ui);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .tour-mobile-callout .callout-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .tour-mobile-nav-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tour-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 9999px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid rgba(28, 30, 33, 0.16);
+    font-family: var(--font-ui);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .tour-nav-btn[disabled] {
+    background: #404348;
+    color: #FAF7F2;
+    cursor: not-allowed;
+    opacity: 0.72;
+  }
+
+  .tour-mobile-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .tour-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px 13px;
+    border-radius: 9999px;
+    background: #FFFFFF;
+    color: var(--text-primary);
+    border: 1px solid var(--border-default);
+    font-family: var(--font-ui);
+    font-size: 12.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .tour-pill-btn.is-active {
+    background: var(--red);
+    color: #FAF7F2;
+    border-color: var(--red);
   }
 }
 
@@ -7149,7 +7286,7 @@ body.nav-menu-open header.site-header {
   }
 
   .sticky-cards-stage {
-    padding: 12px 12px 20px;
+    padding: 8px 12px 12px;
     min-height: 0;
   }
 
@@ -7158,8 +7295,13 @@ body.nav-menu-open header.site-header {
     height: auto;
   }
 
+  .skiper17-cards-list,
   .showcase-window {
     border-radius: 14px;
+  }
+
+  .skiper17-cards-list {
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
   }
 
   .showcase-caption {
@@ -7324,6 +7466,7 @@ body.nav-menu-open header.site-header {
     height: auto;
   }
 
+  .skiper17-cards-list,
   .showcase-window {
     border-radius: 12px;
   }

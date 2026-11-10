@@ -6,9 +6,9 @@
   <title>Support &amp; FAQ - PDFistic</title>
   <meta name="description" content="Help guides, keyboard shortcuts, frequently asked questions, and developer contact for PDFistic on Windows.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="styles.css?v=20261110k">
+  <link rel="stylesheet" href="styles.css?v=20261110l">
   <link rel="stylesheet" href="css/doc.css">
-  <script src="script.js?v=20261110i" defer></script>
+  <script src="script.js?v=20261110j" defer></script>
   <script src="venom-button.js" defer></script>
 </head>
 <body class="page-document">
@@ -231,28 +231,35 @@
             <details class="faq-item">
               <summary class="faq-question" aria-expanded="false">Does PDFistic require an internet connection?</summary>
               <div class="faq-answer">
-                No. All document rendering, EPUB parsing, text selection, annotations, and OCR run locally on your PC. An internet connection is only used if you choose to ask questions through the AI Copilot with your own API key.
+                No. All document rendering, EPUB parsing, text selection, annotations, and OCR run locally on your PC. An internet connection is only used if you opt in to Google Drive Sync or ask questions through the AI Copilot with your own API key.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question" aria-expanded="false">What does signing in with Google do?</summary>
+              <div class="faq-answer">
+                Signing in with Google is completely optional. When connected, PDFistic syncs your per-document annotations, bookmarks, reading progress, and preferences in your private Google Drive AppData folder (<code>drive.appdata</code>), and unlocks saving/opening files from a dedicated <em>PDFistic Library</em> folder (<code>drive.file</code>) on your Google Drive.
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question" aria-expanded="false">How do updates work?</summary>
               <div class="faq-answer">
-                If you installed PDFistic from the Microsoft Store, Windows handles updates automatically in the background. If you downloaded a standalone installer, you can check for updates in Settings &rarr; About &rarr; Check for Updates.
+                If you installed PDFistic from the Microsoft Store, Windows handles updates automatically in the background. If you downloaded a standalone installer, updates are delivered from GitHub releases and can be installed directly from the in-app update prompt.
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question" aria-expanded="false">Are annotations saved directly into my files?</summary>
               <div class="faq-answer">
-                Yes. When you click Save or Export, your highlights, notes, and drawings are written into the standard PDF annotation stream in accordance with ISO specifications, readable by any compliant PDF viewer.
+                Your active annotations and reading positions are cached locally per document automatically (and synced across PCs if Google Drive Sync is enabled). When you click Save or Export, your highlights, notes, signatures, and drawings are embedded into the PDF file stream in accordance with ISO specifications.
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question" aria-expanded="false">How do I delete all data stored by the app?</summary>
               <div class="faq-answer">
-                Delete the folder <code>%APPDATA%\pdfistic</code> (or the package data folder under <code>%LOCALAPPDATA%\Packages</code> for Microsoft Store installs). That removes all settings, recent file history, and stored API keys.
+                Open <strong>Settings &rarr; Privacy &amp; Data</strong> to clear saved chats, API keys, or cached annotations, or delete <code>%APPDATA%\PDFistic</code> on disk (or the package data folder under <code>%LOCALAPPDATA%\Packages</code> for Microsoft Store installs).
               </div>
             </details>
           </div>
