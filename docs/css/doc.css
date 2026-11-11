@@ -976,3 +976,68 @@ body.page-document .doc-toast.is-visible {
     transition: none;
   }
 }
+
+/* HyperUI-inspired Accessible Breadcrumbs (Item 15) */
+.pdfistic-breadcrumb {
+  margin-bottom: 20px;
+}
+
+.breadcrumb-list {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 6px 14px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  min-height: 28px;
+  transition: color 150ms ease;
+}
+
+.breadcrumb-link:hover {
+  color: var(--red);
+}
+
+.breadcrumb-home-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.breadcrumb-separator {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(28, 30, 33, 0.35);
+}
+
+.breadcrumb-chevron {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.breadcrumb-current {
+  color: var(--text);
+  font-weight: 600;
+}

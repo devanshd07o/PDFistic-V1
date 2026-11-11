@@ -1125,6 +1125,15 @@
           return;
         }
 
+        var honeyInput = form.querySelector('input[name="_honey"]');
+        if (honeyInput && honeyInput.value) {
+          // Silent bot drop (Item 20 honeypot)
+          resetSubmitState();
+          setStatus('Message sent successfully! Thank you for contacting PDFistic.', 'success');
+          form.reset();
+          return;
+        }
+
         var draft = readDraft();
         isSubmitting = true;
         if (submitBtn) {

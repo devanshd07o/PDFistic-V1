@@ -1,13 +1,79 @@
  <!DOCTYPE html>
  <html lang="en">
  <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>PDFistic - Read books and PDFs beautifully. Page-flip, annotations, and AI built in.</title>
-   <meta name="description" content="PDFistic - Read books and PDFs beautifully. Page-flip, annotations, and AI built in. Your files stay on your PC.">
-   <meta property="og:title" content="PDFistic - Read books and PDFs beautifully">
-   <meta property="og:description" content="Page-flip, annotations, and AI built in. Your files stay on your PC.">
-   <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFistic — Read Books &amp; PDFs with AI &amp; Page Flip</title>
+  <meta name="description" content="Read books and PDFs beautifully with two-page flip, annotations, and built-in AI. Offline and private on Windows.">
+  <link rel="canonical" href="https://devanshd07o.github.io/PDFistic-V1/">
+  <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN_PLACEHOLDER">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devanshd07o.github.io/PDFistic-V1/">
+  <meta property="og:title" content="PDFistic — Read Books &amp; PDFs with AI &amp; Page Flip">
+  <meta property="og:description" content="Read books and PDFs beautifully with two-page flip, annotations, and built-in AI. Offline and private on Windows.">
+  <meta property="og:image" content="https://devanshd07o.github.io/PDFistic-V1/assets/screenshots/home_library.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="PDFistic">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://devanshd07o.github.io/PDFistic-V1/">
+  <meta name="twitter:title" content="PDFistic — Read Books &amp; PDFs with AI &amp; Page Flip">
+  <meta name="twitter:description" content="Read books and PDFs beautifully with two-page flip, annotations, and built-in AI. Offline and private on Windows.">
+  <meta name="twitter:image" content="https://devanshd07o.github.io/PDFistic-V1/assets/screenshots/home_library.png">
+  <meta name="twitter:creator" content="@devanshd07o">
+  <!-- Google Analytics 4 (GA4) Hook (Item 17) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var GA_ID = window.PDFISTIC_GA_ID || 'G-XXXXXXXXXX';
+    if (GA_ID && GA_ID !== 'G-XXXXXXXXXX') {
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+      document.head.appendChild(gaScript);
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    }
+  </script>
+  <!-- Structured Data: SoftwareApplication & WebSite JSON-LD (Item 14) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/#website",
+        "url": "https://devanshd07o.github.io/PDFistic-V1/",
+        "name": "PDFistic",
+        "description": "Read books and PDFs beautifully with two-page flip, annotations, and built-in AI. Offline and private on Windows.",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/#software",
+        "name": "PDFistic",
+        "operatingSystem": "Windows 10, Windows 11",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Devansh Dubey",
+          "url": "https://www.linkedin.com/in/devansh-dubey-aa802b305/"
+        },
+        "downloadUrl": "https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare",
+        "screenshot": "https://devanshd07o.github.io/PDFistic-V1/assets/screenshots/home_library.png",
+        "softwareVersion": "2.0.0"
+      }
+    ]
+  }
+  </script>
    <link rel="icon" type="image/x-icon" href="favicon.ico">
    <link rel="stylesheet" href="styles.css?v=20261110l">
    <script src="gsap.min.js"></script>
@@ -308,7 +374,7 @@
               <!-- Card 0: Offline Library & PDF Tools -->
               <div class="skiper17-card-item active" data-index="0">
                 <div class="showcase-window">
-                  <img src="assets/screenshots/home_library.png?v=2" alt="Home Library Shelf with Recent Books and PDF Tools Hub in PDFistic" class="showcase-img" loading="eager">
+                  <img src="assets/screenshots/home_library.png?v=2" alt="Home Library Shelf with Recent Books and PDF Tools Hub in PDFistic" class="showcase-img" loading="eager" fetchpriority="high">
                   <div class="showcase-caption">
                     <h3 class="showcase-title">Offline library and PDF tools</h3>
                     <p class="showcase-desc">Keep your PDFs and EPUBs in one searchable shelf with multi-tab reading, pinned books, and local PDF tools on your PC.</p>
@@ -319,7 +385,7 @@
               <!-- Card 1: Side-by-Side Comparison -->
               <div class="skiper17-card-item" data-index="1">
                 <div class="showcase-window">
-                  <img src="assets/screenshots/split_view.png?v=2" alt="Side-by-Side Dual Document Split View in PDFistic" class="showcase-img" loading="eager">
+                  <img src="assets/screenshots/split_view.png?v=2" alt="Side-by-Side Dual Document Split View in PDFistic" class="showcase-img" loading="eager" decoding="async">
                   <div class="showcase-caption">
                     <h3 class="showcase-title">Side-by-side document comparison</h3>
                     <p class="showcase-desc">Open two PDFs next to each other in split view so you can compare chapters, references, and notes.</p>
@@ -330,7 +396,7 @@
               <!-- Card 2: AI Assistant with Clickable Citations -->
               <div class="skiper17-card-item" data-index="2">
                 <div class="showcase-window">
-                  <img src="assets/screenshots/ai_copilot.png?v=2" alt="Docked Zernexa AI Assistant with Clickable Page Citations in PDFistic" class="showcase-img" loading="eager">
+                  <img src="assets/screenshots/ai_copilot.png?v=2" alt="Docked Zernexa AI Assistant with Clickable Page Citations in PDFistic" class="showcase-img" loading="eager" decoding="async">
                   <div class="showcase-caption">
                     <h3 class="showcase-title">Ask AI with clickable citations</h3>
                     <p class="showcase-desc">Ask Zernexa AI by typing or voice next to your book, summarize chapters, and jump straight to cited pages.</p>
@@ -341,7 +407,7 @@
               <!-- Card 3: Appearance & Custom Typography -->
               <div class="skiper17-card-item" data-index="3">
                 <div class="showcase-window">
-                  <img src="assets/screenshots/settings_suite.png?v=2" alt="Appearance, Themes, and Typography Settings in PDFistic" class="showcase-img" loading="eager">
+                  <img src="assets/screenshots/settings_suite.png?v=2" alt="Appearance, Themes, and Typography Settings in PDFistic" class="showcase-img" loading="eager" decoding="async">
                   <div class="showcase-caption">
                     <h3 class="showcase-title">Themes and reading typography</h3>
                     <p class="showcase-desc">Switch between Light, Dark, and Custom themes, pick your interface and reader fonts, and scale the layout to fit your eyes.</p>
@@ -352,7 +418,7 @@
               <!-- Card 4: Dual-Page Book View -->
               <div class="skiper17-card-item" data-index="4">
                 <div class="showcase-window">
-                  <img src="assets/screenshots/book_flip.png?v=2" alt="Dual-Page Book View in PDFistic" class="showcase-img" loading="eager">
+                  <img src="assets/screenshots/book_flip.png?v=2" alt="Dual-Page Book View in PDFistic" class="showcase-img" loading="eager" decoding="async">
                   <div class="showcase-caption">
                     <h3 class="showcase-title">Dual-page book view</h3>
                     <p class="showcase-desc">Read with two-page spreads, page turns, and controls made for long reading sessions.</p>

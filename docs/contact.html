@@ -3,8 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Information - PDFistic</title>
-  <meta name="description" content="Official developer and customer support contact channels for PDFistic desktop application.">
+  <title>Contact &amp; Support — PDFistic</title>
+  <meta name="description" content="Official developer and customer support contact channels for PDFistic desktop application on Windows.">
+  <link rel="canonical" href="https://devanshd07o.github.io/PDFistic-V1/contact.html">
+  <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN_PLACEHOLDER">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://devanshd07o.github.io/PDFistic-V1/contact.html">
+  <meta property="og:title" content="Contact &amp; Support — PDFistic">
+  <meta property="og:description" content="Official developer and customer support contact channels for PDFistic desktop application on Windows.">
+  <meta property="og:image" content="https://devanshd07o.github.io/PDFistic-V1/assets/screenshots/home_library.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="PDFistic">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://devanshd07o.github.io/PDFistic-V1/contact.html">
+  <meta name="twitter:title" content="Contact &amp; Support — PDFistic">
+  <meta name="twitter:description" content="Official developer and customer support contact channels for PDFistic desktop application on Windows.">
+  <meta name="twitter:image" content="https://devanshd07o.github.io/PDFistic-V1/assets/screenshots/home_library.png">
+  <meta name="twitter:creator" content="@devanshd07o">
+  <!-- Google Analytics 4 (GA4) Hook (Item 17) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var GA_ID = window.PDFISTIC_GA_ID || 'G-XXXXXXXXXX';
+    if (GA_ID && GA_ID !== 'G-XXXXXXXXXX') {
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+      document.head.appendChild(gaScript);
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    }
+  </script>
+  <!-- Structured Data: BreadcrumbList JSON-LD (Item 15) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devanshd07o.github.io/PDFistic-V1/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://devanshd07o.github.io/PDFistic-V1/contact.html"
+      }
+    ]
+  }
+  </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css?v=20261110l">
   <script src="script.js?v=20261110j" defer></script>
@@ -69,6 +123,23 @@
   <!-- Editorial Hero Section (Dark Contrast Architecture) -->
   <main>
     <section class="editorial-hero">
+    <!-- Accessible Breadcrumb Navigation (Item 15) -->
+    <nav class="pdfistic-breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="index.html" class="breadcrumb-link">
+            <svg class="breadcrumb-home-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="breadcrumb-separator" aria-hidden="true">
+          <svg class="breadcrumb-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+        </li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">
+          <span>Contact</span>
+        </li>
+      </ol>
+    </nav>
       <div class="doc-eyebrow"><span class="doc-eyebrow-dot" aria-hidden="true"></span><span>Developer &amp; Support</span></div>
       <h1 class="editorial-title">
         Contact
@@ -109,6 +180,11 @@
               <h2 id="contact-form-title">Send a message</h2>
               <p>Send directly to the developer's inbox below (default), or open your draft in Gmail or Outlook / Mail app.</p>
               <form class="galaxy-contact-form" action="https://formsubmit.co/devanshd07o@gmail.com" method="post">
+                <!-- Anti-Spam Honeypot & Config (Item 20) -->
+                <input type="text" name="_honey" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="New PDFistic Message from Website">
                 <div class="contact-field">
                   <label for="contact-name">Your name</label>
                   <div class="uiverse-input-box">
