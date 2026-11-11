@@ -1019,27 +1019,58 @@ body.page-document .doc-toast.is-visible {
   color: var(--red);
 }
 
-.breadcrumb-home-icon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
+.breadcrumb-home-icon,
+svg.breadcrumb-home-icon {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }
 
 .breadcrumb-separator {
-  display: inline-flex;
-  align-items: center;
-  color: rgba(28, 30, 33, 0.35);
+  display: inline-flex !important;
+  align-items: center !important;
+  color: rgba(28, 30, 33, 0.35) !important;
 }
 
-.breadcrumb-chevron {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
+.breadcrumb-chevron,
+svg.breadcrumb-chevron {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }
 
 .breadcrumb-current {
-  color: var(--text);
-  font-weight: 600;
+  color: var(--text) !important;
+  font-weight: 600 !important;
+}
+
+.license-tag-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  padding: 2px 7px !important;
+  border-radius: 9999px !important;
+  background: rgba(184, 4, 3, 0.08) !important;
+  color: var(--accent-crimson, #B80403) !important;
+  border: 1px solid rgba(184, 4, 3, 0.22) !important;
+  margin-left: 6px !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
 }
 
 /* ==========================================================================
@@ -1235,3 +1266,94 @@ body.page-document .doc-toast.is-visible {
     gap: 6px;
   }
 }
+
+/* ==========================================================================
+   License Item Cards & Badges for licenses.html
+   ========================================================================== */
+.license-card-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 8px !important;
+}
+
+.license-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  white-space: nowrap !important;
+}
+
+.license-apache {
+  background: rgba(184, 4, 3, 0.08) !important;
+  color: var(--accent-crimson, #B80403) !important;
+  border: 1px solid rgba(184, 4, 3, 0.25) !important;
+}
+
+.license-mit {
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+.license-bsd {
+  background: rgba(79, 70, 229, 0.08) !important;
+  color: #4338CA !important;
+  border: 1px solid rgba(79, 70, 229, 0.25) !important;
+}
+
+.license-item-card {
+  background: #FFFFFF !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.14)) !important;
+  border-radius: 16px !important;
+  padding: 22px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.license-item-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(184, 4, 3, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(184, 4, 3, 0.08) !important;
+}
+
+.license-copyright-box {
+  background: #F8F5EE !important;
+  border: 1px solid rgba(28, 30, 33, 0.08) !important;
+  border-radius: 8px !important;
+  padding: 7px 11px !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11.5px !important;
+  color: var(--muted, #4A4D52) !important;
+  line-height: 1.5 !important;
+}
+
+.license-outbound-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-family: var(--font-ui, inherit) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--accent-crimson, #B80403) !important;
+  text-decoration: none !important;
+  margin-top: auto !important;
+  transition: color 150ms ease !important;
+}
+
+.license-outbound-link:hover {
+  text-decoration: underline !important;
+  color: var(--accent-crimson-hover, #990302) !important;
+}
+
