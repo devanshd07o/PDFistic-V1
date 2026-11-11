@@ -4965,8 +4965,8 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
 .skiper17-container {
   position: relative;
   width: 100%;
-  margin: 40px auto 0;
-  padding: 16px 0 0;
+  margin: 28px auto 0;
+  padding: 8px 0 0;
   scroll-margin-top: 96px;
 }
 
@@ -4993,7 +4993,7 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   z-index: 1;
   text-align: center;
   max-width: 780px;
-  margin: 0 auto 16px;
+  margin: 0 auto 4px;
   padding: 0 24px;
   overflow-x: clip;
 }
@@ -5023,8 +5023,8 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 4px;
+  margin-top: 6px;
 }
 
 #tour .skiper17-scroll-indicator,
@@ -5087,13 +5087,13 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
 /* From Uiverse.io by Cksunandh (loaders/Cksunandh_young-dragonfly-81.html) — adapted to CSS tokens */
 .skiper17-scroll-line {
   width: 2px;
-  height: 24px;
+  height: 12px;
   background-color: rgba(28, 30, 33, 0.16);
   border-radius: 9999px;
   overflow: hidden;
   position: relative;
   opacity: 1;
-  transition: opacity 200ms ease;
+  transition: opacity 200ms ease, height 200ms ease, margin 200ms ease;
 }
 
 .skiper17-scroll-line::before {
@@ -5110,6 +5110,9 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
 
 .skiper17-container.is-past-step-1 .skiper17-scroll-line {
   opacity: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
 }
 
 @keyframes tourScrollCue {
@@ -5128,7 +5131,7 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px 24px;
+  padding: 2px 24px 20px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -5248,18 +5251,18 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
 
 @media (max-width: 992px) {
   .skiper17-container {
-    margin-top: 20px;
-    padding: 10px 0 6px;
+    margin-top: 16px;
+    padding: 6px 0 4px;
   }
 
   .skiper17-header {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     padding: 0 16px;
   }
 
   .skiper17-scroll-indicator {
-    margin-top: 8px;
-    gap: 6px;
+    margin-top: 6px;
+    gap: 4px;
   }
 
   .skiper17-scroll-text {
@@ -5267,7 +5270,7 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   }
 
   .sticky-cards-stage {
-    padding: 8px 14px 12px;
+    padding: 4px 14px 10px;
   }
 
   .sticky-cards-frame {
@@ -7286,7 +7289,7 @@ body.nav-menu-open header.site-header {
   }
 
   .sticky-cards-stage {
-    padding: 8px 12px 12px;
+    padding: 4px 10px 10px;
     min-height: 0;
   }
 

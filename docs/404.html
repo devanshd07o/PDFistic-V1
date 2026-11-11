@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found — PDFistic</title>
+  <meta name="description" content="The page you are looking for could not be found. Return to the PDFistic homepage or check our support center.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css?v=20261110l">
+  <link rel="stylesheet" href="css/doc.css">
+  <script>
+    // Item 10: URL Normalization Fallback for Static Hosting (GitHub Pages)
+    (function() {
+      var path = window.location.pathname;
+      var clean = path.replace(/\/$/, '');
+      var lastSeg = clean.substring(clean.lastIndexOf('/') + 1).toLowerCase();
+      var routeMap = {
+        'privacy': 'privacy.html',
+        'terms': 'terms.html',
+        'support': 'support.html',
+        'contact': 'contact.html',
+        'licenses': 'licenses.html',
+        'features': 'index.html#features',
+        'tour': 'index.html#tour'
+      };
+      if (routeMap[lastSeg]) {
+        var base = clean.substring(0, clean.lastIndexOf('/') + 1);
+        window.location.replace(base + routeMap[lastSeg] + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <script src="script.js?v=20261110j" defer></script>
+  <script src="venom-button.js" defer></script>
+</head>
+<body class="page-document">
+
+  <!-- Shared Squircle Clip Path -->
+  <svg width="0" height="0" style="position: absolute; pointer-events: none;" aria-hidden="true">
+    <defs>
+      <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Floating Navigation Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link">
+        <img src="icon.png" alt="PDFistic Logo" class="brand-logo">
+        <span class="brand-title">PDFistic</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="primaryNav">
+          <li><a href="index.html#features">Features<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="privacy.html">Privacy<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="terms.html">Terms<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="support.html">Support &amp; FAQ<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="contact.html">Contact<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-group">
+        <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer" class="nav-github-btn btn-17" title="View Source on GitHub">
+          <span class="text-container">
+            <span class="text">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </span>
+          </span>
+        </a>
+        <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare" class="nav-win-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/>
+          </svg>
+          <span>Get on Windows</span>
+        </a>
+        <button class="nav-toggle-btn" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="brand-link">
+        <img src="icon.png" alt="PDFistic Logo" class="brand-logo">
+        <span class="brand-title">PDFistic</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="support.html">Support &amp; FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare" class="btn-venom-pill">
+        <span>Get on Windows</span>
+      </a>
+      <a href="https://github.com/devanshd07o/PDFistic-V1" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+        <span>View on GitHub</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- 404 Hero Container -->
+  <main class="doc-container" style="max-width: 820px; margin: 120px auto 80px; padding: 0 24px; text-align: center;">
+    <div style="display: inline-flex; align-items: center; justify-content: center; width: 68px; height: 68px; border-radius: 18px; background: rgba(184, 4, 3, 0.08); border: 1px solid rgba(184, 4, 3, 0.22); margin-bottom: 24px;">
+      <span style="font-family: var(--font-mono); font-size: 26px; font-weight: 800; color: var(--red);">404</span>
+    </div>
+
+    <span class="section-label" style="display: block; margin-bottom: 8px; color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Page Not Found</span>
+    <h1 class="doc-title" style="font-size: clamp(32px, 5vw, 44px); line-height: 1.15; margin-bottom: 16px; font-weight: 800; color: var(--text);">This document could not be located.</h1>
+    <p class="doc-subline" style="max-width: 580px; margin: 0 auto 36px; font-size: 16px; line-height: 1.6; color: var(--text-muted);">
+      The page or file you followed does not exist, or may have been moved. Return to the homepage to explore features or visit our help center.
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; margin-bottom: 48px;">
+      <a href="index.html" class="btn-venom-pill" style="text-decoration: none;">
+        <span>Return Home &rarr;</span>
+      </a>
+      <a href="support.html" class="btn-secondary" style="padding: 10px 22px; font-size: 14px; font-weight: 600; text-decoration: none;">
+        <span>Support &amp; FAQ &nearr;</span>
+      </a>
+      <a href="contact.html" class="btn-secondary" style="padding: 10px 22px; font-size: 14px; font-weight: 600; text-decoration: none;">
+        <span>Contact Developer &nearr;</span>
+      </a>
+    </div>
+
+    <!-- Helpful Quick Links Grid -->
+    <div style="background: rgba(255, 255, 255, 0.65); border: 1px solid var(--border); border-radius: 16px; padding: 24px; text-align: left; max-width: 620px; margin: 0 auto; backdrop-filter: blur(8px);">
+      <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">Quick Navigation</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+        <li><a href="index.html#features" style="color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;">&bull; Feature Breakdown</a></li>
+        <li><a href="index.html#tour" style="color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;">&bull; 5-Step Visual Tour</a></li>
+        <li><a href="privacy.html" style="color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;">&bull; Privacy Policy</a></li>
+        <li><a href="terms.html" style="color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;">&bull; Terms of Service</a></li>
+        <li><a href="licenses.html" style="color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;">&bull; Open Source Licenses</a></li>
+        <li><a href="https://github.com/devanshd07o/PDFistic-V1/issues" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500;">&bull; Report Broken Link &nearr;</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-brand">
+        <div class="footer-brand-head">
+          <img src="icon.png" alt="PDFistic" class="footer-brand-logo">
+          <span class="footer-brand-name">PDFistic</span>
+        </div>
+        <p>
+          A PDF and EPUB reader for Windows 10 and 11. Your files stay on your PC.
+        </p>
+        <div class="squircle-dock-wrap">
+          <div class="squircle-dock-backdrop"></div>
+          <div class="squircle-dock-items">
+            <div class="squircle-dock-item"><a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-gh" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.46-1.334-5.46-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a><span class="footer-tooltip" aria-hidden="true">GitHub</span></div>
+            <div class="squircle-dock-item"><a href="https://www.linkedin.com/in/devansh-dubey-aa802b305/" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-li" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a><span class="footer-tooltip" aria-hidden="true">LinkedIn</span></div>
+            <div class="squircle-dock-item"><a href="https://github.com/devanshd07o/CLAUZEY-V1" target="_blank" rel="noopener noreferrer" class="squircle-btn btn-cz" aria-label="Similar apps ~ Clauzey"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M7.2 3.8a4.8 4.8 0 0 0 9.6 0"></path><path d="M20.2 7.2a4.8 4.8 0 0 0 0 9.6"></path><path d="M16.8 20.2a4.8 4.8 0 0 0-9.6 0"></path><path d="M3.8 16.8a4.8 4.8 0 0 0 0-9.6"></path></svg></a><span class="footer-tooltip" aria-hidden="true">Similar apps ~ Clauzey</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#features"><span class="footer-link-label">Features</span></a></li>
+          <li><a href="index.html#tour"><span class="footer-link-label">Tour</span></a></li>
+          <li><a href="https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare"><span class="footer-link-label">Microsoft Store</span></a></li>
+          <li><a href="https://github.com/devanshd07o/PDFistic-V1"><span class="footer-link-label">GitHub</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html"><span class="footer-link-label">Privacy Policy</span></a></li>
+          <li><a href="terms.html"><span class="footer-link-label">Terms of Service</span></a></li>
+          <li><a href="licenses.html"><span class="footer-link-label">Open Source Notices</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul class="footer-links">
+          <li><a href="support.html"><span class="footer-link-label">Help Center &amp; FAQ</span></a></li>
+          <li><a href="contact.html"><span class="footer-link-label">Contact</span></a></li>
+          <li><a href="https://github.com/devanshd07o/PDFistic-V1/issues"><span class="footer-link-label">Report an Issue</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 PDFistic &middot; Developed by Devansh Dubey. Published under Apache 2.0 license.</div>
+      <div class="footer-bottom-right">
+        <div>Designed for Windows 10 &amp; 11 &bull; Available on Microsoft Store</div>
+        <button type="button" class="to-top" aria-label="Back to top">
+          <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path></svg>
+          <span class="footer-tooltip" aria-hidden="true">Back to top</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
