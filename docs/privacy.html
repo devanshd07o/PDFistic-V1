@@ -214,9 +214,9 @@
   </script>
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="styles.css?v=20261111d">
-  <link rel="stylesheet" href="css/doc.css">
-  <script src="script.js?v=20261111d" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261112b">
+  <link rel="stylesheet" href="css/doc.css?v=20261112b">
+  <script src="script.js?v=20261112b" defer></script>
   <script src="venom-button.js?v=20261112" defer></script>
 </head>
 <body class="page-document">
@@ -243,6 +243,7 @@
           <li><a href="index.html#features">Features<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
           <li><a href="privacy.html" class="active">Privacy<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
           <li><a href="terms.html">Terms<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
+          <li><a href="licenses.html">Licenses<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
           <li><a href="support.html">Support &amp; FAQ<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
           <li><a href="contact.html">Contact<svg class="skiper-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 9L9 1m0 0v8m0-8H1"/></svg></a></li>
         </ul>
@@ -348,22 +349,34 @@
             </p>
           </div>
 
-          <div class="doc-pillars" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px;">
-            <div class="doc-pillar">
-              <h3 style="font-size: 15px; margin-bottom: 6px;">Local-first</h3>
-              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">Parsing, rendering, annotation and OCR execute on your CPU/GPU, inside your Windows session.</p>
+          <div class="doc-pillars-grid">
+            <div class="doc-pillar-card">
+              <div class="doc-pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+              </div>
+              <h3>Local-first</h3>
+              <p>Parsing, rendering, annotation and OCR execute on your CPU/GPU, inside your Windows session.</p>
             </div>
-            <div class="doc-pillar">
-              <h3 style="font-size: 15px; margin-bottom: 6px;">No middleman</h3>
-              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">No developer backend, proxy or relay exists. Optional cloud calls go straight from your PC to the provider.</p>
+            <div class="doc-pillar-card">
+              <div class="doc-pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>No middleman</h3>
+              <p>No developer backend, proxy or relay exists. Optional cloud calls go straight from your PC to the provider.</p>
             </div>
-            <div class="doc-pillar">
-              <h3 style="font-size: 15px; margin-bottom: 6px;">Keys stay yours</h3>
-              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">OAuth tokens and API keys are encrypted with Windows DPAPI and never leave your machine in readable form.</p>
+            <div class="doc-pillar-card">
+              <div class="doc-pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+              </div>
+              <h3>Keys stay yours</h3>
+              <p>OAuth tokens and API keys are encrypted with Windows DPAPI and never leave your machine in readable form.</p>
             </div>
-            <div class="doc-pillar">
-              <h3 style="font-size: 15px; margin-bottom: 6px;">Erasable</h3>
-              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">One in-app command or one folder deletion removes every local trace.</p>
+            <div class="doc-pillar-card">
+              <div class="doc-pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+              </div>
+              <h3>Erasable</h3>
+              <p>One in-app command or one folder deletion removes every local trace.</p>
             </div>
           </div>
 

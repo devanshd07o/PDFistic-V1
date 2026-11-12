@@ -125,22 +125,44 @@
 
       function updateActiveToc() {
         if (!sections.length) return;
-        const scrollY = window.scrollY + 160;
+        const scrollThreshold = window.scrollY + Math.min(window.innerHeight * 0.35, 240);
         let activeIndex = 0;
 
-        sections.forEach(function (section, index) {
-          if (section.offsetTop <= scrollY) {
-            activeIndex = index;
-          }
-        });
+        // Bottom of page check - if near footer, activate the last section
+        const isBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 70);
+        if (isBottom) {
+          activeIndex = sections.length - 1;
+        } else {
+          sections.forEach(function (section, index) {
+            if (section.offsetTop <= scrollThreshold) {
+              activeIndex = index;
+            }
+          });
+        }
 
         tocLinks.forEach(function (link, index) {
           if (index === activeIndex) {
             if (!link.classList.contains('active')) {
               link.classList.add('active');
-              if (window.innerWidth <= 900) {
+
+              // Auto-scroll TOC container smoothly to keep pace with document reading
+              const tocContainer = tocNav.closest('.doc-toc') || tocNav;
+              if (tocContainer && tocContainer.scrollHeight > tocContainer.clientHeight) {
+                const containerRect = tocContainer.getBoundingClientRect();
+                const linkRect = link.getBoundingClientRect();
+                const relativeTop = linkRect.top - containerRect.top + tocContainer.scrollTop;
+                const targetScroll = relativeTop - (tocContainer.clientHeight / 2) + (linkRect.height / 2);
+
+                tocContainer.scrollTo({
+                  top: Math.max(0, targetScroll),
+                  behavior: 'smooth'
+                });
+              }
+
+              // Mobile horizontal pill nav scroll if applicable
+              if (window.innerWidth <= 900 && tocNav.scrollWidth > tocNav.clientWidth) {
                 const targetLeft = link.offsetLeft - (tocNav.clientWidth / 2) + (link.offsetWidth / 2);
-                tocNav.scrollLeft = Math.max(0, targetLeft);
+                tocNav.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
               }
             }
           } else {
