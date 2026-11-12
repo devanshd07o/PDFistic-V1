@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: PDFistic Support Portal & FAQ
+    url: https://devanshd07o.github.io/PDFistic-V1/support.html
+    about: Please check our official FAQ and documentation before opening an issue.
+  - name: Official Website & Legal Center
+    url: https://devanshd07o.github.io/PDFistic-V1/
+    about: Read our Privacy Policy, Terms of Service & EULA, and Third-Party Notices.
+  - name: Direct Developer Email
+    url: mailto:devanshd07o@gmail.com
+    about: For private licensing inquiries or security vulnerability reporting.
