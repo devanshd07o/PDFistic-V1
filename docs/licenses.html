@@ -206,17 +206,17 @@
 
             <div class="grid-2" style="margin: 24px 0 32px; gap: 16px;">
               
-              <!-- 1. PDF.js -->
+              <!-- 1. PDF.js (Mozilla) -->
               <div class="license-item-card">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">1. PDF.js</h3>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">PDF.js</h3>
                   <span class="license-badge license-apache">Apache 2.0</span>
                 </div>
                 <div class="license-copyright-box">
                   Copyright &copy; Mozilla Foundation and individual contributors.
                 </div>
                 <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Powers client-side PDF document decoding, font rendering, text layer extraction, and high-performance canvas page display.
+                  Powers client-side PDF document parsing, canvas page rasterization, font decoding, and text layer extraction inside an isolated renderer process.
                 </p>
                 <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
                   <span>github.com/mozilla/pdf.js</span>
@@ -224,20 +224,20 @@
                 </a>
               </div>
 
-              <!-- 2. Chromium & Electron -->
+              <!-- 2. StPageFlip (Page-Flip) -->
               <div class="license-item-card">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">2. Chromium &amp; Electron</h3>
-                  <span class="license-badge license-bsd">BSD 3-Clause / MIT</span>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">StPageFlip (Page-Flip)</h3>
+                  <span class="license-badge license-mit">MIT License</span>
                 </div>
                 <div class="license-copyright-box">
-                  Copyright &copy; The Chromium Authors &amp; OpenJS Foundation.
+                  Copyright &copy; Oleg Ponomarev and contributors.
                 </div>
                 <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Provides native sandboxed OS runtime, multi-process memory architecture, GPU rendering pipeline, and Windows titlebar integration.
+                  Powers PDFistic's tactile 3D dual-page book turn simulation with natural paper curl physics, corner dragging, and smooth page flipping.
                 </p>
-                <a href="https://github.com/electron/electron" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/electron/electron</span>
+                <a href="https://github.com/Nodlik/StPageFlip" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
+                  <span>github.com/Nodlik/StPageFlip</span>
                   <span aria-hidden="true">&nearr;</span>
                 </a>
               </div>
@@ -245,14 +245,14 @@
               <!-- 3. pdf-lib -->
               <div class="license-item-card">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">3. pdf-lib</h3>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">pdf-lib</h3>
                   <span class="license-badge license-mit">MIT License</span>
                 </div>
                 <div class="license-copyright-box">
                   Copyright &copy; Andrew Dillon and contributors.
                 </div>
                 <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Client-side PDF document manipulation, split, merge, page rotation, visual signature stamping, and binary PDF byte operations.
+                  Client-side PDF document manipulation: merging, splitting, page rotation, visual signature stamping, and binary byte patching directly to disk.
                 </p>
                 <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
                   <span>github.com/Hopding/pdf-lib</span>
@@ -263,14 +263,14 @@
               <!-- 4. Tesseract.js -->
               <div class="license-item-card">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">4. Tesseract.js</h3>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">Tesseract.js</h3>
                   <span class="license-badge license-apache">Apache 2.0</span>
                 </div>
                 <div class="license-copyright-box">
                   Copyright &copy; Jerome Wu and contributors.
                 </div>
                 <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Pure WebAssembly Optical Character Recognition engine running entirely offline on your PC to extract text from scanned documents.
+                  Pure WebAssembly Optical Character Recognition engine running 100% offline on your PC to extract text from scanned documents and book pages.
                 </p>
                 <a href="https://github.com/naptha/tesseract.js" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
                   <span>github.com/naptha/tesseract.js</span>
@@ -278,28 +278,64 @@
                 </a>
               </div>
 
-              <!-- 5. KaTeX -->
+              <!-- 5. ePub.js -->
               <div class="license-item-card">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">5. KaTeX</h3>
-                  <span class="license-badge license-mit">MIT License</span>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">ePub.js</h3>
+                  <span class="license-badge license-mit">FreeBSD / MIT</span>
                 </div>
                 <div class="license-copyright-box">
-                  Copyright &copy; Khan Academy and individual contributors.
+                  Copyright &copy; Futurepress and contributors.
                 </div>
                 <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Ultra-fast typographic mathematical rendering for academic notes, textbook formulas, and AI copilot research equations.
+                  Powers PDFistic's dedicated EPUB reading mode: spine navigation, dynamic pagination, custom font sizing, line height controls, and e-book rendering.
                 </p>
-                <a href="https://github.com/KaTeX/KaTeX" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/KaTeX/KaTeX</span>
+                <a href="https://github.com/futurepress/epub.js" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
+                  <span>github.com/futurepress/epub.js</span>
                   <span aria-hidden="true">&nearr;</span>
                 </a>
               </div>
 
-              <!-- 6. React -->
+              <!-- 6. Zernexa AI Visual Suite -->
               <div class="license-item-card">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">6. React</h3>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">Zernexa AI STEM Visual Suite</h3>
+                  <span class="license-badge license-mit">MIT / Apache 2.0</span>
+                </div>
+                <div class="license-copyright-box">
+                  KaTeX (Khan Academy), Mermaid.js (Knut Sveidqvist), Apache ECharts, Leaflet, and Highlight.js.
+                </div>
+                <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
+                  Powers Zernexa AI Copilot's rich interactive outputs: LaTeX mathematical rendering, flowcharts, dynamic mindmaps, interactive charts, and code syntax highlighting.
+                </p>
+                <a href="https://katex.org" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
+                  <span>KaTeX &middot; Mermaid &middot; ECharts</span>
+                  <span aria-hidden="true">&nearr;</span>
+                </a>
+              </div>
+
+              <!-- 7. Electron & Chromium -->
+              <div class="license-item-card">
+                <div class="license-card-head">
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">Chromium &amp; Electron</h3>
+                  <span class="license-badge license-bsd">BSD 3-Clause / MIT</span>
+                </div>
+                <div class="license-copyright-box">
+                  Copyright &copy; The Chromium Authors &amp; OpenJS Foundation.
+                </div>
+                <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
+                  Provides native sandboxed OS runtime, multi-process memory architecture, GPU rendering pipeline, Windows DPAPI safeStorage, and custom titlebar integration.
+                </p>
+                <a href="https://github.com/electron/electron" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
+                  <span>github.com/electron/electron</span>
+                  <span aria-hidden="true">&nearr;</span>
+                </a>
+              </div>
+
+              <!-- 8. React 19 & React DOM -->
+              <div class="license-item-card">
+                <div class="license-card-head">
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">React 19</h3>
                   <span class="license-badge license-mit">MIT License</span>
                 </div>
                 <div class="license-copyright-box">
@@ -314,20 +350,20 @@
                 </a>
               </div>
 
-              <!-- 7. Uiverse.io UI Community -->
+              <!-- 9. Signature Pad -->
               <div class="license-item-card" style="grid-column: 1 / -1;">
                 <div class="license-card-head">
-                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">7. UI Components &amp; Patterns from Uiverse.io Community</h3>
+                  <h3 style="font-size: 16px; margin: 0; font-weight: 700; color: var(--text);">Signature Pad</h3>
                   <span class="license-badge license-mit">MIT License</span>
                 </div>
                 <div class="license-copyright-box">
-                  Copyright &copy; Respective Community Authors (MIT Licensed).
+                  Copyright &copy; Szymon Nowak and contributors.
                 </div>
                 <p style="font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Handcrafted CSS micro-interactions, squircle dock buttons, animated tooltip containers, card surfaces, and input glow treatments adapted with gratitude from Uiverse creators: Cksunandh, biswacpcode, kennyotsu, Galahhad, vinodjangid07, Yaya12085, kyle1dev, mRcOol7, itskrish01, ArturCodeCraft, Admin12121, adamgiebl, and andrew-manzyk.
+                  Smooth Bézier curve vector ink smoothing for digital document signing, freehand annotations, and stylus stroke fidelity.
                 </p>
-                <a href="https://uiverse.io" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>uiverse.io community library</span>
+                <a href="https://github.com/szimek/signature_pad" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
+                  <span>github.com/szimek/signature_pad</span>
                   <span aria-hidden="true">&nearr;</span>
                 </a>
               </div>
@@ -429,7 +465,7 @@
         <ul class="footer-links">
           <li><a href="privacy.html"><span class="footer-link-label">Privacy Policy</span></a></li>
           <li><a href="terms.html"><span class="footer-link-label">Terms of Service</span></a></li>
-          <li><a href="licenses.html" class="footer-link-active"><span class="footer-link-label">Open Source Notices</span> <span class="license-tag-pill">Apache 2.0</span></a></li>
+          <li><a href="licenses.html" class="footer-link-active"><span class="footer-link-label">Open Source Notices</span></a></li>
         </ul>
       </div>
 

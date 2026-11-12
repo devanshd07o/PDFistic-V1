@@ -177,7 +177,7 @@
           },
           {
             "@type": "Question",
-            "name": "Where are my AI API keys stored?",
+            "name": "Where are my Zernexa AI API keys stored?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Locally, encrypted with Windows DPAPI via Electron safeStorage and bound to your Windows login. They are never sent to the Developer."
@@ -185,7 +185,7 @@
           },
           {
             "@type": "Question",
-            "name": "Where do AI prompts go when I use the Copilot?",
+            "name": "Where do AI prompts go when I use the Zernexa AI Copilot?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Directly from your PC over TLS to the official endpoint of the provider you selected (Google Gemini, Groq, Anthropic, OpenAI or OpenRouter). No developer proxy exists. The provider's own terms govern retention and training."
@@ -311,24 +311,24 @@
         <details class="doc-toc-panel" open>
           <summary class="doc-toc-title">Table of Contents</summary>
           <nav id="policy-toc">
-            <a href="#scope" class="active">1. Scope and Who We Are</a>
-            <a href="#architecture">2. Architecture: Why Nothing is Collected</a>
-            <a href="#never-collected">3. What PDFistic Never Collects</a>
-            <a href="#local-data">4. Data Stored on Your Device</a>
-            <a href="#google-drive">5. Optional: Google Drive Sync</a>
-            <a href="#ai-copilot">6. Optional: BYOK AI Copilot</a>
-            <a href="#voice">7. Optional: Voice Input</a>
-            <a href="#network">8. Network Connection Inventory</a>
-            <a href="#logs">9. Diagnostic Logs</a>
-            <a href="#erasure">10. Permanent Data Erasure</a>
-            <a href="#security">11. Security Controls</a>
-            <a href="#gdpr">12. GDPR Rights (EU / EEA / UK)</a>
-            <a href="#ccpa">13. CCPA / CPRA (California)</a>
-            <a href="#children">14. Children's Privacy (COPPA)</a>
-            <a href="#store">15. Microsoft Store Compliance</a>
-            <a href="#transfers">16. International Transfers &amp; Jurisdiction</a>
-            <a href="#changes">17. Changes to This Policy</a>
-            <a href="#contact">18. Contact and Complaints</a>
+            <a href="#scope" class="active">Scope and Who We Are</a>
+            <a href="#architecture">Architecture: Why Nothing is Collected</a>
+            <a href="#never-collected">What PDFistic Never Collects</a>
+            <a href="#local-data">Data Stored on Your Device</a>
+            <a href="#google-drive">Optional: Google Drive Sync</a>
+            <a href="#ai-copilot">Optional: Zernexa BYOK AI Copilot</a>
+            <a href="#voice">Optional: Voice Input</a>
+            <a href="#network">Network Connection Inventory</a>
+            <a href="#logs">Diagnostic Logs</a>
+            <a href="#erasure">Permanent Data Erasure</a>
+            <a href="#security">Security Controls</a>
+            <a href="#gdpr">GDPR Rights (EU / EEA / UK)</a>
+            <a href="#ccpa">CCPA / CPRA (California)</a>
+            <a href="#children">Children's Privacy (COPPA)</a>
+            <a href="#store">Microsoft Store Compliance</a>
+            <a href="#transfers">International Transfers &amp; Jurisdiction</a>
+            <a href="#changes">Changes to This Policy</a>
+            <a href="#contact">Contact and Complaints</a>
           </nav>
         </details>
         <p class="doc-toc-note">Questions about your data? <a href="contact.html" class="doc-link-underline"><span class="doc-link-label">Contact developer directly.</span></a></p>
@@ -351,7 +351,7 @@
               PDFistic is a Windows desktop PDF reader and editor that runs entirely on your computer. The developer operates no servers, no telemetry endpoint, no analytics SDK and no database. Your documents, file names, file paths, reading history and identity are never transmitted to the developer, because there is no developer-side system capable of receiving them.
             </p>
             <p style="margin-top: 10px;">
-              Two optional features can contact third parties, and only after you turn them on: Google Drive sync (limited to a hidden app-data folder in your own Drive) and the Bring-Your-Own-Key AI Copilot (direct connections from your PC to the AI provider you choose). Voice input uses the Chromium Web Speech API and may involve Google speech services. Everything else is offline.
+              Two optional features can contact third parties, and only after you turn them on: Google Drive sync (limited to a hidden app-data folder in your own Drive) and the Bring-Your-Own-Key Zernexa AI Copilot (direct connections from your PC to the AI provider you choose). Voice input uses the Chromium Web Speech API and may involve Google speech services. Everything else is offline.
             </p>
           </div>
 
@@ -375,7 +375,7 @@
           </div>
 
           <section class="doc-section" id="scope">
-            <h2>1. Scope and Who We Are</h2>
+            <h2>Scope and Who We Are</h2>
             <p>
               PDFistic is developed and maintained by <strong>Devansh Dubey</strong>, an independent software developer based in India ("the Developer", "we"). It is distributed as a standalone Windows installer and through the Microsoft Store (Store ID <code>9PMCFQL187MN</code>) for Windows 10 and Windows 11. The source code is published under the Apache License 2.0 at <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer">github.com/devanshd07o/PDFistic-V1</a>, so every claim in this policy can be checked against the code.
             </p>
@@ -388,7 +388,7 @@
           </section>
 
           <section class="doc-section" id="architecture">
-            <h2>2. Architecture: Why There Is Nothing to Collect</h2>
+            <h2>Architecture: Why There Is Nothing to Collect</h2>
             <p>
               PDFistic is an Electron application. It consists of a main process (Node.js) and sandboxed Chromium renderer processes. All document handling happens in those processes on your PC:
             </p>
@@ -401,7 +401,7 @@
           </section>
 
           <section class="doc-section" id="never-collected">
-            <h2>3. What PDFistic Never Collects</h2>
+            <h2>What PDFistic Never Collects</h2>
             <p>
               The following categories are not collected, transmitted to the Developer, or stored by the Developer in any form:
             </p>
@@ -420,7 +420,7 @@
           </section>
 
           <section class="doc-section" id="local-data">
-            <h2>4. Data Stored on Your Device</h2>
+            <h2>Data Stored on Your Device</h2>
             <p>
               PDFistic writes the following to your Windows user profile. None of it is uploaded automatically:
             </p>
@@ -473,7 +473,7 @@
           </section>
 
           <section class="doc-section" id="google-drive">
-            <h2>5. Optional Feature: Google Drive Sync</h2>
+            <h2>Optional Feature: Google Drive Sync</h2>
             <p>
               Drive sync is disabled by default and activates only if you click the connect button and approve Google's consent screen.
             </p>
@@ -506,44 +506,45 @@
           </section>
 
           <section class="doc-section" id="ai-copilot">
-            <h2>6. Optional Feature: Bring-Your-Own-Key AI Copilot</h2>
+            <h2>Optional Feature: Zernexa BYOK AI Copilot</h2>
             <p>
-              The AI Copilot is disabled until you enter your own API key for a supported provider: Google Gemini API, Groq Cloud, Anthropic Claude, OpenAI or OpenRouter. The Developer supplies no keys, no shared quota and no hosted model.
+              <strong>Zernexa</strong> is PDFistic's docked and expandable AI study copilot. The Zernexa AI Copilot is strictly optional, privacy-isolated, and disabled by default until you enter your own API key for a supported model provider: Google Gemini API, Groq Cloud, Anthropic Claude, OpenAI, or OpenRouter. The Developer supplies no keys, no shared proxy quota, and no hosted cloud models.
             </p>
-            <h3>6.1 Data flow</h3>
+            <h3>6.1 Direct TLS 1.3 Data Flow</h3>
             <ul>
-              <li>When you submit a prompt, the prompt and the document excerpts or search context you chose to include are sent directly from your PC to the selected provider's official HTTPS endpoint over TLS 1.3 (or the highest version the provider negotiates). There is no developer proxy, relay or logging layer.</li>
-              <li>Nothing is sent until you submit a request. Text sent is limited to what the feature needs to answer that request.</li>
-              <li>If you never configure a key, no AI-related network request is ever made.</li>
+              <li><strong>Zero Developer Proxy:</strong> When you submit a prompt to Zernexa, your prompt text and any active document excerpts or local RAG search context travel directly from your PC to the selected provider's official HTTPS endpoint over TLS 1.3. There is no intermediate developer proxy, telemetry relay, or server logging layer.</li>
+              <li><strong>Intentional Transmission Only:</strong> Nothing is transmitted until you explicitly click send or press Enter. Transmitted text is strictly bounded to the specific question and cited document passages required to fulfill your inquiry.</li>
+              <li><strong>Local STEM &amp; Visual Rendering:</strong> When answering technical questions, Zernexa renders formulas and diagrams using client-side libraries bundled with the app (KaTeX for LaTeX math equations, Mermaid for flowcharts, ECharts for data plots, Leaflet for maps, and Pyodide for local Python sandbox execution). These execute entirely in-process on your PC with zero data leakage.</li>
+              <li><strong>Zero Default Connectivity:</strong> If you never configure an API key, no AI-related network request is ever opened.</li>
             </ul>
-            <h3>6.2 Key vault</h3>
+            <h3>6.2 Hardware-Bound Key Vault (Windows DPAPI)</h3>
             <p>
-              API keys are encrypted at rest using the Windows Data Protection API through Electron's <code>safeStorage.encryptString()</code>. The ciphertext is bound to your Windows user login credentials, so it cannot be decrypted by another Windows account or on another machine. Keys are decrypted in memory only for the duration of a request.
+              API keys for Zernexa are encrypted at rest using the Windows Data Protection API (DPAPI) via Electron's <code>safeStorage.encryptString()</code> and saved inside <code>%APPDATA%\PDFistic\config.json</code>. The ciphertext is bound to your specific Windows user login credentials and TPM hardware state, meaning it cannot be decrypted by another user account on the same machine or if the drive is accessed offline. Keys are decrypted into volatile memory strictly for the momentary duration of an API request.
             </p>
-            <h3>6.3 Third-party provider terms</h3>
+            <h3>6.3 Third-Party Provider Terms &amp; Non-Training</h3>
             <p>
-              Content you send to an AI provider is governed by that provider's terms, not by this policy. Providers' commercial API terms generally restrict training on API inputs and may impose limited retention for abuse monitoring, but those terms differ and can change. Review them before sending sensitive material:
+              Content transmitted to an external AI provider through Zernexa is governed by that provider's commercial terms and developer API privacy policies. Commercial API endpoints generally prohibit training generalized models on customer API payloads and enforce limited retention solely for security and abuse monitoring. Review their terms before submitting confidential material:
             </p>
             <ul>
               <li>Google Gemini API: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API Additional Terms of Service</a></li>
               <li>Anthropic: <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener noreferrer">Commercial Terms of Service</a></li>
               <li>OpenAI: <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener noreferrer">API Data Usage Policy</a></li>
-              <li>Groq and OpenRouter: the terms and privacy policies published on each provider's website. OpenRouter may route requests to downstream model hosts with their own policies.</li>
+              <li>Groq and OpenRouter: The terms and privacy policies published on each provider's official portal.</li>
             </ul>
             <p>
-              You are responsible for deciding whether a given document may be shared with a given provider, particularly where confidentiality, privilege or regulatory duties apply.
+              You maintain full sovereign control over whether any document excerpt is transmitted to an external AI model provider, especially when handling legally privileged, regulated, or confidential records.
             </p>
           </section>
 
           <section class="doc-section" id="voice">
-            <h2>7. Optional Feature: Voice Input</h2>
+            <h2>Optional Feature: Voice Input</h2>
             <p>
               Voice input uses the Chromium Web Speech API. Depending on the Chromium runtime configuration on your Windows system, audio may be transcribed locally or sent to Google Speech Services for transcription. PDFistic shows a notice before the microphone is activated, and the microphone is not accessed until you start voice input and Windows microphone permission allows it. The Developer never receives the audio or transcript. If you do not want audio processed by Google, do not use this feature, or disable microphone access for PDFistic in Windows Settings.
             </p>
           </section>
 
           <section class="doc-section" id="network">
-            <h2>8. Complete Network Connection Inventory</h2>
+            <h2>Complete Network Connection Inventory</h2>
             <p>
               This table lists every circumstance in which the application opens an outbound connection:
             </p>
@@ -574,7 +575,7 @@
                     <td>Off</td>
                   </tr>
                   <tr>
-                    <td><strong>AI Copilot</strong></td>
+                    <td><strong>Zernexa AI Copilot</strong></td>
                     <td>You submit a prompt with a key configured</td>
                     <td>Chosen provider's official HTTPS API endpoint</td>
                     <td>Prompt and selected document context</td>
@@ -603,14 +604,14 @@
           </section>
 
           <section class="doc-section" id="logs">
-            <h2>9. Diagnostic Logs</h2>
+            <h2>Diagnostic Logs</h2>
             <p>
               The main process writes operational events and error messages to <code>%APPDATA%\PDFistic\logs\main.log</code>. The log is local only and is never uploaded automatically. It is intended to contain technical events (startup, module errors, update status), not document contents. Error messages generated by underlying libraries can occasionally include a file name or path fragment, so review the file before attaching it to a public GitHub issue, and redact anything you do not want to share. You can delete the log at any time without affecting the application.
             </p>
           </section>
 
           <section class="doc-section" id="erasure">
-            <h2>10. Permanent Data Erasure</h2>
+            <h2>Permanent Data Erasure</h2>
             <p>
               Because all PDFistic data resides on your device, erasure is fully in your hands. Choose either method:
             </p>
@@ -662,7 +663,7 @@
           </section>
 
           <section class="doc-section" id="security">
-            <h2>11. Security Controls</h2>
+            <h2>Security Controls</h2>
             <ul>
               <li><strong>Process isolation:</strong> Document rendering runs in sandboxed Chromium renderer processes separate from the Node.js main process.</li>
               <li><strong>Credential encryption:</strong> Windows DPAPI through Electron <code>safeStorage</code>, bound to your Windows login.</li>
@@ -676,7 +677,7 @@
           </section>
 
           <section class="doc-section" id="gdpr">
-            <h2>12. GDPR Rights (EU / EEA / UK)</h2>
+            <h2>GDPR Rights (EU / EEA / UK)</h2>
             <p>
               Under Regulation (EU) 2016/679, you hold the rights below. Since the Developer holds no personal data about you, most are satisfied directly on your device:
             </p>
@@ -726,42 +727,42 @@
           </section>
 
           <section class="doc-section" id="ccpa">
-            <h2>13. CCPA / CPRA (California)</h2>
+            <h2>CCPA / CPRA (California)</h2>
             <p>
               <strong>Do Not Sell or Share My Personal Information:</strong> PDFistic does not sell, rent or share personal information for monetary or other valuable consideration, or for cross-context behavioral advertising. The Developer does not collect personal information in the application, so there is nothing to sell or share, and no opt-out is needed. California residents retain the rights to know, delete, correct and limit use of sensitive personal information; these are satisfied by the local controls in Section 10 and by contacting the Developer at the address in Section 18. The Developer will not discriminate against you for exercising these rights.
             </p>
           </section>
 
           <section class="doc-section" id="children">
-            <h2>14. Children's Privacy (COPPA)</h2>
+            <h2>Children's Privacy (COPPA)</h2>
             <p>
               PDFistic is a general-purpose utility and is not directed to children under 13. The software does not knowingly collect personal information from children under 13. Because the application collects no personal information at all, there is no child data to disclose or delete on the Developer's side. Parents or guardians who believe a child has submitted information to the Developer by email can write to the address in Section 18 and it will be deleted. Parents are responsible for supervising a child's use of optional third-party features such as AI providers and Google accounts, which carry their own age requirements.
             </p>
           </section>
 
           <section class="doc-section" id="store">
-            <h2>15. Microsoft Store Compliance</h2>
+            <h2>Microsoft Store Compliance</h2>
             <p>
               This policy is provided to satisfy Microsoft Store Policy 10.5 (Privacy), which requires a privacy policy for apps that access or transmit personal information, and disclosure of that access and transmission. PDFistic's declared capabilities are limited to what the features above require, and data handling in the Store build is identical to the standalone installer.
             </p>
           </section>
 
           <section class="doc-section" id="transfers">
-            <h2>16. International Transfers and Jurisdiction</h2>
+            <h2>International Transfers and Jurisdiction</h2>
             <p>
               The Developer is located in India but receives no personal data from the application, so no cross-border transfer originates from the Developer. If you enable optional features, your data goes directly to Google or your chosen AI provider, which may process it in other countries under their own transfer mechanisms. This policy is governed by the laws of India, without limiting any mandatory consumer or data-protection rights you hold in your country of residence.
             </p>
           </section>
 
           <section class="doc-section" id="changes">
-            <h2>17. Changes to This Policy</h2>
+            <h2>Changes to This Policy</h2>
             <p>
               Material changes, such as adding any network feature, will be published at the canonical URL above with an updated effective date, and recorded in the public commit history of the GitHub repository before the corresponding release ships. Any new data collection would require an application update that you choose to install, and would be described in the release notes.
             </p>
           </section>
 
           <section class="doc-section" id="contact">
-            <h2>18. Contact and Complaints</h2>
+            <h2>Contact and Complaints</h2>
             <p>
               For privacy questions, rights requests or security reports, email <a href="mailto:devanshd07o@gmail.com" style="color: var(--accent-crimson); font-weight: 600;">devanshd07o@gmail.com</a>. Please do not attach confidential documents. For public discussion or bug reports, use <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer">GitHub</a>. Rights requests will be answered within 30 days.
             </p>
@@ -817,7 +818,7 @@
         <ul class="footer-links">
           <li><a href="privacy.html" class="footer-link-active"><span class="footer-link-label">Privacy Policy</span></a></li>
           <li><a href="terms.html"><span class="footer-link-label">Terms of Service</span></a></li>
-          <li><a href="licenses.html"><span class="footer-link-label">Open Source Notices</span> <span class="license-tag-pill">Apache 2.0</span></a></li>
+          <li><a href="licenses.html"><span class="footer-link-label">Open Source Notices</span></a></li>
         </ul>
       </div>
 
