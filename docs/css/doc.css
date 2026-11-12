@@ -1289,7 +1289,8 @@ svg.breadcrumb-chevron {
   font-size: 11.5px !important;
   font-weight: 700 !important;
   letter-spacing: 0.03em !important;
-  white-space: nowrap !important;
+  max-width: 100% !important;
+  line-height: 1.35 !important;
 }
 
 .license-apache {

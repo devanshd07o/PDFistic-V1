@@ -4940,7 +4940,8 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  white-space: nowrap;
+  max-width: 100%;
+  line-height: 1.35;
 }
 
 .license-apache {

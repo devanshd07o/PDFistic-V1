@@ -32,23 +32,134 @@
     gtag('js', new Date());
     gtag('config', 'G-V3VHRM95EB', { anonymize_ip: true });
   </script>
-  <!-- Structured Data: BreadcrumbList JSON-LD (Item 15) -->
+  <!-- Structured Data: WebPage, DigitalDocument, SoftwareApplication, Organization & FAQPage JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://devanshd07o.github.io/PDFistic-V1/"
+        "@type": "WebSite",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/#website",
+        "url": "https://devanshd07o.github.io/PDFistic-V1/",
+        "name": "PDFistic",
+        "description": "Modern PDF and EPUB reader for Windows 10 and 11 with two-page book flip, offline OCR, annotations, and private BYOK AI.",
+        "publisher": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/#author"
+        },
+        "inLanguage": "en-US"
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Privacy Policy",
-        "item": "https://devanshd07o.github.io/PDFistic-V1/privacy.html"
+        "@type": ["WebPage", "DigitalDocument"],
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#webpage",
+        "url": "https://devanshd07o.github.io/PDFistic-V1/privacy.html",
+        "name": "Privacy Policy — PDFistic",
+        "headline": "Official Privacy Policy for PDFistic on Windows",
+        "description": "How PDFistic handles your files, optional AI features, encrypted BYOK API keys, and local settings on Windows 10 and 11.",
+        "isPartOf": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/#website"
+        },
+        "about": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/#software"
+        },
+        "breadcrumb": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#breadcrumb"
+        },
+        "datePublished": "2026-10-15T00:00:00+05:30",
+        "dateModified": "2026-11-12T00:00:00+05:30",
+        "inLanguage": "en-US",
+        "mainEntity": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#faq"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://devanshd07o.github.io/PDFistic-V1/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Privacy Policy",
+            "item": "https://devanshd07o.github.io/PDFistic-V1/privacy.html"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/#software",
+        "name": "PDFistic",
+        "operatingSystem": "Windows 10, Windows 11",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/#author"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/#author",
+        "name": "Devansh Dubey",
+        "url": "https://github.com/devanshd07o",
+        "email": "devanshd07o@gmail.com",
+        "sameAs": [
+          "https://github.com/devanshd07o",
+          "https://www.linkedin.com/in/devansh-dubey-aa802b305/"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does PDFistic upload or sync my PDF or EPUB files to cloud servers by default?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PDFistic operates locally on your Windows PC. All PDF and EPUB files, text searches, annotations, bookmarks, and Tesseract.js OCR run directly in memory on your computer. Files remain on your local disk unless you explicitly choose to connect personal Google Drive Sync."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does PDFistic collect analytics, usage metrics, or reading history?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PDFistic does not contain any analytics SDKs, advertising trackers, device fingerprinting, or telemetry libraries. We do not track what you read, how long you read, or which features you click. Creating an account is never required to read or annotate documents."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are AI API keys secured in PDFistic?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PDFistic uses a Bring-Your-Own-Key (BYOK) model. API keys (for Google Gemini, OpenAI, Anthropic Claude, Groq, or OpenRouter) are encrypted on disk using the Windows Data Protection API (DPAPI via Electron SafeStorage) tied strictly to your Windows user account. Prompts are transmitted directly via HTTPS from your PC to your chosen provider's official endpoint with zero intermediate developer proxy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does optional Google Drive Sync adhere to privacy standards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Google Drive Sync uses OAuth 2.0 with PKCE directly on your PC and adheres strictly to the Google API Services User Data Policy, including Limited Use requirements. It only accesses PDFistic's private hidden AppData folder (drive.appdata) and files in the PDFistic Library folder. Your OAuth tokens are encrypted locally with DPAPI and user data is never transferred to third parties or used for AI model training."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is PDFistic data stored locally and how can I delete it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All application settings and encrypted keys are stored on your Windows PC in %APPDATA%\\PDFistic\\config.json, with local diagnostic logs in %APPDATA%\\PDFistic\\logs\\main.log. You can permanently delete all local data at any time via in-app Settings or by deleting the %APPDATA%\\PDFistic folder."
+            }
+          }
+        ]
       }
     ]
   }
