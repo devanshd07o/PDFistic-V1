@@ -1100,10 +1100,10 @@ svg.breadcrumb-chevron {
   align-items: center !important;
   font-family: var(--font-mono, monospace) !important;
   font-size: 10px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
-  padding: 2px 7px !important;
-  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
   background: rgba(184, 4, 3, 0.08) !important;
   color: var(--accent-crimson, #B80403) !important;
   border: 1px solid rgba(184, 4, 3, 0.22) !important;
@@ -1307,158 +1307,93 @@ svg.breadcrumb-chevron {
 }
 
 /* ==========================================================================
-   License Item Cards & Badges for licenses.html
+   Engineering Architecture & Component Registry for licenses.html
+   Pure Developer-Grade, Anti-AI-Slop, Strict 4px/8px Grid Rhythm
    ========================================================================== */
-.license-card-head {
+
+/* 1. Version & Build Meta Row (Clean Typography, Zero Pills) */
+.eng-meta-row {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
+  gap: 10px !important;
   flex-wrap: wrap !important;
-  margin-bottom: 8px !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 12px !important;
+  color: var(--muted, #4A4D52) !important;
+  margin-top: 14px !important;
+  line-height: 1.4 !important;
 }
 
-.license-badge {
+.eng-meta-sep {
+  opacity: 0.35 !important;
+  user-select: none !important;
+}
+
+.eng-meta-chip {
   display: inline-flex !important;
   align-items: center !important;
   gap: 5px !important;
-  padding: 4px 10px !important;
-  border-radius: 9999px !important;
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 11.5px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.03em !important;
-  max-width: 100% !important;
-  line-height: 1.35 !important;
+  padding: 1px 6px !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.16)) !important;
+  border-radius: 2px !important;
+  background: var(--surface, #FFFFFF) !important;
+  color: var(--text, #1C1E21) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
 }
 
-.license-apache {
-  background: rgba(184, 4, 3, 0.08) !important;
-  color: var(--accent-crimson, #B80403) !important;
-  border: 1px solid rgba(184, 4, 3, 0.25) !important;
-}
-
-.license-mit {
-  background: rgba(16, 185, 129, 0.08) !important;
-  color: #047857 !important;
-  border: 1px solid rgba(16, 185, 129, 0.25) !important;
-}
-
-.license-bsd {
-  background: rgba(79, 70, 229, 0.08) !important;
-  color: #4338CA !important;
-  border: 1px solid rgba(79, 70, 229, 0.25) !important;
-}
-
-.license-isc {
-  background: rgba(217, 119, 6, 0.08) !important;
-  color: #B45309 !important;
-  border: 1px solid rgba(217, 119, 6, 0.25) !important;
-}
-
-.license-grid {
+/* 2. Architectural Dual-Tier Boundary Split (Clean 2-Column Specs) */
+.eng-arch-split {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 16px !important;
-  margin: 16px 0 32px !important;
+  margin: 20px 0 32px !important;
 }
 
-@media (max-width: 768px) {
-  .license-grid {
+@media (max-width: 680px) {
+  .eng-arch-split {
     grid-template-columns: 1fr !important;
-    gap: 14px !important;
+    gap: 12px !important;
   }
 }
 
-.license-category-header {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  margin: 32px 0 14px !important;
-  padding-bottom: 8px !important;
-  border-bottom: 1px solid rgba(28, 30, 33, 0.08) !important;
-}
-
-.license-category-header:first-of-type {
-  margin-top: 20px !important;
-}
-
-.license-category-tag {
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-  color: var(--accent-crimson, #B80403) !important;
-  background: rgba(184, 4, 3, 0.07) !important;
-  padding: 3px 8px !important;
-  border-radius: 4px !important;
-  border: 1px solid rgba(184, 4, 3, 0.16) !important;
-}
-
-.license-category-title {
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  color: var(--text, #1C1E21) !important;
-  margin: 0 !important;
-  letter-spacing: -0.01em !important;
-}
-
-.license-item-card {
-  background: #FFFFFF !important;
-  border: 1px solid var(--border, rgba(28, 30, 33, 0.14)) !important;
-  border-radius: 14px !important;
-  padding: 20px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease !important;
+.eng-arch-panel {
+  background: var(--surface, #FFFFFF) !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+  border-radius: 6px !important;
+  padding: 16px 18px !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 10px !important;
+  gap: 8px !important;
 }
 
-.license-item-card:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(184, 4, 3, 0.35) !important;
-  box-shadow: 0 8px 24px rgba(184, 4, 3, 0.08) !important;
+.eng-arch-panel--proprietary {
+  border-top: 2px solid var(--accent-crimson, #B80403) !important;
 }
 
-.license-card-head {
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  min-height: 26px !important;
+.eng-arch-panel--oss {
+  border-top: 2px solid #059669 !important;
 }
 
-.license-card-title {
-  font-size: 15.5px !important;
+.eng-arch-tier {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--muted, #4A4D52) !important;
+}
+
+.eng-arch-title {
+  font-size: 15px !important;
   font-weight: 700 !important;
   color: var(--text, #1C1E21) !important;
   margin: 0 !important;
-  line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
-  text-wrap: balance !important;
 }
 
-.license-card-meta {
-  display: flex !important;
-  align-items: center !important;
-  gap: 7px !important;
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 11px !important;
-  color: var(--muted, #4A4D52) !important;
-  line-height: 1.4 !important;
-  padding-bottom: 8px !important;
-  border-bottom: 1px dashed rgba(28, 30, 33, 0.1) !important;
-}
-
-.license-card-meta svg {
-  flex-shrink: 0 !important;
-  opacity: 0.65 !important;
-  color: currentColor !important;
-}
-
-.license-card-desc {
+.eng-arch-body {
   font-size: 13px !important;
   line-height: 1.55 !important;
   color: var(--muted, #4A4D52) !important;
@@ -1466,73 +1401,183 @@ svg.breadcrumb-chevron {
   text-wrap: pretty !important;
 }
 
-.license-copyright-box {
-  background: #F8F5EE !important;
-  border: 1px solid rgba(28, 30, 33, 0.08) !important;
-  border-radius: 8px !important;
-  padding: 7px 11px !important;
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 11.5px !important;
-  color: var(--muted, #4A4D52) !important;
-  line-height: 1.5 !important;
-}
-
-.license-outbound-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  color: var(--accent-crimson, #B80403) !important;
-  text-decoration: none !important;
+.eng-arch-footer {
   margin-top: auto !important;
-  padding-top: 6px !important;
-  transition: transform 150ms ease, color 150ms ease !important;
-}
-
-.license-outbound-link:hover {
-  text-decoration: none !important;
-  color: var(--accent-crimson-hover, #990302) !important;
-  transform: translateX(2px) !important;
-}
-
-.license-architecture-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 14px !important;
-  margin: 14px 0 !important;
-}
-
-@media (max-width: 680px) {
-  .license-architecture-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-.license-arch-pillar {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(28, 30, 33, 0.1) !important;
-  border-radius: 10px !important;
-  padding: 14px 16px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 6px !important;
-}
-
-.license-arch-pillar-header {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  font-size: 13.5px !important;
-  font-weight: 700 !important;
+  padding-top: 8px !important;
+  border-top: 1px dashed rgba(28, 30, 33, 0.1) !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
   color: var(--text, #1C1E21) !important;
 }
 
-.license-arch-pillar p {
-  font-size: 12.5px !important;
-  line-height: 1.55 !important;
-  color: var(--muted, #4A4D52) !important;
+/* 3. Section Category Divider (Engineering Domain Index) */
+.eng-domain-header {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin: 36px 0 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+}
+
+.eng-domain-header:first-of-type {
+  margin-top: 20px !important;
+}
+
+.eng-domain-title {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--accent-crimson, #B80403) !important;
   margin: 0 !important;
 }
 
+.eng-domain-count {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
+  color: var(--muted, #4A4D52) !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* 4. Engineering Component Registry Table (Desktop & Tablet) */
+.eng-registry-table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  margin-bottom: 24px !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+  border-radius: 6px !important;
+  background: var(--surface, #FFFFFF) !important;
+}
+
+.eng-registry-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  text-align: left !important;
+  font-size: 13px !important;
+  min-width: 620px !important;
+}
+
+.eng-registry-table th {
+  padding: 10px 14px !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--muted, #4A4D52) !important;
+  background: rgba(28, 30, 33, 0.02) !important;
+  border-bottom: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+  white-space: nowrap !important;
+}
+
+.eng-registry-table td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid rgba(28, 30, 33, 0.07) !important;
+  vertical-align: top !important;
+  color: var(--text, #1C1E21) !important;
+  line-height: 1.5 !important;
+}
+
+.eng-registry-table tr:last-child td {
+  border-bottom: none !important;
+}
+
+.eng-registry-table tr:hover td {
+  background: rgba(28, 30, 33, 0.015) !important;
+}
+
+/* Column Spec */
+.eng-col-pkg {
+  font-family: var(--font-mono, monospace) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+
+.eng-pkg-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: var(--text, #1C1E21) !important;
+  text-decoration: none !important;
+  border-bottom: 1px dotted rgba(28, 30, 33, 0.3) !important;
+  transition: color 150ms ease, border-color 150ms ease !important;
+}
+
+.eng-pkg-link:hover {
+  color: var(--accent-crimson, #B80403) !important;
+  border-bottom-color: var(--accent-crimson, #B80403) !important;
+}
+
+.eng-pkg-arrow {
+  font-size: 11px !important;
+  opacity: 0.6 !important;
+}
+
+.eng-col-license {
+  white-space: nowrap !important;
+}
+
+.eng-lic-tag {
+  display: inline-block !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  padding: 1px 5px !important;
+  border-radius: 2px !important;
+  border: 1px solid rgba(28, 30, 33, 0.2) !important;
+  background: transparent !important;
+  color: var(--text, #1C1E21) !important;
+}
+
+.eng-col-copyright {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
+  color: var(--muted, #4A4D52) !important;
+  white-space: nowrap !important;
+}
+
+.eng-col-desc {
+  font-size: 12.5px !important;
+  color: var(--muted, #4A4D52) !important;
+  line-height: 1.5 !important;
+  text-wrap: pretty !important;
+  max-width: 52ch !important;
+}
+
+/* 5. Terminal / Legal Code Box (Anti-AI, Pure Monospace) */
+.eng-code-box {
+  background: var(--surface, #FFFFFF) !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+  border-radius: 6px !important;
+  padding: 16px 18px !important;
+  margin: 16px 0 24px !important;
+}
+
+.eng-code-pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+  color: var(--text, #1C1E21) !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.eng-code-footer {
+  margin-top: 14px !important;
+  padding-top: 12px !important;
+  border-top: 1px dashed rgba(28, 30, 33, 0.12) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}

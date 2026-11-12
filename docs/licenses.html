@@ -147,8 +147,14 @@
       <p class="doc-subline">
         PDFistic is proprietary software (Copyright &copy; 2026 Devansh Dubey. All Rights Reserved). In full compliance with all open-source licensing requirements, third-party copyright statements, component attributions, and license notices are detailed below.
       </p>
-      <div class="doc-version-meta">
-        Last updated November 12, 2026 &middot; Version 2.0.0 &middot; <span class="license-tag-pill">Proprietary Core &middot; OSS Attributed</span>
+      <div class="eng-meta-row">
+        <span>Last updated: November 12, 2026</span>
+        <span class="eng-meta-sep">&middot;</span>
+        <span>Version: 2.0.0</span>
+        <span class="eng-meta-sep">&middot;</span>
+        <span>Platform: Windows 10 &amp; 11 (64-bit)</span>
+        <span class="eng-meta-sep">&middot;</span>
+        <span class="eng-meta-chip">Verified Production Build</span>
       </div>
     </header>
 
@@ -170,428 +176,296 @@
       <article class="doc-content doc-sheet">
         <div class="doc-sheet-inner">
 
-          <!-- Section: Licensing Architecture -->
+          <!-- Section 1: Dual-Tier Architecture -->
           <section class="doc-section" id="foundations">
-            <div class="plain-english-card" style="margin-top: 0; margin-bottom: 24px;">
-              <div class="plain-english-inner">
-                <div class="plain-english-header">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>Proprietary Architecture &amp; Open-Source Transparency</span>
-                </div>
-                
-                <div class="license-architecture-grid">
-                  <div class="license-arch-pillar">
-                    <div class="license-arch-pillar-header">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-crimson, #B80403)" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                      <span>Proprietary Core (Closed-Source)</span>
-                    </div>
-                    <p>
-                      PDFistic's desktop application shell, tab session manager, canvas annotation overlays, stylus ink smoothing, custom themes, Zernexa prompt orchestration, and branding are proprietary and closed-source.
-                    </p>
-                    <div class="license-card-meta" style="margin-top: auto; padding-top: 8px;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                      <span>Devansh Dubey &middot; All Rights Reserved</span>
-                    </div>
-                  </div>
+            <h2>Licensing Architecture &amp; IP Boundaries</h2>
+            <p>
+              PDFistic operates under a clean dual-tier licensing model, establishing an explicit legal boundary between the proprietary desktop client and the permissive third-party runtime modules that power underlying document rendering:
+            </p>
 
-                  <div class="license-arch-pillar">
-                    <div class="license-arch-pillar-header">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                      <span>Third-Party Permissive Ecosystem</span>
-                    </div>
-                    <p>
-                      PDF decoding, offline WebAssembly OCR, scientific math typesetting, vector graphics, and native window runtimes are powered by battle-tested open-source libraries. Upstream authors retain full original copyrights.
-                    </p>
-                    <div class="license-card-meta" style="margin-top: auto; padding-top: 8px;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                      <span>Apache 2.0 &middot; MIT &middot; BSD &middot; ISC</span>
-                    </div>
-                  </div>
+            <div class="eng-arch-split">
+              <div class="eng-arch-panel eng-arch-panel--proprietary">
+                <span class="eng-arch-tier">Tier 01 &mdash; Proprietary Core</span>
+                <h3 class="eng-arch-title">Closed-Source Application Shell</h3>
+                <p class="eng-arch-body">
+                  The PDFistic desktop client, window management, tab session persistence engine, stylus ink smoothing, custom themes, Zernexa AI prompt orchestration, and commercial product branding are proprietary software.
+                </p>
+                <div class="eng-arch-footer">
+                  Copyright &copy; 2026 Devansh Dubey &middot; All Rights Reserved
                 </div>
+              </div>
 
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;">
-                  <span class="license-badge license-apache">Apache 2.0 (PDF.js, Tesseract.js, ECharts)</span>
-                  <span class="license-badge license-mit">MIT (pdf-lib, StPageFlip, KaTeX, React 19, SQLite3, etc.)</span>
-                  <span class="license-badge license-bsd">BSD 2/3-Clause (ePub.js, Chromium, Leaflet, Highlight.js)</span>
-                  <span class="license-badge license-isc">ISC (Lucide Icons)</span>
+              <div class="eng-arch-panel eng-arch-panel--oss">
+                <span class="eng-arch-tier">Tier 02 &mdash; Runtime Dependencies</span>
+                <h3 class="eng-arch-title">Third-Party Permissive Ecosystem</h3>
+                <p class="eng-arch-body">
+                  Low-level PDF rasterization, on-device WebAssembly OCR, scientific LaTeX formatting, interactive charts, and native desktop runtime bridges execute via battle-tested open-source libraries under permissive licenses.
+                </p>
+                <div class="eng-arch-footer">
+                  Governed by Apache-2.0, MIT, BSD-3-Clause, and ISC Licenses
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- Section: Core Component Attributions -->
+          <!-- Section 2: Component Registry -->
           <section class="doc-section" id="core-libraries">
             <h2>Third-Party Software Attributions</h2>
             <p>
-              The following verified third-party libraries, runtime engines, and design assets are incorporated in whole or in part within the PDFistic desktop application and website:
+              The following permissive third-party libraries and runtime components are bundled with or integrated into the PDFistic client. Original upstream authors retain full copyright ownership:
             </p>
 
-            <!-- Group 1: Document Engine -->
-            <div class="license-category-header">
-              <span class="license-category-tag">Core Engine</span>
-              <h3 class="license-category-title">Document Parsing, Reading &amp; Canvas Physics</h3>
+            <!-- Domain 01 -->
+            <div class="eng-domain-header">
+              <h3 class="eng-domain-title">01 / Document Engine &amp; Canvas Physics</h3>
+              <span class="eng-domain-count">4 Packages</span>
             </div>
 
-            <div class="license-grid">
-              
-              <!-- 1. PDF.js (Mozilla) -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Mozilla PDF.js</h3>
-                  <span class="license-badge license-apache">Apache 2.0</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Mozilla Foundation &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Client-side PDF document parsing, canvas page rasterization, font decoding, and text layer extraction inside an isolated renderer process.
-                </p>
-                <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/mozilla/pdf.js</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 2. StPageFlip -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">StPageFlip</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Oleg Ponomarev &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Tactile 3D dual-page book turn simulation with natural paper curl physics, corner dragging, and smooth page flipping.
-                </p>
-                <a href="https://github.com/Nodlik/StPageFlip" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/Nodlik/StPageFlip</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 3. pdf-lib -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">pdf-lib</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Andrew Dillon &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Client-side PDF document manipulation: merging, page splitting, rotation, signature stamping, and binary byte patching directly to disk.
-                </p>
-                <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/Hopding/pdf-lib</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 4. ePub.js -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">ePub.js</h3>
-                  <span class="license-badge license-bsd">FreeBSD / MIT</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Futurepress &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Dedicated EPUB reading mode: spine navigation, dynamic pagination, custom font sizing, line height controls, and e-book rendering.
-                </p>
-                <a href="https://github.com/futurepress/epub.js" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/futurepress/epub.js</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
+            <div class="eng-registry-table-wrap">
+              <table class="eng-registry-table">
+                <thead>
+                  <tr>
+                    <th style="width: 22%;">Component</th>
+                    <th style="width: 14%;">License</th>
+                    <th style="width: 24%;">Upstream Copyright</th>
+                    <th style="width: 40%;">Role in PDFistic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        pdfjs-dist <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">Apache-2.0</span></td>
+                    <td class="eng-col-copyright">Mozilla Foundation &amp; contributors</td>
+                    <td class="eng-col-desc">Core PDF document parsing, canvas page rasterization, font decoding, and text layer extraction.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/Nodlik/StPageFlip" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        page-flip <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Oleg Ponomarev &amp; contributors</td>
+                    <td class="eng-col-desc">Tactile 3D dual-page book turn simulation with natural paper curl physics, corner dragging, and spine shadows.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        pdf-lib <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Andrew Dillon &amp; contributors</td>
+                    <td class="eng-col-desc">Client-side PDF document manipulation: page splitting, rotation, signature stamping, and binary byte patching.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/futurepress/epub.js" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        epubjs <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">FreeBSD / MIT</span></td>
+                    <td class="eng-col-copyright">Futurepress &amp; contributors</td>
+                    <td class="eng-col-desc">Dedicated EPUB reading mode: spine navigation, dynamic pagination, custom font sizing, and e-book rendering.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
-            <!-- Group 2: AI, OCR & STEM Visual Suite -->
-            <div class="license-category-header">
-              <span class="license-category-tag">AI &amp; STEM</span>
-              <h3 class="license-category-title">Offline OCR, Machine Vision &amp; Interactive Graphics</h3>
+            <!-- Domain 02 -->
+            <div class="eng-domain-header">
+              <h3 class="eng-domain-title">02 / On-Device Intelligence &amp; STEM Typesetting</h3>
+              <span class="eng-domain-count">6 Packages</span>
             </div>
 
-            <div class="license-grid">
-
-              <!-- 5. Tesseract.js -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Tesseract.js</h3>
-                  <span class="license-badge license-apache">Apache 2.0</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Jerome Wu &amp; Naptha authors</span>
-                </div>
-                <p class="license-card-desc">
-                  Pure WebAssembly Optical Character Recognition engine running 100% offline on your PC to extract text from scanned documents and book pages.
-                </p>
-                <a href="https://github.com/naptha/tesseract.js" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/naptha/tesseract.js</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 6. KaTeX -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">KaTeX</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Khan Academy &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Ultra-fast mathematical typesetting engine rendering high-fidelity LaTeX expressions, formulas, and scientific notations in Zernexa study chats.
-                </p>
-                <a href="https://katex.org" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>katex.org</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 7. Apache ECharts -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Apache ECharts</h3>
-                  <span class="license-badge license-apache">Apache 2.0</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; The Apache Software Foundation</span>
-                </div>
-                <p class="license-card-desc">
-                  Comprehensive, interactive charting and data visualization library generating dynamic statistical plots and numerical graphs in AI responses.
-                </p>
-                <a href="https://echarts.apache.org" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>echarts.apache.org</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 8. Mermaid.js -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Mermaid.js</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Knut Sveidqvist &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Diagramming and charting tool rendering markdown-inspired flowcharts, sequence diagrams, and architecture maps in AI study responses.
-                </p>
-                <a href="https://mermaid.js.org" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>mermaid.js.org</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 9. Highlight.js -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Highlight.js</h3>
-                  <span class="license-badge license-bsd">BSD 3-Clause</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Egor Khmelev &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Automatic code syntax highlighter supporting 190+ programming languages in code blocks rendered within the Zernexa reading companion.
-                </p>
-                <a href="https://highlightjs.org" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>highlightjs.org</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 10. DOMPurify -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">DOMPurify</h3>
-                  <span class="license-badge license-apache">Apache 2.0 / MPL 2.0</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Dr.-Ing. Mario Heiderich &amp; Cure53</span>
-                </div>
-                <p class="license-card-desc">
-                  Ultra-fast, context-aware DOM sanitization for HTML and SVG content to ensure zero script injection and secure document rendering.
-                </p>
-                <a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/cure53/DOMPurify</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
+            <div class="eng-registry-table-wrap">
+              <table class="eng-registry-table">
+                <thead>
+                  <tr>
+                    <th style="width: 22%;">Component</th>
+                    <th style="width: 14%;">License</th>
+                    <th style="width: 24%;">Upstream Copyright</th>
+                    <th style="width: 40%;">Role in PDFistic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/naptha/tesseract.js" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        tesseract.js <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">Apache-2.0</span></td>
+                    <td class="eng-col-copyright">Jerome Wu &amp; Naptha authors</td>
+                    <td class="eng-col-desc">Pure WebAssembly Optical Character Recognition engine running 100% offline to extract text from scanned documents.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://katex.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        katex <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Khan Academy &amp; contributors</td>
+                    <td class="eng-col-desc">Ultra-fast mathematical typesetting engine rendering high-fidelity LaTeX expressions and scientific notations in AI chats.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://echarts.apache.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        echarts <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">Apache-2.0</span></td>
+                    <td class="eng-col-copyright">Apache Software Foundation</td>
+                    <td class="eng-col-desc">Interactive charting and data visualization library generating dynamic statistical graphs from extracted PDF data.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://mermaid.js.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        mermaid <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Knut Sveidqvist &amp; contributors</td>
+                    <td class="eng-col-desc">Diagramming and charting tool rendering markdown-inspired flowcharts, sequence diagrams, and architecture maps in AI responses.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://highlightjs.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        highlight.js <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">BSD-3-Clause</span></td>
+                    <td class="eng-col-copyright">Ivan Sagalaev &amp; contributors</td>
+                    <td class="eng-col-desc">Syntax highlighter with automatic language detection for rendering code snippets extracted from technical PDFs.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        dompurify <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">Apache / MPL</span></td>
+                    <td class="eng-col-copyright">Cure53 &amp; contributors</td>
+                    <td class="eng-col-desc">High-speed, standards-compliant HTML sanitizer protecting against XSS vulnerabilities during markdown rendering.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
-            <!-- Group 3: System, UI & Desktop Runtime -->
-            <div class="license-category-header">
-              <span class="license-category-tag">System &amp; UI</span>
-              <h3 class="license-category-title">Desktop Runtime, Native Storage &amp; Visual Components</h3>
+            <!-- Domain 03 -->
+            <div class="eng-domain-header">
+              <h3 class="eng-domain-title">03 / Runtime Platform &amp; User Interface</h3>
+              <span class="eng-domain-count">6 Packages</span>
             </div>
 
-            <div class="license-grid">
-
-              <!-- 11. Chromium & Electron -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Chromium &amp; Electron</h3>
-                  <span class="license-badge license-bsd">BSD 3-Clause / MIT</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; The Chromium Authors &amp; OpenJS Foundation</span>
-                </div>
-                <p class="license-card-desc">
-                  Native sandboxed OS runtime, multi-process memory architecture, GPU rendering pipeline, Windows DPAPI safeStorage, and window controls.
-                </p>
-                <a href="https://github.com/electron/electron" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/electron/electron</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 12. React 19 & React DOM -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">React 19</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Meta Platforms, Inc. and affiliates</span>
-                </div>
-                <p class="license-card-desc">
-                  Declarative UI architecture, virtual DOM reconciliation, split-view layout orchestration, and responsive state synchronization.
-                </p>
-                <a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/facebook/react</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 13. Better-SQLite3 -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Better-SQLite3</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Joshua Wise &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  High-performance, synchronous SQLite3 storage engine powering local document indexing, reading history, and multi-tab session restore.
-                </p>
-                <a href="https://github.com/WiseLibs/better-sqlite3" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/WiseLibs/better-sqlite3</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 14. Signature Pad -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Signature Pad</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Szymon Nowak &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Smooth B&eacute;zier curve vector ink smoothing for digital document signing, freehand annotations, and stylus stroke fidelity.
-                </p>
-                <a href="https://github.com/szimek/signature_pad" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/szimek/signature_pad</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 15. JSZip -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">JSZip</h3>
-                  <span class="license-badge license-mit">MIT License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Stuart Knightley &amp; contributors</span>
-                </div>
-                <p class="license-card-desc">
-                  Client-side ZIP archive decoding and packing for EPUB file extraction, container decompression, and document bundle handling.
-                </p>
-                <a href="https://github.com/Stuk/jszip" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>github.com/Stuk/jszip</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
-              <!-- 16. Lucide Icons -->
-              <div class="license-item-card">
-                <div class="license-card-head">
-                  <h3 class="license-card-title">Lucide Icons</h3>
-                  <span class="license-badge license-isc">ISC License</span>
-                </div>
-                <div class="license-card-meta">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
-                  <span>Copyright &copy; Lucide Contributors &amp; Cole Bemis</span>
-                </div>
-                <p class="license-card-desc">
-                  Clean, consistent, lightweight SVG iconography used across PDFistic's toolbars, navigation docks, and dialog modals.
-                </p>
-                <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" class="license-outbound-link">
-                  <span>lucide.dev</span>
-                  <span aria-hidden="true">&nearr;</span>
-                </a>
-              </div>
-
+            <div class="eng-registry-table-wrap">
+              <table class="eng-registry-table">
+                <thead>
+                  <tr>
+                    <th style="width: 22%;">Component</th>
+                    <th style="width: 14%;">License</th>
+                    <th style="width: 24%;">Upstream Copyright</th>
+                    <th style="width: 40%;">Role in PDFistic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://www.electronjs.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        electron <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">BSD / MIT</span></td>
+                    <td class="eng-col-copyright">Electron Authors &amp; OpenJS</td>
+                    <td class="eng-col-desc">Desktop application framework pairing Chromium rendering and Node.js backend for Windows execution.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        react <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Meta Platforms, Inc.</td>
+                    <td class="eng-col-desc">Declarative UI component architecture managing tab navigation, settings suites, and responsive workspace layouts.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/WiseLibs/better-sqlite3" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        better-sqlite3 <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Joshua Wise &amp; contributors</td>
+                    <td class="eng-col-desc">High-performance synchronous SQLite binding managing local full-text search indexes and on-device vector embeddings.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/szimek/signature_pad" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        signature_pad <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Szymon Nowak &amp; contributors</td>
+                    <td class="eng-col-desc">Smooth B&eacute;zier curve vector ink smoothing for digital document signing, freehand annotations, and stylus fidelity.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://github.com/Stuk/jszip" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        jszip <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
+                    <td class="eng-col-copyright">Stuart Knightley &amp; contributors</td>
+                    <td class="eng-col-desc">Client-side ZIP archive decoding and packing for EPUB file extraction, container decompression, and document bundle handling.</td>
+                  </tr>
+                  <tr>
+                    <td class="eng-col-pkg">
+                      <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
+                        lucide <span class="eng-pkg-arrow">&nearr;</span>
+                      </a>
+                    </td>
+                    <td class="eng-col-license"><span class="eng-lic-tag">ISC</span></td>
+                    <td class="eng-col-copyright">Lucide Contributors &amp; Cole Bemis</td>
+                    <td class="eng-col-desc">Lightweight, consistent SVG iconography utilized across PDFistic's toolbars, navigation docks, and dialog modals.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
 
-          <!-- Section: Apache 2.0 Full Text Summary -->
           <section class="doc-section" id="apache-license">
             <h2>Apache License, Version 2.0</h2>
             <p>
               Several core third-party open-source components integrated into PDFistic (including Mozilla PDF.js, Tesseract.js, and Apache ECharts) are distributed under the Apache License, Version 2.0. Below is the standard license grant and disclaimer governing those third-party components:
             </p>
 
-            <div class="license-item-card" style="background: var(--sand-card); border-color: var(--sand-border-strong);">
-              <div style="font-family: var(--font-mono); font-size: 12.5px; line-height: 1.65; color: var(--text); white-space: pre-line;">
-                Apache License, Version 2.0
-                Covering third-party components: Mozilla PDF.js, Tesseract.js, Apache ECharts
+            <div class="eng-code-box">
+              <pre class="eng-code-pre">Apache License, Version 2.0
+Covering third-party components: Mozilla PDF.js, Tesseract.js, Apache ECharts
 
-                Licensed under the Apache License, Version 2.0 (the "License");
-                you may not use this file except in compliance with the License.
-                You may obtain a copy of the License at:
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
 
-                https://www.apache.org/licenses/LICENSE-2.0
+https://www.apache.org/licenses/LICENSE-2.0
 
-                Unless required by applicable law or agreed to in writing, software
-                distributed under the License is distributed on an "AS IS" BASIS,
-                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-                See the License for the specific language governing permissions and
-                limitations under the License.
-              </div>
-
-              <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--border);">
-                <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer" class="btn btn-cream-primary" style="padding: 10px 18px; font-size: 13px;">
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</pre>
+              <div class="eng-code-footer">
+                <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer" class="btn btn-cream-primary" style="padding: 9px 16px; font-size: 12.5px;">
                   <span>Read Official Apache 2.0 Text</span>
                   <span aria-hidden="true">&nearr;</span>
                 </a>
-                <a href="terms.html" class="btn btn-cream-secondary" style="padding: 10px 18px; font-size: 13px;">
+                <a href="terms.html" class="btn btn-cream-secondary" style="padding: 9px 16px; font-size: 12.5px;">
                   <span>View PDFistic Terms &amp; EULA</span>
                   <span aria-hidden="true">&rarr;</span>
                 </a>
