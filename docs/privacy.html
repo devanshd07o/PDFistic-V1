@@ -53,29 +53,6 @@
         "inLanguage": "en-US"
       },
       {
-        "@type": ["WebPage", "DigitalDocument"],
-        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#webpage",
-        "url": "https://devanshd07o.github.io/PDFistic-V1/privacy.html",
-        "name": "Privacy Policy & Security Architecture — PDFistic",
-        "headline": "Official Privacy Policy & Data Protection Architecture for PDFistic on Windows",
-        "description": "A comprehensive, transparent disclosure of how PDFistic handles files, offline rendering, encrypted BYOK AI models, Google Drive synchronization, and local system storage on Windows 10 & 11.",
-        "isPartOf": {
-          "@id": "https://devanshd07o.github.io/PDFistic-V1/#website"
-        },
-        "about": {
-          "@id": "https://devanshd07o.github.io/PDFistic-V1/#software"
-        },
-        "breadcrumb": {
-          "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#breadcrumb"
-        },
-        "datePublished": "2026-10-15T00:00:00+05:30",
-        "dateModified": "2026-11-12T00:00:00+05:30",
-        "inLanguage": "en-US",
-        "mainEntity": {
-          "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#faq"
-        }
-      },
-      {
         "@type": "BreadcrumbList",
         "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#breadcrumb",
         "itemListElement": [
@@ -94,81 +71,140 @@
         ]
       },
       {
-        "@type": "SoftwareApplication",
-        "@id": "https://devanshd07o.github.io/PDFistic-V1/#software",
-        "name": "PDFistic",
-        "operatingSystem": "Windows 10, Windows 11",
-        "applicationCategory": "UtilitiesApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "author": {
-          "@id": "https://devanshd07o.github.io/PDFistic-V1/#author"
-        }
-      },
-      {
         "@type": "Person",
         "@id": "https://devanshd07o.github.io/PDFistic-V1/#author",
         "name": "Devansh Dubey",
-        "url": "https://github.com/devanshd07o",
         "email": "devanshd07o@gmail.com",
+        "jobTitle": "Independent Software Engineer & Creator of PDFistic",
+        "url": "https://github.com/devanshd07o",
         "sameAs": [
           "https://github.com/devanshd07o",
           "https://www.linkedin.com/in/devansh-dubey-aa802b305/"
         ]
       },
       {
+        "@type": ["WebPage", "DigitalDocument"],
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#webpage",
+        "url": "https://devanshd07o.github.io/PDFistic-V1/privacy.html",
+        "name": "PDFistic Privacy Policy & Data Protection Architecture",
+        "headline": "Official Privacy Policy & Data Protection Architecture for PDFistic on Windows",
+        "description": "Exhaustive legal & security disclosure of PDFistic: 100% local processing, zero telemetry, DPAPI encryption, BYOK AI security, and Google Drive Limited Use compliance on Windows 10 & 11.",
+        "inLanguage": "en",
+        "datePublished": "2026-11-12",
+        "dateModified": "2026-11-12",
+        "isPartOf": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#breadcrumb"
+        },
+        "about": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/#software"
+        },
+        "mainEntity": {
+          "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#document"
+        }
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#document",
+        "name": "PDFistic Privacy Policy",
+        "datePublished": "2026-11-12",
+        "dateModified": "2026-11-12",
+        "author": {
+          "@type": "Person",
+          "name": "Devansh Dubey",
+          "email": "devanshd07o@gmail.com"
+        },
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://devanshd07o.github.io/PDFistic-V1/#software",
+        "name": "PDFistic",
+        "softwareVersion": "2.0.0",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows 10, Windows 11",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "codeRepository": "https://github.com/devanshd07o/PDFistic-V1",
+        "privacyPolicy": "https://devanshd07o.github.io/PDFistic-V1/privacy.html",
+        "installUrl": "https://apps.microsoft.com/detail/9PMCFQL187MN",
+        "author": {
+          "@type": "Person",
+          "name": "Devansh Dubey"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
         "@type": "FAQPage",
-        "@id": "https://devanshd07o.github.io/PDFistic-V1/privacy.html#faq",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Does PDFistic upload or sync my PDF or EPUB files to cloud servers by default?",
+            "name": "Does PDFistic upload my PDF files?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. PDFistic operates on a strict local-first architecture. All PDF and EPUB files, text searches, annotations, bookmarks, and Tesseract.js OCR run directly in memory on your Windows PC. Documents remain entirely on your local storage unless you explicitly choose to connect personal Google Drive Sync."
+              "text": "No. Parsing, rendering, annotation and OCR all run locally on your PC. The Developer operates no servers that could receive your documents."
             }
           },
           {
             "@type": "Question",
-            "name": "Does PDFistic collect telemetry, analytics, or user reading history?",
+            "name": "Does PDFistic collect telemetry, analytics or file names?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. The PDFistic desktop application does not contain any analytics SDKs, advertising trackers, device fingerprinting, or telemetry libraries. We do not track what documents you open, how long you read, or which features you click. Creating an account is never required."
+              "text": "No. PDFistic contains no telemetry, analytics or tracking SDKs, and it never collects document contents, metadata, file paths, file names, identity data or device fingerprints."
             }
           },
           {
             "@type": "Question",
-            "name": "How are AI API keys secured in PDFistic?",
+            "name": "Does OCR send my pages to a cloud service?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "PDFistic uses a Bring-Your-Own-Key (BYOK) model. All API keys (Google Gemini, OpenAI, Anthropic Claude, Groq, or OpenRouter) are encrypted on disk using the Windows Data Protection API (DPAPI via Electron SafeStorage) cryptographically tied to your active Windows user profile. API calls travel directly from your PC to the provider endpoint over TLS 1.3 with zero intermediary developer proxy."
+              "text": "No. OCR uses a bundled WebAssembly build of Tesseract.js that runs offline on your own hardware. No page images or recognized text are transmitted."
             }
           },
           {
             "@type": "Question",
-            "name": "How does optional Google Drive Sync adhere to privacy standards?",
+            "name": "What can PDFistic access in my Google Drive?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Google Drive Sync uses OAuth 2.0 with PKCE directly on your PC and adheres strictly to the Google API Services User Data Policy, including Limited Use requirements. It only accesses PDFistic's private hidden AppData folder (drive.appdata) and files in the PDFistic Library folder. Your OAuth tokens are encrypted locally with DPAPI and user data is never transferred to third parties or used for AI model training."
+              "text": "Only PDFistic's private hidden app-data folder, through the drive.appdata scope with OAuth 2.0 and PKCE. It cannot see your personal files. Only bookmarks, notes and reading progress are synced, and Google user data is never used to train AI models or sold."
             }
           },
           {
             "@type": "Question",
-            "name": "Where is PDFistic data stored locally and how can I delete it?",
+            "name": "Where are my AI API keys stored?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "All application settings, encrypted keys, and diagnostic logs are stored on your Windows PC in %APPDATA%\\PDFistic. You can permanently delete all local data at any time via in-app Settings (Clear All Data) or by deleting the %APPDATA%\\PDFistic directory in Windows File Explorer."
+              "text": "Locally, encrypted with Windows DPAPI via Electron safeStorage and bound to your Windows login. They are never sent to the Developer."
             }
           },
           {
             "@type": "Question",
-            "name": "Is PDFistic compliant with GDPR, CCPA, and Microsoft Store certification?",
+            "name": "Where do AI prompts go when I use the Copilot?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Because PDFistic stores all files, annotations, and settings locally on the user's PC with zero telemetry servers, users maintain full autonomous ownership and control under GDPR Articles 15-22 and CCPA. PDFistic fully satisfies Microsoft Store Policy Section 10.5 regarding personal information handling."
+              "text": "Directly from your PC over TLS to the official endpoint of the provider you selected (Google Gemini, Groq, Anthropic, OpenAI or OpenRouter). No developer proxy exists. The provider's own terms govern retention and training."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I permanently delete all PDFistic data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use Settings, Privacy & Data, Wipe All Data, or quit the app and delete %APPDATA%\\PDFistic in File Explorer. Then revoke Google access and rotate any AI provider keys."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does PDFistic sell personal data or comply with GDPR, CCPA and COPPA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PDFistic does not sell or share personal data. It supports GDPR Articles 15 to 22 rights, CCPA/CPRA rights, and does not knowingly collect data from children under 13."
             }
           }
         ]
@@ -275,17 +311,24 @@
         <details class="doc-toc-panel" open>
           <summary class="doc-toc-title">Table of Contents</summary>
           <nav id="policy-toc">
-            <a href="#summary" class="active">1. Core Privacy Architecture</a>
-            <a href="#local-files">2. Local File Processing &amp; OCR</a>
-            <a href="#non-collection">3. Non-Collection Guarantee</a>
-            <a href="#google-drive">4. Google Drive Sync &amp; Limited Use</a>
-            <a href="#ai-byok">5. BYOK AI Security &amp; Encryption</a>
-            <a href="#voice-input">6. Voice Input &amp; Audio Processing</a>
-            <a href="#local-storage">7. Local File Storage &amp; Deletion</a>
-            <a href="#compliance">8. International Privacy Rights (GDPR / CCPA)</a>
-            <a href="#store-updates">9. Microsoft Store &amp; GitHub Updates</a>
-            <a href="#changes">10. Policy Modifications</a>
-            <a href="#contact">11. Developer Security Contact</a>
+            <a href="#scope" class="active">1. Scope and Who We Are</a>
+            <a href="#architecture">2. Architecture: Why Nothing is Collected</a>
+            <a href="#never-collected">3. What PDFistic Never Collects</a>
+            <a href="#local-data">4. Data Stored on Your Device</a>
+            <a href="#google-drive">5. Optional: Google Drive Sync</a>
+            <a href="#ai-copilot">6. Optional: BYOK AI Copilot</a>
+            <a href="#voice">7. Optional: Voice Input</a>
+            <a href="#network">8. Network Connection Inventory</a>
+            <a href="#logs">9. Diagnostic Logs</a>
+            <a href="#erasure">10. Permanent Data Erasure</a>
+            <a href="#security">11. Security Controls</a>
+            <a href="#gdpr">12. GDPR Rights (EU / EEA / UK)</a>
+            <a href="#ccpa">13. CCPA / CPRA (California)</a>
+            <a href="#children">14. Children's Privacy (COPPA)</a>
+            <a href="#store">15. Microsoft Store Compliance</a>
+            <a href="#transfers">16. International Transfers &amp; Jurisdiction</a>
+            <a href="#changes">17. Changes to This Policy</a>
+            <a href="#contact">18. Contact and Complaints</a>
           </nav>
         </details>
         <p class="doc-toc-note">Questions about your data? <a href="contact.html" class="doc-link-underline"><span class="doc-link-label">Contact developer directly.</span></a></p>
@@ -294,300 +337,434 @@
       <article class="doc-content doc-sheet">
         <div class="doc-sheet-inner">
 
-          <!-- Section 1: Executive Summary & Core Pillars -->
-          <section class="doc-section" id="summary">
-            <div class="doc-in-short">
-              <div class="doc-in-short-label">Executive Privacy Commitment</div>
-              <p>
-                PDFistic is engineered from the ground up as a <strong>local-first, private desktop reader</strong>. <mark>Your documents, highlights, notes, and reading habits remain strictly on your personal computer by default.</mark> Devansh Dubey (the independent developer) does not operate cloud servers that store your documents, does not run background telemetry SDKs, does not collect analytics from within the desktop app, and never monetizes your reading data.
-              </p>
-            </div>
+          <div class="doc-meta-banner" style="margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+            <p style="margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6;">
+              <strong>Application:</strong> PDFistic, Version 2.0.0 (repository: PDFistic-V1) &middot; 
+              <strong>Effective date:</strong> November 12, 2026 &middot; 
+              <strong>Canonical URL:</strong> <a href="https://devanshd07o.github.io/PDFistic-V1/privacy.html" class="doc-link-underline"><span class="doc-link-label">https://devanshd07o.github.io/PDFistic-V1/privacy.html</span></a>
+            </p>
+          </div>
 
-            <div class="doc-pillars" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px;">
-              <div class="doc-pillar">
-                <h3 style="font-size: 15px; margin-bottom: 6px;">100% Offline-First Core</h3>
-                <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">PDF decoding, book-flip simulation, canvas rendering, and Tesseract OCR run in-memory on your local CPU/GPU.</p>
-              </div>
-              <div class="doc-pillar">
-                <h3 style="font-size: 15px; margin-bottom: 6px;">Zero Telemetry Inside App</h3>
-                <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">No background tracking SDKs, no device fingerprinting, no usage metrics, and zero forced account registration.</p>
-              </div>
-              <div class="doc-pillar">
-                <h3 style="font-size: 15px; margin-bottom: 6px;">Hardware-Bound DPAPI</h3>
-                <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">AI API keys and OAuth tokens are encrypted at rest via Windows Data Protection API (DPAPI) and Electron SafeStorage.</p>
-              </div>
-              <div class="doc-pillar">
-                <h3 style="font-size: 15px; margin-bottom: 6px;">Zero Intermediary Proxies</h3>
-                <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">AI and Google Drive requests connect directly from your PC to official endpoints over TLS 1.3 with no developer middleman.</p>
-              </div>
+          <div class="doc-in-short">
+            <div class="doc-in-short-label">In short</div>
+            <p>
+              PDFistic is a Windows desktop PDF reader and editor that runs entirely on your computer. The developer operates no servers, no telemetry endpoint, no analytics SDK and no database. Your documents, file names, file paths, reading history and identity are never transmitted to the developer, because there is no developer-side system capable of receiving them.
+            </p>
+            <p style="margin-top: 10px;">
+              Two optional features can contact third parties, and only after you turn them on: Google Drive sync (limited to a hidden app-data folder in your own Drive) and the Bring-Your-Own-Key AI Copilot (direct connections from your PC to the AI provider you choose). Voice input uses the Chromium Web Speech API and may involve Google speech services. Everything else is offline.
+            </p>
+          </div>
+
+          <div class="doc-pillars" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px;">
+            <div class="doc-pillar">
+              <h3 style="font-size: 15px; margin-bottom: 6px;">Local-first</h3>
+              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">Parsing, rendering, annotation and OCR execute on your CPU/GPU, inside your Windows session.</p>
             </div>
+            <div class="doc-pillar">
+              <h3 style="font-size: 15px; margin-bottom: 6px;">No middleman</h3>
+              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">No developer backend, proxy or relay exists. Optional cloud calls go straight from your PC to the provider.</p>
+            </div>
+            <div class="doc-pillar">
+              <h3 style="font-size: 15px; margin-bottom: 6px;">Keys stay yours</h3>
+              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">OAuth tokens and API keys are encrypted with Windows DPAPI and never leave your machine in readable form.</p>
+            </div>
+            <div class="doc-pillar">
+              <h3 style="font-size: 15px; margin-bottom: 6px;">Erasable</h3>
+              <p style="font-size: 13px; line-height: 1.5; color: var(--muted);">One in-app command or one folder deletion removes every local trace.</p>
+            </div>
+          </div>
+
+          <section class="doc-section" id="scope">
+            <h2>1. Scope and Who We Are</h2>
+            <p>
+              PDFistic is developed and maintained by <strong>Devansh Dubey</strong>, an independent software developer based in India ("the Developer", "we"). It is distributed as a standalone Windows installer and through the Microsoft Store (Store ID <code>9PMCFQL187MN</code>) for Windows 10 and Windows 11. The source code is published under the Apache License 2.0 at <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer">github.com/devanshd07o/PDFistic-V1</a>, so every claim in this policy can be checked against the code.
+            </p>
+            <p>
+              This policy covers the PDFistic desktop application and this website page. It does not cover third-party services you choose to connect (Google, Google Gemini API, Groq, Anthropic, OpenAI, OpenRouter), which operate under their own terms and privacy policies, linked below.
+            </p>
+            <p>
+              Because the Developer does not receive, store or process your personal data on any system he controls, the Developer does not act as a controller or processor of your document content or credentials. Where this policy describes your rights, it describes what you can do directly in the application and what the Developer will do if you contact him.
+            </p>
           </section>
 
-          <!-- Section 2: Local File Processing & OCR -->
-          <section class="doc-section" id="local-files">
-            <h2>2. Local File Processing &amp; Text Extraction Architecture</h2>
+          <section class="doc-section" id="architecture">
+            <h2>2. Architecture: Why There Is Nothing to Collect</h2>
             <p>
-              When you open a PDF or an EPUB document in PDFistic, the file is read from your local storage drive (NTFS/ReFS) into an isolated sandboxed Chromium renderer process on your Windows computer:
+              PDFistic is an Electron application. It consists of a main process (Node.js) and sandboxed Chromium renderer processes. All document handling happens in those processes on your PC:
             </p>
             <ul>
-              <li><strong>In-Memory Rendering:</strong> Document parsing, font rasterization, table-of-contents extraction, and canvas presentation are performed entirely locally using Mozilla PDF.js. No temporary unencrypted copies are uploaded to external rendering pipelines.</li>
-              <li><strong>Annotations &amp; Markups:</strong> When you highlight text, draw with digital ink, or attach sticky notes, annotations reside in volatile application memory during your active reading session. When you explicitly click <em>Save</em> or <em>Export</em>, changes are written directly into the local target file on your disk using client-side binary byte patching via <code>pdf-lib</code>.</li>
-              <li><strong>Local WebAssembly OCR:</strong> Optical Character Recognition (OCR) for scanned PDFs and image-based book pages is powered by bundled WebAssembly (Wasm) builds of Tesseract.js. OCR executes 100% locally on your machine. PDFistic does not send your document pages or bitmap crops to third-party computer vision cloud APIs.</li>
+              <li><strong>Parsing and rendering:</strong> Mozilla PDF.js decodes the PDF, rasterizes pages to canvas, extracts the text layer and renders fonts, inside an isolated in-memory renderer process. Page bitmaps and extracted text live in process memory and are released when you close the document or the application.</li>
+              <li><strong>Annotation:</strong> Highlights, pen strokes and notes are held in memory while you work. The <code>pdf-lib</code> library writes them into the PDF binary only when you explicitly choose Save or Export, and only to the location you select on your own disk.</li>
+              <li><strong>OCR:</strong> Optical character recognition uses Tesseract.js compiled to WebAssembly and bundled with the installer. It runs in an isolated Wasm memory heap on your hardware, with no network access required. No page image, bitmap crop or recognized text is sent to any computer-vision or OCR API.</li>
+              <li><strong>No telemetry:</strong> The application contains no analytics SDK, crash-reporting SDK, advertising SDK, or tracking pixel, and makes no background "phone-home" request to the Developer.</li>
             </ul>
           </section>
 
-          <!-- Section 3: Non-Collection Guarantee -->
-          <section class="doc-section" id="non-collection">
-            <h2>3. The Non-Collection Guarantee (What PDFistic NEVER Collects)</h2>
+          <section class="doc-section" id="never-collected">
+            <h2>3. What PDFistic Never Collects</h2>
             <p>
-              Unlike conventional SaaS document platforms that stream reading activity to cloud analytics services, the PDFistic desktop binary includes zero telemetry libraries. The table below outlines our non-collection policy:
+              The following categories are not collected, transmitted to the Developer, or stored by the Developer in any form:
             </p>
+            <ul>
+              <li>Document contents, text excerpts, embedded or document metadata, and reading history.</li>
+              <li>File paths, directory structures and file names.</li>
+              <li>User identity, profile data, email address (other than one you send to the Developer voluntarily by writing to him), and hardware or device fingerprints.</li>
+              <li>In-app telemetry, clickstreams, usage counters and behavioral tracking.</li>
+            </ul>
+            <p>
+              This is a structural property of the software, not a settings toggle: there is no endpoint under the Developer's control for such data to be sent to.
+            </p>
+            <p>
+              Note that Microsoft may separately collect store-level acquisition and diagnostic information (for example, download counts and crash data) if you install through the Microsoft Store and have enabled those Windows settings. That collection is governed by the Microsoft Privacy Statement, and the Developer sees only aggregate reports Microsoft makes available through Partner Center.
+            </p>
+          </section>
 
+          <section class="doc-section" id="local-data">
+            <h2>4. Data Stored on Your Device</h2>
+            <p>
+              PDFistic writes the following to your Windows user profile. None of it is uploaded automatically:
+            </p>
             <div class="doc-table-wrap">
               <table class="doc-table">
                 <thead>
                   <tr>
-                    <th>Data Category</th>
-                    <th>Collected by Developer?</th>
-                    <th>Storage Location / Transmission Mechanism</th>
+                    <th>Item</th>
+                    <th>Location</th>
+                    <th>Contents</th>
+                    <th>Protection</th>
+                    <th>Leaves device?</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Document Content &amp; Text</strong></td>
-                    <td><span style="color:#059669; font-weight:700;">NEVER</span></td>
-                    <td>Resides strictly in your local PC RAM and local storage drive.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Document Paths &amp; File Names</strong></td>
-                    <td><span style="color:#059669; font-weight:700;">NEVER</span></td>
-                    <td>Stored locally in <code>%APPDATA%\PDFistic\config.json</code> for recent files list.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Reading Time &amp; Page Progress</strong></td>
-                    <td><span style="color:#059669; font-weight:700;">NEVER</span></td>
-                    <td>Stored locally in your Windows profile; optionally synced to your private Google Drive AppData folder if enabled.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Hardware / Device Fingerprints</strong></td>
-                    <td><span style="color:#059669; font-weight:700;">NEVER</span></td>
-                    <td>No hardware ID hashing or device profiling is executed.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>In-App UI Click Telemetry</strong></td>
-                    <td><span style="color:#059669; font-weight:700;">NEVER</span></td>
-                    <td>No tracking SDKs (no Firebase, Mixpanel, Sentry, or Google Analytics) inside the desktop app.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <p style="font-size: 13.5px; color: var(--muted); margin-top: 14px;">
-              <em>Landing Website Disclosure:</em> This marketing website (<code>devanshd07o.github.io/PDFistic-V1</code>) loads web fonts from Google Fonts and includes privacy-preserving Google Analytics 4 (GA4) with IP anonymization enabled (<code>anonymize_ip: true</code>) strictly to count aggregate page views. The website does not set cross-site tracking cookies.
-            </p>
-          </section>
-
-          <!-- Section 4: Google Drive Sync & Limited Use Disclosure -->
-          <section class="doc-section" id="google-drive">
-            <h2>4. Optional Google Sign-In &amp; Drive Sync (Limited Use Compliance)</h2>
-            <p>
-              PDFistic provides an optional Google Sign-In feature that allows cross-device synchronization of reading progress, annotations, and cloud library documents. If you choose to authenticate with Google, authentication uses OAuth 2.0 with Proof Key for Code Exchange (PKCE, RFC 7636) directly on your local device:
-            </p>
-
-            <div class="plain-english-card" style="margin: 20px 0;">
-              <div class="plain-english-inner">
-                <div class="plain-english-header">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                  <span>Requested Google OAuth Scopes &amp; Strict Purpose</span>
-                </div>
-                <ul style="margin: 10px 0 0 18px; padding: 0; font-size: 13.5px; line-height: 1.6; color: var(--text);">
-                  <li><strong>Profile Identity (<code>openid</code>, <code>email</code>, <code>profile</code>):</strong> Used strictly to display your user name, email, and avatar in the local workspace greeting header.</li>
-                  <li><strong>Hidden Application Data (<code>drive.appdata</code>):</strong> Manages a single isolated file named <code>pdfistic-sync-v1.json</code> in your personal Google Drive hidden AppData folder. This file stores your per-book reading bookmarks, highlight coordinates, and UI settings. No other application or developer backend has access to this folder.</li>
-                  <li><strong>Dedicated Library Storage (<code>drive.file</code>):</strong> Grants access strictly to files you create, upload, or choose to open through PDFistic within your personal <em>PDFistic Library</em> Google Drive folder. PDFistic cannot browse, inspect, or modify other documents in your Drive.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div style="background: rgba(184, 4, 3, 0.05); border-left: 3px solid var(--accent-crimson); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
-              <strong style="color: var(--accent-crimson); font-size: 13.5px; display: block; margin-bottom: 4px;">Google API Services User Data Policy Compliance Statement:</strong>
-              <p style="font-size: 13px; line-height: 1.55; color: var(--text); margin: 0;">
-                PDFistic's use and transfer to any other app of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" style="color: var(--accent-crimson); font-weight: 600;">Google API Services User Data Policy</a>, including the Limited Use requirements. Specifically:
-              </p>
-              <ul style="font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 8px 0 0 16px; padding: 0;">
-                <li>User data from Google APIs is never transferred or sold to third parties, data brokers, or advertising platforms.</li>
-                <li>Google user data is never used for serving advertisements or behavioral profiling.</li>
-                <li>Google user data is never used to train generalized artificial intelligence or machine learning models.</li>
-                <li>Humans are never permitted to read your synced document data unless you explicitly give consent for technical support or security investigations.</li>
-              </ul>
-            </div>
-            <p style="font-size: 13.5px; color: var(--muted);">
-              You can disconnect Google Drive at any time by clicking <strong>Sign Out</strong> in the in-app profile menu or revoking authorization in your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account Permissions Manager</a>.
-            </p>
-          </section>
-
-          <!-- Section 5: BYOK AI Security & Encryption Architecture -->
-          <section class="doc-section" id="ai-byok">
-            <h2>5. Bring-Your-Own-Key (BYOK) AI Copilot Security Architecture</h2>
-            <p>
-              PDFistic features an integrated AI copilot dock for document Q&amp;A, summaries, and mathematical explanations. We mandate a strict <strong>Bring-Your-Own-Key (BYOK)</strong> architecture to maximize user privacy and prevent vendor lock-in:
-            </p>
-
-            <div class="grid-2" style="margin: 20px 0; gap: 14px;">
-              <div class="license-item-card">
-                <h4 style="font-size: 14.5px; margin: 0; font-weight: 700; color: var(--text);">Direct Point-to-Point TLS 1.3</h4>
-                <p style="font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  When you submit a prompt, PDFistic constructs a direct encrypted HTTPS payload containing your query and selected context excerpts. This request is transmitted straight from your PC to the official API endpoint of your chosen provider.
-                </p>
-                <div class="license-copyright-box" style="font-size: 11px;">
-                  Endpoints: generativelanguage.googleapis.com &bull; api.groq.com &bull; api.anthropic.com &bull; api.openai.com &bull; openrouter.ai
-                </div>
-              </div>
-
-              <div class="license-item-card">
-                <h4 style="font-size: 14.5px; margin: 0; font-weight: 700; color: var(--text);">Windows DPAPI Local Encryption</h4>
-                <p style="font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Your third-party API keys are never stored in plaintext. They are encrypted on disk via Electron SafeStorage using the Windows Data Protection API (DPAPI). The encryption key is cryptographically tied to your specific Windows user profile credentials.
-                </p>
-                <div class="license-copyright-box" style="font-size: 11px;">
-                  Algorithm: CryptProtectData (DPAPI) + AES-GCM local authenticated storage
-                </div>
-              </div>
-            </div>
-
-            <p>
-              <strong>Zero Developer Middleman:</strong> Devansh Dubey does not run an intermediate proxy, backend API server, or logging cache. Because requests flow directly between your machine and your provider, your provider's respective privacy policy, data retention schedules, and model training terms govern your AI prompts:
-            </p>
-            <ul>
-              <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gemini Privacy Terms</a></li>
-              <li><a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Groq Cloud Data Privacy Policy</a></li>
-              <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">Anthropic Privacy Statement</a></li>
-              <li><a href="https://openai.com/privacy/" target="_blank" rel="noopener noreferrer">OpenAI Privacy Policy</a></li>
-              <li><a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">OpenRouter Privacy Policy</a></li>
-            </ul>
-          </section>
-
-          <!-- Section 6: Voice Input & Audio Processing -->
-          <section class="doc-section" id="voice-input">
-            <h2>6. Voice Input &amp; Audio Processing</h2>
-            <p>
-              PDFistic provides an optional voice input feature for speech-to-text dictation into the AI prompt bar:
-            </p>
-            <ul>
-              <li><strong>Default Inactive State:</strong> The microphone is disabled by default. The application only accesses your audio hardware when you explicitly click the microphone icon.</li>
-              <li><strong>Speech Recognition Pipeline:</strong> Audio is processed via the standard Chromium Web Speech API embedded in the Electron framework. In standard Windows environments, speech audio is streamed to Google's speech recognition servers to convert spoken audio into text.</li>
-              <li><strong>Zero Audio Storage by Developer:</strong> PDFistic does not record, retain, process, or store microphone audio on developer infrastructure.</li>
-              <li><strong>OS Permission Control:</strong> You can inspect or revoke PDFistic's microphone privileges at any time in Windows Settings: <em>Settings &rarr; Privacy &amp; security &rarr; Microphone</em>.</li>
-            </ul>
-          </section>
-
-          <!-- Section 7: Local Storage, File Locations & Erasure -->
-          <section class="doc-section" id="local-storage">
-            <h2>7. Local System Footprint &amp; Permanent Data Erasure</h2>
-            <p>
-              PDFistic stores all application settings, window positions, book flip caches, and DPAPI-encrypted API keys locally in standard Windows user profile directories:
-            </p>
-
-            <div class="doc-table-wrap">
-              <table class="doc-table">
-                <thead>
-                  <tr>
-                    <th>Data Asset</th>
-                    <th>Exact Windows File System Location</th>
-                    <th>Encryption / Security State</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>User Preferences &amp; Config</strong></td>
+                    <td><strong>Preferences &amp; encrypted secrets</strong></td>
                     <td><code>%APPDATA%\PDFistic\config.json</code></td>
-                    <td>Plaintext JSON for UI settings; API keys and OAuth tokens encrypted via DPAPI.</td>
+                    <td>UI settings, selected AI provider, encrypted API keys and encrypted Google OAuth tokens</td>
+                    <td>Secrets encrypted with Windows DPAPI via Electron <code>safeStorage</code></td>
+                    <td><span style="color:#059669; font-weight:700;">No</span></td>
                   </tr>
                   <tr>
-                    <td><strong>Diagnostic Runtime Logs</strong></td>
+                    <td><strong>Diagnostic log</strong></td>
                     <td><code>%APPDATA%\PDFistic\logs\main.log</code></td>
-                    <td>Local rotating text logs; strictly captures startup diagnostics and crashes. <mark>Never auto-uploaded.</mark></td>
+                    <td>Application events and error messages (see Section 9)</td>
+                    <td>Standard NTFS user-profile permissions</td>
+                    <td><span style="color:#059669; font-weight:700;">No</span> (unless attached to a bug report)</td>
                   </tr>
                   <tr>
-                    <td><strong>Offline Document Caches</strong></td>
-                    <td><code>%APPDATA%\PDFistic\Partitions\</code></td>
-                    <td>Chromium sandboxed IndexedDB and CacheStorage for page thumbnails and EPUB chapters.</td>
+                    <td><strong>Session state &amp; Chromium storage</strong></td>
+                    <td><code>%APPDATA%\PDFistic\</code></td>
+                    <td>Window state, local storage and caches created by the Chromium runtime</td>
+                    <td>Standard NTFS user-profile permissions</td>
+                    <td><span style="color:#059669; font-weight:700;">No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Your PDF files</strong></td>
+                    <td>Wherever you saved them</td>
+                    <td>Your documents, including any annotations you exported</td>
+                    <td>Controlled by you and your OS</td>
+                    <td>Only if you move them yourself</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-
-            <h3 style="font-size: 16px; margin: 24px 0 10px; color: var(--text);">How to Permanently Erase All Data</h3>
-            <p>You maintain 100% autonomous control over your local data footprint. You can delete all traces using any of the following methods:</p>
-            <ol>
-              <li><strong>In-App Reset (Instant):</strong> Navigate to <em>Settings &rarr; Privacy &amp; Data &rarr; Clear All App Data</em> to wipe stored API keys, recent document history, and local caches immediately.</li>
-              <li><strong>Manual File Explorer Purge:</strong> Close PDFistic, press <kbd>Win + R</kbd>, type <code>%APPDATA%</code>, and permanently delete the <code>PDFistic</code> directory.</li>
-              <li><strong>Clean App Uninstallation:</strong> Uninstalling PDFistic via <em>Windows Settings &rarr; Apps &rarr; Installed apps</em> removes the application executable. Deleting the <code>%APPDATA%\PDFistic</code> folder removes all remaining configuration files.</li>
-            </ol>
+            <p style="margin-top: 14px;">
+              Uninstalling the application does not necessarily remove the <code>%APPDATA%\PDFistic\</code> folder. Use the erasure procedure in Section 10 to remove it completely.
+            </p>
           </section>
 
-          <!-- Section 8: International Privacy Compliance (GDPR / CCPA) -->
-          <section class="doc-section" id="compliance">
-            <h2>8. International Privacy Compliance &amp; Regulatory Rights</h2>
+          <section class="doc-section" id="google-drive">
+            <h2>5. Optional Feature: Google Drive Sync</h2>
             <p>
-              PDFistic was architected from inception to exceed international data privacy requirements under global frameworks, including the European Union General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA/CPRA):
+              Drive sync is disabled by default and activates only if you click the connect button and approve Google's consent screen.
             </p>
+            <h3>5.1 How authorization works</h3>
+            <ul>
+              <li>Authorization uses OAuth 2.0 with PKCE (Proof Key for Code Exchange), the flow recommended for native desktop applications. No client secret is relied on to protect your tokens.</li>
+              <li>The only scope requested is <code>https://www.googleapis.com/auth/drive.appdata</code>. This grants access solely to PDFistic's private, hidden Application Data folder in your Google Drive. PDFistic cannot list, read, create or modify your personal files, photos or documents.</li>
+              <li>Access and refresh tokens are encrypted on your machine with Windows DPAPI and refreshed by contacting <code>oauth2.googleapis.com</code> directly. No developer-operated server participates in authorization or token refresh.</li>
+            </ul>
+            <h3>5.2 What is synced</h3>
+            <p>
+              Only your bookmarks, notes and reading progress are written to the hidden app-data folder, so they can be restored on another PC where you sign in. PDF files themselves are not uploaded. The data resides in your Google account, under your control, and is subject to Google's own privacy policy.
+            </p>
+            <h3>5.3 Google API Services User Data Policy disclosure</h3>
+            <p>
+              PDFistic's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.
+            </p>
+            <p>In operational terms:</p>
+            <ul>
+              <li>Google user data is used only to provide the user-facing sync of bookmarks, notes and reading progress.</li>
+              <li>Google user data is never used to train, develop or fine-tune generalized artificial intelligence or machine learning models.</li>
+              <li>Google user data is never sold, leased, or transferred to third-party data brokers, advertisers or any other third party.</li>
+              <li>Google user data is not read by humans, including the Developer, because the Developer has no system that receives it.</li>
+              <li>Google user data is not used for advertising, including retargeting or interest-based advertising.</li>
+            </ul>
+            <h3>5.4 Revoking access</h3>
+            <p>
+              You can disconnect inside PDFistic (Settings), which deletes the locally stored tokens. You can also revoke access at any time at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>, and delete the app's hidden data from Google Drive settings under "Manage apps".
+            </p>
+          </section>
 
-            <div class="grid-2" style="margin: 20px 0; gap: 14px;">
-              <div class="license-item-card">
-                <h4 style="font-size: 14.5px; margin: 0; font-weight: 700; color: var(--text);">GDPR Compliance (EU Users)</h4>
-                <p style="font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  Under GDPR Articles 15 through 22, users hold fundamental rights of access, rectification, portability, and erasure. Because PDFistic stores your documents and data locally on your personal device, you possess total autonomous control over your data without submitting a Subject Access Request (SAR).
-                </p>
-              </div>
+          <section class="doc-section" id="ai-copilot">
+            <h2>6. Optional Feature: Bring-Your-Own-Key AI Copilot</h2>
+            <p>
+              The AI Copilot is disabled until you enter your own API key for a supported provider: Google Gemini API, Groq Cloud, Anthropic Claude, OpenAI or OpenRouter. The Developer supplies no keys, no shared quota and no hosted model.
+            </p>
+            <h3>6.1 Data flow</h3>
+            <ul>
+              <li>When you submit a prompt, the prompt and the document excerpts or search context you chose to include are sent directly from your PC to the selected provider's official HTTPS endpoint over TLS 1.3 (or the highest version the provider negotiates). There is no developer proxy, relay or logging layer.</li>
+              <li>Nothing is sent until you submit a request. Text sent is limited to what the feature needs to answer that request.</li>
+              <li>If you never configure a key, no AI-related network request is ever made.</li>
+            </ul>
+            <h3>6.2 Key vault</h3>
+            <p>
+              API keys are encrypted at rest using the Windows Data Protection API through Electron's <code>safeStorage.encryptString()</code>. The ciphertext is bound to your Windows user login credentials, so it cannot be decrypted by another Windows account or on another machine. Keys are decrypted in memory only for the duration of a request.
+            </p>
+            <h3>6.3 Third-party provider terms</h3>
+            <p>
+              Content you send to an AI provider is governed by that provider's terms, not by this policy. Providers' commercial API terms generally restrict training on API inputs and may impose limited retention for abuse monitoring, but those terms differ and can change. Review them before sending sensitive material:
+            </p>
+            <ul>
+              <li>Google Gemini API: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API Additional Terms of Service</a></li>
+              <li>Anthropic: <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener noreferrer">Commercial Terms of Service</a></li>
+              <li>OpenAI: <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener noreferrer">API Data Usage Policy</a></li>
+              <li>Groq and OpenRouter: the terms and privacy policies published on each provider's website. OpenRouter may route requests to downstream model hosts with their own policies.</li>
+            </ul>
+            <p>
+              You are responsible for deciding whether a given document may be shared with a given provider, particularly where confidentiality, privilege or regulatory duties apply.
+            </p>
+          </section>
 
-              <div class="license-item-card">
-                <h4 style="font-size: 14.5px; margin: 0; font-weight: 700; color: var(--text);">CCPA / CPRA Notice (California Users)</h4>
-                <p style="font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0;">
-                  PDFistic does not sell, share, or monetize personal information. We do not participate in cross-context behavioral advertising, data brokerage, or consumer profiling. Your reading habits are never commercialized.
-                </p>
-              </div>
+          <section class="doc-section" id="voice">
+            <h2>7. Optional Feature: Voice Input</h2>
+            <p>
+              Voice input uses the Chromium Web Speech API. Depending on the Chromium runtime configuration on your Windows system, audio may be transcribed locally or sent to Google Speech Services for transcription. PDFistic shows a notice before the microphone is activated, and the microphone is not accessed until you start voice input and Windows microphone permission allows it. The Developer never receives the audio or transcript. If you do not want audio processed by Google, do not use this feature, or disable microphone access for PDFistic in Windows Settings.
+            </p>
+          </section>
+
+          <section class="doc-section" id="network">
+            <h2>8. Complete Network Connection Inventory</h2>
+            <p>
+              This table lists every circumstance in which the application opens an outbound connection:
+            </p>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Trigger</th>
+                    <th>Destination</th>
+                    <th>Data sent</th>
+                    <th>Default</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Opening, viewing, annotating, saving, OCR</strong></td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td><span class="license-tag-pill" style="margin:0;">Offline</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Google Drive sync</strong></td>
+                    <td>You connect your account</td>
+                    <td>Google OAuth &amp; Drive endpoints (<code>oauth2.googleapis.com</code>, Google Drive API)</td>
+                    <td>OAuth exchange; bookmarks, notes &amp; reading progress to the app-data folder</td>
+                    <td>Off</td>
+                  </tr>
+                  <tr>
+                    <td><strong>AI Copilot</strong></td>
+                    <td>You submit a prompt with a key configured</td>
+                    <td>Chosen provider's official HTTPS API endpoint</td>
+                    <td>Prompt and selected document context</td>
+                    <td>Off</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Voice input</strong></td>
+                    <td>You start dictation</td>
+                    <td>Local engine or Google Speech Services (Chromium)</td>
+                    <td>Microphone audio</td>
+                    <td>Off</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Developer servers</strong></td>
+                    <td>Not applicable</td>
+                    <td>None exist</td>
+                    <td>None</td>
+                    <td>Not applicable</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <p>
-              <strong>Children's Online Privacy Protection Act (COPPA):</strong> PDFistic does not knowingly collect, transmit, or solicit personal information from children under 13. The application operates offline and requires no age-gated registration.
+            <p style="margin-top: 14px;">
+              You can verify this with any network monitor (for example Windows Resource Monitor or Wireshark) or by auditing the open-source code.
             </p>
           </section>
 
-          <!-- Section 9: Microsoft Store & GitHub Updates -->
-          <section class="doc-section" id="store-updates">
-            <h2>9. Software Distribution, Store Certification &amp; Telemetry</h2>
+          <section class="doc-section" id="logs">
+            <h2>9. Diagnostic Logs</h2>
             <p>
-              PDFistic is distributed through two official, signed channels:
+              The main process writes operational events and error messages to <code>%APPDATA%\PDFistic\logs\main.log</code>. The log is local only and is never uploaded automatically. It is intended to contain technical events (startup, module errors, update status), not document contents. Error messages generated by underlying libraries can occasionally include a file name or path fragment, so review the file before attaching it to a public GitHub issue, and redact anything you do not want to share. You can delete the log at any time without affecting the application.
             </p>
+          </section>
+
+          <section class="doc-section" id="erasure">
+            <h2>10. Permanent Data Erasure</h2>
+            <p>
+              Because all PDFistic data resides on your device, erasure is fully in your hands. Choose either method:
+            </p>
+            <h3>Method A: In-app wipe</h3>
+            <ol class="doc-steps">
+              <li>
+                <div>
+                  <span class="doc-step-title">Open the wipe control</span>
+                  <p>In PDFistic, go to <em>Settings &rarr; Privacy &amp; Data</em>.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="doc-step-title">Click "Wipe All Data" and confirm</span>
+                  <p>This deletes preferences, encrypted API keys, encrypted OAuth tokens, logs and cached session state, and clears Chromium storage.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="doc-step-title">Close the application</span>
+                  <p>Optionally revoke Google access at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a> and delete any API keys from your AI provider dashboards, so the credentials are invalid at the source.</p>
+                </div>
+              </li>
+            </ol>
+            <h3>Method B: Manual deletion</h3>
+            <ol class="doc-steps">
+              <li>
+                <div>
+                  <span class="doc-step-title">Quit PDFistic completely</span>
+                  <p>Close all windows and confirm no PDFistic process remains in Task Manager.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="doc-step-title">Delete the data folder</span>
+                  <p>Press <kbd class="kbd-key">Win + R</kbd>, enter <code>%APPDATA%\PDFistic</code>, and delete the folder in File Explorer (use <kbd class="kbd-key">Shift + Delete</kbd> to bypass the Recycle Bin).</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="doc-step-title">Uninstall and revoke</span>
+                  <p>Remove the app from Settings &rarr; Apps, then revoke Google access and rotate or delete any AI provider API keys at the provider.</p>
+                </div>
+              </li>
+            </ol>
+            <p style="margin-top: 14px;">
+              Erasure does not delete your own PDF files, copies synced to your Google Drive app-data folder (remove those through Google Drive settings), or content already processed by an AI provider (request deletion from that provider under its terms). Securely overwriting free disk space, if your threat model requires it, is an operating-system task outside PDFistic.
+            </p>
+          </section>
+
+          <section class="doc-section" id="security">
+            <h2>11. Security Controls</h2>
             <ul>
-              <li><strong>Microsoft Store (MSIX Package):</strong> Updates are distributed securely through the Windows Store infrastructure in compliance with Microsoft Store Policy Section 10.5 (Personal Information). Microsoft provides registered publishers with aggregated, anonymized analytical telemetry via Partner Center (such as total installs by country and crash stack traces). These reports contain zero document contents, personal identities, or IP addresses.</li>
-              <li><strong>GitHub Releases (Open Source Standalone):</strong> The open-source release checks the public GitHub REST API (<code>api.github.com</code>) to notify you when a newer version is published. Standard GitHub privacy policies govern these public metadata requests.</li>
+              <li><strong>Process isolation:</strong> Document rendering runs in sandboxed Chromium renderer processes separate from the Node.js main process.</li>
+              <li><strong>Credential encryption:</strong> Windows DPAPI through Electron <code>safeStorage</code>, bound to your Windows login.</li>
+              <li><strong>Transport security:</strong> All optional cloud traffic uses HTTPS/TLS directly to the provider.</li>
+              <li><strong>Least privilege:</strong> The Drive scope is limited to <code>drive.appdata</code>.</li>
+              <li><strong>Open source:</strong> Apache License 2.0 code is publicly auditable. Report vulnerabilities privately by email (Section 18).</li>
             </ul>
+            <p>
+              No software is free of defects, and DPAPI protects against other users and offline disk access but not against malware running under your own logged-in account. Keep Windows updated and use standard endpoint protection.
+            </p>
           </section>
 
-          <!-- Section 10: Policy Modifications -->
+          <section class="doc-section" id="gdpr">
+            <h2>12. GDPR Rights (EU / EEA / UK)</h2>
+            <p>
+              Under Regulation (EU) 2016/679, you hold the rights below. Since the Developer holds no personal data about you, most are satisfied directly on your device:
+            </p>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Right (GDPR Article)</th>
+                    <th>How it applies to PDFistic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Access (Art. 15)</strong></td>
+                    <td>All locally stored data is in <code>%APPDATA%\PDFistic\</code> and is readable by you. The Developer holds none.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Rectification (Art. 16)</strong></td>
+                    <td>Edit or delete any setting, bookmark or note in the application.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Erasure (Art. 17)</strong></td>
+                    <td>Use Wipe All Data or manual deletion (Section 10).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Restriction (Art. 18)</strong></td>
+                    <td>Leave optional features disabled, or disconnect them at any time.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Portability (Art. 19-20)</strong></td>
+                    <td>Your documents are standard PDF files. Synced Drive data is in your own Google account.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Objection (Art. 21)</strong></td>
+                    <td>No profiling, marketing or legitimate-interest processing is performed by the Developer.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Automated decisions (Art. 22)</strong></td>
+                    <td>None. AI Copilot output is advisory and only produced when you request it.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top: 14px;">
+              Legal bases for processing that occurs on your device or at third parties you choose are your own consent (Art. 6(1)(a)) when enabling optional features. If you contact the Developer, the email you send is processed on the basis of legitimate interest in answering you (Art. 6(1)(f)) and is deleted when no longer needed. You may lodge a complaint with your national supervisory authority.
+            </p>
+          </section>
+
+          <section class="doc-section" id="ccpa">
+            <h2>13. CCPA / CPRA (California)</h2>
+            <p>
+              <strong>Do Not Sell or Share My Personal Information:</strong> PDFistic does not sell, rent or share personal information for monetary or other valuable consideration, or for cross-context behavioral advertising. The Developer does not collect personal information in the application, so there is nothing to sell or share, and no opt-out is needed. California residents retain the rights to know, delete, correct and limit use of sensitive personal information; these are satisfied by the local controls in Section 10 and by contacting the Developer at the address in Section 18. The Developer will not discriminate against you for exercising these rights.
+            </p>
+          </section>
+
+          <section class="doc-section" id="children">
+            <h2>14. Children's Privacy (COPPA)</h2>
+            <p>
+              PDFistic is a general-purpose utility and is not directed to children under 13. The software does not knowingly collect personal information from children under 13. Because the application collects no personal information at all, there is no child data to disclose or delete on the Developer's side. Parents or guardians who believe a child has submitted information to the Developer by email can write to the address in Section 18 and it will be deleted. Parents are responsible for supervising a child's use of optional third-party features such as AI providers and Google accounts, which carry their own age requirements.
+            </p>
+          </section>
+
+          <section class="doc-section" id="store">
+            <h2>15. Microsoft Store Compliance</h2>
+            <p>
+              This policy is provided to satisfy Microsoft Store Policy 10.5 (Privacy), which requires a privacy policy for apps that access or transmit personal information, and disclosure of that access and transmission. PDFistic's declared capabilities are limited to what the features above require, and data handling in the Store build is identical to the standalone installer.
+            </p>
+          </section>
+
+          <section class="doc-section" id="transfers">
+            <h2>16. International Transfers and Jurisdiction</h2>
+            <p>
+              The Developer is located in India but receives no personal data from the application, so no cross-border transfer originates from the Developer. If you enable optional features, your data goes directly to Google or your chosen AI provider, which may process it in other countries under their own transfer mechanisms. This policy is governed by the laws of India, without limiting any mandatory consumer or data-protection rights you hold in your country of residence.
+            </p>
+          </section>
+
           <section class="doc-section" id="changes">
-            <h2>10. Modifications to this Privacy Architecture</h2>
+            <h2>17. Changes to This Policy</h2>
             <p>
-              As PDFistic evolves, this policy may be revised to reflect new capabilities or regulatory updates. Any changes will be published directly to this page with an updated revision date. If a future feature introduces external network dependencies, details will be transparently documented in the application release notes prior to deployment.
+              Material changes, such as adding any network feature, will be published at the canonical URL above with an updated effective date, and recorded in the public commit history of the GitHub repository before the corresponding release ships. Any new data collection would require an application update that you choose to install, and would be described in the release notes.
             </p>
           </section>
 
-          <!-- Section 11: Developer Security Contact -->
           <section class="doc-section" id="contact">
-            <h2>11. Developer Contact &amp; Security Disclosures</h2>
+            <h2>18. Contact and Complaints</h2>
             <p>
-              PDFistic is developed and maintained independently by <strong>Devansh Dubey</strong> as an open-source software project published under the Apache 2.0 license.
+              For privacy questions, rights requests or security reports, email <a href="mailto:devanshd07o@gmail.com" style="color: var(--accent-crimson); font-weight: 600;">devanshd07o@gmail.com</a>. Please do not attach confidential documents. For public discussion or bug reports, use <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer">GitHub</a>. Rights requests will be answered within 30 days.
             </p>
-            <p>
-              If you have questions, architectural inquiries, or wish to disclose a security vulnerability, please contact the developer directly:
-            </p>
-            <ul>
-              <li><strong>Direct Email:</strong> <a href="mailto:devanshd07o@gmail.com" style="color: var(--accent-crimson); font-weight: 600;">devanshd07o@gmail.com</a></li>
-              <li><strong>Official Website:</strong> <a href="https://devanshd07o.github.io/PDFistic-V1/">https://devanshd07o.github.io/PDFistic-V1/</a></li>
-              <li><strong>GitHub Repository &amp; Issue Tracker:</strong> <a href="https://github.com/devanshd07o/PDFistic-V1" target="_blank" rel="noopener noreferrer">https://github.com/devanshd07o/PDFistic-V1</a></li>
-              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/devansh-dubey-aa802b305/" target="_blank" rel="noopener noreferrer">linkedin.com/in/devansh-dubey-aa802b305/</a></li>
-            </ul>
           </section>
 
           <nav class="doc-next" aria-label="Related documentation">
