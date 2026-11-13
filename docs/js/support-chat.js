@@ -1,17 +1,13 @@
 /**
- * PDFistic Support & FAQ — Zernexa AI Chatbot & RAG Controller
- * Features:
- * - Live Draggable Mascot Launcher with natural hover tooltip & position persistence
- * - KokonutUI-inspired auto-resizing input card with tool tray
- * - High-quality Markdown text rendering with citation badges & copy buttons
- * - Client-side RAG chunk retrieval grounded on PDFistic architecture
- * - Responsive 60fps canvas pet states (idle, wave, listening, thinking, speaking)
+ * PDFistic Zernexa AI Support Assistant — Production Controller
+ * Clean, human, zero-slop conversational UI inspired by Shadcn UI and Flowbite.
  */
 (function () {
   'use strict';
 
   var STORE_URL = 'https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare';
   var STORAGE_KEY_POS = 'pdfistic_mascot_pos';
+  var BOT_AVATAR_SRC = 'assets/pet/idle_blink/frame_1.webp';
 
   var chatHistory = [];
   var floatingMascot = null;
@@ -26,21 +22,22 @@
     });
   }
 
-  function getTimeString() {
-    var d = new Date();
-    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  function processInline(str) {
+    var safe = escHtml(str);
+    safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/`([^`]+)`/g, '<code class="chat-inline-code">$1</code>');
+    return safe;
   }
 
   /**
-   * Premium Markdown & Text Renderer
-   * Renders structured titles, bullet lists, numbered badges, code chips, and citations.
+   * Clean Markdown & Text Renderer (Zero internal jargon)
    */
-  function formatMarkdown(text, category) {
+  function formatMarkdown(text) {
     var raw = String(text || '').trim();
     var lines = raw.split('\n');
     var htmlLines = [];
     var inList = false;
-    var listType = null; // 'ol' or 'ul'
+    var listType = null;
 
     function closeList() {
       if (inList) {
@@ -57,19 +54,14 @@
         continue;
       }
 
-      // Detect "Title: Body" format on the first line
-      if (i === 0 && line.indexOf(': ') !== -1 && !line.match(/^(\d+\.|\-|\*)/)) {
-        var colonIdx = line.indexOf(': ');
-        var head = line.slice(0, colonIdx);
-        var rest = line.slice(colonIdx + 2);
-        htmlLines.push('<div class="chat-msg-title">' + escHtml(head) + '</div>');
-        if (rest) {
-          htmlLines.push('<p style="margin:0 0 6px 0;">' + processInline(rest) + '</p>');
-        }
+      // Detect sub-headings like "### Feature" or "Title:"
+      if (line.match(/^###\s+(.+)$/)) {
+        closeList();
+        htmlLines.push('<div class="chat-msg-title">' + processInline(line.replace(/^###\s+/, '')) + '</div>');
         continue;
       }
 
-      // Ordered list (e.g. "1. Feature description")
+      // Ordered list
       var olMatch = line.match(/^(\d+)\.\s+(.+)$/);
       if (olMatch) {
         if (!inList || listType !== 'ol') {
@@ -78,11 +70,11 @@
           inList = true;
           listType = 'ol';
         }
-        htmlLines.push('<li class="chat-list-num"><span class="chat-num-idx">' + olMatch[1] + '</span><span>' + processInline(olMatch[2]) + '</span></li>');
+        htmlLines.push('<li class="chat-list-num"><span class="chat-num-idx">' + olMatch[1] + '.</span><span>' + processInline(olMatch[2]) + '</span></li>');
         continue;
       }
 
-      // Unordered bullet list (e.g. "- Feature" or "* Feature")
+      // Bullet list
       var ulMatch = line.match(/^[\-\*]\s+(.+)$/);
       if (ulMatch) {
         if (!inList || listType !== 'ul') {
@@ -97,33 +89,11 @@
 
       // Normal paragraph
       closeList();
-      htmlLines.push('<p style="margin: 0 0 6px 0;">' + processInline(line) + '</p>');
+      htmlLines.push('<p>' + processInline(line) + '</p>');
     }
 
     closeList();
-
-    var fullHtml = htmlLines.join('\n');
-
-    // Add Grounding Citation Bar if available
-    if (category) {
-      fullHtml += [
-        '<div class="chat-citation-bar">',
-        '  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
-        '  <span>Grounded in: ' + escHtml(category) + '</span>',
-        '</div>'
-      ].join('\n');
-    }
-
-    return fullHtml;
-  }
-
-  function processInline(str) {
-    var safe = escHtml(str);
-    // Bold: **text**
-    safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    // Inline code: `code`
-    safe = safe.replace(/`([^`]+)`/g, '<code class="chat-inline-code">$1</code>');
-    return safe;
+    return htmlLines.join('\n');
   }
 
   function initMascots() {
@@ -166,9 +136,9 @@
       headerMascot.wave();
     }
 
-    var textarea = document.getElementById('zernexaChatInput');
-    if (textarea) {
-      setTimeout(function () { textarea.focus(); }, 150);
+    var input = document.getElementById('zernexaChatInput');
+    if (input) {
+      setTimeout(function () { input.focus(); }, 120);
     }
   }
 
@@ -190,17 +160,10 @@
     chatHistory = [];
     container.innerHTML = [
       '<div class="chat-bubble chat-bubble--bot">',
-      '  <div class="chat-avatar chat-avatar--bot">',
-      '    <img src="assets/zernexa.png" alt="Zernexa AI">',
-      '  </div>',
-      '  <div class="chat-bubble-content">',
-      '    <div class="chat-bubble-meta">',
-      '      <span class="chat-bubble-author">Zernexa AI Copilot</span>',
-      '      <span class="chat-bubble-source">Local Guide</span>',
-      '      <span class="chat-bubble-time">' + getTimeString() + '</span>',
-      '    </div>',
+      '  <div class="chat-avatar"><img src="' + BOT_AVATAR_SRC + '" alt="Zernexa AI"></div>',
+      '  <div class="chat-bubble-body">',
       '    <div class="chat-bubble-text">',
-      '      Conversation reset. Ask me anything about PDFistic reading modes, 3D page curls, offline OCR, or privacy on Windows 10 &amp; 11.',
+      '      Conversation reset. Ask me anything about PDFistic reading modes, 3D page curls, offline OCR, or privacy on Windows.',
       '    </div>',
       '  </div>',
       '</div>'
@@ -217,19 +180,18 @@
     msgEl.className = 'chat-bubble ' + (role === 'user' ? 'chat-bubble--user' : 'chat-bubble--bot');
 
     var avatarHtml = role === 'user'
-      ? '<div class="chat-avatar chat-avatar--user"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>'
-      : '<div class="chat-avatar chat-avatar--bot"><img src="assets/zernexa.png" alt="Zernexa AI"></div>';
+      ? ''
+      : '<div class="chat-avatar"><img src="' + BOT_AVATAR_SRC + '" alt="Zernexa AI"></div>';
 
-    var htmlContent = formatMarkdown(rawText, options.category);
+    var htmlContent = formatMarkdown(rawText);
 
     var ctaHtml = '';
-    if (options.suggestDownload || options.alwaysShowCta) {
+    if (options.suggestDownload) {
       ctaHtml = [
         '<div class="chat-msg-cta">',
         '  <a href="' + STORE_URL + '" target="_blank" rel="noopener noreferrer" class="chat-download-btn">',
-        '    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/></svg>',
+        '    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.801"/></svg>',
         '    <span>Get Free on Microsoft Store</span>',
-        '    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',
         '  </a>',
         '</div>'
       ].join('\n');
@@ -237,27 +199,20 @@
 
     var copyActionHtml = role === 'bot'
       ? [
-        '<div class="chat-bubble-actions">',
-        '  <button type="button" class="chat-copy-btn" aria-label="Copy message" title="Copy response">',
-        '    <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>',
-        '    <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
-        '    <span>Copy</span>',
-        '  </button>',
-        '</div>'
+        '<button type="button" class="chat-copy-btn" aria-label="Copy message" title="Copy response">',
+        '  <svg class="copy-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>',
+        '  <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+        '  <span>Copy</span>',
+        '</button>'
       ].join('\n')
       : '';
 
     msgEl.innerHTML = [
       avatarHtml,
-      '<div class="chat-bubble-content">',
-      '  <div class="chat-bubble-meta">',
-      '    <span class="chat-bubble-author">' + (role === 'user' ? 'You' : 'Zernexa AI Copilot') + '</span>',
-      '    ' + (role === 'bot' ? '<span class="chat-bubble-source">Local RAG</span>' : ''),
-      '    <span class="chat-bubble-time">' + getTimeString() + '</span>',
-      '  </div>',
+      '<div class="chat-bubble-body">',
       '  <div class="chat-bubble-text">' + htmlContent + '</div>',
-      copyActionHtml,
       ctaHtml,
+      copyActionHtml,
       '</div>'
     ].join('\n');
 
@@ -269,6 +224,9 @@
     return msgEl;
   }
 
+  /**
+   * Horizontal 3-Dot Typing Bubble (Zero vertical text)
+   */
   function appendTypingIndicator() {
     var container = document.getElementById('zernexaChatMessages');
     if (!container) return null;
@@ -277,17 +235,12 @@
     ind.className = 'chat-bubble chat-bubble--bot chat-bubble--typing';
     ind.id = 'zernexaTypingIndicator';
     ind.innerHTML = [
-      '<div class="chat-avatar chat-avatar--bot"><img src="assets/zernexa.png" alt="Zernexa AI"></div>',
-      '<div class="chat-bubble-content">',
-      '  <div class="chat-bubble-meta">',
-      '    <span class="chat-bubble-author">Zernexa AI Copilot</span>',
-      '    <span class="chat-bubble-source">Searching Knowledge Base</span>',
-      '  </div>',
-      '  <div class="chat-bubble-text">',
-      '    <div class="typing-dots">',
-      '      <span></span><span></span><span></span>',
-      '      <span class="typing-label">Thinking...</span>',
-      '    </div>',
+      '<div class="chat-avatar"><img src="' + BOT_AVATAR_SRC + '" alt="Zernexa AI"></div>',
+      '<div class="chat-bubble-body">',
+      '  <div class="typing-bubble">',
+      '    <span class="typing-dot"></span>',
+      '    <span class="typing-dot"></span>',
+      '    <span class="typing-dot"></span>',
       '  </div>',
       '</div>'
     ].join('\n');
@@ -310,17 +263,17 @@
       if (btn.getAttribute('data-has-listener')) return;
       btn.setAttribute('data-has-listener', 'true');
       btn.addEventListener('click', function () {
-        var textEl = btn.closest('.chat-bubble-content').querySelector('.chat-bubble-text');
+        var textEl = btn.closest('.chat-bubble-body').querySelector('.chat-bubble-text');
         if (!textEl) return;
         var textToCopy = textEl.innerText || textEl.textContent || '';
         navigator.clipboard.writeText(textToCopy).then(function () {
           btn.classList.add('is-copied');
           var span = btn.querySelector('span');
-          if (span) span.textContent = 'Copied!';
+          if (span) span.textContent = 'Copied';
           setTimeout(function () {
             btn.classList.remove('is-copied');
             if (span) span.textContent = 'Copy';
-          }, 2000);
+          }, 1800);
         }).catch(function () {});
       });
     });
@@ -335,15 +288,11 @@
 
     appendMessage('user', q);
 
-    var textarea = document.getElementById('zernexaChatInput');
+    var input = document.getElementById('zernexaChatInput');
     var sendBtn = document.getElementById('zernexaSendBtn');
-    if (textarea) {
-      textarea.value = '';
-      textarea.style.height = 'auto';
-    }
-    if (sendBtn) {
-      sendBtn.disabled = true;
-    }
+    if (input) input.value = '';
+    if (sendBtn) sendBtn.disabled = true;
+
     var inPageInput = document.getElementById('zernexaInPageInput');
     if (inPageInput) inPageInput.value = '';
 
@@ -351,15 +300,14 @@
     appendTypingIndicator();
 
     try {
-      await new Promise(function (r) { setTimeout(r, 450); });
+      await new Promise(function (r) { setTimeout(r, 400); });
 
       var result = null;
       if (window.PDFISTIC_ZERNEXA_RAG && typeof window.PDFISTIC_ZERNEXA_RAG.query === 'function') {
         result = await window.PDFISTIC_ZERNEXA_RAG.query(q, chatHistory, null);
       } else {
         result = {
-          text: 'PDFistic is a native Windows 10 & 11 reading studio with 3D Book Page-Turn, EPUB reader, offline OCR, PDF tools, and local DPAPI privacy.',
-          categories: ['Overview'],
+          text: 'PDFistic is a fast, offline Windows reading studio with 3D Book Page-Turn, dedicated EPUB reader, offline OCR, and local DPAPI privacy.',
           suggestDownload: true
         };
       }
@@ -367,37 +315,31 @@
       removeTypingIndicator();
       setAllMascotsState('speaking');
 
-      var primaryCategory = (result.categories && result.categories.length) ? result.categories[0] : null;
-
       appendMessage('bot', result.text, {
-        category: primaryCategory,
         suggestDownload: result.suggestDownload || q.toLowerCase().indexOf('download') !== -1 || q.toLowerCase().indexOf('install') !== -1
       });
 
       setTimeout(function () {
         setAllMascotsState('idle_blink');
-      }, 2800);
+      }, 2500);
 
     } catch (err) {
       removeTypingIndicator();
       setAllMascotsState('idle_blink');
-      appendMessage('bot', 'PDFistic runs completely offline on Windows 10 and 11. You can open any PDF or EPUB, highlight and annotate, and run PDF utilities without an account. Download it free from Microsoft Store.', {
-        category: 'Windows Desktop App',
+      appendMessage('bot', 'PDFistic runs completely offline on Windows 10 and 11. You can open any PDF or EPUB, highlight, and run PDF utilities without an account. Download it free from Microsoft Store.', {
         suggestDownload: true
       });
     } finally {
       isGenerating = false;
-      if (textarea) {
-        textarea.disabled = false;
-        textarea.focus();
+      if (input) {
+        input.disabled = false;
+        input.focus();
       }
     }
   }
 
   /**
    * Draggable Mascot Launcher Setup
-   * Stays in one place, animates, drags across the full viewport,
-   * snaps to safe margins, persists position in localStorage.
    */
   function setupDraggableMascot() {
     var launcher = document.getElementById('zernexaMascotLauncher');
@@ -430,7 +372,6 @@
     var dragThreshold = 6;
 
     launcher.addEventListener('pointerdown', function (e) {
-      // Primary button only
       if (e.button !== 0) return;
       isPointerDown = true;
       hasMoved = false;
@@ -457,8 +398,6 @@
       if (hasMoved) {
         var newX = initLeft + dx;
         var newY = initTop + dy;
-
-        // Boundary clamp
         var maxX = window.innerWidth - launcher.offsetWidth - 12;
         var maxY = window.innerHeight - launcher.offsetHeight - 12;
         newX = Math.max(12, Math.min(maxX, newX));
@@ -481,13 +420,11 @@
       } catch (_) {}
 
       if (hasMoved) {
-        // Persist new position
         try {
           var rect = launcher.getBoundingClientRect();
           localStorage.setItem(STORAGE_KEY_POS, JSON.stringify({ x: rect.left, y: rect.top }));
         } catch (_) {}
       } else {
-        // Clean click -> Toggle chat widget
         var widget = document.getElementById('zernexaChatWidget');
         if (widget && widget.classList.contains('is-open')) {
           closeChatWidget();
@@ -500,7 +437,6 @@
     launcher.addEventListener('pointerup', endDrag);
     launcher.addEventListener('pointercancel', endDrag);
 
-    // Hover animation: Wave occasionally when mouse enters
     launcher.addEventListener('mouseenter', function () {
       if (!isGenerating && floatingMascot) {
         floatingMascot.setState('hi_wave', function () {
@@ -509,7 +445,6 @@
       }
     });
 
-    // Keyboard support (Enter/Space opens chat)
     launcher.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -517,7 +452,6 @@
       }
     });
 
-    // Window resize safeguard
     window.addEventListener('resize', function () {
       var rect = launcher.getBoundingClientRect();
       var maxX = window.innerWidth - launcher.offsetWidth - 12;
@@ -532,60 +466,25 @@
   function setupEventListeners() {
     setupDraggableMascot();
 
-    var keyBtn = document.getElementById('zernexaChatKeyBtn');
-    if (keyBtn) {
-      keyBtn.addEventListener('click', function () {
-        var currentKey = '';
-        try { currentKey = localStorage.getItem('pdfistic_groq_key') || ''; } catch (_) {}
-        var promptMsg = currentKey
-          ? 'Enter your Groq API Key (leave empty to remove and use offline RAG):'
-          : 'Enter your Groq API Key (starts with gsk_):';
-        var newKey = window.prompt(promptMsg, currentKey);
-        if (newKey !== null) {
-          var clean = newKey.trim();
-          try {
-            if (clean) {
-              localStorage.setItem('pdfistic_groq_key', clean);
-              appendMessage('bot', '**Groq API Key activated.** Live LLM with grounded RAG context is now active for this browser session.');
-            } else {
-              localStorage.removeItem('pdfistic_groq_key');
-              appendMessage('bot', 'Groq API Key removed. Reverted to 100% offline client-side RAG engine.');
-            }
-          } catch (_) {}
-        }
-      });
-    }
-
     var closeBtn = document.getElementById('zernexaChatClose');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeChatWidget);
-    }
+    if (closeBtn) closeBtn.addEventListener('click', closeChatWidget);
 
     var clearBtn = document.getElementById('zernexaChatClear');
-    if (clearBtn) {
-      clearBtn.addEventListener('click', clearChatHistory);
-    }
+    if (clearBtn) clearBtn.addEventListener('click', clearChatHistory);
 
-    // KokonutUI ai-prompt Textarea Controller
     var form = document.getElementById('zernexaChatForm');
-    var textarea = document.getElementById('zernexaChatInput');
+    var input = document.getElementById('zernexaChatInput');
     var sendBtn = document.getElementById('zernexaSendBtn');
 
-    if (form && textarea) {
+    if (form && input) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        handleUserQuery(textarea.value);
+        handleUserQuery(input.value);
       });
 
-      // Auto-resize textarea & toggle submit button
-      textarea.addEventListener('input', function () {
-        textarea.style.height = 'auto';
-        textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
-
-        var hasValue = textarea.value.trim().length > 0;
-        if (sendBtn) {
-          sendBtn.disabled = !hasValue || isGenerating;
-        }
+      input.addEventListener('input', function () {
+        var hasVal = input.value.trim().length > 0;
+        if (sendBtn) sendBtn.disabled = !hasVal || isGenerating;
 
         if (!isGenerating) {
           setAllMascotsState('listening');
@@ -595,19 +494,8 @@
           }, 1800);
         }
       });
-
-      // Enter to send, Shift+Enter for newline
-      textarea.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          if (textarea.value.trim().length > 0 && !isGenerating) {
-            handleUserQuery(textarea.value);
-          }
-        }
-      });
     }
 
-    // In-page Hero Input
     var inPageForm = document.getElementById('zernexaInPageForm');
     var inPageInput = document.getElementById('zernexaInPageInput');
     if (inPageForm && inPageInput) {
@@ -627,23 +515,17 @@
       });
     }
 
-    // Quick starter chips and buttons with [data-zernexa-prompt]
     document.querySelectorAll('[data-zernexa-prompt]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var text = btn.getAttribute('data-zernexa-prompt');
-        if (text) {
-          handleUserQuery(text);
-        }
+        if (text) handleUserQuery(text);
       });
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         var widget = document.getElementById('zernexaChatWidget');
-        if (widget && widget.classList.contains('is-open')) {
-          closeChatWidget();
-        }
+        if (widget && widget.classList.contains('is-open')) closeChatWidget();
       }
     });
 

@@ -1,25 +1,25 @@
 /**
- * PDFistic Zernexa AI Support Assistant — Production Stylesheet
- * Fuses OriginUI Chat Primitives + KokonutUI AI Prompt + Zernexa Interactive Pet
- * Enforces Quad-Engine Anti-AI-Slop Protocol:
- * - Zero generic purple AI gradients; pure Obsidian (#121316) & Warm Paper (#FAF9F6)
- * - 4px/8px base spatial grid
- * - High-contrast accessible text (WCAG AA >= 4.5:1)
- * - Draggable live mascot with natural shadow and glass tooltip
- * - Fluid responsiveness: 320px mobile to 4K desktop
+ * PDFistic Zernexa AI Chatbot — Clean Production Stylesheet
+ * Strict Anti-AI-Slop Protocol (/anti-ai-design-core + /hallmark + /impeccable):
+ * - Zero internal telemetry or engineering jargon shown to the user
+ * - Zero purple gradients; pure obsidian (#121316) header and crisp surfaces
+ * - Strict 4px/8px grid rhythm
+ * - 3-dot horizontal typing wave (zero vertical wrapping)
+ * - Fluid mobile responsiveness (320px mobile to 4K desktop)
+ * - Source: D:\LetsCode\UI_COMPONENTS\shadcn-ui + originui + flowbite
  */
 
 /* ==========================================================================
-   1. Floating Draggable Mascot Launcher (No Pill Container)
+   1. Floating Draggable Mascot Launcher
    ========================================================================== */
 
 .zernexa-mascot-launcher {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
+  bottom: 24px;
+  right: 24px;
   z-index: 999;
-  width: 76px;
-  height: 76px;
+  width: 72px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,21 +27,21 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: none;
-  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms ease;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28));
+  transition: transform 180ms ease, filter 180ms ease;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.22));
   outline: none;
 }
 
 .zernexa-mascot-launcher:hover {
-  transform: translateY(-3px) scale(1.06);
-  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.36));
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.3));
 }
 
 .zernexa-mascot-launcher.is-dragging {
   cursor: grabbing !important;
   transition: none !important;
-  transform: scale(1.1) !important;
-  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.44)) !important;
+  transform: scale(1.08) !important;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.4)) !important;
 }
 
 .zernexa-mascot-launcher.is-hidden {
@@ -50,112 +50,38 @@
   transform: scale(0.85);
 }
 
-.zernexa-mascot-glow {
-  position: absolute;
-  inset: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(184, 4, 3, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-  pointer-events: none;
-  z-index: 1;
-}
-
 .zernexa-mascot-canvas {
-  width: 72px;
-  height: 72px;
+  width: 70px;
+  height: 70px;
   display: block;
   pointer-events: none;
-  position: relative;
-  z-index: 2;
   image-rendering: -webkit-optimize-contrast;
 }
 
-/* Floating Hover Tooltip (Obsidian Glass) */
-.zernexa-mascot-tooltip {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  right: 50%;
-  transform: translateX(50%) translateY(4px);
-  background: #121316;
-  color: #FAF7F2;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 160ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 10;
-}
-
-.zernexa-mascot-launcher:hover .zernexa-mascot-tooltip {
-  opacity: 1;
-  transform: translateX(50%) translateY(0);
-}
-
-.zernexa-mascot-launcher.is-dragging .zernexa-mascot-tooltip {
-  opacity: 0 !important;
-}
-
-.zernexa-tooltip-title-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  font-size: 12px;
-  font-weight: 700;
-  color: #FFFFFF;
-}
-
-.zernexa-tooltip-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
-  animation: tooltipPulse 2s infinite ease-in-out;
-}
-
-@keyframes tooltipPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
-
-.zernexa-tooltip-sub {
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  color: #94A3B8;
-  letter-spacing: 0.02em;
-}
-
 /* ==========================================================================
-   2. Floating Chat Widget / Panel Modal (OriginUI + KokonutUI Theme)
+   2. Floating Chat Dialog Window (Shadcn Card Structure)
    ========================================================================== */
 
 .zernexa-chat-widget {
   position: fixed;
-  bottom: 88px;
-  right: 28px;
+  bottom: 84px;
+  right: 24px;
   z-index: 1000;
-  width: 420px;
+  width: 400px;
   max-width: calc(100vw - 32px);
-  height: 610px;
-  max-height: calc(100vh - 110px);
+  height: 590px;
+  max-height: calc(100vh - 100px);
   background: #FFFFFF;
-  border: 1px solid rgba(28, 30, 33, 0.14);
+  border: 1px solid rgba(28, 30, 33, 0.12);
   border-radius: 16px;
-  box-shadow: 0 24px 54px -10px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(16px) scale(0.97);
+  transform: translateY(12px) scale(0.98);
   pointer-events: none;
-  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .zernexa-chat-widget.is-open {
@@ -176,18 +102,18 @@
   flex-shrink: 0;
 }
 
-.zernexa-header-left {
+.zernexa-header-profile {
   display: flex;
   align-items: center;
   gap: 12px;
   min-width: 0;
 }
 
-.zernexa-header-mascot-frame {
-  width: 38px;
-  height: 38px;
+.zernexa-header-avatar {
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
@@ -197,24 +123,18 @@
 }
 
 .zernexa-header-canvas {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   display: block;
 }
 
-.zernexa-header-details {
+.zernexa-header-meta {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
-.zernexa-header-title-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.zernexa-header-title {
+.zernexa-header-name {
   font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
   font-size: 14px;
   font-weight: 700;
@@ -222,35 +142,11 @@
   line-height: 1.2;
 }
 
-.zernexa-header-badge {
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: rgba(184, 4, 3, 0.22);
-  color: #F87171;
-  border: 1px solid rgba(248, 113, 113, 0.35);
-}
-
-.zernexa-header-status {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.zernexa-header-sub {
   font-size: 11.5px;
   font-weight: 500;
   color: #94A3B8;
   line-height: 1.3;
-}
-
-.zernexa-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
 }
 
 .zernexa-header-actions {
@@ -259,7 +155,7 @@
   gap: 4px;
 }
 
-.zernexa-header-btn {
+.zernexa-icon-btn {
   width: 32px;
   height: 32px;
   display: inline-flex;
@@ -273,44 +169,39 @@
   transition: color 140ms ease, background-color 140ms ease;
 }
 
-.zernexa-header-btn:hover {
+.zernexa-icon-btn:hover {
   color: #FFFFFF;
   background: rgba(255, 255, 255, 0.1);
 }
 
 /* ==========================================================================
-   3. Message Stream (OriginUI Asymmetrical Layout & High-Density Typography)
+   3. Message Stream (Flowbite + Shadcn Chat Bubble Primitives)
    ========================================================================== */
 
 .zernexa-chat-messages {
   flex: 1 1 auto;
   min-height: 0;
-  padding: 18px 16px;
+  padding: 16px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background: #FAFAF9;
+  gap: 14px;
+  background: #F8FAFC;
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
 .zernexa-chat-messages::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 .zernexa-chat-messages::-webkit-scrollbar-thumb {
-  background: rgba(28, 30, 33, 0.16);
+  background: rgba(28, 30, 33, 0.15);
   border-radius: 3px;
-}
-.zernexa-chat-messages::-webkit-scrollbar-thumb:hover {
-  background: rgba(28, 30, 33, 0.28);
 }
 
 .chat-bubble {
   display: flex;
   gap: 10px;
-  max-width: 90%;
-  position: relative;
+  max-width: 88%;
 }
 
 .chat-bubble--user {
@@ -323,202 +214,123 @@
 }
 
 .chat-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
+  background: #E2E8F0;
+  border: 1px solid rgba(28, 30, 33, 0.08);
+}
+
+.chat-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .chat-avatar--user {
-  background: #E2E8F0;
-  color: #334155;
-  border: 1px solid rgba(51, 65, 85, 0.15);
+  background: #334155;
+  color: #FFFFFF;
 }
 
-.chat-avatar--bot {
-  background: #18181B;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.chat-avatar--bot img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-.chat-bubble-content {
+.chat-bubble-body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   min-width: 0;
 }
 
-.chat-bubble-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 4px;
-}
-
-.chat-bubble-author {
-  font-size: 11px;
-  font-weight: 700;
-  color: #52525B;
-  letter-spacing: 0.01em;
-}
-
-.chat-bubble-source {
-  font-family: var(--font-mono, monospace);
-  font-size: 9.5px;
-  font-weight: 600;
-  color: #71717A;
-  background: rgba(28, 30, 33, 0.05);
-  padding: 1px 5px;
-  border-radius: 3px;
-}
-
-.chat-bubble-time {
-  font-family: var(--font-mono, monospace);
-  font-size: 9.5px;
-  color: #A1A1AA;
-  margin-left: auto;
-}
-
-/* User Bubble (Deep Obsidian / Navy with Crisp White Text) */
+/* User Message: Deep neutral surface with crisp text */
 .chat-bubble--user .chat-bubble-text {
-  padding: 10px 14px;
+  padding: 9px 14px;
   font-size: 13.5px;
   line-height: 1.5;
   color: #FFFFFF;
   background: #1E293B;
   border-radius: 16px 16px 4px 16px;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
   word-break: break-word;
 }
 
-/* Bot Bubble (Crisp White Card with 1px border and calculated depth) */
+/* Bot Message: Clean white surface with subtle 1px border */
 .chat-bubble--bot .chat-bubble-text {
-  padding: 12px 16px;
+  padding: 11px 15px;
   font-size: 13.5px;
   line-height: 1.58;
-  color: #18181B;
+  color: #0F172A;
   background: #FFFFFF;
   border: 1px solid rgba(28, 30, 33, 0.1);
   border-radius: 16px 16px 16px 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   word-break: break-word;
 }
 
-/* High-Quality Output Text Rendering */
+.chat-bubble-text p {
+  margin: 0 0 8px 0;
+}
+.chat-bubble-text p:last-child {
+  margin-bottom: 0;
+}
+
 .chat-msg-title {
   font-family: var(--font-ui, sans-serif);
   font-size: 14px;
   font-weight: 700;
-  color: #111827;
+  color: #0F172A;
   margin: 0 0 6px 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.chat-msg-title::before {
-  content: '';
-  display: inline-block;
-  width: 3px;
-  height: 14px;
-  background: var(--accent-crimson, #B80403);
-  border-radius: 2px;
 }
 
 .chat-inline-code {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
   font-weight: 600;
-  padding: 2px 5px;
+  padding: 1px 5px;
   border-radius: 4px;
-  background: rgba(184, 4, 3, 0.06);
+  background: rgba(0, 0, 0, 0.05);
   color: var(--accent-crimson, #B80403);
-  border: 1px solid rgba(184, 4, 3, 0.12);
 }
 
 .chat-msg-list {
-  margin: 8px 0;
+  margin: 6px 0 8px;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
-.chat-list-num {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.chat-num-idx {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  color: #FFFFFF;
-  background: var(--accent-crimson, #B80403);
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
+.chat-list-num,
 .chat-list-bullet {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
+}
+
+.chat-num-idx {
+  font-weight: 700;
+  color: var(--accent-crimson, #B80403);
+  flex-shrink: 0;
 }
 
 .chat-bullet-dot {
   color: var(--accent-crimson, #B80403);
   font-size: 14px;
   line-height: 1;
-}
-
-/* Citations & Source Footers (KokonutUI ai-citations.tsx pattern) */
-.chat-citation-bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px dashed rgba(28, 30, 33, 0.1);
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  color: #64748B;
-}
-
-.chat-citation-bar svg {
-  color: var(--accent-crimson, #B80403);
   flex-shrink: 0;
 }
 
-/* Copy Action Button on Message */
-.chat-bubble-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 4px;
-}
-
+/* Copy Action */
 .chat-copy-btn {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 8px;
+  padding: 2px 7px;
   font-family: var(--font-ui, sans-serif);
   font-size: 11px;
   font-weight: 600;
@@ -527,13 +339,14 @@
   border: 1px solid rgba(28, 30, 33, 0.1);
   border-radius: 4px;
   cursor: pointer;
-  transition: all 120ms ease;
+  transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
+  margin-top: 2px;
 }
 
 .chat-copy-btn:hover {
   background: #FFFFFF;
+  color: #0F172A;
   border-color: #94A3B8;
-  color: #1E293B;
 }
 
 .chat-copy-btn .check-icon {
@@ -556,7 +369,7 @@
 
 /* Call-to-action button in bot responses */
 .chat-msg-cta {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .chat-download-btn {
@@ -564,15 +377,15 @@
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  padding: 8px 16px !important;
+  padding: 7px 14px !important;
   font-family: var(--font-ui, sans-serif) !important;
-  font-size: 12.5px !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
   background: var(--accent-crimson, #B80403) !important;
   color: #FFFFFF !important;
   border-radius: 6px !important;
   text-decoration: none !important;
-  box-shadow: 0 2px 8px rgba(184, 4, 3, 0.28) !important;
+  box-shadow: 0 1px 4px rgba(184, 4, 3, 0.25) !important;
   transition: transform 140ms ease, background-color 140ms ease !important;
 }
 
@@ -581,47 +394,44 @@
   transform: translateY(-1px) !important;
 }
 
-/* OriginUI-style Typing Indicator */
-.chat-bubble--typing .chat-bubble-text {
-  padding: 10px 14px;
-  background: #FFFFFF;
-  border: 1px solid rgba(28, 30, 33, 0.1);
+/* Horizontal 3-Dot Typing Indicator (OriginUI + Flowbite) — ZERO VERTICAL WRAPPING */
+.typing-bubble {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  padding: 10px 14px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(28, 30, 33, 0.1) !important;
+  border-radius: 16px 16px 16px 4px !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  white-space: nowrap !important;
 }
 
-.typing-dots {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.typing-dots span {
+.typing-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: #64748B;
-  animation: originTypingWave 1.2s infinite ease-in-out;
+  display: inline-block;
+  animation: typingDotPulse 1.2s infinite ease-in-out;
 }
 
-.typing-dots span:nth-child(2) { animation-delay: 0.18s; }
-.typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes originTypingWave {
-  0%, 100% { opacity: 0.35; transform: translateY(0px) scale(0.85); }
-  50% { opacity: 1; transform: translateY(-3px) scale(1.15); }
-}
-
-.typing-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: #64748B;
-  margin-left: 6px;
+@keyframes typingDotPulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
 }
 
 /* ==========================================================================
-   4. Quick Starter Chips (Above Input Bar)
+   4. Clean Quick Prompts (Subtle Neutral Pills)
    ========================================================================== */
 
-.zernexa-chat-chips {
+.zernexa-quick-prompts {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -634,41 +444,38 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.zernexa-chat-chips::-webkit-scrollbar {
+.zernexa-quick-prompts::-webkit-scrollbar {
   display: none;
 }
 
-.zernexa-chip {
+.zernexa-prompt-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
+  padding: 4px 10px;
   font-family: var(--font-ui, sans-serif);
   font-size: 11.5px;
-  font-weight: 600;
-  color: #334155;
+  font-weight: 500;
+  color: #475569;
   background: #F1F5F9;
   border: 1px solid rgba(28, 30, 33, 0.08);
   border-radius: 6px;
   cursor: pointer;
-  transition: all 140ms ease;
+  transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
   flex-shrink: 0;
 }
 
-.zernexa-chip:hover {
+.zernexa-prompt-btn:hover {
   background: #FFFFFF;
-  border-color: var(--accent-crimson, #B80403);
-  color: var(--accent-crimson, #B80403);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: #0F172A;
+  border-color: #94A3B8;
 }
 
 /* ==========================================================================
-   5. KokonutUI ai-prompt inspired Input Area
+   5. Clean Input Group (Shadcn InputGroup Primitives)
    ========================================================================== */
 
 .zernexa-chat-footer {
-  padding: 10px 14px 14px;
+  padding: 10px 14px 12px;
   background: #FFFFFF;
   border-top: 1px solid rgba(28, 30, 33, 0.08);
   flex-shrink: 0;
@@ -676,103 +483,55 @@
 
 .zernexa-chat-form {
   display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
-.zernexa-input-card {
-  position: relative;
+.zernexa-input-group {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 100%;
   background: #F8FAFC;
   border: 1px solid rgba(28, 30, 33, 0.14);
-  border-radius: 12px;
-  padding: 8px 10px 6px;
-  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+  border-radius: 10px;
+  padding: 4px 6px 4px 12px;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
 }
 
-.zernexa-input-card:focus-within {
+.zernexa-input-group:focus-within {
   background: #FFFFFF;
   border-color: var(--accent-crimson, #B80403);
   box-shadow: 0 0 0 3px rgba(184, 4, 3, 0.12);
 }
 
-.zernexa-chat-textarea {
-  width: 100%;
-  min-height: 38px;
-  max-height: 120px;
-  padding: 4px 6px;
+.zernexa-chat-input {
+  flex: 1 1 auto;
+  height: 34px;
+  padding: 0;
   font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
-  line-height: 1.5;
   color: #0F172A;
   background: transparent;
   border: none;
   outline: none;
-  resize: none;
 }
 
-.zernexa-chat-textarea::placeholder {
-  color: #94A3B8;
-}
-
-.zernexa-input-tray {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 6px;
-  margin-top: 4px;
-  border-top: 1px solid rgba(28, 30, 33, 0.06);
-}
-
-.zernexa-input-meta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.zernexa-engine-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  font-weight: 600;
-  color: #64748B;
-}
-
-.engine-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #10B981;
-}
-
-.zernexa-input-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.zernexa-kbd-hint {
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
+.zernexa-chat-input::placeholder {
   color: #94A3B8;
 }
 
 .zernexa-send-btn {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--accent-crimson, #B80403);
   color: #FFFFFF;
   border: 0;
-  border-radius: 8px;
+  border-radius: 7px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 120ms ease, background-color 120ms ease, opacity 120ms ease;
-  box-shadow: 0 1px 4px rgba(184, 4, 3, 0.3);
+  transition: opacity 120ms ease, background-color 120ms ease, transform 120ms ease;
 }
 
 .zernexa-send-btn:hover:not(:disabled) {
@@ -784,152 +543,10 @@
   background: #CBD5E1;
   color: #94A3B8;
   cursor: not-allowed;
-  box-shadow: none;
 }
 
 /* ==========================================================================
-   6. In-Page "Ask Zernexa AI" Hero Card (Inside support.html content flow)
-   ========================================================================== */
-
-.support-ai-card {
-  margin: 32px 0 40px;
-  padding: 24px;
-  background: var(--surface, #FFFFFF);
-  border: 1px solid var(--border, rgba(28, 30, 33, 0.12));
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  position: relative;
-  overflow: hidden;
-}
-
-.support-ai-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-crimson, #B80403) 0%, #DC2626 50%, #2563EB 100%);
-}
-
-.support-ai-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.support-ai-mascot-wrap {
-  width: 68px;
-  height: 68px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: rgba(28, 30, 33, 0.03);
-  border: 1px solid rgba(28, 30, 33, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.support-ai-canvas {
-  width: 64px;
-  height: 64px;
-  display: block;
-}
-
-.support-ai-title-wrap {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.support-ai-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--accent-crimson, #B80403);
-  margin-bottom: 4px;
-}
-
-.support-ai-kicker-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
-}
-
-.support-ai-title {
-  font-family: var(--font-display, inherit);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--text, #1C1E21);
-  margin: 0 0 4px;
-  letter-spacing: -0.01em;
-}
-
-.support-ai-desc {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--muted, #4A4D52);
-  margin: 0;
-}
-
-.support-ai-starters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.support-ai-starter-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  min-height: 34px;
-  font-family: var(--font-ui, sans-serif);
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--text, #1C1E21);
-  background: rgba(28, 30, 33, 0.03);
-  border: 1px solid var(--border, rgba(28, 30, 33, 0.14));
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 140ms ease;
-  white-space: nowrap;
-}
-
-.support-ai-starter-btn:hover {
-  background: #FFFFFF;
-  border-color: var(--accent-crimson, #B80403);
-  color: var(--accent-crimson, #B80403);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-
-.support-ai-starter-tag {
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--muted, #4A4D52);
-  opacity: 0.8;
-}
-
-.support-ai-form {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ==========================================================================
-   7. Fluid Mobile Responsiveness (Drawer bottom-sheet on <= 600px)
+   6. Fluid Mobile Responsiveness (Drawer on <= 600px)
    ========================================================================== */
 
 @media (max-width: 600px) {
@@ -942,18 +559,17 @@
     height: 84vh !important;
     max-height: 86vh !important;
     border-radius: 18px 18px 0 0 !important;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25) !important;
   }
 
   .zernexa-mascot-launcher {
-    bottom: 20px;
-    right: 20px;
-    width: 68px;
-    height: 68px;
+    bottom: 16px;
+    right: 16px;
+    width: 64px;
+    height: 64px;
   }
 
   .zernexa-mascot-canvas {
-    width: 64px;
-    height: 64px;
+    width: 62px;
+    height: 62px;
   }
 }
