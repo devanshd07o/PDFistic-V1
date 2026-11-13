@@ -286,6 +286,72 @@
     return '';
   }
 
+  // Groq Cloud LLM Integration (Reads key dynamically from secure browser storage or window config)
+  var GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
+  var GROQ_MODEL = 'openai/gpt-oss-120b';
+
+  async function callGroqWithFailover(payload, userQuery) {
+    var apiKey = '';
+    try {
+      apiKey = (globalScope.__PDFISTIC_GROQ_KEY__ || localStorage.getItem('pdfistic_groq_key') || sessionStorage.getItem('pdfistic_groq_key') || '').trim();
+    } catch (_) {}
+
+    if (!apiKey) return null;
+
+    try {
+      var messages = [
+        {
+          role: 'system',
+          content: payload.systemPrompt + '\n\n' + payload.contextBlock + '\n\nSTRICT INSTRUCTION: Keep answers concise, helpful, and formatted with clean bullet points or numbered steps. When explaining desktop features, encourage downloading the free app from Microsoft Store.'
+        }
+      ];
+
+      if (Array.isArray(payload.apiMessages)) {
+        payload.apiMessages.forEach(function (m) {
+          if (m.role !== 'system') {
+            messages.push({ role: m.role, content: m.content });
+          }
+        });
+      }
+
+      var res = await fetch(GROQ_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: GROQ_MODEL,
+          messages: messages,
+          temperature: 0.3,
+          max_tokens: 650
+        })
+      });
+
+      if (res.ok) {
+        var data = await res.json();
+        var reply = parseExternalReply(data);
+        if (reply && reply.trim()) {
+          return {
+            text: reply.trim(),
+            mode: 'groq-live',
+            categories: payload.retrievedChunks.map(function (c) { return c.category; }),
+            suggestDownload: Boolean(
+              userQuery.toLowerCase().indexOf('download') !== -1 ||
+              userQuery.toLowerCase().indexOf('install') !== -1 ||
+              userQuery.toLowerCase().indexOf('windows') !== -1 ||
+              userQuery.toLowerCase().indexOf('store') !== -1 ||
+              reply.toLowerCase().indexOf('microsoft store') !== -1
+            ),
+            payload: payload
+          };
+        }
+      }
+    } catch (err) {}
+
+    return null;
+  }
+
   globalScope.configurePdfisticZernexaAI = function (cfg) {
     globalScope.__PDFISTIC_AI_CONFIG__ = Object.assign({}, globalScope.__PDFISTIC_AI_CONFIG__ || {}, cfg || {});
   };
@@ -325,6 +391,13 @@
       } catch {}
     }
 
+    // Call Groq Live LLM with RAG grounding
+    var groqReply = await callGroqWithFailover(payload, userQuery);
+    if (groqReply) {
+      return groqReply;
+    }
+
+    // Offline RAG fallback
     var localHits = retrieveChunks(userQuery, 3);
     var synth = synthesizeOfflineRagReply(userQuery, localHits, demoState);
     return {

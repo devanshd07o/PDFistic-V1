@@ -56,6 +56,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css?v=20261112b">
   <link rel="stylesheet" href="css/doc.css?v=20261112b">
+  <link rel="stylesheet" href="css/support-chat.css?v=20261113">
+  <script src="zernexa-rag.js?v=20261113" defer></script>
+  <script src="js/zernexa-mascot.js?v=20261113" defer></script>
+  <script src="js/support-chat.js?v=20261113" defer></script>
   <script src="script.js?v=20261112b" defer></script>
   <script src="venom-button.js?v=20261112" defer></script>
 </head>
@@ -154,6 +158,7 @@
             <a href="#shortcuts">Keyboard shortcuts</a>
             <a href="#ai-setup">Free AI keys guide</a>
             <a href="#tour">Feature tour replay</a>
+            <a href="#supportAiCard">Ask Zernexa AI</a>
             <a href="#faq">Frequently asked questions</a>
             <a href="#contact">Bug reports and contact</a>
           </nav>
@@ -287,6 +292,59 @@
           <p>
             Open PDFistic, press <code>Ctrl + ,</code> to open Settings, navigate to the <strong>About</strong> section, and click <strong>Feature Tour</strong>. The interactive walkthrough will begin immediately.
           </p>
+        </section>
+
+                <!-- Interactive In-Page Zernexa AI Copilot Card -->
+        <section class="support-ai-card" id="supportAiCard">
+          <div class="support-ai-header">
+            <div class="support-ai-mascot-wrap">
+              <canvas class="support-ai-canvas" id="zernexaInPageMascotCanvas" width="64" height="64" aria-label="Zernexa AI Mascot"></canvas>
+            </div>
+            <div class="support-ai-title-wrap">
+              <div class="support-ai-kicker">
+                <span class="support-ai-kicker-dot" aria-hidden="true"></span>
+                <span>ZERNEXA AI ASSISTANT</span>
+              </div>
+              <h2 class="support-ai-title">Have a specific question about PDFistic?</h2>
+              <p class="support-ai-desc">Ask anything about reading modes, 3D book turns, local OCR, EPUB support, or privacy. Grounded answers with zero fluff.</p>
+            </div>
+          </div>
+
+          <div class="support-ai-starters" role="group" aria-label="Quick questions">
+            <button type="button" class="support-ai-starter-btn" data-zernexa-prompt="How do I read EPUBs in Book Mode?">
+              <span class="support-ai-starter-tag">EPUB</span>
+              <span>How do I read EPUBs in Book Mode?</span>
+            </button>
+            <button type="button" class="support-ai-starter-btn" data-zernexa-prompt="How does offline local OCR work?">
+              <span class="support-ai-starter-tag">OCR</span>
+              <span>How does offline local OCR work?</span>
+            </button>
+            <button type="button" class="support-ai-starter-btn" data-zernexa-prompt="Why is PDFistic completely private?">
+              <span class="support-ai-starter-tag">Privacy</span>
+              <span>Why is PDFistic completely private?</span>
+            </button>
+            <button type="button" class="support-ai-starter-btn" data-zernexa-prompt="How do I install PDFistic on Windows 11?">
+              <span class="support-ai-starter-tag">Install</span>
+              <span>How do I install PDFistic on Windows 11?</span>
+            </button>
+            <button type="button" class="support-ai-starter-btn" data-zernexa-prompt="What tools are in the PDF Tools Hub?">
+              <span class="support-ai-starter-tag">Tools</span>
+              <span>What tools are in the PDF Tools Hub?</span>
+            </button>
+          </div>
+
+          <form class="support-ai-form" id="zernexaInPageForm">
+            <div class="support-ai-input-wrap">
+              <span class="support-ai-input-icon" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+              <input type="text" class="support-ai-input" id="zernexaInPageInput" placeholder="Ask Zernexa AI a question about PDFistic..." autocomplete="off">
+            </div>
+            <button type="submit" class="support-ai-submit-btn" aria-label="Ask Zernexa AI">
+              <span>Ask AI</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
         </section>
 
         <!-- Section 7 -->
@@ -426,6 +484,131 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Draggable Zernexa Mascot Launcher (No Capsule Pill) -->
+  <div class="zernexa-mascot-launcher" id="zernexaMascotLauncher" role="button" tabindex="0" aria-label="Ask Zernexa AI Copilot" aria-expanded="false" aria-controls="zernexaChatWidget">
+    <div class="zernexa-mascot-tooltip" id="zernexaMascotTooltip" role="tooltip">
+      <div class="zernexa-tooltip-title-row">
+        <span class="zernexa-tooltip-pulse"></span>
+        <span>Ask Zernexa AI</span>
+      </div>
+      <span class="zernexa-tooltip-sub">Click to chat · Drag to move</span>
+    </div>
+    <div class="zernexa-mascot-glow"></div>
+    <canvas class="zernexa-mascot-canvas" id="zernexaFloatMascotCanvas" width="144" height="144" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- Floating Zernexa AI Chat Panel Modal (OriginUI + KokonutUI Design) -->
+  <aside class="zernexa-chat-widget" id="zernexaChatWidget" role="dialog" aria-label="Zernexa AI Support Assistant" aria-hidden="true">
+    <header class="zernexa-chat-header">
+      <div class="zernexa-header-left">
+        <div class="zernexa-header-mascot-frame">
+          <canvas class="zernexa-header-canvas" id="zernexaHeaderMascotCanvas" width="72" height="72" aria-hidden="true"></canvas>
+        </div>
+        <div class="zernexa-header-details">
+          <div class="zernexa-header-title-row">
+            <span class="zernexa-header-title">Zernexa AI</span>
+            <span class="zernexa-header-badge">Offline RAG</span>
+          </div>
+          <div class="zernexa-header-status">
+            <span class="zernexa-status-dot"></span>
+            <span>Grounded on Local App Architecture</span>
+          </div>
+        </div>
+      </div>
+      <div class="zernexa-header-actions">
+        <button type="button" class="zernexa-header-btn" id="zernexaChatKeyBtn" title="Set Groq API Key (BYOK)" aria-label="Set Groq API Key">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+        </button>
+        <button type="button" class="zernexa-header-btn" id="zernexaChatClear" title="Clear conversation" aria-label="Clear conversation">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        </button>
+        <button type="button" class="zernexa-header-btn zernexa-close-btn" id="zernexaChatClose" title="Close Assistant" aria-label="Close Assistant">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="zernexa-chat-messages" id="zernexaChatMessages" role="log" aria-live="polite">
+      <!-- Default Greeting Bubble -->
+      <div class="chat-bubble chat-bubble--bot">
+        <div class="chat-avatar chat-avatar--bot">
+          <img src="assets/zernexa.png" alt="Zernexa AI">
+        </div>
+        <div class="chat-bubble-content">
+          <div class="chat-bubble-meta">
+            <span class="chat-bubble-author">Zernexa AI Copilot</span>
+            <span class="chat-bubble-source">Local Guide</span>
+          </div>
+          <div class="chat-bubble-text">
+            Hi! I am <strong>Zernexa</strong>, your built-in product copilot for PDFistic. Ask me anything about our 3D page turn, EPUB reader, local OCR, DPAPI privacy, or PDF utilities on Windows 10 &amp; 11.
+          </div>
+          <div class="chat-bubble-actions">
+            <button type="button" class="chat-copy-btn" aria-label="Copy message" title="Copy response">
+              <svg class="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <svg class="check-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompts / Starter Chips Carousel -->
+    <div class="zernexa-chat-chips" id="zernexaChatChips">
+      <button type="button" class="zernexa-chip" data-zernexa-prompt="How does the 3D Book Page-Turn reader work?">
+        <span>📖 3D Page Turn</span>
+      </button>
+      <button type="button" class="zernexa-chip" data-zernexa-prompt="Why is PDFistic completely private with DPAPI?">
+        <span>🔒 DPAPI Privacy</span>
+      </button>
+      <button type="button" class="zernexa-chip" data-zernexa-prompt="What tools are included in PDF Tools Hub?">
+        <span>🛠️ Tools Hub</span>
+      </button>
+      <button type="button" class="zernexa-chip" data-zernexa-prompt="How does offline Tesseract OCR work?">
+        <span>🔍 Offline OCR</span>
+      </button>
+      <button type="button" class="zernexa-chip" data-zernexa-prompt="How do I read EPUB e-books in Book Mode?">
+        <span>📚 EPUB Books</span>
+      </button>
+      <button type="button" class="zernexa-chip" data-zernexa-prompt="How do I install PDFistic on Windows?">
+        <span>📥 Install App</span>
+      </button>
+    </div>
+
+    <!-- KokonutUI ai-prompt inspired Input Container -->
+    <footer class="zernexa-chat-footer">
+      <form class="zernexa-chat-form" id="zernexaChatForm">
+        <div class="zernexa-input-card">
+          <textarea
+            class="zernexa-chat-textarea"
+            id="zernexaChatInput"
+            placeholder="Ask Zernexa anything about PDFistic..."
+            rows="1"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Ask Zernexa AI a question"></textarea>
+          <div class="zernexa-input-tray">
+            <div class="zernexa-input-meta">
+              <span class="zernexa-engine-pill">
+                <span class="engine-dot"></span>
+                <span>Offline RAG · Grounded</span>
+              </span>
+            </div>
+            <div class="zernexa-input-actions">
+              <span class="zernexa-kbd-hint">↵ send</span>
+              <button type="submit" class="zernexa-send-btn" id="zernexaSendBtn" aria-label="Send message" disabled>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m5 12 7-7 7 7"/>
+                  <path d="M12 19V5"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </footer>
+  </aside>
 
 </body>
 </html>
