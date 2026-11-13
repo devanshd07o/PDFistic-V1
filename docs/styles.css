@@ -1001,6 +1001,72 @@ body.nav-menu-open .nav-container:hover {
   mask-image: radial-gradient(ellipse 78% 72% at 50% 36%, var(--bg) 25%, transparent 95%);
 }
 
+/* ==========================================================================
+   Ambient Blended Zernexa Logo Watermark (Editorial Contrast & Subdued Aura)
+   ========================================================================== */
+.hero-zernexa-backdrop {
+  position: absolute;
+  top: clamp(-40px, -1vw, 0px);
+  left: 56%;
+  transform: translateX(-50%);
+  width: clamp(420px, 50vw, 780px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: screen;
+  overflow: visible;
+}
+
+.hero-zernexa-emblem {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.16;
+  filter: brightness(1.2) drop-shadow(0 0 60px rgba(168, 85, 247, 0.35));
+  will-change: transform, opacity, filter;
+  animation: zernexaWatermarkFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes zernexaWatermarkFloat {
+  0% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 0.13;
+    filter: brightness(1.15) drop-shadow(0 0 40px rgba(168, 85, 247, 0.25));
+  }
+  50% {
+    transform: translateY(-12px) scale(1.035) rotate(0.8deg);
+    opacity: 0.22;
+    filter: brightness(1.35) drop-shadow(0 0 80px rgba(168, 85, 247, 0.45));
+  }
+  100% {
+    transform: translateY(8px) scale(0.985) rotate(-0.6deg);
+    opacity: 0.14;
+    filter: brightness(1.18) drop-shadow(0 0 50px rgba(139, 92, 246, 0.3));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-zernexa-emblem {
+    animation: none !important;
+    opacity: 0.075 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-zernexa-backdrop {
+    top: clamp(20px, 6vw, 60px);
+    width: clamp(280px, 80vw, 440px);
+    left: 50%;
+  }
+  .hero-zernexa-emblem {
+    opacity: 0.055;
+  }
+}
+
 .hero-title {
   font-size: clamp(28px, 5vw, 56px);
   font-weight: 700;
