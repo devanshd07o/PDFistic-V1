@@ -245,7 +245,7 @@
 
     if (ql.indexOf('all feature') !== -1 || ql === '/features' || ql.indexOf('complete') !== -1 || ql.indexOf('everything') !== -1) {
       return {
-        text: 'PDFistic combines 6 core engines on Windows 10/11:\n1. 3D Book Page-Turn + 1-Page PDF Scroll + Dedicated EPUB Book Mode\n2. Live Highlighter, Ink Pen, Eraser, Undo/Redo, Sticky Notes, Shapes, Signatures & PDF Save\n3. Offline PDF Tools Hub (Merge, Split, Compress, Reorder/Rotate, PDF-to-Images)\n4. Local Tesseract OCR scanner for scanned PDFs\n5. Dual Split-Screen & BookScope Optical Magnifier Lens\n6. Zernexa AI with BYOK (Gemini/OpenAI/Claude/Groq), Windows DPAPI Key Vault & local privacy.',
+        text: '### PDFistic Core Architecture\n\nPDFistic combines 6 core engines on Windows 10/11:\n\n1. **3D Book Page-Turn** + 1-Page PDF Scroll + Dedicated EPUB Book Mode\n2. **Live Annotations**: Highlighter, Ink Pen, Eraser, Undo/Redo, Sticky Notes, Shapes, Signatures & PDF Save\n3. **Offline PDF Tools Hub**: Merge, Split, Compress, Reorder/Rotate, PDF-to-Images\n4. **Local Tesseract OCR**: Scanned PDFs processed completely offline\n5. **Dual Split-Screen & BookScope** Optical Magnifier Lens\n6. **Zernexa AI**: Bring-Your-Own-Key (Groq/Gemini/OpenAI/Claude), Windows DPAPI Key Vault & zero-telemetry local privacy.',
         categories: ['Overview', 'Reading Modes', 'Zernexa AI'],
         suggestDownload: true
       };
@@ -254,11 +254,11 @@
     var primary = chunks[0];
     var secondary = chunks[1];
     var lines = [];
-    if (primary) lines.push(primary.title + ': ' + primary.body);
-    if (secondary && secondary.id !== primary.id) lines.push(secondary.title + ': ' + secondary.body);
+    if (primary) lines.push('### ' + primary.title + '\n\n' + primary.body);
+    if (secondary && secondary.id !== primary.id) lines.push('### ' + secondary.title + '\n\n' + secondary.body);
 
     if (demoState && demoState.activeTabTitle && ql.indexOf('summar') !== -1 && demoState.pageExcerpt) {
-      lines.unshift('On Page ' + demoState.activePage + ' of "' + demoState.activeTabTitle + '": ' + demoState.pageExcerpt);
+      lines.unshift('> **Page ' + demoState.activePage + ' of "' + demoState.activeTabTitle + '"**\n> ' + demoState.pageExcerpt);
     }
 
     return {

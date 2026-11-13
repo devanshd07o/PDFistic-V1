@@ -34,6 +34,22 @@
    */
   function formatMarkdown(text) {
     var raw = String(text || '').trim();
+    if (!raw) return '';
+
+    if (typeof window.marked !== 'undefined' && typeof window.marked.parse === 'function') {
+      try {
+        if (typeof window.marked.setOptions === 'function') {
+          window.marked.setOptions({
+            gfm: true,
+            breaks: true
+          });
+        }
+        return window.marked.parse(raw);
+      } catch (err) {
+        console.warn('marked.js parse fallback:', err);
+      }
+    }
+
     var lines = raw.split('\n');
     var htmlLines = [];
     var inList = false;

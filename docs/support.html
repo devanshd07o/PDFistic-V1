@@ -56,7 +56,8 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css?v=20261112b">
   <link rel="stylesheet" href="css/doc.css?v=20261112b">
-  <link rel="stylesheet" href="css/support-chat.css?v=20261113">
+  <link rel="stylesheet" href="css/support-chat.css?v=20261113c">
+  <script src="js/marked.min.js?v=20261113"></script>
   <script src="zernexa-rag.js?v=20261113" defer></script>
   <script src="js/zernexa-mascot.js?v=20261113" defer></script>
   <script src="js/support-chat.js?v=20261113" defer></script>
@@ -527,13 +528,23 @@
     </div>
 
     <!-- Clean Quick Prompt Suggestions -->
-    <div class="zernexa-quick-prompts" id="zernexaChatChips">
-      <button type="button" class="zernexa-prompt-btn" data-zernexa-prompt="How does the 3D Book Page-Turn reader work?">3D Page Turn</button>
-      <button type="button" class="zernexa-prompt-btn" data-zernexa-prompt="Why is PDFistic completely private?">Privacy &amp; Security</button>
-      <button type="button" class="zernexa-prompt-btn" data-zernexa-prompt="What tools are included in PDF Tools Hub?">PDF Tools</button>
-      <button type="button" class="zernexa-prompt-btn" data-zernexa-prompt="How does offline OCR work?">Offline OCR</button>
-      <button type="button" class="zernexa-prompt-btn" data-zernexa-prompt="How do I read EPUB e-books in Book Mode?">EPUB Reading</button>
-      <button type="button" class="zernexa-prompt-btn" data-zernexa-prompt="How do I install PDFistic on Windows?">Install App</button>
+    <div class="zernexa-quick-grid" id="zernexaChatChips">
+      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="How does the 3D Book Page-Turn reader work?">
+        <span class="zernexa-card-dot"></span>
+        <span class="zernexa-card-label">3D Book Page-Turn</span>
+      </button>
+      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="Why is PDFistic completely private?">
+        <span class="zernexa-card-dot"></span>
+        <span class="zernexa-card-label">Local DPAPI Privacy</span>
+      </button>
+      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="What tools are included in PDF Tools Hub?">
+        <span class="zernexa-card-dot"></span>
+        <span class="zernexa-card-label">Offline PDF Tools</span>
+      </button>
+      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="How does offline OCR work?">
+        <span class="zernexa-card-dot"></span>
+        <span class="zernexa-card-label">Offline OCR Engine</span>
+      </button>
     </div>
 
     <!-- Clean Modern Input Container (Shadcn UI InputGroup pattern) -->

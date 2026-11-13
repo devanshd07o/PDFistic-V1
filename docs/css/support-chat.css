@@ -1,12 +1,11 @@
 /**
- * PDFistic Zernexa AI Chatbot — Clean Production Stylesheet
- * Strict Anti-AI-Slop Protocol (/anti-ai-design-core + /hallmark + /impeccable):
- * - Zero internal telemetry or engineering jargon shown to the user
- * - Zero purple gradients; pure obsidian (#121316) header and crisp surfaces
- * - Strict 4px/8px grid rhythm
- * - 3-dot horizontal typing wave (zero vertical wrapping)
+ * PDFistic Zernexa AI Chatbot — Editorial Cream & Charcoal Theme
+ * Strictly matches the PDFistic design system (Hue + Interface-Design + Better-Typography + Hallmark):
+ * - Palette: Warm Cream (#FAF7F2), Sand Sheet (#F4EDE1), Sand Border (#D8C9AE), Charcoal Black (#16181A), Crimson (#990302)
+ * - Zero horizontal scroll: Responsive 2-column card grid with fluid 1-col mobile fallback
+ * - Full GitHub Flavored Markdown typography rendering via marked.js
+ * - Smooth 3-dot horizontal typing wave
  * - Fluid mobile responsiveness (320px mobile to 4K desktop)
- * - Source: D:\LetsCode\UI_COMPONENTS\shadcn-ui + originui + flowbite
  */
 
 /* ==========================================================================
@@ -34,7 +33,7 @@
 
 .zernexa-mascot-launcher:hover {
   transform: translateY(-2px) scale(1.05);
-  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.3));
 }
 
 .zernexa-mascot-launcher.is-dragging {
@@ -59,7 +58,7 @@
 }
 
 /* ==========================================================================
-   2. Floating Chat Dialog Window (Shadcn Card Structure)
+   2. Floating Chat Dialog Window (Matches Website Cream & Charcoal Vibe)
    ========================================================================== */
 
 .zernexa-chat-widget {
@@ -67,14 +66,14 @@
   bottom: 84px;
   right: 24px;
   z-index: 1000;
-  width: 400px;
+  width: 410px;
   max-width: calc(100vw - 32px);
-  height: 590px;
+  height: 600px;
   max-height: calc(100vh - 100px);
-  background: #FFFFFF;
-  border: 1px solid rgba(28, 30, 33, 0.12);
+  background: var(--bg-cream-page, #FAF7F2);
+  border: 1px solid var(--sand-border, #D8C9AE);
   border-radius: 16px;
-  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 48px -10px rgba(22, 24, 26, 0.35), 0 0 0 1px rgba(216, 201, 174, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -96,9 +95,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background: #121316;
+  background: var(--charcoal-black, #16181A);
   color: #FFFFFF;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(216, 201, 174, 0.18);
   flex-shrink: 0;
 }
 
@@ -114,7 +113,7 @@
   height: 36px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(216, 201, 174, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +134,7 @@
 }
 
 .zernexa-header-name {
-  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-family: var(--font-display, 'Montserrat', sans-serif);
   font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
@@ -143,9 +142,10 @@
 }
 
 .zernexa-header-sub {
+  font-family: var(--font-ui, 'Poppins', sans-serif);
   font-size: 11.5px;
   font-weight: 500;
-  color: #94A3B8;
+  color: var(--sand-base, #D8C9AE);
   line-height: 1.3;
 }
 
@@ -163,7 +163,7 @@
   justify-content: center;
   background: transparent;
   border: 0;
-  color: #94A3B8;
+  color: var(--sand-base, #D8C9AE);
   cursor: pointer;
   border-radius: 6px;
   transition: color 140ms ease, background-color 140ms ease;
@@ -171,11 +171,11 @@
 
 .zernexa-icon-btn:hover {
   color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* ==========================================================================
-   3. Message Stream (Flowbite + Shadcn Chat Bubble Primitives)
+   3. Message Stream & Full Markdown Rendering
    ========================================================================== */
 
 .zernexa-chat-messages {
@@ -186,7 +186,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: #F8FAFC;
+  background: var(--bg-cream-page, #FAF7F2);
   scroll-behavior: smooth;
 }
 
@@ -194,14 +194,14 @@
   width: 5px;
 }
 .zernexa-chat-messages::-webkit-scrollbar-thumb {
-  background: rgba(28, 30, 33, 0.15);
+  background: var(--sand-border, #D8C9AE);
   border-radius: 3px;
 }
 
 .chat-bubble {
   display: flex;
   gap: 10px;
-  max-width: 88%;
+  max-width: 90%;
 }
 
 .chat-bubble--user {
@@ -214,8 +214,8 @@
 }
 
 .chat-avatar {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -223,19 +223,14 @@
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
-  background: #E2E8F0;
-  border: 1px solid rgba(28, 30, 33, 0.08);
+  background: #FFFFFF;
+  border: 1px solid var(--sand-border, #D8C9AE);
 }
 
 .chat-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.chat-avatar--user {
-  background: #334155;
-  color: #FFFFFF;
 }
 
 .chat-bubble-body {
@@ -245,30 +240,56 @@
   min-width: 0;
 }
 
-/* User Message: Deep neutral surface with crisp text */
+/* User Message: Charcoal Surface with Crisp Light Sand Text */
 .chat-bubble--user .chat-bubble-text {
-  padding: 9px 14px;
+  padding: 10px 15px;
+  font-family: var(--font-ui, 'Poppins', sans-serif);
   font-size: 13.5px;
   line-height: 1.5;
-  color: #FFFFFF;
-  background: #1E293B;
+  color: #FAF7F2;
+  background: var(--charcoal-black, #16181A);
   border-radius: 16px 16px 4px 16px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 2px 6px rgba(22, 24, 26, 0.15);
   word-break: break-word;
 }
 
-/* Bot Message: Clean white surface with subtle 1px border */
+/* Bot Message: Warm White Card with Sand Border */
 .chat-bubble--bot .chat-bubble-text {
-  padding: 11px 15px;
+  padding: 12px 16px;
+  font-family: var(--font-ui, 'Poppins', sans-serif);
   font-size: 13.5px;
-  line-height: 1.58;
-  color: #0F172A;
+  line-height: 1.6;
+  color: var(--charcoal-black, #16181A);
   background: #FFFFFF;
-  border: 1px solid rgba(28, 30, 33, 0.1);
+  border: 1px solid var(--sand-border-subtle, #E8DDCA);
   border-radius: 16px 16px 16px 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   word-break: break-word;
 }
+
+/* Markdown Elements Inside Bot Bubble */
+.chat-bubble-text h1,
+.chat-bubble-text h2,
+.chat-bubble-text h3,
+.chat-bubble-text h4 {
+  font-family: var(--font-display, 'Montserrat', sans-serif);
+  font-weight: 700;
+  color: var(--charcoal-black, #16181A);
+  margin: 10px 0 6px 0;
+  line-height: 1.3;
+}
+
+.chat-bubble-text h1:first-child,
+.chat-bubble-text h2:first-child,
+.chat-bubble-text h3:first-child,
+.chat-bubble-text h4:first-child {
+  margin-top: 0;
+}
+
+.chat-bubble-text h1 { font-size: 16px; }
+.chat-bubble-text h2 { font-size: 15px; }
+.chat-bubble-text h3 { font-size: 14px; }
+.chat-bubble-text h4 { font-size: 13px; }
 
 .chat-bubble-text p {
   margin: 0 0 8px 0;
@@ -277,51 +298,65 @@
   margin-bottom: 0;
 }
 
-.chat-msg-title {
-  font-family: var(--font-ui, sans-serif);
-  font-size: 14px;
-  font-weight: 700;
-  color: #0F172A;
-  margin: 0 0 6px 0;
+.chat-bubble-text ul,
+.chat-bubble-text ol {
+  margin: 6px 0 8px;
+  padding-left: 20px;
 }
 
-.chat-inline-code {
+.chat-bubble-text li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.chat-bubble-text strong {
+  font-weight: 700;
+  color: var(--charcoal-black, #16181A);
+}
+
+.chat-bubble-text code {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
   font-weight: 600;
-  padding: 1px 5px;
+  padding: 2px 6px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--accent-crimson, #B80403);
+  background: rgba(153, 3, 2, 0.06);
+  color: var(--accent-crimson, #990302);
+  border: 1px solid rgba(153, 3, 2, 0.15);
 }
 
-.chat-msg-list {
-  margin: 6px 0 8px;
+.chat-bubble-text pre {
+  margin: 8px 0;
+  padding: 10px 12px;
+  background: var(--charcoal-dark, #202226);
+  color: #FAF7F2;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  line-height: 1.45;
+  border: 1px solid rgba(216, 201, 174, 0.15);
+}
+
+.chat-bubble-text pre code {
+  background: transparent;
+  border: none;
+  color: inherit;
   padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 
-.chat-list-num,
-.chat-list-bullet {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
+.chat-bubble-text blockquote {
+  margin: 8px 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent-crimson, #990302);
+  color: #575757;
+  font-style: italic;
 }
 
-.chat-num-idx {
-  font-weight: 700;
-  color: var(--accent-crimson, #B80403);
-  flex-shrink: 0;
-}
-
-.chat-bullet-dot {
-  color: var(--accent-crimson, #B80403);
-  font-size: 14px;
-  line-height: 1;
-  flex-shrink: 0;
+.chat-bubble-text hr {
+  margin: 12px 0;
+  border: 0;
+  border-top: 1px solid var(--sand-border-subtle, #E8DDCA);
 }
 
 /* Copy Action */
@@ -330,13 +365,13 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 7px;
+  padding: 3px 8px;
   font-family: var(--font-ui, sans-serif);
   font-size: 11px;
   font-weight: 600;
   color: #64748B;
   background: transparent;
-  border: 1px solid rgba(28, 30, 33, 0.1);
+  border: 1px solid var(--sand-border, #D8C9AE);
   border-radius: 4px;
   cursor: pointer;
   transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
@@ -345,8 +380,8 @@
 
 .chat-copy-btn:hover {
   background: #FFFFFF;
-  color: #0F172A;
-  border-color: #94A3B8;
+  color: var(--charcoal-black, #16181A);
+  border-color: var(--accent-crimson, #990302);
 }
 
 .chat-copy-btn .check-icon {
@@ -369,7 +404,7 @@
 
 /* Call-to-action button in bot responses */
 .chat-msg-cta {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .chat-download-btn {
@@ -377,24 +412,24 @@
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  padding: 7px 14px !important;
+  padding: 8px 16px !important;
   font-family: var(--font-ui, sans-serif) !important;
-  font-size: 12px !important;
+  font-size: 12.5px !important;
   font-weight: 700 !important;
-  background: var(--accent-crimson, #B80403) !important;
+  background: var(--accent-crimson, #990302) !important;
   color: #FFFFFF !important;
   border-radius: 6px !important;
   text-decoration: none !important;
-  box-shadow: 0 1px 4px rgba(184, 4, 3, 0.25) !important;
+  box-shadow: var(--accent-crimson-glow, 0 4px 16px rgba(153, 3, 2, 0.25)) !important;
   transition: transform 140ms ease, background-color 140ms ease !important;
 }
 
 .chat-download-btn:hover {
-  background: var(--accent-crimson-hover, #990302) !important;
+  background: var(--accent-crimson-hover, #B80403) !important;
   transform: translateY(-1px) !important;
 }
 
-/* Horizontal 3-Dot Typing Indicator (OriginUI + Flowbite) — ZERO VERTICAL WRAPPING */
+/* Horizontal 3-Dot Typing Indicator — ZERO VERTICAL WRAPPING */
 .typing-bubble {
   display: inline-flex !important;
   flex-direction: row !important;
@@ -403,7 +438,7 @@
   gap: 5px !important;
   padding: 10px 14px !important;
   background: #FFFFFF !important;
-  border: 1px solid rgba(28, 30, 33, 0.1) !important;
+  border: 1px solid var(--sand-border-subtle, #E8DDCA) !important;
   border-radius: 16px 16px 16px 4px !important;
   width: auto !important;
   max-width: fit-content !important;
@@ -414,7 +449,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #64748B;
+  background: #8E8A82;
   display: inline-block;
   animation: typingDotPulse 1.2s infinite ease-in-out;
 }
@@ -428,46 +463,61 @@
 }
 
 /* ==========================================================================
-   4. Clean Quick Prompts (Subtle Neutral Pills)
+   4. Responsive Zero-Scroll Quick Prompts Grid (2-Column Cards)
    ========================================================================== */
 
-.zernexa-quick-prompts {
+.zernexa-quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--sand-sheet, #F4EDE1);
+  border-top: 1px solid var(--sand-border-subtle, #E8DDCA);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+.zernexa-quick-card {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
+  gap: 8px;
+  padding: 8px 12px;
   background: #FFFFFF;
-  border-top: 1px solid rgba(28, 30, 33, 0.08);
-  overflow-x: auto;
-  white-space: nowrap;
-  flex-shrink: 0;
-  -webkit-overflow-scrolling: touch;
-}
-
-.zernexa-quick-prompts::-webkit-scrollbar {
-  display: none;
-}
-
-.zernexa-prompt-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  font-family: var(--font-ui, sans-serif);
+  border: 1px solid var(--sand-border, #D8C9AE);
+  border-radius: 8px;
+  font-family: var(--font-ui, 'Poppins', sans-serif);
   font-size: 11.5px;
-  font-weight: 500;
-  color: #475569;
-  background: #F1F5F9;
-  border: 1px solid rgba(28, 30, 33, 0.08);
-  border-radius: 6px;
+  font-weight: 600;
+  color: var(--charcoal-black, #16181A);
   cursor: pointer;
-  transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
+  text-align: left;
+  line-height: 1.3;
+  transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.zernexa-quick-card:hover {
+  border-color: var(--accent-crimson, #990302);
+  color: var(--accent-crimson, #990302);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(153, 3, 2, 0.1);
+}
+
+.zernexa-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-crimson, #990302);
   flex-shrink: 0;
 }
 
-.zernexa-prompt-btn:hover {
-  background: #FFFFFF;
-  color: #0F172A;
-  border-color: #94A3B8;
+.zernexa-card-label {
+  flex: 1 1 auto;
+  white-space: normal;
+  word-break: normal;
 }
 
 /* ==========================================================================
@@ -475,9 +525,9 @@
    ========================================================================== */
 
 .zernexa-chat-footer {
-  padding: 10px 14px 12px;
+  padding: 10px 14px 14px;
   background: #FFFFFF;
-  border-top: 1px solid rgba(28, 30, 33, 0.08);
+  border-top: 1px solid var(--sand-border-subtle, #E8DDCA);
   flex-shrink: 0;
 }
 
@@ -490,8 +540,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background: #F8FAFC;
-  border: 1px solid rgba(28, 30, 33, 0.14);
+  background: var(--bg-cream-page, #FAF7F2);
+  border: 1px solid var(--sand-border, #D8C9AE);
   border-radius: 10px;
   padding: 4px 6px 4px 12px;
   transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
@@ -499,50 +549,52 @@
 
 .zernexa-input-group:focus-within {
   background: #FFFFFF;
-  border-color: var(--accent-crimson, #B80403);
-  box-shadow: 0 0 0 3px rgba(184, 4, 3, 0.12);
+  border-color: var(--accent-crimson, #990302);
+  box-shadow: 0 0 0 3px rgba(153, 3, 2, 0.12);
 }
 
 .zernexa-chat-input {
   flex: 1 1 auto;
-  height: 34px;
+  height: 36px;
   padding: 0;
-  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-family: var(--font-ui, 'Poppins', sans-serif);
   font-size: 13.5px;
-  color: #0F172A;
+  color: var(--charcoal-black, #16181A);
   background: transparent;
   border: none;
   outline: none;
 }
 
 .zernexa-chat-input::placeholder {
-  color: #94A3B8;
+  color: #8E8A82;
 }
 
 .zernexa-send-btn {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-crimson, #B80403);
+  background: var(--accent-crimson, #990302);
   color: #FFFFFF;
   border: 0;
-  border-radius: 7px;
+  border-radius: 8px;
   cursor: pointer;
   flex-shrink: 0;
   transition: opacity 120ms ease, background-color 120ms ease, transform 120ms ease;
+  box-shadow: 0 1px 4px rgba(153, 3, 2, 0.25);
 }
 
 .zernexa-send-btn:hover:not(:disabled) {
-  background: var(--accent-crimson-hover, #990302);
+  background: var(--accent-crimson-hover, #B80403);
   transform: translateY(-1px);
 }
 
 .zernexa-send-btn:disabled {
   background: #CBD5E1;
-  color: #94A3B8;
+  color: #8E8A82;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* ==========================================================================
@@ -559,6 +611,11 @@
     height: 84vh !important;
     max-height: 86vh !important;
     border-radius: 18px 18px 0 0 !important;
+  }
+
+  .zernexa-quick-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 
   .zernexa-mascot-launcher {
