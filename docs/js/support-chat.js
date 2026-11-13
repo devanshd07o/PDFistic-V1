@@ -1,13 +1,18 @@
 /**
- * PDFistic Zernexa AI Support Assistant — Production Controller
- * Clean, human, zero-slop conversational UI inspired by Shadcn UI and Flowbite.
+ * PDFistic Zernexa AI Support Assistant — Desktop App Mirror Controller
+ * Seamlessly manages the DITTO Desktop Zernexa Copilot experience:
+ * - Empty Stage with Dynamic Greeting & Elevated Floating Input Card
+ * - Seamless Transition to Active Conversation Stream + Docked Bottom Input
+ * - Full GitHub Flavored Markdown (GFM) Parsing & Responsive Table Scroll Wrappers
+ * - Complete Reset via 3-Dots Menu
+ * - Draggable Mascot Launcher with Strict Chat-Open Isolation
  */
 (function () {
   'use strict';
 
   var STORE_URL = 'https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare';
   var STORAGE_KEY_POS = 'pdfistic_mascot_pos';
-  var BOT_AVATAR_SRC = 'assets/pet/idle_blink/frame_1.webp';
+  var BOT_AVATAR_SRC = 'assets/zernexa.png';
 
   var chatHistory = [];
   var floatingMascot = null;
@@ -29,9 +34,14 @@
     return safe;
   }
 
-  /**
-   * Clean Markdown & Text Renderer (Zero internal jargon)
-   */
+  function getDynamicGreeting() {
+    var hr = new Date().getHours();
+    if (hr >= 5 && hr < 12) return 'Good morning, Reader';
+    if (hr >= 12 && hr < 17) return 'Good afternoon, Reader';
+    if (hr >= 17 && hr < 22) return 'Good evening, Reader';
+    return 'Late night flow, Reader';
+  }
+
   function formatMarkdown(text) {
     var raw = String(text || '').trim();
     if (!raw) return '';
@@ -44,16 +54,23 @@
             breaks: true
           });
         }
-        return window.marked.parse(raw);
+        var parsed = window.marked.parse(raw);
+        // Wrap all <table> elements with responsive scroll container
+        parsed = parsed.replace(/<table(\s*[^>]*)>/gi, '<div class="chat-table-wrap"><div class="ai-table-scroll"><table$1>');
+        parsed = parsed.replace(/<\/table>/gi, '</table></div></div>');
+        return parsed;
       } catch (err) {
         console.warn('marked.js parse fallback:', err);
       }
     }
 
+    // Fallback markdown parsing with table support
     var lines = raw.split('\n');
     var htmlLines = [];
     var inList = false;
     var listType = null;
+    var inTable = false;
+    var tableRows = [];
 
     function closeList() {
       if (inList) {
@@ -63,14 +80,54 @@
       }
     }
 
+    function flushTable() {
+      if (!inTable) return;
+      if (tableRows.length > 0) {
+        var tableHtml = ['<div class="chat-table-wrap"><div class="ai-table-scroll"><table>'];
+        var isHeader = true;
+        for (var t = 0; t < tableRows.length; t++) {
+          var row = tableRows[t];
+          if (row.every(function (cell) { return /^[\s\-:]+$/.test(cell); })) {
+            isHeader = false;
+            continue;
+          }
+          tableHtml.push('<tr>');
+          var tag = isHeader ? 'th' : 'td';
+          for (var c = 0; c < row.length; c++) {
+            tableHtml.push('<' + tag + '>' + processInline(row[c]) + '</' + tag + '>');
+          }
+          tableHtml.push('</tr>');
+          if (isHeader) isHeader = false;
+        }
+        tableHtml.push('</table></div></div>');
+        htmlLines.push(tableHtml.join(''));
+      }
+      inTable = false;
+      tableRows = [];
+    }
+
     for (var i = 0; i < lines.length; i++) {
       var line = lines[i].trim();
       if (!line) {
         closeList();
+        flushTable();
         continue;
       }
 
-      // Detect sub-headings like "### Feature" or "Title:"
+      // Detect table rows
+      if (line.indexOf('|') !== -1 && (line.startsWith('|') || line.endsWith('|'))) {
+        closeList();
+        inTable = true;
+        var cells = line.split('|').map(function (c) { return c.trim(); });
+        if (line.startsWith('|')) cells.shift();
+        if (line.endsWith('|')) cells.pop();
+        tableRows.push(cells);
+        continue;
+      } else {
+        flushTable();
+      }
+
+      // Subheadings
       if (line.match(/^###\s+(.+)$/)) {
         closeList();
         htmlLines.push('<div class="chat-msg-title">' + processInline(line.replace(/^###\s+/, '')) + '</div>');
@@ -109,6 +166,7 @@
     }
 
     closeList();
+    flushTable();
     return htmlLines.join('\n');
   }
 
@@ -144,17 +202,41 @@
     if (!widget) return;
 
     widget.classList.add('is-open');
+    document.body.classList.add('has-chat-open');
     if (launcher) {
+      launcher.classList.add('is-hidden');
       launcher.setAttribute('aria-expanded', 'true');
+    }
+
+    var greetingEl = document.getElementById('zernexaHeroGreeting');
+    if (greetingEl) {
+      greetingEl.textContent = getDynamicGreeting();
+    }
+
+    var heroStage = document.getElementById('zernexaHeroStage');
+    var messagesContainer = document.getElementById('zernexaChatMessages');
+    var dockedFooter = document.getElementById('zernexaDockedFooter');
+
+    if (chatHistory.length === 0) {
+      if (heroStage) heroStage.style.display = 'flex';
+      if (messagesContainer) messagesContainer.style.display = 'none';
+      if (dockedFooter) dockedFooter.style.display = 'none';
+      var heroInput = document.getElementById('zernexaHeroInput');
+      if (heroInput) {
+        setTimeout(function () { heroInput.focus(); }, 120);
+      }
+    } else {
+      if (heroStage) heroStage.style.display = 'none';
+      if (messagesContainer) messagesContainer.style.display = 'flex';
+      if (dockedFooter) dockedFooter.style.display = 'block';
+      var chatInput = document.getElementById('zernexaChatInput');
+      if (chatInput) {
+        setTimeout(function () { chatInput.focus(); }, 120);
+      }
     }
 
     if (headerMascot) {
       headerMascot.wave();
-    }
-
-    var input = document.getElementById('zernexaChatInput');
-    if (input) {
-      setTimeout(function () { input.focus(); }, 120);
     }
   }
 
@@ -164,33 +246,65 @@
     if (!widget) return;
 
     widget.classList.remove('is-open');
+    document.body.classList.remove('has-chat-open');
     if (launcher) {
+      launcher.classList.remove('is-hidden');
       launcher.setAttribute('aria-expanded', 'false');
     }
     setAllMascotsState('idle_blink');
   }
 
   function clearChatHistory() {
-    var container = document.getElementById('zernexaChatMessages');
-    if (!container) return;
     chatHistory = [];
-    container.innerHTML = [
-      '<div class="chat-bubble chat-bubble--bot">',
-      '  <div class="chat-avatar"><img src="' + BOT_AVATAR_SRC + '" alt="Zernexa AI"></div>',
-      '  <div class="chat-bubble-body">',
-      '    <div class="chat-bubble-text">',
-      '      Conversation reset. Ask me anything about PDFistic reading modes, 3D page curls, offline OCR, or privacy on Windows.',
-      '    </div>',
-      '  </div>',
-      '</div>'
-    ].join('\n');
-    setupCopyButtons();
+    var messagesContainer = document.getElementById('zernexaChatMessages');
+    var heroStage = document.getElementById('zernexaHeroStage');
+    var dockedFooter = document.getElementById('zernexaDockedFooter');
+
+    if (messagesContainer) {
+      messagesContainer.innerHTML = '';
+      messagesContainer.style.display = 'none';
+    }
+    if (dockedFooter) {
+      dockedFooter.style.display = 'none';
+    }
+    if (heroStage) {
+      heroStage.style.display = 'flex';
+    }
+
+    var greetingEl = document.getElementById('zernexaHeroGreeting');
+    if (greetingEl) greetingEl.textContent = getDynamicGreeting();
+
+    var heroInput = document.getElementById('zernexaHeroInput');
+    if (heroInput) {
+      heroInput.value = '';
+      heroInput.style.height = 'auto';
+      heroInput.focus();
+    }
+    var heroSendBtn = document.getElementById('zernexaHeroSendBtn');
+    if (heroSendBtn) heroSendBtn.disabled = true;
+
+    var chatInput = document.getElementById('zernexaChatInput');
+    if (chatInput) {
+      chatInput.value = '';
+      chatInput.style.height = 'auto';
+    }
+    var sendBtn = document.getElementById('zernexaSendBtn');
+    if (sendBtn) sendBtn.disabled = true;
+
+    setAllMascotsState('idle_blink');
   }
 
   function appendMessage(role, rawText, options) {
     options = options || {};
     var container = document.getElementById('zernexaChatMessages');
     if (!container) return null;
+
+    var heroStage = document.getElementById('zernexaHeroStage');
+    var dockedFooter = document.getElementById('zernexaDockedFooter');
+
+    if (heroStage) heroStage.style.display = 'none';
+    if (container) container.style.display = 'flex';
+    if (dockedFooter) dockedFooter.style.display = 'block';
 
     var msgEl = document.createElement('div');
     msgEl.className = 'chat-bubble ' + (role === 'user' ? 'chat-bubble--user' : 'chat-bubble--bot');
@@ -217,7 +331,7 @@
       ? [
         '<button type="button" class="chat-copy-btn" aria-label="Copy message" title="Copy response">',
         '  <svg class="copy-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>',
-        '  <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+        '  <svg class="check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
         '  <span>Copy</span>',
         '</button>'
       ].join('\n')
@@ -235,25 +349,31 @@
     container.appendChild(msgEl);
     container.scrollTop = container.scrollHeight;
 
-    chatHistory.push({ role: role, text: rawText });
+    chatHistory.push({ role: role, content: rawText });
+
     setupCopyButtons();
     return msgEl;
   }
 
-  /**
-   * Horizontal 3-Dot Typing Bubble (Zero vertical text)
-   */
   function appendTypingIndicator() {
     var container = document.getElementById('zernexaChatMessages');
-    if (!container) return null;
+    if (!container) return;
 
-    var ind = document.createElement('div');
-    ind.className = 'chat-bubble chat-bubble--bot chat-bubble--typing';
-    ind.id = 'zernexaTypingIndicator';
-    ind.innerHTML = [
+    removeTypingIndicator();
+
+    var heroStage = document.getElementById('zernexaHeroStage');
+    var dockedFooter = document.getElementById('zernexaDockedFooter');
+    if (heroStage) heroStage.style.display = 'none';
+    if (container) container.style.display = 'flex';
+    if (dockedFooter) dockedFooter.style.display = 'block';
+
+    var bubble = document.createElement('div');
+    bubble.className = 'chat-bubble chat-bubble--bot';
+    bubble.id = 'zernexaTypingBubble';
+    bubble.innerHTML = [
       '<div class="chat-avatar"><img src="' + BOT_AVATAR_SRC + '" alt="Zernexa AI"></div>',
       '<div class="chat-bubble-body">',
-      '  <div class="typing-bubble">',
+      '  <div class="typing-bubble" aria-label="Zernexa is thinking...">',
       '    <span class="typing-dot"></span>',
       '    <span class="typing-dot"></span>',
       '    <span class="typing-dot"></span>',
@@ -261,15 +381,14 @@
       '</div>'
     ].join('\n');
 
-    container.appendChild(ind);
+    container.appendChild(bubble);
     container.scrollTop = container.scrollHeight;
-    return ind;
   }
 
   function removeTypingIndicator() {
-    var ind = document.getElementById('zernexaTypingIndicator');
-    if (ind && ind.parentNode) {
-      ind.parentNode.removeChild(ind);
+    var bubble = document.getElementById('zernexaTypingBubble');
+    if (bubble && bubble.parentNode) {
+      bubble.parentNode.removeChild(bubble);
     }
   }
 
@@ -304,10 +423,21 @@
 
     appendMessage('user', q);
 
-    var input = document.getElementById('zernexaChatInput');
-    var sendBtn = document.getElementById('zernexaSendBtn');
-    if (input) input.value = '';
-    if (sendBtn) sendBtn.disabled = true;
+    var heroInput = document.getElementById('zernexaHeroInput');
+    var heroSendBtn = document.getElementById('zernexaHeroSendBtn');
+    if (heroInput) {
+      heroInput.value = '';
+      heroInput.style.height = 'auto';
+    }
+    if (heroSendBtn) heroSendBtn.disabled = true;
+
+    var chatInput = document.getElementById('zernexaChatInput');
+    var chatSendBtn = document.getElementById('zernexaSendBtn');
+    if (chatInput) {
+      chatInput.value = '';
+      chatInput.style.height = 'auto';
+    }
+    if (chatSendBtn) chatSendBtn.disabled = true;
 
     var inPageInput = document.getElementById('zernexaInPageInput');
     if (inPageInput) inPageInput.value = '';
@@ -347,9 +477,9 @@
       });
     } finally {
       isGenerating = false;
-      if (input) {
-        input.disabled = false;
-        input.focus();
+      if (chatInput) {
+        chatInput.disabled = false;
+        chatInput.focus();
       }
     }
   }
@@ -361,18 +491,17 @@
     var launcher = document.getElementById('zernexaMascotLauncher');
     if (!launcher) return;
 
-    // Restore saved position
     try {
-      var saved = localStorage.getItem(STORAGE_KEY_POS);
-      if (saved) {
-        var pos = JSON.parse(saved);
-        if (pos && typeof pos.x === 'number' && typeof pos.y === 'number') {
+      var savedPos = localStorage.getItem(STORAGE_KEY_POS);
+      if (savedPos) {
+        var parsed = JSON.parse(savedPos);
+        if (parsed && typeof parsed.x === 'number' && typeof parsed.y === 'number') {
           var maxX = window.innerWidth - launcher.offsetWidth - 12;
           var maxY = window.innerHeight - launcher.offsetHeight - 12;
-          var clampedX = Math.max(12, Math.min(maxX, pos.x));
-          var clampedY = Math.max(12, Math.min(maxY, pos.y));
-          launcher.style.left = clampedX + 'px';
-          launcher.style.top = clampedY + 'px';
+          var clampX = Math.max(12, Math.min(maxX, parsed.x));
+          var clampY = Math.max(12, Math.min(maxY, parsed.y));
+          launcher.style.left = clampX + 'px';
+          launcher.style.top = clampY + 'px';
           launcher.style.right = 'auto';
           launcher.style.bottom = 'auto';
         }
@@ -385,7 +514,7 @@
     var startY = 0;
     var initLeft = 0;
     var initTop = 0;
-    var dragThreshold = 6;
+    var dragThreshold = 5;
 
     launcher.addEventListener('pointerdown', function (e) {
       if (e.button !== 0) return;
@@ -398,7 +527,9 @@
       initLeft = rect.left;
       initTop = rect.top;
 
-      launcher.setPointerCapture(e.pointerId);
+      try {
+        launcher.setPointerCapture(e.pointerId);
+      } catch (_) {}
     });
 
     launcher.addEventListener('pointermove', function (e) {
@@ -488,30 +619,59 @@
     var clearBtn = document.getElementById('zernexaChatClear');
     if (clearBtn) clearBtn.addEventListener('click', clearChatHistory);
 
-    var form = document.getElementById('zernexaChatForm');
-    var input = document.getElementById('zernexaChatInput');
-    var sendBtn = document.getElementById('zernexaSendBtn');
+    // Centered Hero Stage Form
+    var heroForm = document.getElementById('zernexaHeroForm');
+    var heroInput = document.getElementById('zernexaHeroInput');
+    var heroSendBtn = document.getElementById('zernexaHeroSendBtn');
 
-    if (form && input) {
-      form.addEventListener('submit', function (e) {
+    if (heroForm && heroInput) {
+      heroForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        handleUserQuery(input.value);
+        handleUserQuery(heroInput.value);
       });
 
-      input.addEventListener('input', function () {
-        var hasVal = input.value.trim().length > 0;
-        if (sendBtn) sendBtn.disabled = !hasVal || isGenerating;
-
-        if (!isGenerating) {
-          setAllMascotsState('listening');
-          clearTimeout(typingTimer);
-          typingTimer = setTimeout(function () {
-            if (!isGenerating) setAllMascotsState('idle_blink');
-          }, 1800);
+      heroInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          handleUserQuery(heroInput.value);
         }
+      });
+
+      heroInput.addEventListener('input', function () {
+        var hasVal = heroInput.value.trim().length > 0;
+        if (heroSendBtn) heroSendBtn.disabled = !hasVal || isGenerating;
+        heroInput.style.height = 'auto';
+        heroInput.style.height = Math.min(Math.max(heroInput.scrollHeight, 44), 160) + 'px';
       });
     }
 
+    // Docked Active Conversation Form
+    var chatForm = document.getElementById('zernexaChatForm');
+    var chatInput = document.getElementById('zernexaChatInput');
+    var chatSendBtn = document.getElementById('zernexaSendBtn');
+
+    if (chatForm && chatInput) {
+      chatForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        handleUserQuery(chatInput.value);
+      });
+
+      chatInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          handleUserQuery(chatInput.value);
+        }
+      });
+
+      chatInput.addEventListener('input', function () {
+        var hasVal = chatInput.value.trim().length > 0;
+        if (chatSendBtn) chatSendBtn.disabled = !hasVal || isGenerating;
+        chatInput.style.height = 'auto';
+        chatInput.style.height = Math.min(Math.max(chatInput.scrollHeight, 28), 120) + 'px';
+      });
+    }
+
+    // In-page Support Card Form
     var inPageForm = document.getElementById('zernexaInPageForm');
     var inPageInput = document.getElementById('zernexaInPageInput');
     if (inPageForm && inPageInput) {
@@ -519,23 +679,15 @@
         e.preventDefault();
         handleUserQuery(inPageInput.value);
       });
-
-      inPageInput.addEventListener('input', function () {
-        if (!isGenerating) {
-          setAllMascotsState('listening');
-          clearTimeout(typingTimer);
-          typingTimer = setTimeout(function () {
-            if (!isGenerating) setAllMascotsState('idle_blink');
-          }, 1800);
-        }
-      });
     }
 
-    document.querySelectorAll('[data-zernexa-prompt]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
+    // Support starter buttons on page
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-zernexa-prompt]');
+      if (btn) {
         var text = btn.getAttribute('data-zernexa-prompt');
         if (text) handleUserQuery(text);
-      });
+      }
     });
 
     document.addEventListener('keydown', function (e) {

@@ -491,80 +491,123 @@
     <canvas class="zernexa-mascot-canvas" id="zernexaFloatMascotCanvas" width="144" height="144" aria-hidden="true"></canvas>
   </div>
 
-  <!-- Floating Zernexa AI Chat Dialog (Shadcn UI & Flowbite Primitives) -->
-  <aside class="zernexa-chat-widget" id="zernexaChatWidget" role="dialog" aria-label="Zernexa AI Assistant" aria-hidden="true">
+  <!-- Zernexa Copilot Workstation Window (DITTO Desktop App) -->
+  <aside class="zernexa-chat-widget" id="zernexaChatWidget" role="dialog" aria-label="Zernexa AI Copilot" aria-hidden="true">
+    <!-- Clean Minimalist Header (Purple Wings Emblem + Zernexa, 3-dots Reset, Close) -->
     <header class="zernexa-chat-header">
-      <div class="zernexa-header-profile">
-        <div class="zernexa-header-avatar">
-          <canvas class="zernexa-header-canvas" id="zernexaHeaderMascotCanvas" width="72" height="72" aria-hidden="true"></canvas>
-        </div>
-        <div class="zernexa-header-meta">
-          <span class="zernexa-header-name">Zernexa AI</span>
-          <span class="zernexa-header-sub">PDFistic Assistant</span>
-        </div>
+      <div class="zernexa-header-brand">
+        <img src="assets/zernexa.png" alt="" class="zernexa-brand-icon" aria-hidden="true" />
+        <span class="zernexa-brand-title">Zernexa</span>
       </div>
       <div class="zernexa-header-actions">
-        <button type="button" class="zernexa-icon-btn" id="zernexaChatClear" title="Clear conversation" aria-label="Clear conversation">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        <button type="button" class="zernexa-icon-btn" id="zernexaChatClear" title="Reset conversation" aria-label="Reset conversation">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+          </svg>
         </button>
         <button type="button" class="zernexa-icon-btn" id="zernexaChatClose" title="Close" aria-label="Close Assistant">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
         </button>
       </div>
     </header>
 
-    <div class="zernexa-chat-messages" id="zernexaChatMessages" role="log" aria-live="polite">
-      <!-- Default Greeting Bubble -->
-      <div class="chat-bubble chat-bubble--bot">
-        <div class="chat-avatar">
-          <img src="assets/pet/idle_blink/frame_1.webp" alt="Zernexa AI">
+    <!-- Main Container: Centered Hero Stage OR Active Conversation -->
+    <div class="zernexa-chat-body" id="zernexaChatBody">
+      <!-- Centered Hero Stage (DITTO Desktop App) -->
+      <div class="zernexa-hero-stage" id="zernexaHeroStage">
+        <!-- Floating Glass Emblem Tile with Glow -->
+        <div class="zernexa-hero-symbol-glow">
+          <img src="assets/zernexa.png" alt="Zernexa" class="zernexa-hero-symbol-img" />
         </div>
-        <div class="chat-bubble-body">
-          <div class="chat-bubble-text">
-            Hi! I'm Zernexa. Ask me anything about PDFistic — reading modes, 3D page curl, offline OCR, PDF tools, or privacy on Windows.
+
+        <h2 class="zernexa-hero-title" id="zernexaHeroGreeting">Late night flow, Reader</h2>
+        <p class="zernexa-hero-sub">
+          How can I help you analyze, search, or synthesize your documents today?
+        </p>
+
+        <!-- Centered Floating Elevated Input Card -->
+        <div class="zernexa-hero-input-wrap">
+          <div class="zernexa-context-pill-row">
+            <div class="zernexa-context-pill">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>Page 1 · Support Guide</span>
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+            </div>
           </div>
+
+          <form class="zernexa-input-card" id="zernexaHeroForm">
+            <textarea
+              class="zernexa-card-textarea"
+              id="zernexaHeroInput"
+              rows="2"
+              placeholder="Ask Zernexa anything..."
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Ask Zernexa"></textarea>
+            <div class="zernexa-card-toolbar">
+              <div class="zernexa-toolbar-left">
+                <button type="button" class="zernexa-tools-btn" id="zernexaToolsBtn">
+                  <span class="tools-slash">/</span>
+                  <span>Tools</span>
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+              </div>
+              <div class="zernexa-toolbar-right">
+                <span class="zernexa-sparkle-icon" title="Zernexa Intelligence">
+                  <img src="assets/zernexa.png" alt="" width="14" height="14" />
+                </span>
+                <span class="zernexa-mic-btn" title="Voice Dictation">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                </span>
+                <button type="submit" class="zernexa-card-send-btn" id="zernexaHeroSendBtn" aria-label="Send" disabled>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
+
+      <!-- Scrollable Message Stream (Active Conversation) -->
+      <div class="zernexa-chat-messages" id="zernexaChatMessages" style="display: none;" role="log" aria-live="polite">
+      </div>
+
+      <!-- Decorative Dot Grid Texture at Bottom Corners (DITTO Desktop App) -->
+      <div class="zernexa-dots-bottom" aria-hidden="true"></div>
     </div>
 
-    <!-- Clean Quick Prompt Suggestions -->
-    <div class="zernexa-quick-grid" id="zernexaChatChips">
-      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="How does the 3D Book Page-Turn reader work?">
-        <span class="zernexa-card-dot"></span>
-        <span class="zernexa-card-label">3D Book Page-Turn</span>
-      </button>
-      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="Why is PDFistic completely private?">
-        <span class="zernexa-card-dot"></span>
-        <span class="zernexa-card-label">Local DPAPI Privacy</span>
-      </button>
-      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="What tools are included in PDF Tools Hub?">
-        <span class="zernexa-card-dot"></span>
-        <span class="zernexa-card-label">Offline PDF Tools</span>
-      </button>
-      <button type="button" class="zernexa-quick-card" data-zernexa-prompt="How does offline OCR work?">
-        <span class="zernexa-card-dot"></span>
-        <span class="zernexa-card-label">Offline OCR Engine</span>
-      </button>
-    </div>
-
-    <!-- Clean Modern Input Container (Shadcn UI InputGroup pattern) -->
-    <footer class="zernexa-chat-footer">
-      <form class="zernexa-chat-form" id="zernexaChatForm">
-        <div class="zernexa-input-group">
-          <input
-            type="text"
-            class="zernexa-chat-input"
-            id="zernexaChatInput"
-            placeholder="Ask a question about PDFistic..."
-            autocomplete="off"
-            spellcheck="false"
-            aria-label="Ask Zernexa AI">
-          <button type="submit" class="zernexa-send-btn" id="zernexaSendBtn" aria-label="Send message" disabled>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m5 12 7-7 7 7"/>
-              <path d="M12 19V5"/>
-            </svg>
-          </button>
+    <!-- Docked Bottom Input Bar (when conversation is active) -->
+    <footer class="zernexa-docked-footer" id="zernexaDockedFooter" style="display: none;">
+      <form class="zernexa-docked-card" id="zernexaChatForm">
+        <textarea
+          class="zernexa-card-textarea"
+          id="zernexaChatInput"
+          rows="1"
+          placeholder="Ask Zernexa anything..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Ask Zernexa"></textarea>
+        <div class="zernexa-card-toolbar">
+          <div class="zernexa-toolbar-left">
+            <button type="button" class="zernexa-tools-btn">
+              <span class="tools-slash">/</span>
+              <span>Tools</span>
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="zernexa-toolbar-right">
+            <span class="zernexa-sparkle-icon">
+              <img src="assets/zernexa.png" alt="" width="14" height="14" />
+            </span>
+            <span class="zernexa-mic-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </span>
+            <button type="submit" class="zernexa-card-send-btn" id="zernexaSendBtn" aria-label="Send message" disabled>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </button>
+          </div>
         </div>
       </form>
     </footer>

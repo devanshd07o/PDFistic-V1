@@ -1,11 +1,14 @@
 /**
- * PDFistic Zernexa AI Chatbot — Editorial Cream & Charcoal Theme
- * Strictly matches the PDFistic design system (Hue + Interface-Design + Better-Typography + Hallmark):
- * - Palette: Warm Cream (#FAF7F2), Sand Sheet (#F4EDE1), Sand Border (#D8C9AE), Charcoal Black (#16181A), Crimson (#990302)
- * - Zero horizontal scroll: Responsive 2-column card grid with fluid 1-col mobile fallback
- * - Full GitHub Flavored Markdown typography rendering via marked.js
- * - Smooth 3-dot horizontal typing wave
- * - Fluid mobile responsiveness (320px mobile to 4K desktop)
+ * PDFistic Zernexa AI Chatbot — Desktop App Mirror (DITTO Edition)
+ * Replicates the EXACT Desktop Zernexa Copilot Workstation:
+ * - Warm Ivory Cream Background (#FAF8F5)
+ * - Minimalist Header with Purple Zernexa Wing Logo + 3-Dots Reset + Close
+ * - Centered Hero Stage with Ambient Glowing Glass Tile & Dynamic Time Greeting
+ * - Elevated Input Card with Context Scope Pill, / Tools Menu, Mic & Circular Send
+ * - Decorative Stepped Dot Matrix Grid at Bottom Corners
+ * - Full GitHub Flavored Markdown Table Rendering with Responsive Horizontal Scroll
+ * - Zero Clutter / Zero Prompt Suggestions
+ * - 100% Fluid Mobile Responsiveness (320px to 4K)
  */
 
 /* ==========================================================================
@@ -26,7 +29,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: none;
-  transition: transform 180ms ease, filter 180ms ease;
+  transition: transform 180ms ease, filter 180ms ease, opacity 180ms ease;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.22));
   outline: none;
 }
@@ -43,10 +46,14 @@
   filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.4)) !important;
 }
 
-.zernexa-mascot-launcher.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.85);
+/* Strictly hide launcher when chat is open — ZERO peeking */
+.zernexa-mascot-launcher.is-hidden,
+body.has-chat-open .zernexa-mascot-launcher {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: scale(0.7) !important;
 }
 
 .zernexa-mascot-canvas {
@@ -58,29 +65,31 @@
 }
 
 /* ==========================================================================
-   2. Floating Chat Dialog Window (Matches Website Cream & Charcoal Vibe)
+   2. Floating Chat Dialog Window (Desktop App Mirror)
    ========================================================================== */
 
 .zernexa-chat-widget {
   position: fixed;
-  bottom: 84px;
+  bottom: 24px;
   right: 24px;
   z-index: 1000;
-  width: 410px;
+  width: 460px;
   max-width: calc(100vw - 32px);
-  height: 600px;
-  max-height: calc(100vh - 100px);
-  background: var(--bg-cream-page, #FAF7F2);
-  border: 1px solid var(--sand-border, #D8C9AE);
-  border-radius: 16px;
-  box-shadow: 0 20px 48px -10px rgba(22, 24, 26, 0.35), 0 0 0 1px rgba(216, 201, 174, 0.25);
+  height: 620px;
+  max-height: calc(100vh - 48px);
+  background: #FAF8F5;
+  border: 1px solid rgba(22, 24, 26, 0.10);
+  border-radius: 20px;
+  box-shadow: 0 24px 64px -12px rgba(22, 24, 26, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(12px) scale(0.98);
+  transform: translateY(14px) scale(0.98);
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-ui, 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif);
+  box-sizing: border-box;
 }
 
 .zernexa-chat-widget.is-open {
@@ -89,64 +98,43 @@
   pointer-events: auto;
 }
 
-/* Header */
+/* Header — Minimalist Desktop Look (Logo + Name on left, ... and ✕ on right) */
 .zernexa-chat-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  background: var(--charcoal-black, #16181A);
-  color: #FFFFFF;
-  border-bottom: 1px solid rgba(216, 201, 174, 0.18);
+  padding: 14px 18px 10px 18px;
+  background: transparent;
   flex-shrink: 0;
+  z-index: 25;
 }
 
-.zernexa-header-profile {
+.zernexa-header-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   min-width: 0;
 }
 
-.zernexa-header-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(216, 201, 174, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.zernexa-header-canvas {
-  width: 34px;
-  height: 34px;
+.zernexa-brand-icon,
+.zernexa-brand-logo {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 2px 6px rgba(168, 85, 247, 0.4));
+  flex-shrink: 0 !important;
   display: block;
 }
 
-.zernexa-header-meta {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.zernexa-header-name {
+.zernexa-brand-title,
+.zernexa-brand-name {
   font-family: var(--font-display, 'Montserrat', sans-serif);
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
-  color: #FFFFFF;
-  line-height: 1.2;
-}
-
-.zernexa-header-sub {
-  font-family: var(--font-ui, 'Poppins', sans-serif);
-  font-size: 11.5px;
-  font-weight: 500;
-  color: var(--sand-base, #D8C9AE);
-  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #132228;
 }
 
 .zernexa-header-actions {
@@ -156,52 +144,381 @@
 }
 
 .zernexa-icon-btn {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: 0;
-  color: var(--sand-base, #D8C9AE);
-  cursor: pointer;
   border-radius: 6px;
-  transition: color 140ms ease, background-color 140ms ease;
+  background: transparent;
+  color: #64748B;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 120ms ease;
+  padding: 0;
 }
 
 .zernexa-icon-btn:hover {
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.05);
+  color: #16181A;
 }
 
 /* ==========================================================================
-   3. Message Stream & Full Markdown Rendering
+   3. Main Body Container
+   ========================================================================== */
+
+.zernexa-chat-body {
+  flex: 1 1 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ==========================================================================
+   4. Centered Hero Stage (DITTO Desktop App)
+   ========================================================================== */
+
+.zernexa-hero-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px 36px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  animation: heroFadeIn 240ms ease;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.zernexa-hero-symbol-glow {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  background: radial-gradient(circle at 50% 35%, rgba(168, 85, 247, 0.16) 0%, #FFFFFF 100%);
+  border: 1px solid rgba(168, 85, 247, 0.24);
+  box-shadow: 0 10px 24px -4px rgba(168, 85, 247, 0.28), inset 0 1px 1.5px #FFFFFF;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+  flex-shrink: 0;
+}
+
+.zernexa-hero-symbol-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px -4px rgba(168, 85, 247, 0.35), inset 0 1px 1.5px #FFFFFF;
+}
+
+.zernexa-hero-symbol-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.zernexa-hero-title {
+  font-family: var(--font-display, 'Montserrat', sans-serif);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #132228;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.zernexa-hero-sub {
+  font-size: 13px;
+  color: #64748B;
+  line-height: 1.55;
+  max-width: 330px;
+  margin: 0 auto 18px auto;
+}
+
+.zernexa-hero-input-wrap {
+  width: 100%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Context Scope Pill directly above input */
+.zernexa-context-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2px;
+}
+
+.zernexa-context-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569;
+  user-select: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+/* Input Card (Rounded-2xl White Card with Subtle 1px Border) */
+.zernexa-input-card,
+.zernexa-docked-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 18px;
+  padding: 12px 14px 10px 14px;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  box-sizing: border-box;
+}
+
+.zernexa-input-card:focus-within,
+.zernexa-docked-card:focus-within {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18), 0 12px 36px -4px rgba(37, 99, 235, 0.12);
+}
+
+.zernexa-card-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #16181A;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: none;
+  min-height: 44px;
+  max-height: 160px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.zernexa-card-textarea::placeholder {
+  color: #94A3B8;
+}
+
+/* Internal Toolbar */
+.zernexa-card-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  user-select: none;
+  padding-top: 2px;
+}
+
+.zernexa-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zernexa-tools-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.zernexa-tools-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #16181A;
+}
+
+.tools-slash {
+  font-weight: 700;
+  color: #6366F1;
+}
+
+.zernexa-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.zernexa-sparkle-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+.zernexa-sparkle-icon img {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.zernexa-mic-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.zernexa-mic-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #16181A;
+}
+
+.zernexa-card-send-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: #E2E8F0;
+  color: #94A3B8;
+  cursor: default;
+  transition: all 140ms ease;
+  padding: 0;
+}
+
+.zernexa-card-send-btn:not(:disabled) {
+  background: #16181A;
+  color: #FFFFFF;
+  cursor: pointer;
+  transform: scale(1.04);
+  box-shadow: 0 2px 8px rgba(22, 24, 26, 0.25);
+}
+
+.zernexa-card-send-btn:not(:disabled):hover {
+  background: #000000;
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   5. Decorative Stepped Dot Matrix Grid (Bottom Corners)
+   ========================================================================== */
+
+.zernexa-dots-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(circle, #93C5FD 1.6px, transparent 1.6px);
+  background-size: 18px 18px;
+  background-position: 4px bottom;
+  opacity: 0.7;
+  mask-image: radial-gradient(circle at 10% 100%, black 0%, black 35%, transparent 70%),
+              radial-gradient(circle at 90% 100%, black 0%, black 35%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 10% 100%, black 0%, black 35%, transparent 70%),
+                      radial-gradient(circle at 90% 100%, black 0%, black 35%, transparent 70%);
+}
+
+/* ==========================================================================
+   6. Docked Bottom Input Bar (when conversation is active)
+   ========================================================================== */
+
+.zernexa-docked-footer {
+  padding: 10px 16px 14px 16px;
+  background: #FAF8F5;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+  z-index: 25;
+}
+
+.zernexa-docked-card {
+  border-radius: 16px;
+  padding: 8px 12px 8px 12px;
+}
+
+.zernexa-docked-card .zernexa-card-textarea {
+  min-height: 28px;
+  max-height: 120px;
+}
+
+/* ==========================================================================
+   7. Scrollable Active Message Stream
    ========================================================================== */
 
 .zernexa-chat-messages {
   flex: 1 1 auto;
-  min-height: 0;
-  padding: 16px;
   overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 16px 8px 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  background: var(--bg-cream-page, #FAF7F2);
+  gap: 12px;
+  background: transparent;
   scroll-behavior: smooth;
+  z-index: 15;
 }
 
 .zernexa-chat-messages::-webkit-scrollbar {
   width: 5px;
 }
-.zernexa-chat-messages::-webkit-scrollbar-thumb {
-  background: var(--sand-border, #D8C9AE);
-  border-radius: 3px;
+.zernexa-chat-messages::-webkit-scrollbar-track {
+  background: transparent;
 }
+.zernexa-chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(216, 201, 174, 0.5);
+  border-radius: 9999px;
+}
+.zernexa-chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(216, 201, 174, 0.8);
+}
+
+/* ==========================================================================
+   8. Chat Bubbles (User & Bot)
+   ========================================================================== */
 
 .chat-bubble {
   display: flex;
   gap: 10px;
-  max-width: 90%;
+  max-width: 92%;
+  animation: bubbleFadeIn 180ms ease;
+}
+
+/* Allow bot message to expand to 100% when holding a wide table */
+.chat-bubble:has(.chat-table-wrap) {
+  max-width: 100% !important;
+}
+
+@keyframes bubbleFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .chat-bubble--user {
@@ -214,9 +531,9 @@
 }
 
 .chat-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -224,13 +541,14 @@
   flex-shrink: 0;
   margin-top: 2px;
   background: #FFFFFF;
-  border: 1px solid var(--sand-border, #D8C9AE);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  box-shadow: 0 2px 6px rgba(168, 85, 247, 0.15);
 }
 
 .chat-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .chat-bubble-body {
@@ -238,33 +556,37 @@
   flex-direction: column;
   gap: 4px;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
-/* User Message: Charcoal Surface with Crisp Light Sand Text */
+/* User Message: Charcoal Dark Surface with Soft Cream Text */
 .chat-bubble--user .chat-bubble-text {
-  padding: 10px 15px;
-  font-family: var(--font-ui, 'Poppins', sans-serif);
-  font-size: 13.5px;
+  padding: 10px 14px;
+  font-size: 13px;
   line-height: 1.5;
   color: #FAF7F2;
-  background: var(--charcoal-black, #16181A);
+  background: #16181A;
   border-radius: 16px 16px 4px 16px;
   box-shadow: 0 2px 6px rgba(22, 24, 26, 0.15);
   word-break: break-word;
 }
 
-/* Bot Message: Warm White Card with Sand Border */
+/* Bot Message: Crisp White Card with Subtle Sand Border */
 .chat-bubble--bot .chat-bubble-text {
-  padding: 12px 16px;
-  font-family: var(--font-ui, 'Poppins', sans-serif);
-  font-size: 13.5px;
+  padding: 12px 14px;
+  font-size: 13px;
   line-height: 1.6;
-  color: var(--charcoal-black, #16181A);
+  color: #18181B;
   background: #FFFFFF;
-  border: 1px solid var(--sand-border-subtle, #E8DDCA);
+  border: 1px solid #EAE3D6;
   border-radius: 16px 16px 16px 4px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   word-break: break-word;
+  overflow-x: hidden;
+}
+
+.chat-bubble-text:has(.chat-table-wrap) {
+  padding: 10px 10px !important;
 }
 
 /* Markdown Elements Inside Bot Bubble */
@@ -274,7 +596,7 @@
 .chat-bubble-text h4 {
   font-family: var(--font-display, 'Montserrat', sans-serif);
   font-weight: 700;
-  color: var(--charcoal-black, #16181A);
+  color: #16181A;
   margin: 10px 0 6px 0;
   line-height: 1.3;
 }
@@ -286,9 +608,9 @@
   margin-top: 0;
 }
 
-.chat-bubble-text h1 { font-size: 16px; }
-.chat-bubble-text h2 { font-size: 15px; }
-.chat-bubble-text h3 { font-size: 14px; }
+.chat-bubble-text h1 { font-size: 15px; }
+.chat-bubble-text h2 { font-size: 14px; }
+.chat-bubble-text h3 { font-size: 13.5px; }
 .chat-bubble-text h4 { font-size: 13px; }
 
 .chat-bubble-text p {
@@ -301,7 +623,7 @@
 .chat-bubble-text ul,
 .chat-bubble-text ol {
   margin: 6px 0 8px;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 .chat-bubble-text li {
@@ -311,24 +633,24 @@
 
 .chat-bubble-text strong {
   font-weight: 700;
-  color: var(--charcoal-black, #16181A);
+  color: #16181A;
 }
 
 .chat-bubble-text code {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
   font-weight: 600;
-  padding: 2px 6px;
+  padding: 2px 5px;
   border-radius: 4px;
-  background: rgba(153, 3, 2, 0.06);
-  color: var(--accent-crimson, #990302);
-  border: 1px solid rgba(153, 3, 2, 0.15);
+  background: rgba(99, 102, 241, 0.08);
+  color: #4F46E5;
+  border: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .chat-bubble-text pre {
   margin: 8px 0;
   padding: 10px 12px;
-  background: var(--charcoal-dark, #202226);
+  background: #1E2024;
   color: #FAF7F2;
   border-radius: 8px;
   overflow-x: auto;
@@ -347,16 +669,125 @@
 
 .chat-bubble-text blockquote {
   margin: 8px 0;
-  padding-left: 12px;
-  border-left: 3px solid var(--accent-crimson, #990302);
-  color: #575757;
+  padding-left: 10px;
+  border-left: 3px solid #6366F1;
+  color: #52525B;
   font-style: italic;
 }
 
-.chat-bubble-text hr {
-  margin: 12px 0;
-  border: 0;
-  border-top: 1px solid var(--sand-border-subtle, #E8DDCA);
+/* ==========================================================================
+   9. GFM Markdown Table Rendering with Responsive Scroll Wrap
+   ========================================================================== */
+
+.chat-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #D8C9AE;
+  background: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ai-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  scrollbar-width: thin !important;
+  scrollbar-color: #6366F1 #F4F1EA;
+}
+
+.ai-table-scroll::-webkit-scrollbar {
+  display: block !important;
+  height: 8px !important;
+  background: #F4F1EA;
+}
+
+.ai-table-scroll::-webkit-scrollbar-thumb {
+  background: #6366F1;
+  border-radius: 4px;
+}
+
+.ai-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #4F46E5;
+}
+
+.chat-bubble-text table,
+.ai-table-scroll table {
+  width: max-content !important;
+  min-width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: left;
+  border: none;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+.chat-bubble-text th,
+.ai-table-scroll th {
+  background: #F8F5EE;
+  color: #0F172A;
+  font-family: var(--font-display, 'Montserrat', sans-serif);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding: 9px 14px;
+  border-bottom: 2px solid #D8C9AE;
+  border-right: 1px solid #EAE3D6;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  text-transform: none;
+}
+
+.chat-bubble-text td,
+.ai-table-scroll td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #EAE3D6;
+  border-right: 1px solid #F0EAE0;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.5;
+  vertical-align: top;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  max-width: 320px;
+}
+
+.chat-bubble-text td:first-child,
+.ai-table-scroll td:first-child {
+  white-space: nowrap !important;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.chat-bubble-text th:last-child,
+.ai-table-scroll th:last-child,
+.chat-bubble-text td:last-child,
+.ai-table-scroll td:last-child {
+  border-right: none;
+}
+
+.chat-bubble-text tr:last-child td,
+.ai-table-scroll tr:last-child td {
+  border-bottom: none;
+}
+
+.chat-bubble-text tr:nth-child(even),
+.ai-table-scroll tr:nth-child(even) {
+  background: #FAF7F2;
+}
+
+.chat-bubble-text tr:hover,
+.ai-table-scroll tr:hover {
+  background: #F3ECE2;
 }
 
 /* Copy Action */
@@ -370,18 +801,18 @@
   font-size: 11px;
   font-weight: 600;
   color: #64748B;
-  background: transparent;
-  border: 1px solid var(--sand-border, #D8C9AE);
-  border-radius: 4px;
+  background: #FFFFFF;
+  border: 1px solid #DFD6C7;
+  border-radius: 6px;
   cursor: pointer;
-  transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
-  margin-top: 2px;
+  transition: all 120ms ease;
+  margin-top: 3px;
 }
 
 .chat-copy-btn:hover {
   background: #FFFFFF;
-  color: var(--charcoal-black, #16181A);
-  border-color: var(--accent-crimson, #990302);
+  color: #16181A;
+  border-color: #6366F1;
 }
 
 .chat-copy-btn .check-icon {
@@ -404,32 +835,32 @@
 
 /* Call-to-action button in bot responses */
 .chat-msg-cta {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .chat-download-btn {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
-  padding: 8px 16px !important;
+  gap: 7px !important;
+  padding: 7px 14px !important;
   font-family: var(--font-ui, sans-serif) !important;
-  font-size: 12.5px !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
-  background: var(--accent-crimson, #990302) !important;
+  background: #16181A !important;
   color: #FFFFFF !important;
   border-radius: 6px !important;
   text-decoration: none !important;
-  box-shadow: var(--accent-crimson-glow, 0 4px 16px rgba(153, 3, 2, 0.25)) !important;
+  box-shadow: 0 3px 12px rgba(22, 24, 26, 0.22) !important;
   transition: transform 140ms ease, background-color 140ms ease !important;
 }
 
 .chat-download-btn:hover {
-  background: var(--accent-crimson-hover, #B80403) !important;
+  background: #000000 !important;
   transform: translateY(-1px) !important;
 }
 
-/* Horizontal 3-Dot Typing Indicator — ZERO VERTICAL WRAPPING */
+/* Horizontal 3-Dot Typing Indicator */
 .typing-bubble {
   display: inline-flex !important;
   flex-direction: row !important;
@@ -438,7 +869,7 @@
   gap: 5px !important;
   padding: 10px 14px !important;
   background: #FFFFFF !important;
-  border: 1px solid var(--sand-border-subtle, #E8DDCA) !important;
+  border: 1px solid #EAE3D6 !important;
   border-radius: 16px 16px 16px 4px !important;
   width: auto !important;
   max-width: fit-content !important;
@@ -463,170 +894,38 @@
 }
 
 /* ==========================================================================
-   4. Responsive Zero-Scroll Quick Prompts Grid (2-Column Cards)
+   10. Fluid Mobile Responsiveness (320px - 480px Bottom Drawer)
    ========================================================================== */
 
-.zernexa-quick-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 10px 14px;
-  background: var(--sand-sheet, #F4EDE1);
-  border-top: 1px solid var(--sand-border-subtle, #E8DDCA);
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  flex-shrink: 0;
-}
-
-.zernexa-quick-card {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  background: #FFFFFF;
-  border: 1px solid var(--sand-border, #D8C9AE);
-  border-radius: 8px;
-  font-family: var(--font-ui, 'Poppins', sans-serif);
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--charcoal-black, #16181A);
-  cursor: pointer;
-  text-align: left;
-  line-height: 1.3;
-  transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.zernexa-quick-card:hover {
-  border-color: var(--accent-crimson, #990302);
-  color: var(--accent-crimson, #990302);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(153, 3, 2, 0.1);
-}
-
-.zernexa-card-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-crimson, #990302);
-  flex-shrink: 0;
-}
-
-.zernexa-card-label {
-  flex: 1 1 auto;
-  white-space: normal;
-  word-break: normal;
-}
-
-/* ==========================================================================
-   5. Clean Input Group (Shadcn InputGroup Primitives)
-   ========================================================================== */
-
-.zernexa-chat-footer {
-  padding: 10px 14px 14px;
-  background: #FFFFFF;
-  border-top: 1px solid var(--sand-border-subtle, #E8DDCA);
-  flex-shrink: 0;
-}
-
-.zernexa-chat-form {
-  display: flex;
-  width: 100%;
-}
-
-.zernexa-input-group {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  background: var(--bg-cream-page, #FAF7F2);
-  border: 1px solid var(--sand-border, #D8C9AE);
-  border-radius: 10px;
-  padding: 4px 6px 4px 12px;
-  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
-}
-
-.zernexa-input-group:focus-within {
-  background: #FFFFFF;
-  border-color: var(--accent-crimson, #990302);
-  box-shadow: 0 0 0 3px rgba(153, 3, 2, 0.12);
-}
-
-.zernexa-chat-input {
-  flex: 1 1 auto;
-  height: 36px;
-  padding: 0;
-  font-family: var(--font-ui, 'Poppins', sans-serif);
-  font-size: 13.5px;
-  color: var(--charcoal-black, #16181A);
-  background: transparent;
-  border: none;
-  outline: none;
-}
-
-.zernexa-chat-input::placeholder {
-  color: #8E8A82;
-}
-
-.zernexa-send-btn {
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent-crimson, #990302);
-  color: #FFFFFF;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: opacity 120ms ease, background-color 120ms ease, transform 120ms ease;
-  box-shadow: 0 1px 4px rgba(153, 3, 2, 0.25);
-}
-
-.zernexa-send-btn:hover:not(:disabled) {
-  background: var(--accent-crimson-hover, #B80403);
-  transform: translateY(-1px);
-}
-
-.zernexa-send-btn:disabled {
-  background: #CBD5E1;
-  color: #8E8A82;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-/* ==========================================================================
-   6. Fluid Mobile Responsiveness (Drawer on <= 600px)
-   ========================================================================== */
-
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .zernexa-chat-widget {
-    bottom: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 84vh !important;
-    max-height: 86vh !important;
-    border-radius: 18px 18px 0 0 !important;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 86vh;
+    max-height: 86vh;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.2);
   }
 
-  .zernexa-quick-grid {
-    grid-template-columns: 1fr;
-    gap: 6px;
+  .zernexa-hero-stage {
+    padding: 20px 14px 28px 14px;
   }
 
-  .zernexa-mascot-launcher {
-    bottom: 16px;
-    right: 16px;
-    width: 64px;
-    height: 64px;
+  .zernexa-hero-title {
+    font-size: 20px;
   }
 
-  .zernexa-mascot-canvas {
-    width: 62px;
-    height: 62px;
+  .zernexa-hero-input-wrap {
+    max-width: 100%;
+  }
+
+  .zernexa-docked-footer {
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
   }
 }
