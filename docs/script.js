@@ -275,12 +275,12 @@
       var counter = document.getElementById('tourStepCounter');
       var container = document.getElementById('tour');
       var dots = Array.from(document.querySelectorAll('#tourStepDots .step-dot'));
-      var callouts = Array.from(document.querySelectorAll('#tourCallouts .callout'));
-      var mobileCalloutText = document.getElementById('tourMobileCalloutText');
+      var callouts = [];
+      var mobileCalloutText = null;
       var prevBtn = document.getElementById('tourPrevBtn');
       var nextBtn = document.getElementById('tourNextBtn');
       var pillBtns = Array.from(document.querySelectorAll('#tourMobilePills .tour-pill-btn'));
-      var totalSteps = callouts.length || 5;
+      var totalSteps = 5;
       var currentStep = 1;
       if (!counter || !container) return;
 

@@ -3397,7 +3397,7 @@ body.nav-menu-open .nav-container:hover {
 
 .pd-ai-rag-pill {
   padding: 1px 6px;
-  border-radius: 9999px;
+  border-radius: 4px;
   background-color: #eff6ff;
   border: 1px solid #bfdbfe;
   color: #3730a3;
@@ -3421,7 +3421,7 @@ body.nav-menu-open .nav-container:hover {
 
 .pd-ai-rag-tags span {
   padding: 1px 6px;
-  border-radius: 9999px;
+  border-radius: 4px;
   background-color: #e2e8f0;
   color: #1e293b;
   font-size: 9.5px;
@@ -3455,7 +3455,7 @@ body.nav-menu-open .nav-container:hover {
   transform: translateY(-50%);
   width: 3px;
   height: 30px;
-  border-radius: 9999px;
+  border-radius: 4px;
   background-color: rgba(100, 116, 139, 0.24);
   pointer-events: none;
   z-index: 4;
@@ -3683,7 +3683,7 @@ body.nav-menu-open .nav-container:hover {
   gap: 5px;
   height: 22px;
   padding: 0 9px;
-  border-radius: 9999px;
+  border-radius: 6px;
   background-color: #f8fafc;
   border: 1px solid rgba(15, 23, 42, 0.12);
   color: #334155;
@@ -3844,7 +3844,7 @@ body.nav-menu-open .nav-container:hover {
   padding: 0 9px;
   border-block: 9px solid transparent;
   border-inline: 6px solid transparent;
-  border-radius: 9999px;
+  border-radius: 6px;
   background-color: #eff6ff;
   background-clip: padding-box;
   color: #3730a3;
@@ -5348,7 +5348,7 @@ body.has-text-anim .bento-panel:not(.is-marker-lit) .bento-marker {
     min-width: 44px;
     min-height: 44px;
     padding: 8px 13px;
-    border-radius: 9999px;
+    border-radius: 6px;
     background: #FFFFFF;
     color: var(--text-primary);
     border: 1px solid var(--border-default);
@@ -9089,26 +9089,5 @@ body.page-document .breadcrumb-current {
   color: var(--text, #1C1E21) !important;
 }
 
-/* License Tag Badge in Footer and Cards */
-.license-tag-pill {
-  display: inline-flex !important;
-  align-items: center !important;
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 10px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
-  padding: 2px 7px !important;
-  border-radius: 9999px !important;
-  background: rgba(184, 4, 3, 0.12) !important;
-  color: #F87171 !important;
-  border: 1px solid rgba(248, 113, 113, 0.3) !important;
-  margin-left: 6px !important;
-  vertical-align: middle !important;
-  white-space: nowrap !important;
-}
-
-body.page-document .license-tag-pill {
-  color: var(--accent-crimson, #B80403) !important;
-  border-color: rgba(184, 4, 3, 0.25) !important;
-}
+/* .license-tag-pill removed */
 
