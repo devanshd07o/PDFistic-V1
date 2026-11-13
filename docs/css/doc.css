@@ -551,11 +551,99 @@ body.page-document .doc-section strong {
   color: var(--text);
 }
 
-body.page-document .doc-section a {
+body.page-document .doc-section a:not(.btn):not(.btn-cream-primary):not(.btn-cream-secondary):not(.eng-pkg-link) {
   color: var(--red);
   text-decoration: underline;
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   Button Primitives (Adapted from D:\LetsCode\UI_COMPONENTS\tabler & flowbite)
+   High-contrast, accessible (WCAG AA), zero text clipping, strict 4px/8px rhythm
+   ========================================================================== */
+
+body.page-document .btn,
+body.page-document .btn-cream-primary,
+body.page-document .btn-cream-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  min-height: 38px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 150ms ease !important;
+}
+
+body.page-document .btn:focus-visible,
+body.page-document .btn-cream-primary:focus-visible,
+body.page-document .btn-cream-secondary:focus-visible {
+  outline: 2px solid var(--accent-crimson, #B80403) !important;
+  outline-offset: 2px !important;
+}
+
+/* Primary Button (Solid Accent with Pure High-Contrast White Text) */
+body.page-document .btn-primary,
+body.page-document .btn-cream-primary {
+  color: #FFFFFF !important;
+  background-color: var(--accent-crimson, #B80403) !important;
+  border: 1px solid var(--accent-crimson, #B80403) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.page-document .btn-primary:hover,
+body.page-document .btn-cream-primary:hover {
+  color: #FFFFFF !important;
+  background-color: var(--accent-crimson-hover, #990302) !important;
+  border-color: var(--accent-crimson-hover, #990302) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(184, 4, 3, 0.28) !important;
+  text-decoration: none !important;
+}
+
+body.page-document .btn-primary span,
+body.page-document .btn-cream-primary span,
+body.page-document .btn-primary svg,
+body.page-document .btn-cream-primary svg {
+  color: #FFFFFF !important;
+}
+
+/* Secondary Button (Neutral Surface with Crisp Border & Clear Text) */
+body.page-document .btn-secondary,
+body.page-document .btn-cream-secondary {
+  color: var(--text, #1C1E21) !important;
+  background-color: var(--surface, #FFFFFF) !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.18)) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.page-document .btn-secondary:hover,
+body.page-document .btn-cream-secondary:hover {
+  color: var(--accent-crimson, #B80403) !important;
+  background-color: rgba(184, 4, 3, 0.04) !important;
+  border-color: var(--accent-crimson, #B80403) !important;
+  transform: translateY(-1px) !important;
+  text-decoration: none !important;
+}
+
+body.page-document .btn-secondary span,
+body.page-document .btn-cream-secondary span {
+  color: inherit !important;
+}
+
+body.page-document .btn-secondary svg,
+body.page-document .btn-cream-secondary svg {
+  color: currentColor !important;
 }
 
 body.page-document .doc-section code {
