@@ -1191,7 +1191,7 @@ body.nav-menu-open .nav-container:hover {
   padding: 3px;
   background: var(--charcoal-dark);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.52);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 2px 4px rgba(0, 0, 0, 0.28), 0 24px 60px -12px rgba(0, 0, 0, 0.65);
   position: relative;
   overflow: hidden;
   text-align: left;
@@ -1202,70 +1202,7 @@ body.nav-menu-open .nav-container:hover {
   display: none;
 }
 
-/* Callout Overlay Layer (outside demo DOM, never blocks pointer events) */
-.hero-callouts {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  opacity: 1;
-  transition: opacity 200ms ease;
-}
-
-.hero-shot.is-callouts-hidden .hero-callouts,
-.hero-shot.is-expanded .hero-callouts {
-  opacity: 0;
-}
-
-/* From Uiverse.io by kyle1dev (Tooltips/kyle1dev_quiet-cougar-91.html) — adapted to CSS tokens */
-.hero-callouts .callout {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 9999px;
-  background: var(--charcoal-black);
-  color: var(--text);
-  border: 1px solid var(--border);
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1;
-  white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.36);
-  pointer-events: none;
-}
-
-.hero-callouts .callout-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--red);
-  flex-shrink: 0;
-}
-
-.hero-callouts .callout--drop {
-  top: 22%;
-  left: 3%;
-}
-
-.hero-callouts .callout--filter {
-  top: 34%;
-  right: 14%;
-}
-
-.hero-callouts .callout--ai {
-  bottom: 9%;
-  right: 7%;
-}
-
-@media (max-width: 767.98px) {
-  .hero-callouts {
-    display: none;
-  }
-}
+/* Hero Callouts permanently removed for clean unobstructed interactive demo */
 
 /* Razor-thin Top Frame Bar (26px visual chrome, >=46px transparent hit wrappers) */
 .hero-bezel-bar {
@@ -1443,7 +1380,7 @@ body.nav-menu-open .nav-container:hover {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  border-radius: 13px;
+  border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 6px 18px rgba(0, 0, 0, 0.42);
@@ -9005,7 +8942,6 @@ input, textarea, select { max-width: 100%; }
   .hero .menu__button,
   .hero .menu__button span,
   .hero-shot .card,
-  .hero-callouts,
   .hero-shot .callout,
   .tour-callouts .callout,
   .skiper17-scroll-line,

@@ -509,27 +509,12 @@
 
     initFlickerText();
 
-    // 7. Fade hero callouts once on first demo interaction + keep demo flat (no tilt transform)
+    // 7. Keep demo frame flat (no tilt transform)
     function initHeroShotTilt() {
       var shot = document.getElementById('heroShot');
       if (!shot) return;
       var inner = shot.querySelector('.hero-shot-inner');
       if (inner) inner.style.setProperty('--shot-tilt', '0deg');
-
-      var callouts = document.getElementById('heroCallouts');
-      if (!callouts) return;
-      var dismissed = false;
-      function dismissCallouts() {
-        if (dismissed) return;
-        dismissed = true;
-        shot.classList.add('is-callouts-hidden');
-        ['click', 'pointerdown', 'dragstart', 'dragover', 'keydown'].forEach(function (evt) {
-          shot.removeEventListener(evt, dismissCallouts, true);
-        });
-      }
-      ['click', 'pointerdown', 'dragstart', 'dragover', 'keydown'].forEach(function (evt) {
-        shot.addEventListener(evt, dismissCallouts, { passive: true, capture: true });
-      });
     }
 
     initHeroShotTilt();
