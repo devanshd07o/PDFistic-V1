@@ -142,19 +142,17 @@
         </ol>
       </nav>
 
-      <div class="doc-eyebrow">ATTRIBUTION &amp; LEGAL NOTICES</div>
-      <h1 class="doc-title">Third-Party Software Licenses &amp; Acknowledgements</h1>
+      <div class="doc-eyebrow">Attribution &amp; Legal Notices</div>
+      <h1 class="doc-title">Third-Party Software Licenses</h1>
       <p class="doc-subline">
-        PDFistic is proprietary software (Copyright &copy; 2026 Devansh Dubey. All Rights Reserved). In full compliance with all open-source licensing requirements, third-party copyright statements, component attributions, and license notices are detailed below.
+        PDFistic is proprietary commercial software developed by Devansh Dubey (Copyright &copy; 2026. All Rights Reserved). In compliance with open-source licensing requirements, third-party copyright statements, component attributions, and license notices are documented below.
       </p>
       <div class="eng-meta-row">
-        <span>Last updated: November 12, 2026</span>
+        <span>Last updated: November 2026</span>
         <span class="eng-meta-sep">&middot;</span>
         <span>Version: 2.0.0</span>
         <span class="eng-meta-sep">&middot;</span>
         <span>Platform: Windows 10 &amp; 11 (64-bit)</span>
-        <span class="eng-meta-sep">&middot;</span>
-        <span class="eng-meta-chip">Verified Production Build</span>
       </div>
     </header>
 
@@ -164,9 +162,9 @@
         <details class="doc-toc-panel" open>
           <summary class="doc-toc-title">On this page</summary>
           <nav id="license-toc">
-            <a href="#foundations" class="active">Licensing architecture</a>
-            <a href="#core-libraries">Third-party component attributions</a>
-            <a href="#apache-license">Apache 2.0 component license</a>
+            <a href="#foundations" class="active">Licensing structure</a>
+            <a href="#core-libraries">Component attributions</a>
+            <a href="#apache-license">Apache 2.0 license</a>
             <a href="#full-file">Raw license file</a>
           </nav>
         </details>
@@ -176,33 +174,37 @@
       <article class="doc-content doc-sheet">
         <div class="doc-sheet-inner">
 
-          <!-- Section 1: Dual-Tier Architecture -->
+          <!-- Section 1: Licensing Model & IP Boundaries -->
           <section class="doc-section" id="foundations">
-            <h2>Licensing Architecture &amp; IP Boundaries</h2>
+            <h2>Licensing Model &amp; Intellectual Property</h2>
             <p>
-              PDFistic operates under a clean dual-tier licensing model, establishing an explicit legal boundary between the proprietary desktop client and the permissive third-party runtime modules that power underlying document rendering:
+              PDFistic maintains an explicit legal separation between the proprietary desktop application shell and the independent open-source runtime modules used for document rendering:
             </p>
 
             <div class="eng-arch-split">
-              <div class="eng-arch-panel eng-arch-panel--proprietary">
-                <span class="eng-arch-tier">Tier 01 &mdash; Proprietary Core</span>
-                <h3 class="eng-arch-title">Closed-Source Application Shell</h3>
+              <div class="eng-arch-panel">
+                <div class="eng-arch-header">
+                  <span class="eng-arch-badge">Proprietary</span>
+                  <h3 class="eng-arch-title">PDFistic Desktop Client</h3>
+                </div>
                 <p class="eng-arch-body">
-                  The PDFistic desktop client, window management, tab session persistence engine, stylus ink smoothing, custom themes, Zernexa AI prompt orchestration, and commercial product branding are proprietary software.
+                  The desktop application interface, tab session persistence engine, local preferences storage, custom visual themes, annotation tools, and commercial product branding are proprietary software. All rights reserved. Unauthorized copying, modification, or redistribution is prohibited.
                 </p>
                 <div class="eng-arch-footer">
-                  Copyright &copy; 2026 Devansh Dubey &middot; All Rights Reserved
+                  Copyright &copy; 2026 Devansh Dubey. All Rights Reserved.
                 </div>
               </div>
 
-              <div class="eng-arch-panel eng-arch-panel--oss">
-                <span class="eng-arch-tier">Tier 02 &mdash; Runtime Dependencies</span>
-                <h3 class="eng-arch-title">Third-Party Permissive Ecosystem</h3>
+              <div class="eng-arch-panel">
+                <div class="eng-arch-header">
+                  <span class="eng-arch-badge">Open Source</span>
+                  <h3 class="eng-arch-title">Third-Party Dependencies</h3>
+                </div>
                 <p class="eng-arch-body">
-                  Low-level PDF rasterization, on-device WebAssembly OCR, scientific LaTeX formatting, interactive charts, and native desktop runtime bridges execute via battle-tested open-source libraries under permissive licenses.
+                  Underlying PDF parsing, on-device OCR, mathematical typesetting, data visualization, and platform runtime bindings are performed by open-source libraries under permissive licenses. Original copyright holders retain full ownership of their respective codebases.
                 </p>
                 <div class="eng-arch-footer">
-                  Governed by Apache-2.0, MIT, BSD-3-Clause, and ISC Licenses
+                  Governed by Apache-2.0, MIT, BSD-3-Clause, and ISC licenses.
                 </div>
               </div>
             </div>
@@ -212,14 +214,8 @@
           <section class="doc-section" id="core-libraries">
             <h2>Third-Party Software Attributions</h2>
             <p>
-              The following permissive third-party libraries and runtime components are bundled with or integrated into the PDFistic client. Original upstream authors retain full copyright ownership:
+              The following permissive third-party libraries and runtime components are bundled with or integrated into PDFistic. Each project remains governed by its upstream license terms:
             </p>
-
-            <!-- Domain 01 -->
-            <div class="eng-domain-header">
-              <h3 class="eng-domain-title">01 / Document Engine &amp; Canvas Physics</h3>
-              <span class="eng-domain-count">4 Packages</span>
-            </div>
 
             <div class="eng-registry-table-wrap">
               <table class="eng-registry-table">
@@ -227,212 +223,200 @@
                   <tr>
                     <th style="width: 22%;">Component</th>
                     <th style="width: 14%;">License</th>
-                    <th style="width: 24%;">Upstream Copyright</th>
-                    <th style="width: 40%;">Role in PDFistic</th>
+                    <th style="width: 26%;">Upstream Copyright</th>
+                    <th style="width: 38%;">Function in PDFistic</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- Group 01 -->
+                  <tr class="eng-table-group">
+                    <th colspan="4" scope="colgroup">01 / Document Rendering &amp; Navigation</th>
+                  </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/mozilla/pdf.js" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        pdfjs-dist <span class="eng-pkg-arrow">&nearr;</span>
+                        pdfjs-dist
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">Apache-2.0</span></td>
                     <td class="eng-col-copyright">Mozilla Foundation &amp; contributors</td>
-                    <td class="eng-col-desc">Core PDF document parsing, canvas page rasterization, font decoding, and text layer extraction.</td>
+                    <td class="eng-col-desc">PDF document parsing, canvas page rendering, and text layer extraction.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/Nodlik/StPageFlip" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        page-flip <span class="eng-pkg-arrow">&nearr;</span>
+                        page-flip
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Oleg Ponomarev &amp; contributors</td>
-                    <td class="eng-col-desc">Tactile 3D dual-page book turn simulation with natural paper curl physics, corner dragging, and spine shadows.</td>
+                    <td class="eng-col-desc">Two-page book layout simulation and interactive page-turning transitions.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/Hopding/pdf-lib" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        pdf-lib <span class="eng-pkg-arrow">&nearr;</span>
+                        pdf-lib
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Andrew Dillon &amp; contributors</td>
-                    <td class="eng-col-desc">Client-side PDF document manipulation: page splitting, rotation, signature stamping, and binary byte patching.</td>
+                    <td class="eng-col-desc">PDF file operations: page splitting, rotation, merging, and annotation saving.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/futurepress/epub.js" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        epubjs <span class="eng-pkg-arrow">&nearr;</span>
+                        epubjs
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">FreeBSD / MIT</span></td>
                     <td class="eng-col-copyright">Futurepress &amp; contributors</td>
-                    <td class="eng-col-desc">Dedicated EPUB reading mode: spine navigation, dynamic pagination, custom font sizing, and e-book rendering.</td>
+                    <td class="eng-col-desc">EPUB file decompression, spine navigation, and reflowable text layout.</td>
                   </tr>
-                </tbody>
-              </table>
-            </div>
 
-            <!-- Domain 02 -->
-            <div class="eng-domain-header">
-              <h3 class="eng-domain-title">02 / On-Device Intelligence &amp; STEM Typesetting</h3>
-              <span class="eng-domain-count">6 Packages</span>
-            </div>
-
-            <div class="eng-registry-table-wrap">
-              <table class="eng-registry-table">
-                <thead>
-                  <tr>
-                    <th style="width: 22%;">Component</th>
-                    <th style="width: 14%;">License</th>
-                    <th style="width: 24%;">Upstream Copyright</th>
-                    <th style="width: 40%;">Role in PDFistic</th>
+                  <!-- Group 02 -->
+                  <tr class="eng-table-group">
+                    <th colspan="4" scope="colgroup">02 / Visualization, Math &amp; OCR Engines</th>
                   </tr>
-                </thead>
-                <tbody>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/naptha/tesseract.js" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        tesseract.js <span class="eng-pkg-arrow">&nearr;</span>
+                        tesseract.js
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">Apache-2.0</span></td>
                     <td class="eng-col-copyright">Jerome Wu &amp; Naptha authors</td>
-                    <td class="eng-col-desc">Pure WebAssembly Optical Character Recognition engine running 100% offline to extract text from scanned documents.</td>
+                    <td class="eng-col-desc">WebAssembly OCR engine for local text recognition from scanned pages.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://katex.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        katex <span class="eng-pkg-arrow">&nearr;</span>
+                        katex
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Khan Academy &amp; contributors</td>
-                    <td class="eng-col-desc">Ultra-fast mathematical typesetting engine rendering high-fidelity LaTeX expressions and scientific notations in AI chats.</td>
+                    <td class="eng-col-desc">Mathematical typesetting engine for rendering LaTeX expressions and formulas.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://echarts.apache.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        echarts <span class="eng-pkg-arrow">&nearr;</span>
+                        echarts
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">Apache-2.0</span></td>
                     <td class="eng-col-copyright">Apache Software Foundation</td>
-                    <td class="eng-col-desc">Interactive charting and data visualization library generating dynamic statistical graphs from extracted PDF data.</td>
+                    <td class="eng-col-desc">Interactive charting library for generating data graphs and statistical visuals.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://mermaid.js.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        mermaid <span class="eng-pkg-arrow">&nearr;</span>
+                        mermaid
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Knut Sveidqvist &amp; contributors</td>
-                    <td class="eng-col-desc">Diagramming and charting tool rendering markdown-inspired flowcharts, sequence diagrams, and architecture maps in AI responses.</td>
+                    <td class="eng-col-desc">Diagram and flowchart generator from structured markdown definitions.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://highlightjs.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        highlight.js <span class="eng-pkg-arrow">&nearr;</span>
+                        highlight.js
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">BSD-3-Clause</span></td>
                     <td class="eng-col-copyright">Ivan Sagalaev &amp; contributors</td>
-                    <td class="eng-col-desc">Syntax highlighter with automatic language detection for rendering code snippets extracted from technical PDFs.</td>
+                    <td class="eng-col-desc">Syntax highlighter with language auto-detection for technical code blocks.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        dompurify <span class="eng-pkg-arrow">&nearr;</span>
+                        dompurify
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">Apache / MPL</span></td>
                     <td class="eng-col-copyright">Cure53 &amp; contributors</td>
-                    <td class="eng-col-desc">High-speed, standards-compliant HTML sanitizer protecting against XSS vulnerabilities during markdown rendering.</td>
+                    <td class="eng-col-desc">HTML sanitization library for rendered markdown documents.</td>
                   </tr>
-                </tbody>
-              </table>
-            </div>
 
-            <!-- Domain 03 -->
-            <div class="eng-domain-header">
-              <h3 class="eng-domain-title">03 / Runtime Platform &amp; User Interface</h3>
-              <span class="eng-domain-count">6 Packages</span>
-            </div>
-
-            <div class="eng-registry-table-wrap">
-              <table class="eng-registry-table">
-                <thead>
-                  <tr>
-                    <th style="width: 22%;">Component</th>
-                    <th style="width: 14%;">License</th>
-                    <th style="width: 24%;">Upstream Copyright</th>
-                    <th style="width: 40%;">Role in PDFistic</th>
+                  <!-- Group 03 -->
+                  <tr class="eng-table-group">
+                    <th colspan="4" scope="colgroup">03 / Platform Runtime &amp; Desktop Infrastructure</th>
                   </tr>
-                </thead>
-                <tbody>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://www.electronjs.org" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        electron <span class="eng-pkg-arrow">&nearr;</span>
+                        electron
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">BSD / MIT</span></td>
-                    <td class="eng-col-copyright">Electron Authors &amp; OpenJS</td>
-                    <td class="eng-col-desc">Desktop application framework pairing Chromium rendering and Node.js backend for Windows execution.</td>
+                    <td class="eng-col-copyright">Electron Authors &amp; OpenJS Foundation</td>
+                    <td class="eng-col-desc">Desktop runtime framework combining Chromium rendering and Node.js.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        react <span class="eng-pkg-arrow">&nearr;</span>
+                        react
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Meta Platforms, Inc.</td>
-                    <td class="eng-col-desc">Declarative UI component architecture managing tab navigation, settings suites, and responsive workspace layouts.</td>
+                    <td class="eng-col-desc">Component-based user interface rendering library for application views.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/WiseLibs/better-sqlite3" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        better-sqlite3 <span class="eng-pkg-arrow">&nearr;</span>
+                        better-sqlite3
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Joshua Wise &amp; contributors</td>
-                    <td class="eng-col-desc">High-performance synchronous SQLite binding managing local full-text search indexes and on-device vector embeddings.</td>
+                    <td class="eng-col-desc">Synchronous SQLite database binding for local indexing and cache stores.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/szimek/signature_pad" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        signature_pad <span class="eng-pkg-arrow">&nearr;</span>
+                        signature_pad
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Szymon Nowak &amp; contributors</td>
-                    <td class="eng-col-desc">Smooth B&eacute;zier curve vector ink smoothing for digital document signing, freehand annotations, and stylus fidelity.</td>
+                    <td class="eng-col-desc">Canvas drawing engine for digital signatures and pen ink annotations.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://github.com/Stuk/jszip" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        jszip <span class="eng-pkg-arrow">&nearr;</span>
+                        jszip
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">MIT</span></td>
                     <td class="eng-col-copyright">Stuart Knightley &amp; contributors</td>
-                    <td class="eng-col-desc">Client-side ZIP archive decoding and packing for EPUB file extraction, container decompression, and document bundle handling.</td>
+                    <td class="eng-col-desc">ZIP archive creation and extraction for EPUB package management.</td>
                   </tr>
                   <tr>
                     <td class="eng-col-pkg">
                       <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" class="eng-pkg-link">
-                        lucide <span class="eng-pkg-arrow">&nearr;</span>
+                        lucide
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                       </a>
                     </td>
                     <td class="eng-col-license"><span class="eng-lic-tag">ISC</span></td>
                     <td class="eng-col-copyright">Lucide Contributors &amp; Cole Bemis</td>
-                    <td class="eng-col-desc">Lightweight, consistent SVG iconography utilized across PDFistic's toolbars, navigation docks, and dialog modals.</td>
+                    <td class="eng-col-desc">SVG UI icon set for application toolbars, menus, and controls.</td>
                   </tr>
                 </tbody>
               </table>
@@ -442,7 +426,7 @@
           <section class="doc-section" id="apache-license">
             <h2>Apache License, Version 2.0</h2>
             <p>
-              Several core third-party open-source components integrated into PDFistic (including Mozilla PDF.js, Tesseract.js, and Apache ECharts) are distributed under the Apache License, Version 2.0. Below is the standard license grant and disclaimer governing those third-party components:
+              The following third-party components (Mozilla PDF.js, Tesseract.js, Apache ECharts) are distributed under the Apache License, Version 2.0. The verbatim license grant and warranty disclaimer governing those libraries are reproduced below:
             </p>
 
             <div class="eng-code-box">
@@ -477,7 +461,7 @@ limitations under the License.</pre>
           <section class="doc-section" id="full-file">
             <h2>Complete Third-Party Notice File</h2>
             <p>
-              For automated package auditors, SPDX license compliance scanners, or enterprise security reviews, the full verbatim text of every third-party license is bundled with every desktop installation and available online:
+              The complete verbatim text of every third-party license is bundled with every desktop installation in the application root directory (<code>THIRD_PARTY_NOTICES.txt</code>) and maintained online in the GitHub repository:
             </p>
             <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
               <a href="https://github.com/devanshd07o/PDFistic-V1/blob/main/THIRD_PARTY_NOTICES.txt" target="_blank" rel="noopener noreferrer" class="btn btn-primary">

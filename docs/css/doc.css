@@ -1417,20 +1417,6 @@ svg.breadcrumb-chevron {
   user-select: none !important;
 }
 
-.eng-meta-chip {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-  padding: 1px 6px !important;
-  border: 1px solid var(--border, rgba(28, 30, 33, 0.16)) !important;
-  border-radius: 2px !important;
-  background: var(--surface, #FFFFFF) !important;
-  color: var(--text, #1C1E21) !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.02em !important;
-}
-
 /* 2. Architectural Dual-Tier Boundary Split (Clean 2-Column Specs) */
 .eng-arch-split {
   display: grid !important;
@@ -1450,31 +1436,34 @@ svg.breadcrumb-chevron {
   background: var(--surface, #FFFFFF) !important;
   border: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
   border-radius: 6px !important;
-  padding: 16px 18px !important;
+  padding: 18px 20px !important;
   display: flex !important;
   flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.eng-arch-header {
+  display: flex !important;
+  align-items: center !important;
   gap: 8px !important;
 }
 
-.eng-arch-panel--proprietary {
-  border-top: 2px solid var(--accent-crimson, #B80403) !important;
-}
-
-.eng-arch-panel--oss {
-  border-top: 2px solid #059669 !important;
-}
-
-.eng-arch-tier {
+.eng-arch-badge {
+  display: inline-block !important;
   font-family: var(--font-mono, monospace) !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  color: var(--muted, #4A4D52) !important;
+  padding: 2px 6px !important;
+  border-radius: 3px !important;
+  background: rgba(28, 30, 33, 0.04) !important;
+  border: 1px solid var(--border, rgba(28, 30, 33, 0.14)) !important;
+  color: var(--text, #1C1E21) !important;
 }
 
 .eng-arch-title {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
   color: var(--text, #1C1E21) !important;
   margin: 0 !important;
@@ -1491,43 +1480,26 @@ svg.breadcrumb-chevron {
 
 .eng-arch-footer {
   margin-top: auto !important;
-  padding-top: 8px !important;
-  border-top: 1px dashed rgba(28, 30, 33, 0.1) !important;
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 11px !important;
-  color: var(--text, #1C1E21) !important;
-}
-
-/* 3. Section Category Divider (Engineering Domain Index) */
-.eng-domain-header {
-  display: flex !important;
-  align-items: baseline !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  margin: 36px 0 12px !important;
-  padding-bottom: 8px !important;
-  border-bottom: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
-}
-
-.eng-domain-header:first-of-type {
-  margin-top: 20px !important;
-}
-
-.eng-domain-title {
-  font-family: var(--font-mono, monospace) !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: var(--accent-crimson, #B80403) !important;
-  margin: 0 !important;
-}
-
-.eng-domain-count {
+  padding-top: 10px !important;
+  border-top: 1px solid rgba(28, 30, 33, 0.08) !important;
   font-family: var(--font-mono, monospace) !important;
   font-size: 11px !important;
   color: var(--muted, #4A4D52) !important;
-  font-variant-numeric: tabular-nums !important;
+}
+
+/* 3. Table Group Dividers & Registry Styling */
+.eng-table-group th {
+  padding: 9px 14px !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--accent-crimson, #B80403) !important;
+  background: rgba(28, 30, 33, 0.025) !important;
+  border-top: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+  border-bottom: 1px solid var(--border, rgba(28, 30, 33, 0.12)) !important;
+  text-align: left !important;
 }
 
 /* 4. Engineering Component Registry Table (Desktop & Tablet) */
