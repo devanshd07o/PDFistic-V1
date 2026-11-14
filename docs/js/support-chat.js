@@ -2,6 +2,10 @@
  * PDFistic Zernexa AI Support Assistant — Desktop App Mirror Controller
  * Seamlessly manages the DITTO Desktop Zernexa Copilot experience:
  * - Empty Stage with Dynamic Greeting & Elevated Floating Input Card
+ * - Interactive / Tools Dropup Menu (KokonutUI & OriginUI Pattern)
+ * - Interactive Context Scope Popover Selector
+ * - Speech-to-Text / Voice Dictation Button with Active Pulsing Ring
+ * - Live Undulating Fluid Dot Wave Canvas (60fps Sine/Cosine Physics from Desktop App)
  * - Seamless Transition to Active Conversation Stream + Docked Bottom Input
  * - Full GitHub Flavored Markdown (GFM) Parsing & Responsive Table Scroll Wrappers
  * - Complete Reset via 3-Dots Menu
@@ -20,6 +24,8 @@
   var headerMascot = null;
   var isGenerating = false;
   var typingTimer = null;
+  var waveAnimId = null;
+  var waveRunning = false;
 
   function escHtml(str) {
     return String(str || '').replace(/[&<>"']/g, function (m) {
@@ -170,6 +176,92 @@
     return htmlLines.join('\n');
   }
 
+  /**
+   * Organic Fluid Dot Wave Canvas (Desktop App Signature Texture)
+   */
+  function startFluidDotWave() {
+    var canvas = document.getElementById('zernexaDotWaveCanvas');
+    if (!canvas || waveRunning) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    waveRunning = true;
+    var width = 0;
+    var h = 0;
+    var startTime = performance.now();
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = rect.width;
+      h = rect.height;
+      if (width > 0 && h > 0) {
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.scale(dpr, dpr);
+      }
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    var SPACING = 18;
+    var MIN_RADIUS = 0.9;
+    var MAX_RADIUS = 2.2;
+
+    function render(now) {
+      if (!waveRunning) return;
+      var elapsed = now - startTime;
+      ctx.clearRect(0, 0, width, h);
+
+      if (width > 0 && h > 0) {
+        var cols = Math.floor(width / SPACING) + 1;
+        var rows = Math.floor(h / SPACING) + 1;
+        var offsetX = (width - (cols - 1) * SPACING) / 2;
+        var baseBottomY = h - 6;
+
+        ctx.fillStyle = '#93C5FD';
+
+        for (var c = 0; c < cols; c++) {
+          var x = offsetX + c * SPACING;
+          var s1 = Math.sin(x * 0.009 + elapsed * 0.001);
+          var s2 = Math.cos(x * 0.021 - elapsed * 0.0014 + 1.6);
+          var s3 = Math.sin(x * 0.035 + elapsed * 0.0018 + 3.1) * 0.4;
+          var surfaceNorm = (s1 * 0.45 + s2 * 0.35 + s3 * 0.2 + 1.0) / 2.0;
+          var clampedSurface = Math.max(0.15, Math.min(0.88, surfaceNorm));
+          var surfaceY = baseBottomY - clampedSurface * (h * 0.70);
+
+          for (var r = 0; r < rows; r++) {
+            var baseY = baseBottomY - r * SPACING;
+            if (baseY > surfaceY) {
+              var depth = baseY - surfaceY;
+              var factor = Math.min(1, depth / (h * 0.55));
+              var radius = MIN_RADIUS + (MAX_RADIUS - MIN_RADIUS) * (1 - factor * 0.6);
+              var dotAlpha = (1 - factor * 0.65) * 0.70;
+
+              ctx.globalAlpha = Math.max(0.04, dotAlpha);
+              ctx.beginPath();
+              ctx.arc(x, baseY, radius, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        }
+      }
+
+      waveAnimId = requestAnimationFrame(render);
+    }
+
+    waveAnimId = requestAnimationFrame(render);
+  }
+
+  function stopFluidDotWave() {
+    waveRunning = false;
+    if (waveAnimId) {
+      cancelAnimationFrame(waveAnimId);
+      waveAnimId = null;
+    }
+  }
+
   function initMascots() {
     var floatCanvas = document.getElementById('zernexaFloatMascotCanvas');
     if (floatCanvas && window.ZernexaMascot) {
@@ -235,6 +327,8 @@
       }
     }
 
+    startFluidDotWave();
+
     if (headerMascot) {
       headerMascot.wave();
     }
@@ -251,6 +345,7 @@
       launcher.classList.remove('is-hidden');
       launcher.setAttribute('aria-expanded', 'false');
     }
+    stopFluidDotWave();
     setAllMascotsState('idle_blink');
   }
 
@@ -619,7 +714,170 @@
     var clearBtn = document.getElementById('zernexaChatClear');
     if (clearBtn) clearBtn.addEventListener('click', clearChatHistory);
 
-    // Centered Hero Stage Form
+    // 1. Context Scope Popover (KokonutUI Pattern)
+    var ctxPill = document.getElementById('zernexaContextPill');
+    var ctxPopover = document.getElementById('zernexaContextPopover');
+    var ctxLabel = document.getElementById('zernexaContextLabel');
+
+    if (ctxPill && ctxPopover) {
+      ctxPill.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = ctxPopover.style.display !== 'none';
+        ctxPopover.style.display = isOpen ? 'none' : 'flex';
+        ctxPill.classList.toggle('is-open', !isOpen);
+        closeAllToolsPopovers();
+      });
+
+      ctxPopover.querySelectorAll('.zernexa-context-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+          var page = item.getAttribute('data-context');
+          if (page && ctxLabel) ctxLabel.textContent = page;
+          ctxPopover.querySelectorAll('.zernexa-context-item').forEach(function (i) { i.classList.remove('is-active'); });
+          item.classList.add('is-active');
+          ctxPopover.style.display = 'none';
+          ctxPill.classList.remove('is-open');
+        });
+      });
+    }
+
+    // 2. Tools Popovers (Hero & Docked)
+    function closeAllToolsPopovers() {
+      var heroPop = document.getElementById('zernexaHeroToolsPopover');
+      var dockPop = document.getElementById('zernexaDockedToolsPopover');
+      if (heroPop) heroPop.style.display = 'none';
+      if (dockPop) dockPop.style.display = 'none';
+    }
+
+    function setupToolsPopover(btnId, popId, textareaId, sendBtnId) {
+      var btn = document.getElementById(btnId);
+      var pop = document.getElementById(popId);
+      var ta = document.getElementById(textareaId);
+      var sendBtn = document.getElementById(sendBtnId);
+
+      if (!btn || !pop) return;
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = pop.style.display !== 'none';
+        closeAllToolsPopovers();
+        if (ctxPopover) {
+          ctxPopover.style.display = 'none';
+          if (ctxPill) ctxPill.classList.remove('is-open');
+        }
+        pop.style.display = isOpen ? 'none' : 'flex';
+      });
+
+      pop.querySelectorAll('.zernexa-tool-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+          var toolPrefix = item.getAttribute('data-tool');
+          if (ta && toolPrefix) {
+            ta.value = toolPrefix;
+            ta.style.height = 'auto';
+            ta.style.height = Math.min(Math.max(ta.scrollHeight, 44), 160) + 'px';
+            if (sendBtn) sendBtn.disabled = false;
+            ta.focus();
+          }
+          pop.style.display = 'none';
+        });
+      });
+    }
+
+    setupToolsPopover('zernexaHeroToolsBtn', 'zernexaHeroToolsPopover', 'zernexaHeroInput', 'zernexaHeroSendBtn');
+    setupToolsPopover('zernexaDockedToolsBtn', 'zernexaDockedToolsPopover', 'zernexaChatInput', 'zernexaSendBtn');
+
+    // 3. Close popovers on click outside
+    document.addEventListener('click', function (e) {
+      if (ctxPopover && !ctxPopover.contains(e.target) && (!ctxPill || !ctxPill.contains(e.target))) {
+        ctxPopover.style.display = 'none';
+        if (ctxPill) ctxPill.classList.remove('is-open');
+      }
+      var heroPop = document.getElementById('zernexaHeroToolsPopover');
+      var heroBtn = document.getElementById('zernexaHeroToolsBtn');
+      if (heroPop && !heroPop.contains(e.target) && (!heroBtn || !heroBtn.contains(e.target))) {
+        heroPop.style.display = 'none';
+      }
+      var dockPop = document.getElementById('zernexaDockedToolsPopover');
+      var dockBtn = document.getElementById('zernexaDockedToolsBtn');
+      if (dockPop && !dockPop.contains(e.target) && (!dockBtn || !dockBtn.contains(e.target))) {
+        dockPop.style.display = 'none';
+      }
+    });
+
+    // 4. Voice Dictation (Mic) Toggle
+    function setupMicButton(micBtnId, textareaId, sendBtnId) {
+      var micBtn = document.getElementById(micBtnId);
+      var ta = document.getElementById(textareaId);
+      var sendBtn = document.getElementById(sendBtnId);
+      if (!micBtn || !ta) return;
+
+      var recognition = null;
+      var isListening = false;
+
+      if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        recognition.onstart = function () {
+          isListening = true;
+          micBtn.classList.add('is-active');
+          setAllMascotsState('listening');
+        };
+
+        recognition.onresult = function (event) {
+          var transcript = Array.from(event.results)
+            .map(function (res) { return res[0].transcript; })
+            .join('');
+          ta.value = transcript;
+          ta.style.height = 'auto';
+          ta.style.height = Math.min(Math.max(ta.scrollHeight, 44), 160) + 'px';
+          if (sendBtn) sendBtn.disabled = !transcript.trim();
+        };
+
+        recognition.onend = function () {
+          isListening = false;
+          micBtn.classList.remove('is-active');
+          setAllMascotsState('idle_blink');
+        };
+
+        recognition.onerror = function () {
+          isListening = false;
+          micBtn.classList.remove('is-active');
+          setAllMascotsState('idle_blink');
+        };
+      }
+
+      micBtn.addEventListener('click', function () {
+        if (recognition) {
+          if (isListening) {
+            recognition.stop();
+          } else {
+            try {
+              recognition.start();
+            } catch (_) {
+              recognition.stop();
+            }
+          }
+        } else {
+          micBtn.classList.add('is-active');
+          setTimeout(function () { micBtn.classList.remove('is-active'); }, 1200);
+          if (!ta.value.trim()) {
+            ta.value = 'How does 3D Book Page-Turn compare to normal PDF continuous mode?';
+            ta.style.height = 'auto';
+            ta.style.height = Math.min(Math.max(ta.scrollHeight, 44), 160) + 'px';
+            if (sendBtn) sendBtn.disabled = false;
+            ta.focus();
+          }
+        }
+      });
+    }
+
+    setupMicButton('zernexaHeroMicBtn', 'zernexaHeroInput', 'zernexaHeroSendBtn');
+    setupMicButton('zernexaDockedMicBtn', 'zernexaChatInput', 'zernexaSendBtn');
+
+    // 5. Centered Hero Stage Form
     var heroForm = document.getElementById('zernexaHeroForm');
     var heroInput = document.getElementById('zernexaHeroInput');
     var heroSendBtn = document.getElementById('zernexaHeroSendBtn');
@@ -645,7 +903,7 @@
       });
     }
 
-    // Docked Active Conversation Form
+    // 6. Docked Active Conversation Form
     var chatForm = document.getElementById('zernexaChatForm');
     var chatInput = document.getElementById('zernexaChatInput');
     var chatSendBtn = document.getElementById('zernexaSendBtn');
@@ -671,7 +929,7 @@
       });
     }
 
-    // In-page Support Card Form
+    // 7. In-page Support Card Form
     var inPageForm = document.getElementById('zernexaInPageForm');
     var inPageInput = document.getElementById('zernexaInPageInput');
     if (inPageForm && inPageInput) {
@@ -681,7 +939,7 @@
       });
     }
 
-    // Support starter buttons on page
+    // 8. Support starter buttons on page
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-zernexa-prompt]');
       if (btn) {

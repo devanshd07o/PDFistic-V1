@@ -486,9 +486,10 @@
     </div>
   </footer>
 
-  <!-- Floating Draggable Zernexa Mascot Launcher -->
-  <div class="zernexa-mascot-launcher" id="zernexaMascotLauncher" role="button" tabindex="0" aria-label="Chat with Zernexa AI" aria-expanded="false" aria-controls="zernexaChatWidget">
-    <canvas class="zernexa-mascot-canvas" id="zernexaFloatMascotCanvas" width="144" height="144" aria-hidden="true"></canvas>
+  <!-- Floating Draggable Zernexa Pet (Open Character with 'Ask' Tooltip) -->
+  <div class="zernexa-mascot-launcher" id="zernexaMascotLauncher" role="button" tabindex="0" aria-label="Ask Zernexa AI" aria-expanded="false" aria-controls="zernexaChatWidget">
+    <canvas class="zernexa-mascot-canvas" id="zernexaFloatMascotCanvas" width="160" height="160" aria-hidden="true"></canvas>
+    <div class="zernexa-launcher-tooltip" id="zernexaLauncherTooltip" role="tooltip">Ask</div>
   </div>
 
   <!-- Zernexa Copilot Workstation Window (DITTO Desktop App) -->
@@ -530,10 +531,33 @@
         <!-- Centered Floating Elevated Input Card -->
         <div class="zernexa-hero-input-wrap">
           <div class="zernexa-context-pill-row">
-            <div class="zernexa-context-pill">
+            <button type="button" class="zernexa-context-pill" id="zernexaContextPill" title="Click to change scope" aria-haspopup="true">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              <span>Page 1 · Support Guide</span>
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+              <span id="zernexaContextLabel">Page 1 · Support Guide</span>
+              <svg class="pill-caret" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+
+            <!-- Context Scope Popover Menu (KokonutUI Pattern) -->
+            <div class="zernexa-context-popover" id="zernexaContextPopover" style="display: none;" role="menu">
+              <div class="zernexa-popover-header">
+                <span>Document Context Scope</span>
+              </div>
+              <button type="button" class="zernexa-context-item is-active" data-context="Page 1 · Support Guide">
+                <span class="ctx-dot"></span>
+                <span>Page 1 · Getting Started</span>
+              </button>
+              <button type="button" class="zernexa-context-item" data-context="Page 2 · Reading Modes">
+                <span class="ctx-dot"></span>
+                <span>Page 2 · 3D Book & EPUB Reader</span>
+              </button>
+              <button type="button" class="zernexa-context-item" data-context="Page 3 · Privacy & DPAPI Vault">
+                <span class="ctx-dot"></span>
+                <span>Page 3 · Local DPAPI Encryption</span>
+              </button>
+              <button type="button" class="zernexa-context-item" data-context="Page 4 · PDF Tools Hub">
+                <span class="ctx-dot"></span>
+                <span>Page 4 · Offline PDF Utilities</span>
+              </button>
             </div>
           </div>
 
@@ -548,21 +572,51 @@
               aria-label="Ask Zernexa"></textarea>
             <div class="zernexa-card-toolbar">
               <div class="zernexa-toolbar-left">
-                <button type="button" class="zernexa-tools-btn" id="zernexaToolsBtn">
+                <button type="button" class="zernexa-tools-btn" id="zernexaHeroToolsBtn" aria-label="Browse Tools" aria-haspopup="true">
                   <span class="tools-slash">/</span>
                   <span>Tools</span>
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                  <svg class="tools-caret" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
               </div>
               <div class="zernexa-toolbar-right">
                 <span class="zernexa-sparkle-icon" title="Zernexa Intelligence">
                   <img src="assets/zernexa.png" alt="" width="14" height="14" />
                 </span>
-                <span class="zernexa-mic-btn" title="Voice Dictation">
+                <button type="button" class="zernexa-mic-btn" id="zernexaHeroMicBtn" title="Voice Dictation" aria-label="Voice Dictation">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-                </span>
+                </button>
                 <button type="submit" class="zernexa-card-send-btn" id="zernexaHeroSendBtn" aria-label="Send" disabled>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Agentic Tools Dropup Menu (KokonutUI & OriginUI Pattern) -->
+            <div class="zernexa-tools-popover" id="zernexaHeroToolsPopover" style="display: none;" role="menu">
+              <div class="zernexa-popover-header">
+                <span>Agentic Tools</span>
+                <span class="zernexa-tools-hint">Click tool</span>
+              </div>
+              <div class="zernexa-tools-list">
+                <button type="button" class="zernexa-tool-item" data-tool="/summary ">
+                  <span class="tool-icon tool-icon--summary"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+                  <div class="tool-meta"><span class="tool-label">/summary</span><span class="tool-desc">Executive structured summary</span></div>
+                </button>
+                <button type="button" class="zernexa-tool-item" data-tool="/mindmap ">
+                  <span class="tool-icon tool-icon--mindmap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
+                  <div class="tool-meta"><span class="tool-label">/mindmap</span><span class="tool-desc">Topic concept tree</span></div>
+                </button>
+                <button type="button" class="zernexa-tool-item" data-tool="/chart ">
+                  <span class="tool-icon tool-icon--chart"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+                  <div class="tool-meta"><span class="tool-label">/chart</span><span class="tool-desc">Visualize data & trends</span></div>
+                </button>
+                <button type="button" class="zernexa-tool-item" data-tool="/search ">
+                  <span class="tool-icon tool-icon--search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                  <div class="tool-meta"><span class="tool-label">/search</span><span class="tool-desc">Offline knowledge search</span></div>
+                </button>
+                <button type="button" class="zernexa-tool-item" data-tool="/ocr ">
+                  <span class="tool-icon tool-icon--ocr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span>
+                  <div class="tool-meta"><span class="tool-label">/ocr</span><span class="tool-desc">Offline local OCR scan</span></div>
                 </button>
               </div>
             </div>
@@ -574,8 +628,8 @@
       <div class="zernexa-chat-messages" id="zernexaChatMessages" style="display: none;" role="log" aria-live="polite">
       </div>
 
-      <!-- Decorative Dot Grid Texture at Bottom Corners (DITTO Desktop App) -->
-      <div class="zernexa-dots-bottom" aria-hidden="true"></div>
+      <!-- Organic Undulating Fluid Dot Wave Canvas (Desktop App Signature Texture) -->
+      <canvas class="zernexa-dot-wave-canvas" id="zernexaDotWaveCanvas" height="130" aria-hidden="true"></canvas>
     </div>
 
     <!-- Docked Bottom Input Bar (when conversation is active) -->
@@ -591,21 +645,51 @@
           aria-label="Ask Zernexa"></textarea>
         <div class="zernexa-card-toolbar">
           <div class="zernexa-toolbar-left">
-            <button type="button" class="zernexa-tools-btn">
+            <button type="button" class="zernexa-tools-btn" id="zernexaDockedToolsBtn" aria-label="Browse Tools" aria-haspopup="true">
               <span class="tools-slash">/</span>
               <span>Tools</span>
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="tools-caret" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
           </div>
           <div class="zernexa-toolbar-right">
             <span class="zernexa-sparkle-icon">
               <img src="assets/zernexa.png" alt="" width="14" height="14" />
             </span>
-            <span class="zernexa-mic-btn">
+            <button type="button" class="zernexa-mic-btn" id="zernexaDockedMicBtn" title="Voice Dictation" aria-label="Voice Dictation">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-            </span>
+            </button>
             <button type="submit" class="zernexa-card-send-btn" id="zernexaSendBtn" aria-label="Send message" disabled>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Docked Tools Popover -->
+        <div class="zernexa-tools-popover" id="zernexaDockedToolsPopover" style="display: none;" role="menu">
+          <div class="zernexa-popover-header">
+            <span>Agentic Tools</span>
+            <span class="zernexa-tools-hint">Click tool</span>
+          </div>
+          <div class="zernexa-tools-list">
+            <button type="button" class="zernexa-tool-item" data-tool="/summary ">
+              <span class="tool-icon tool-icon--summary"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+              <div class="tool-meta"><span class="tool-label">/summary</span><span class="tool-desc">Executive structured summary</span></div>
+            </button>
+            <button type="button" class="zernexa-tool-item" data-tool="/mindmap ">
+              <span class="tool-icon tool-icon--mindmap"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
+              <div class="tool-meta"><span class="tool-label">/mindmap</span><span class="tool-desc">Topic concept tree</span></div>
+            </button>
+            <button type="button" class="zernexa-tool-item" data-tool="/chart ">
+              <span class="tool-icon tool-icon--chart"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+              <div class="tool-meta"><span class="tool-label">/chart</span><span class="tool-desc">Visualize data & trends</span></div>
+            </button>
+            <button type="button" class="zernexa-tool-item" data-tool="/search ">
+              <span class="tool-icon tool-icon--search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <div class="tool-meta"><span class="tool-label">/search</span><span class="tool-desc">Offline knowledge search</span></div>
+            </button>
+            <button type="button" class="zernexa-tool-item" data-tool="/ocr ">
+              <span class="tool-icon tool-icon--ocr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span>
+              <div class="tool-meta"><span class="tool-label">/ocr</span><span class="tool-desc">Offline local OCR scan</span></div>
             </button>
           </div>
         </div>
