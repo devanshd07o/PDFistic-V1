@@ -16,10 +16,11 @@
 
   var STORE_URL = 'https://apps.microsoft.com/detail/9PMCFQL187MN?hl=en-us&gl=IN&ocid=pdpshare';
   var STORAGE_KEY_POS = 'pdfistic_mascot_pos';
-  var BOT_AVATAR_SRC = 'assets/zernexa.png';
+  var BOT_AVATAR_SRC = 'assets/pet/idle_blink/frame_1.webp';
 
   var chatHistory = [];
   var floatingMascot = null;
+  var heroMascot = null;
   var inPageMascot = null;
   var headerMascot = null;
   var isGenerating = false;
@@ -269,6 +270,12 @@
       floatingMascot.start();
     }
 
+    var heroCanvas = document.getElementById('zernexaHeroMascotCanvas');
+    if (heroCanvas && window.ZernexaMascot) {
+      heroMascot = new window.ZernexaMascot({ canvas: heroCanvas });
+      heroMascot.start();
+    }
+
     var inPageCanvas = document.getElementById('zernexaInPageMascotCanvas');
     if (inPageCanvas && window.ZernexaMascot) {
       inPageMascot = new window.ZernexaMascot({ canvas: inPageCanvas });
@@ -284,6 +291,7 @@
 
   function setAllMascotsState(state, callback) {
     if (floatingMascot) floatingMascot.setState(state, callback);
+    if (heroMascot) heroMascot.setState(state, callback);
     if (inPageMascot) inPageMascot.setState(state, callback);
     if (headerMascot) headerMascot.setState(state, callback);
   }
